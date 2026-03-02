@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>지엘행정사 사무소 - 식품·축산물 인허가 및 HACCP 인증 전문</title>
+  <meta name="description" content="10년 이상의 실무를 권위있는 기준으로. 신규 식품제조가공업, 축산물가공업 허가, HACCP 인증을 원스톱으로 해결하는 지엘행정사 사무소">
+  
+  <!-- Pretendard Font -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  
+  <!-- CSS / JS -->
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+
+  <style>
+    /* index.html 전용 스타일 추가가 필요하면 여기에 작성하거나 style.css 확장 */
+    .hero {
+      background-color: var(--color-background);
+      padding: var(--spacing-16) 0 var(--spacing-12);
+      text-align: center;
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at center, rgba(200, 176, 138, 0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+    .hero .container { position: relative; z-index: 1; }
+    
+    .hero__title {
+      font-size: var(--font-size-4xl);
+      color: var(--color-primary);
+      margin-bottom: var(--spacing-4);
+      line-height: 1.2;
+    }
+    .hero__subtitle {
+      font-size: var(--font-size-lg);
+      color: var(--color-text-muted);
+      margin-bottom: var(--spacing-8);
+    }
+    
+    .section-empathy {
+      background-color: var(--color-surface);
+    }
+    .empathy-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-6);
+      margin-top: var(--spacing-8);
+    }
+    .empathy-box {
+      background: var(--color-background);
+      padding: var(--spacing-6);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--color-error);
+    }
+    .empathy-box h3 { color: var(--color-error); margin-bottom: var(--spacing-2); }
+    
+    .section-services {
+      background-color: var(--color-background);
+    }
+    .service-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-6);
+      margin-top: var(--spacing-8);
+    }
+    .service-card {
+      background: var(--color-surface);
+      padding: var(--spacing-8) var(--spacing-6);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition-normal);
+      border: 1px solid var(--color-border);
+    }
+    .service-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: var(--color-secondary);
+    }
+    .service-card h3 { font-size: var(--font-size-xl); margin-bottom: var(--spacing-3); color: var(--color-primary); }
+    .service-card p { color: var(--color-text-muted); margin-bottom: var(--spacing-6); }
+    
+    .section-promise {
+      background-color: var(--color-primary);
+      color: var(--color-text-on-primary);
+      text-align: center;
+    }
+    .section-promise h2 { color: var(--color-secondary); margin-bottom: var(--spacing-4); }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">
+        <span style="color: var(--color-secondary);">GL</span> 지엘행정사 사무소
+      </a>
+      <button class="header__menu-btn" aria-label="메뉴 열기">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header__nav">
+        <a href="services.html">업무분야</a>
+        <a href="cases.html">성공사례</a>
+        <a href="consult.html" class="text-secondary">상담문의</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. Hero Section -->
+    <section class="hero fade-in">
+      <div class="container">
+        <h1 class="hero__title">
+          식품·축산물 인허가와 HACCP,<br>
+          <span class="text-secondary">실무 기준으로 해결합니다</span>
+        </h1>
+        <p class="hero__subtitle">식품제조가공업 · 축산물가공업 · HACCP 인증 전문</p>
+        <a href="consult.html" class="btn btn-secondary" style="font-size: var(--font-size-lg); padding: var(--spacing-4) var(--spacing-8);">상담 (해결) 요청하기</a>
+      </div>
+    </section>
+
+    <!-- 2. 문제 공감 섹션 -->
+    <section class="section section-empathy">
+      <div class="container fade-in">
+        <div class="text-center">
+          <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-2);">법과 현장의 기준은 다릅니다</h2>
+          <p class="text-muted" style="font-size: var(--font-size-md);">서류만 완벽하다고 허가가 나지 않는 이유, 현장 실무자가 가장 잘 압니다.</p>
+        </div>
+        
+        <div class="empathy-boxes">
+          <div class="empathy-box">
+            <h3>"도면대로 공사했는데 반려되었습니다"</h3>
+            <p>법 조항에는 없는 '관할 부서 주무관의 현장 재량'을 고려하지 않은 동선 설계는 재공사로 이어집니다.</p>
+          </div>
+          <div class="empathy-box">
+            <h3>"HACCP 심사에서 계속 떨어집니다"</h3>
+            <p>서류 형태만 갖춘 기준서가 원인입니다. 실제 제조 공정에 맞춘 실행 가능한 HACCP 기준서가 필요합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. 업무분야 요약 섹션 -->
+    <section class="section section-services">
+      <div class="container fade-in">
+        <div class="text-center">
+          <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-2);">허가 이후까지 고려한 설계</h2>
+          <p class="text-muted" style="font-size: var(--font-size-md);">운영 시 시정명령을 받지 않는 완벽한 인허가·인증을 수행합니다.</p>
+        </div>
+        
+        <div class="service-cards">
+          <div class="service-card">
+            <h3>식품제조가공업 등록</h3>
+            <p>건축물 용도 확인부터 위생설비 동선 배치, 품목제조보고까지. 반려 없는 꼼꼼한 사전 검토를 제공합니다.</p>
+            <a href="services.html#food" class="btn btn-outline">상세 기준 확인 &rarr;</a>
+          </div>
+          <div class="service-card">
+            <h3>축산물가공업 허가</h3>
+            <p>식육가공업, 알가공업, 유가공업 엄격한 축산물 위생관리법에 따른 시설 도면 설계 및 행정 허가 대행을 수행합니다.</p>
+            <a href="services.html#meat" class="btn btn-outline">상세 기준 확인 &rarr;</a>
+          </div>
+          <div class="service-card">
+            <h3>HACCP 인증</h3>
+            <p>수 많은 인증 경험을 바탕으로, 과도한 시설 투자를 막고 실질적인 운영이 가능한 HACCP 시스템을 구축합니다.</p>
+            <a href="services.html#haccp" class="btn btn-outline">상세 기준 확인 &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 사례 요약 섹션 (증명) -->
+    <section class="section">
+      <div class="container fade-in text-center">
+        <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-6);">결과로 증명합니다</h2>
+        
+        <div style="display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; margin-bottom: var(--spacing-8);">
+          <!-- 대체 이미지를 위한 회색 박스 배치 -->
+          <div style="width: 200px; height: 280px; background: #eee; border: 1px solid #ddd; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--color-text-light);">
+            영업 허가증 (마스킹)
+          </div>
+          <div style="width: 200px; height: 280px; background: #eee; border: 1px solid #ddd; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--color-text-light);">
+            HACCP 인증서 (마스킹)
+          </div>
+          <div style="width: 200px; height: 280px; background: #eee; border: 1px solid #ddd; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--color-text-light);">
+            영업 등록증 (마스킹)
+          </div>
+        </div>
+        
+        <a href="cases.html" class="btn btn-primary" style="font-size: var(--font-size-md);">전체 사례 확인하기</a>
+      </div>
+    </section>
+
+    <!-- 5. 브랜드 약속 섹션 -->
+    <section class="section section-promise">
+      <div class="container fade-in">
+        <h2 style="font-size: var(--font-size-3xl);">지엘행정사 사무소는<br>허가만 받고 끝내지 않습니다.</h2>
+        <p style="font-size: var(--font-size-lg); opacity: 0.9; margin-top: var(--spacing-6); max-width: 600px; margin-inline: auto;">
+          실제 공장이 돌아가고, 제품이 생산되는 과정에서<br>행정적인 처벌을 받지 않도록 운영의 기준을 세워드립니다.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating CTA Button -->
+  <div class="floating-cta">
+    <a href="consult.html" class="btn btn-secondary" style="padding: var(--spacing-4);">
+      빠른 가능 여부 상담
+    </a>
+  </div>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <h3 style="color: var(--color-surface); font-size: var(--font-size-lg);">지엘행정사 사무소</h3>
+      <p>대표행정사: 지엘행정 | 사업자등록번호: 000-00-00000</p>
+      <p>주소: 서울특별시 OOO OOO OOO | 연락처: 000-0000-0000</p>
+      <p style="margin-top: var(--spacing-4); color: rgba(255,255,255,0.4);">&copy; 2026 지엘행정사 사무소. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

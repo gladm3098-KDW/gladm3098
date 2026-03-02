@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>성공사례 - 지엘행정사 사무소</title>
+
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script>
+
+    <style>
+        .page-header {
+            background-color: var(--color-background);
+            padding: var(--spacing-12) 0 var(--spacing-6);
+            text-align: center;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .page-header h1 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .filter-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-2);
+            margin-top: var(--spacing-6);
+            flex-wrap: wrap;
+        }
+
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-6);
+            padding: var(--spacing-10) 0;
+        }
+
+        .case-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-normal);
+            border: 1px solid var(--color-border);
+        }
+
+        .case-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+        }
+
+        .case-img-placeholder {
+            width: 100%;
+            height: 320px;
+            background-color: #E2E8F0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748B;
+            font-size: var(--font-size-sm);
+            text-align: center;
+            position: relative;
+        }
+
+        /* 보안 워터마크 느낌 */
+        .case-img-placeholder::after {
+            content: 'CONFIDENTIAL';
+            position: absolute;
+            transform: rotate(-45deg);
+            opacity: 0.1;
+            font-size: var(--font-size-3xl);
+            font-weight: 800;
+            letter-spacing: 5px;
+            color: #000;
+            pointer-events: none;
+        }
+
+        .case-info {
+            padding: var(--spacing-4);
+            border-top: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .case-info p {
+            margin: 0;
+            font-weight: var(--font-weight-medium);
+            color: var(--color-primary);
+        }
+
+        .case-info .tag {
+            display: inline-block;
+            font-size: var(--font-size-xs);
+            background-color: var(--color-primary-light);
+            color: white;
+            padding: 2px 8px;
+            border-radius: var(--radius-sm);
+            margin-bottom: var(--spacing-2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo">
+                <span style="color: var(--color-secondary);">GL</span> 지엘행정사 사무소
+            </a>
+            <button class="header__menu-btn" aria-label="메뉴 열기">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="header__nav">
+                <a href="services.html">업무분야</a>
+                <a href="cases.html" class="active">성공사례</a>
+                <a href="consult.html" class="text-secondary">상담문의</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-header fade-in">
+            <div class="container">
+                <h1>실적 및 성공사례</h1>
+                <p class="text-muted text-lg">결과가 증명합니다. 개인정보 보호를 위해 마스킹 처리된 실제 인허가증 및 인증서입니다.</p>
+
+                <div class="filter-btn-group">
+                    <button class="btn btn-primary">전체보기</button>
+                    <button class="btn btn-outline">식품제조가공업</button>
+                    <button class="btn btn-outline">축산물가공업</button>
+                    <button class="btn btn-outline">HACCP 인증</button>
+                </div>
+            </div>
+        </div>
+
+        <section class="container">
+            <div class="cases-grid fade-in">
+                <!-- Sample Card 1 -->
+                <div class="case-card">
+                    <div class="case-img-placeholder">영업 등록증 이미지<br>(관대 마스킹 처리)</div>
+                    <div class="case-info">
+                        <span class="tag">식품제조가공업</span>
+                        <p>수도권 육수 제조 공장 등록 완료</p>
+                    </div>
+                </div>
+
+                <!-- Sample Card 2 -->
+                <div class="case-card">
+                    <div class="case-img-placeholder">HACCP 인증서 이미지<br>(관대 마스킹 처리)</div>
+                    <div class="case-info">
+                        <span class="tag">HACCP 인증</span>
+                        <p>도시락류 스마트 HACCP 인증</p>
+                    </div>
+                </div>
+
+                <!-- Sample Card 3 -->
+                <div class="case-card">
+                    <div class="case-img-placeholder">영업 허가증 이미지<br>(관대 마스킹 처리)</div>
+                    <div class="case-info">
+                        <span class="tag">축산물가공업</span>
+                        <p>포장육 (식육포장처리업) 허가 완료</p>
+                    </div>
+                </div>
+
+                <!-- Sample Card 4 -->
+                <div class="case-card">
+                    <div class="case-img-placeholder">영업 등록증 이미지<br>(관대 마스킹 처리)</div>
+                    <div class="case-info">
+                        <span class="tag">식품제조가공업</span>
+                        <p>디저트 제과류 제조업소 등록 완료</p>
+                    </div>
+                </div>
+
+                <!-- Sample Card 5 -->
+                <div class="case-card">
+                    <div class="case-img-placeholder">HACCP 인증서 이미지<br>(관대 마스킹 처리)</div>
+                    <div class="case-info">
+                        <span class="tag">HACCP 인증</span>
+                        <p>베이커리 소규모 HACCP 인증 완료</p>
+                    </div>
+                </div>
+
+                <!-- Sample Card 6 -->
+                <div class="case-card">
+                    <div class="case-img-placeholder">영업 허가증 이미지<br>(관대 마스킹 처리)</div>
+                    <div class="case-info">
+                        <span class="tag">축산물가공업</span>
+                        <p>식육가공업(소시지 등) 허가 완료</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="floating-cta">
+        <a href="consult.html" class="btn btn-secondary" style="padding: var(--spacing-4);">
+            빠른 가능 여부 상담
+        </a>
+    </div>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <h3 style="color: var(--color-surface); font-size: var(--font-size-lg);">지엘행정사 사무소</h3>
+            <p>대표행정사: 지엘행정 | 사업자등록번호: 000-00-00000</p>
+            <p>주소: 서울특별시 OOO OOO OOO | 연락처: 000-0000-0000</p>
+            <p style="margin-top: var(--spacing-4); color: rgba(255,255,255,0.4);">&copy; 2026 지엘행정사 사무소. All Rights
+                Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
