@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>지엘행정사 사무소</title>
+    <link>https://gladmin.co.kr/</link>
+    <description>식품제조가공업, 축산물가공업, HACCP(해썹)인증, 기타 식품 및 축산물 관련 영업 인허가 전문</description>
+    <item>
+      <title>지엘행정사 사무소 홈페이지 오픈</title>
+      <link>https://gladmin.co.kr/index.html</link>
+      <description>식품 및 축산물 관련 영업 인허가 위주의 행정 서비스 제공</description>
+    </item>
+  </channel>
+</rss>
