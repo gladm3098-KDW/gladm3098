@@ -1,241 +1,301 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta name="description" content="식품 및 축산물 영업허가와 HACCP해썹 전문 지엘행정사사무소입니다. 상담 문의 환영합니다.">
-  <meta name="keywords" content="행정사, 영업 인허가, HACCP(해썹)인증">
-  <meta name="author" content="지엘행정사사무소">
-  <meta name="google-site-verification" content="p-gDb05pnSN014JC8qdeQwTqtXH0znTV_dQH-8XXI48" />
-  <meta name="naver-site-verification" content="bbb5f2571670ed4db9f0d17ab02b2b17ae72d9e1" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>지엘행정사 사무소 - 식품·축산물 인허가 및 HACCP 인증 전문</title>
-  <meta name="description" content="10년 이상의 실무를 권위있는 기준으로. 신규 식품제조가공업, 축산물가공업 허가, HACCP 인증을 원스톱으로 해결하는 지엘행정사 사무소">
-  
-  <!-- Pretendard Font -->
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-  
-  <!-- CSS / JS -->
-  <link rel="stylesheet" href="style.css">
-  <script defer src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상담 문의 - 지엘행정사 사무소</title>
 
-  <style>
-    /* index.html 전용 스타일 추가가 필요하면 여기에 작성하거나 style.css 확장 */
-    .hero {
-      background-color: var(--color-background);
-      padding: var(--spacing-16) 0 var(--spacing-12);
-      text-align: center;
-      position: relative;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: radial-gradient(circle at center, rgba(200, 176, 138, 0.1) 0%, transparent 70%);
-      z-index: 0;
-    }
-    .hero .container { position: relative; z-index: 1; }
-    
-    .hero__title {
-      font-size: var(--font-size-4xl);
-      color: var(--color-primary);
-      margin-bottom: var(--spacing-4);
-      line-height: 1.2;
-    }
-    .hero__subtitle {
-      font-size: var(--font-size-lg);
-      color: var(--color-text-muted);
-      margin-bottom: var(--spacing-8);
-    }
-    
-    .section-empathy {
-      background-color: var(--color-surface);
-    }
-    .empathy-boxes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--spacing-6);
-      margin-top: var(--spacing-8);
-    }
-    .empathy-box {
-      background: var(--color-background);
-      padding: var(--spacing-6);
-      border-radius: var(--radius-lg);
-      border-left: 4px solid var(--color-error);
-    }
-    .empathy-box h3 { color: var(--color-error); margin-bottom: var(--spacing-2); }
-    
-    .section-services {
-      background-color: var(--color-background);
-    }
-    .service-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--spacing-6);
-      margin-top: var(--spacing-8);
-    }
-    .service-card {
-      background: var(--color-surface);
-      padding: var(--spacing-8) var(--spacing-6);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition-normal);
-      border: 1px solid var(--color-border);
-    }
-    .service-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-4px);
-      border-color: var(--color-secondary);
-    }
-    .service-card h3 { font-size: var(--font-size-xl); margin-bottom: var(--spacing-3); color: var(--color-primary); }
-    .service-card p { color: var(--color-text-muted); margin-bottom: var(--spacing-6); }
-    
-    .section-promise {
-      background-color: var(--color-primary);
-      color: var(--color-text-on-primary);
-      text-align: center;
-    }
-    .section-promise h2 { color: var(--color-secondary); margin-bottom: var(--spacing-4); }
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+    <style>
+        .consult-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: var(--spacing-10) var(--spacing-4);
+        }
+
+        .consult-header {
+            text-align: center;
+            margin-bottom: var(--spacing-8);
+        }
+
+        .consult-header h1 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .step-container {
+            background: var(--color-surface);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border);
+        }
+
+        .step {
+            display: none;
+            animation: fadeIn var(--transition-normal);
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .step h2 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--spacing-6);
+            color: var(--color-primary);
+            text-align: center;
+        }
+
+        .step-indicator {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+            text-align: center;
+            margin-bottom: var(--spacing-4);
+            display: block;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: var(--spacing-3);
+        }
+
+        .option-btn {
+            width: 100%;
+            padding: var(--spacing-4);
+            background: var(--color-background);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text-main);
+            text-align: left;
+            transition: all var(--transition-fast);
+            cursor: pointer;
+        }
+
+        .option-btn:hover {
+            border-color: var(--color-secondary);
+            background-color: #fbf7f0;
+            /* light secondary */
+        }
+
+        .input-group {
+            margin-bottom: var(--spacing-4);
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: var(--spacing-2);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: var(--spacing-3);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-family: inherit;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 0 2px rgba(200, 176, 138, 0.2);
+        }
+
+        .step-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--spacing-6);
+            gap: var(--spacing-3);
+        }
+    </style>
 </head>
-<body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo">
-        <span style="color: var(--color-secondary);">GL</span> 지엘행정사 사무소
-      </a>
-      <button class="header__menu-btn" aria-label="메뉴 열기">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="header__nav">
-        <a href="services.html">업무분야</a>
-        <a href="cases.html">성공사례</a>
-        <a href="consult.html" class="text-secondary">상담문의</a>
-      </nav>
-    </div>
-  </header>
+<body style="background-color: var(--color-background);">
 
-  <main>
-    <!-- 1. Hero Section -->
-    <section class="hero fade-in">
-      <div class="container">
-        <h1 class="hero__title">
-          식품·축산물 인허가와 HACCP,<br>
-          <span class="text-secondary">실무 기준으로 해결합니다</span>
-        </h1>
-        <p class="hero__subtitle">식품제조가공업 · 축산물가공업 · HACCP 인증 전문</p>
-        <a href="consult.html" class="btn btn-secondary" style="font-size: var(--font-size-lg); padding: var(--spacing-4) var(--spacing-8);">상담 (해결) 요청하기</a>
-      </div>
-    </section>
-
-    <!-- 2. 문제 공감 섹션 -->
-    <section class="section section-empathy">
-      <div class="container fade-in">
-        <div class="text-center">
-          <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-2);">인허가는 서류만으로 해결되지 않습니다</h2>
-          <p class="text-muted" style="font-size: var(--font-size-md);">법령 기준을 충족하는 것만으로 인허가가 원활하게 진행되는 것은 아닙니다. 시설 기준, 위생 동선, 실제 운영 방식까지 함께 고려해야 불필요한 보완 요청을 줄이고 안정적으로 허가를 받을 수 있습니다. </p>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="header__logo">
+                <span style="color: var(--color-secondary);">GL</span> 지엘행정사 사무소
+            </a>
+            <button class="header__menu-btn" aria-label="메뉴 열기">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="header__nav">
+                <a href="services.html">업무분야</a>
+                <a href="cases.html">성공사례</a>
+                <a href="consult.html" class="active text-secondary">상담문의</a>
+            </nav>
         </div>
-        
-        <div class="empathy-boxes">
-          <div class="empathy-box">
-            <h3>"작업장 공사를 하려는데 기준을 정확히 모르겠습니다"</h3>
-            <p>식품 및 축산물 관련 영업 인허가는 시설 기준과 위생 기준 등을 충족해야 합니다. 공사 전에 기준을 정확히 확인하지 않으면 추가 공사가 발생할 수 있습니다.</p>
-          </div>
-          <div class="empathy-box">
-            <h3>"HACCP 심사에서 보완이 반복됩니다"</h3>
-            <p>형식적인 기준서 작성만으로는 충분하지 않습니다. 실제 제조 공정과 운영 방식에 맞는 실행 가능한 HACCP 시스템 구축이 필요합니다.</p>
-          </div>
+    </header>
+
+    <main>
+        <div class="consult-container fade-in">
+            <div class="consult-header">
+                <h1>상담 (해결) 요청하기</h1>
+                <p class="text-muted text-lg">복잡한 입력 없이 아래의 해당 사항을 선택해 주세요. 현장 실무 경험을 바탕으로 상담해 드립니다.</p>
+            </div>
+
+            <div class="step-container">
+
+                <!-- Step 1 -->
+                <div class="step active" id="step1">
+                    <span class="step-indicator">1 / 3 단계</span>
+                    <h2>어떤 업종을 준비 하고 계신가요?</h2>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="nextStep(2, '식품제조가공업')">✔️ 식품제조가공업 등록</button>
+                        <button class="option-btn" onclick="nextStep(2, '축산물가공업')">✔️ 축산물가공업 허가</button>
+                        <button class="option-btn" onclick="nextStep(2, '기타 인허가')">✔️ 기타 인허가 (식육포장처리업, 식육판매업, 즉석판매제조업 등)</button>
+                        <button class="option-btn" onclick="nextStep(2, 'HACCP 인증')">✔️ HACCP 인증</button>
+                        <button class="option-btn" onclick="nextStep(2, '잘 모르겠습니다')">🤔 아직 잘 모르겠습니다</button>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step" id="step2">
+                    <span class="step-indicator">2 / 3 단계</span>
+                    <h2>현재 진행 단계는 어떻게 되시나요?</h2>
+                    <div class="options-grid">
+                        <button class="option-btn" onclick="nextStep(3, '이제 막 구상 중입니다.')">✔️ 이제 막 구상 중입니다.</button>
+                        <button class="option-btn" onclick="nextStep(3, '계약할 건물이 있습니다 (공사 전)')">✔️ 계약할 건물이 있습니다 (공사 전)
+                           </button>
+                        <button class="option-btn" onclick="nextStep(3, '시설 공사 중이거나 완료되었습니다.')">✔️ 시설 공사 중이거나
+                            완료되었습니다.</button>
+                       <button class="option-btn" onclick="nextStep(3, '인허가 진행 중이나 막막합니다 (보완 또는 반려)')">✔️ 인허가 진행 중이나 막막합니다 (보완 또는 반려)</button>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-outline" style="width: auto;" onclick="prevStep(1)">&larr; 이전</button>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step" id="step3">
+                    <span class="step-indicator">3 / 3 단계</span>
+                    <h2>어떤 부분이 가장 고민이신가요?</h2>
+                    <div class="options-grid" style="margin-bottom: var(--spacing-6);">
+                        <button class="option-btn" onclick="selectFinalAndShowForm('인허가 가능 장소인지 / 시설 기준 및 동선 설계')">✔️ 인허가 가능 장소인지
+                            / 시설 기준 및 동선 설계</button>
+                        <button class="option-btn" onclick="selectFinalAndShowForm('필요한 서류 또는 HACCP 기준서 준비')">✔️ 필요한 서류 또는 HACCP
+                            기준서 준비</button>
+                        <button class="option-btn" onclick="selectFinalAndShowForm('관할 담당자와의 소통 또는 실사(심사) 대비')">✔️ 관할 담당자와의 소통 또는
+                 
+                            실사(심사) 대비</button>
+                        <button class="option-btn" onclick="selectFinalAndShowForm('전체적인 일괄 대행이 필요합니다.')">✔️ 전체적인 일괄 대행이
+                            필요합니다.</button>
+                    </div>
+                    <div class="step-actions">
+                        <button class="btn btn-outline" style="width: auto;" onclick="prevStep(2)">&larr; 이전</button>
+                    </div>
+                </div>
+
+                <!-- Final Input Form -->
+                <div class="step" id="stepForm">
+                    <span class="step-indicator">마지막 단계</span>
+                    <h2>결과를 안내받으실 연락처를 남겨주세요.</h2>
+                    <p class="text-center text-muted"
+                        style="margin-bottom: var(--spacing-4); font-size: var(--font-size-sm);">선택하신 내용 바탕으로 정확한 상담을
+                        준비하여 바로 연락드립니다.</p>
+
+                    <form action="https://formspree.io/f/xvzwoyqg" method="POST">
+                        <!-- 숨겨진 필드로 선택 데이터 저장 -->
+                        <input type="hidden" id="q1_selection" name="업종">
+                        <input type="hidden" id="q2_selection" name="진행단계">
+                        <input type="hidden" id="q3_selection" name="막막한부분">
+
+                        <div class="input-group">
+                            <label for="userName">성함 (또는 상호명)</label>
+                            <input type="text" name="name" id="userName" placeholder="홍길동" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="userPhone">연락처</label>
+                            <input type="tel" name="phone" id="userPhone" placeholder="010-0000-0000" required>
+                        </div>
+
+                        <div class="step-actions" style="margin-top: var(--spacing-6);">
+                            <button type="button" class="btn btn-outline" style="flex: 1;" onclick="prevStep(3)">&larr;
+                                다시 선택</button>
+                            <button type="submit" class="btn btn-secondary" style="flex: 2;">상담 신청 완료하기</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Success Message -->
+                <div class="step" id="stepSuccess">
+                    <div style="text-align: center; padding: var(--spacing-6) 0;">
+                        <div style="font-size: 3rem; color: var(--color-success); margin-bottom: var(--spacing-4);">✅
+                        </div>
+                        <h2>신청이 완료되었습니다.</h2>
+                        <p class="text-muted" style="margin-bottom: var(--spacing-6);">작성해주신 내용을 검토 후 신속하게 연락드리겠습니다.
+                            감사합니다.</p>
+                        <a href="index.html" class="btn btn-primary">메인으로 돌아가기</a>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-    </section>
+    </main>
 
-    <!-- 3. 업무분야 요약 섹션 -->
-    <section class="section section-services">
-      <div class="container fade-in">
-        <div class="text-center">
-          <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-2);">허가 이후까지 고려한 설계</h2>
-          <p class="text-muted" style="font-size: var(--font-size-md);">운영 시 시정명령을 받지 않는 완벽한 인허가·인증을 수행합니다.</p>
-        </div>
-        
-        <div class="service-cards">
-          <div class="service-card">
-            <h3>식품제조가공업 등록</h3>
-            <p>건축물 용도 확인부터 시설 기준에 따른 작업장 배치 및 동선 설계, 영업등록 신청, 품목제조보고까지 인허가 전 과정을 대행합니다.</p>
-            <a href="services.html#food" class="btn btn-outline">상세 기준 확인 &rarr;</a>
-          </div>
-          <div class="service-card">
-            <h3>축산물가공업 허가</h3>
-            <p>식육가공업, 알가공업, 유가공업 등 축산물 위생관리법 시행규칙 시설 기준에 따른 작업장 배치 및 동선 설계, 영업등록 신청, 품목제조보고까지 인허가 전 과정을 대행합니다.</p>
-            <a href="services.html#meat" class="btn btn-outline">상세 기준 확인 &rarr;</a>
-          </div>
-          <div class="service-card">
-            <h3>HACCP 인증</h3>
-            <p>수 많은 인증 경험을 바탕으로, 제조 공정 분석, HACCP 기준서 작성 및 심사 대응까지 실제 운영 가능한 HACCP 시스템 구축을 대행합니다.</p>
-            <a href="services.html#haccp" class="btn btn-outline">상세 기준 확인 &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <script>
+        // 폼 상태 저장
+        const formData = {
+            q1: '',
+            q2: '',
+            q3: ''
+        };
 
-    <!-- 4. 사례 요약 섹션 (증명) -->
-    <section class="section">
-      <div class="container fade-in text-center">
-        <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--spacing-6);">결과로 증명합니다</h2>
-        
-        <div style="display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; margin-bottom: var(--spacing-8);">
-          <!-- 대체 이미지를 위한 회색 박스 배치 -->
-          <div style="width: 200px; height: 280px; background: #eee; border: 1px solid #ddd; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--color-text-light);">
-            영업 허가증 (마스킹)
-          </div>
-          <div style="width: 200px; height: 280px; background: #eee; border: 1px solid #ddd; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--color-text-light);">
-            HACCP 인증서 (마스킹)
-          </div>
-          <div style="width: 200px; height: 280px; background: #eee; border: 1px solid #ddd; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; color: var(--color-text-light);">
-            영업 등록증 (마스킹)
-          </div>
-        </div>
-        
-        <a href="cases.html" class="btn btn-primary" style="font-size: var(--font-size-md);">전체 사례 확인하기</a>
-      </div>
-    </section>
+        function showStep(stepId) {
+            document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+            document.getElementById(stepId).classList.add('active');
+        }
 
-    <!-- 5. 브랜드 약속 섹션 -->
-    <section class="section section-promise">
-      <div class="container fade-in">
-        <h2 style="font-size: var(--font-size-3xl);">지엘행정사 사무소는<br>허가 이후의 운영까지 고려합니다.</h2>
-        <p style="font-size: var(--font-size-lg); opacity: 0.9; margin-top: var(--spacing-6); max-width: 600px; margin-inline: auto;">
-          인허가 취득 이후에도 현장 운영 과정에서 행정적인 문제가 발생하지 않도록<br>시설 기준과 운영 기준을 함께 고려한 실무 중심의 인허가 지원을 제공합니다. 
-        </p>
-      </div>
-    </section>
-  </main>
+        function nextStep(stepNum, answer) {
+            if (stepNum === 2) {
+                formData.q1 = answer;
+                showStep('step2');
+            } else if (stepNum === 3) {
+                formData.q2 = answer;
+                showStep('step3');
+            }
+        }
 
-  <!-- Floating CTA Button -->
-  <div class="floating-cta">
-    <a href="consult.html" class="btn btn-secondary" style="padding: var(--spacing-4);">
-      상담 (해결) 요청하기
-    </a>
-  </div>
+        function prevStep(stepNum) {
+            showStep('step' + stepNum);
+        }
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <h3 style="color: var(--color-surface); font-size: var(--font-size-lg);">지엘행정사 사무소</h3>
-      <p>대표행정사: 지엘행정사 사무소 | 사업자등록번호: 572-45-00087</p>
-      <p>주소: 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호 | 연락처: 010-3538-3098</p>
-      <p style="margin-top: var(--spacing-4); color: rgba(255,255,255,0.4);">&copy; 2026 지엘행정사 사무소. All Rights Reserved.</p>
-    </div>
-  </footer>
+        function selectFinalAndShowForm(answer) {
+            formData.q3 = answer;
+
+            // hidden input 업데이트
+            document.getElementById('q1_selection').value = formData.q1;
+            document.getElementById('q2_selection').value = formData.q2;
+            document.getElementById('q3_selection').value = formData.q3;
+
+            showStep('stepForm');
+        }
+
+    </script>
 
 </body>
+
 </html>
