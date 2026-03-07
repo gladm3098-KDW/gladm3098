@@ -217,7 +217,7 @@
                         style="margin-bottom: var(--spacing-4); font-size: var(--font-size-sm);">선택하신 내용 바탕으로 정확한 상담을
                         준비하여 영업일 기준 24시간 내에 연락드립니다.</p>
 
-                    <form action="https://docs.google.com/forms/d/e/1FAIpQLSdOJ9WaVjRr_X3ArMzu7-x9JULzaRU_zPSyA2XrGYAEkT2wUg/viewform"target="_blank">
+                    <form action="https://formspree.io/f/xvzwoyqg" method="POST">
                         <!-- 숨겨진 필드로 선택 데이터 저장 -->
                         <input type="hidden" id="q1_selection" name="업종">
                         <input type="hidden" id="q2_selection" name="진행단계">
@@ -225,11 +225,11 @@
 
                         <div class="input-group">
                             <label for="userName">성함 (또는 상호명)</label>
-                            <input type="text" id="userName" placeholder="홍길동" required>
+                            <input type="text" name="name" id="userName" placeholder="홍길동" required>
                         </div>
                         <div class="input-group">
                             <label for="userPhone">연락처</label>
-                            <input type="tel" id="userPhone" placeholder="010-0000-0000" required>
+                            <input type="tel" name="phone" id="userPhone" placeholder="010-0000-0000" required>
                         </div>
 
                         <div class="step-actions" style="margin-top: var(--spacing-6);">
