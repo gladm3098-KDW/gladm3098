@@ -49,6 +49,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden; /* 모바일에서 화면이 우측으로 삐져나가 도는 현상 원천 차단 */
     }
 
     body {
@@ -57,6 +58,7 @@
       color: var(--color-text);
       line-height: 1.6;
       word-break: keep-all;
+      overflow-x: hidden; /* 좌우 흔들림 방지 가드 */
     }
 
     a {
@@ -94,6 +96,7 @@
       color: var(--color-primary);
       display: flex;
       align-items: center;
+      white-space: nowrap;
     }
 
     .logo span {
@@ -104,7 +107,7 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 28px;
       font-size: 15px;
       font-weight: 600;
     }
@@ -112,6 +115,7 @@
     .nav a {
       color: #475569;
       transition: var(--transition);
+      white-space: nowrap;
     }
 
     .nav a:hover {
@@ -213,7 +217,7 @@
       flex: 1.1;
       display: flex;
       flex-direction: column;
-      justify(content): center;
+      justify-content: center;
     }
 
     .empathy-left h2 {
@@ -352,7 +356,7 @@
     .service-card:hover .btn-card-link {
       background: var(--color-primary);
       color: #fff;
-      border-color: var(--primary-color);
+      border-color: var(--color-primary);
     }
 
     /* TRUST SECTION */
@@ -567,9 +571,15 @@
     }
 
     /* ==========================================
-       [모바일 전용 정렬 완벽 보강 피팅 엔진]
+       [핵심 교정 수리 지점] 모바일 해상도 방어선 구축
     ============================================*/
     @media (max-width: 1024px) {
+      .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 12px;
+      }
       .service-grid, .trust-bar-inner {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -582,18 +592,43 @@
       .container {
         padding: 0 20px;
       }
+      
+      /* [모바일 헤더 메뉴 깨짐 철저 조리 가이드] */
+      .header-inner {
+        padding: 16px 0;
+        gap: 14px;
+        text-align: center;
+      }
+      .logo {
+        font-size: 19px;
+        margin: 0 auto; /* 로고 모바일 단독 중앙 고정 */
+        justify-content: center;
+      }
+      .nav {
+        gap: 14px; /* 글자끼리 겹치지 않게 조밀 밸런스 패딩 배치 */
+        justify-content: center;
+        flex-wrap: wrap; /* 폭이 좁은 폰에서 글씨가 다음 줄로 정렬되도록 안전 장치 가동 */
+        width: 100%;
+      }
+      .nav a {
+        font-size: 13.5px;
+      }
+      .header-btn {
+        display: none; /* 모바일 헤더에서는 삐져나가는 네이비 버튼을 과감히 숨기고 최하단 스마트 바로 일원화 */
+      }
+
       .hero {
-        background-image: none; /* 모바일에서는 텍스트 정렬을 위해 배경 인물 숨김 처리 */
+        background-image: none; 
         padding: 60px 0;
         min-height: auto;
-        text-align: center; /* 모바일 글자 정렬을 정중앙으로 통일 */
+        text-align: center; 
       }
       .hero-content {
         max-width: 100%;
         text-align: center;
       }
       .hero h1 {
-        font-size: 28px; /* 스마트폰 맞춤 크기 다운 */
+        font-size: 28px; 
         line-height: 1.35;
       }
       .hero p {
@@ -603,7 +638,7 @@
         padding: 60px 0;
       }
       .empathy-left {
-        text-align: center; /* 모바일 전용 중앙 정렬 */
+        text-align: center; 
         margin-bottom: 20px;
       }
       .empathy-left h2 {
@@ -616,11 +651,11 @@
         padding: 60px 0;
       }
       .section-title h2 {
-        font-size: 22px; /* 타이틀 줄바꿈 오버플로우 방지 */
+        font-size: 22px; 
         line-height: 1.4;
       }
       .service-grid {
-        grid-template-columns: 1fr; /* 무조건 한 줄에 한 칸씩 정렬 */
+        grid-template-columns: 1fr; 
         gap: 16px;
       }
       .trust-grid, .trust-bar-inner {
