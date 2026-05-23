@@ -5,18 +5,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title> 식품제조가공업 등록 | 축산물가공업 허가 | 해썹HACCP 인증
-</title>
+    <title>식품제조가공업 등록 | 축산물가공업 허가 | 해썹HACCP 인증</title>
 
-<meta
-  name="description"
-  content="식품제조가공업 등록, 축산물가공업 허가, HACCP 인증 절차 및 시설 기준을 실무 중심으로 안내합니다."
-/>
+    <meta
+      name="description"
+      content="식품제조가공업 등록, 축산물가공업 허가, HACCP 인증 절차 및 시설 기준을 실무 중심으로 안내합니다."
+    />
 
-<meta
-  name="keywords"
-  content="식품제조가공업 등록, 축산물가공업 허가, HACCP 인증, 식품공장 허가, 해썹 인증"
-/>
+    <meta
+      name="keywords"
+      content="식품제조가공업 등록, 축산물가공업 허가, HACCP 인증, 식품공장 허가, 해썹 인증"
+    />
 
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -71,7 +70,6 @@
         }
 
         /* HEADER */
-
         .header {
             position: sticky;
             top: 0;
@@ -115,7 +113,6 @@
         }
 
         /* PAGE HEADER */
-
         .page-header {
             background:
                 linear-gradient(180deg,
@@ -140,13 +137,10 @@
         }
 
         /* SECTION */
-
         .service-section {
             padding: 120px 0;
             border-bottom: 1px solid #f1f1f1;
-
-            /* 핵심 */
-            scroll-margin-top: 260px;
+            scroll-margin-top: 120px; /* 헤더 고정 높이에 밀리지 않게 패딩 교정 */
         }
 
         .service-section:last-child {
@@ -183,7 +177,6 @@
         }
 
         /* GRID */
-
         .service-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -228,13 +221,12 @@
         }
 
         /* CTA */
-
         .cta-box {
             background:
                 linear-gradient(135deg,
                     #1f2937 0%,
-                    #111827 100%);
-
+                    #111827 100%
+                );
             border-radius: 34px;
             padding: 70px 40px;
             color: white;
@@ -275,11 +267,11 @@
         }
 
         /* FOOTER */
-
         .footer {
             background: #111827;
             color: rgba(255, 255, 255, 0.7);
-            padding: 70px 0;
+            /* 스마트 상담 위젯 여백을 감안하여 아래 패딩 하단을 여유롭게 확보 */
+            padding: 70px 0 140px 0; 
             margin-top: 120px;
         }
 
@@ -294,10 +286,94 @@
             font-size: 15px;
         }
 
-        /* MOBILE */
+        /* ==========================================
+           스마트 고정형 상담 안내 바 위젯 스타일
+        ============================================*/
+        .sticky-action-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            padding: 14px 20px;
+            box-sizing: border-box;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
 
+        .action-container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .action-text {
+            font-size: 15px;
+            font-weight: 500;
+            color: #334155;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .action-btn-group {
+            display: flex;
+            gap: 10px;
+            flex-grow: 1;
+            max-width: 500px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            white-space: nowrap;
+        }
+
+        .btn-back {
+            background-color: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+        .btn-back:hover {
+            background-color: #e2e8f0;
+        }
+
+        .btn-phone {
+            background-color: #111e38;
+            color: #ffffff;
+            border: 1px solid #111e38;
+        }
+        .btn-phone:hover {
+            background-color: #1e293b;
+        }
+
+        .btn-kakao {
+            background-color: #fee500;
+            color: #181600;
+            border: 1px solid #fee500;
+        }
+        .btn-kakao:hover {
+            background-color: #fdd835;
+        }
+
+        /* MOBILE RESPONSIVE */
         @media (max-width: 768px) {
-
             .page-header {
                 padding: 80px 0 70px;
             }
@@ -326,6 +402,22 @@
             .cta-box h2 {
                 font-size: 30px;
             }
+
+            .action-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .action-text {
+                display: none; 
+            }
+            .action-btn-group {
+                width: 100%;
+                max-width: 100%;
+            }
+            .action-btn {
+                padding: 14px 10px;
+                font-size: 13.5px;
+            }
         }
     </style>
 </head>
@@ -333,282 +425,178 @@
 <body>
 
     <!-- HEADER -->
-
     <header class="header">
-
         <div class="container header-inner">
-
             <a href="index.html" class="logo">
                 <span>GL</span> 지엘행정사 사무소
             </a>
-
             <nav class="nav">
                 <a href="services.html" class="active">업무분야</a>
                 <a href="cases.html">성공사례</a>
-                <a
-  href=" https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1"
-  target="_blank"
->
-  📝 블로그
-</a>
+                <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a>
                 <a href="consult.html">상담문의</a>
             </nav>
-
         </div>
-
     </header>
 
     <!-- PAGE HEADER -->
-
     <section class="page-header">
-
         <div class="container">
-
-            <h1>
-                실무 중심 인허가 컨설팅
-            </h1>
-
-            <p>
-                식품·축산물 인허가와 HACCP 구축을
-                실제 운영 기준으로 검토합니다.
-            </p>
-
+            <h1>실무 중심 인허가 컨설팅</h1>
+            <p>식품·축산물 인허가와 HACCP 구축을 실제 운영 기준으로 검토합니다.</p>
         </div>
-
     </section>
 
     <!-- FOOD -->
-
     <section id="food" class="service-section">
-
         <div class="container">
-
             <div class="service-header">
                 <h2>식품제조가공업 등록</h2>
-
                 <p class="service-desc">
-                    건축물 용도 확인부터 작업장 구획,
-                    제조 동선, 품목제조보고까지
-                    실무 기준에 맞춘 식품 제조업 인허가를 지원합니다.
+                    건축물 용도 확인부터 작업장 구획, 제조 동선, 품목제조보고까지 실무 기준에 맞춘 식품 제조업 인허가를 지원합니다.
                 </p>
             </div>
 
             <div class="service-grid">
-
                 <div class="point-card warning">
-
                     <h3>자주 발생하는 문제</h3>
-
                     <ul>
                         <li>건축물 용도와 실제 업종 불일치</li>
                         <li>청결구역과 일반구역 동선 혼재</li>
                         <li>시설 기준 미충족 상태에서 공사 진행</li>
                     </ul>
-
                 </div>
-
                 <div class="point-card success">
-
                     <h3>실무 해결 방향</h3>
-
                     <ul>
                         <li>공사 전 사전 검토 및 가능 여부 체크</li>
                         <li>시설 기준에 맞춘 작업장 구성 컨설팅</li>
                         <li>추가 시공 가능성을 줄이는 현장 검토</li>
                     </ul>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- MEAT -->
-
     <section id="meat" class="service-section">
-
         <div class="container">
-
             <div class="service-header">
                 <h2>축산물가공업 허가</h2>
-
                 <p class="service-desc">
-                    축산물 위생관리법 기준에 맞춰
-                    식육가공업·알가공업·유가공업 등
-                    업종별 인허가 실무를 지원합니다.
+                    축산물 위생관리법 기준에 맞춰 식육가공업·알가공업·유가공업 등 업종별 인허가 실무를 지원합니다.
                 </p>
             </div>
 
             <div class="service-grid">
-
                 <div class="point-card warning">
-
                     <h3>자주 발생하는 문제</h3>
-
                     <ul>
                         <li>교차오염 방지 동선 미흡</li>
                         <li>HACCP 고려 없는 작업장 구성</li>
                         <li>부적절한 마감재 및 설비 사용</li>
                     </ul>
-
                 </div>
-
                 <div class="point-card success">
-
                     <h3>실무 해결 방향</h3>
-
                     <ul>
                         <li>HACCP 기반 동선 설계 검토</li>
                         <li>업종 기준에 맞춘 시설 구성</li>
                         <li>현장 운영 기준 중심 컨설팅</li>
                     </ul>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- HACCP -->
-
     <section id="haccp" class="service-section">
-
         <div class="container">
-
             <div class="service-header">
                 <h2>HACCP 인증</h2>
-
                 <p class="service-desc">
-                    현장 공정 흐름과 실제 운영 기준에 맞춘
-                    HACCP 시스템 구축 및 심사 대응을 지원합니다.
+                    현장 공정 흐름과 실제 운영 기준에 맞춘 HACCP 시스템 구축 및 심사 대응을 지원합니다.
                 </p>
             </div>
 
             <div class="service-grid">
-
                 <div class="point-card warning">
-
                     <h3>자주 발생하는 문제</h3>
-
                     <ul>
                         <li>실제 공정과 맞지 않는 기준서</li>
                         <li>복잡하고 운영 불가능한 점검표</li>
                         <li>심사 대응 준비 부족</li>
                     </ul>
-
                 </div>
-
                 <div class="point-card success">
-
                     <h3>실무 해결 방향</h3>
-
                     <ul>
                         <li>현장 맞춤형 HACCP 기준서 구축</li>
                         <li>실제 작성 가능한 점검 체계 구성</li>
                         <li>심사 대응 사전 준비 지원</li>
                     </ul>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- ETC -->
-
     <section id="etc" class="service-section">
-
         <div class="container">
-
             <div class="service-header">
                 <h2>기타 영업 인허가</h2>
-
                 <p class="service-desc">
-                    즉석판매제조가공업, 식품소분업,
-                    건강기능식품업 등 다양한 식품 관련
-                    영업 인허가를 지원합니다.
+                    즉석판매제조가공업, 식품소분업, 건강기능식품업 등 다양한 식품 관련 영업 인허가를 지원합니다.
                 </p>
             </div>
 
             <div class="service-grid">
-
                 <div class="point-card success" style="grid-column:1/-1;">
-
                     <h3>업종 판단이 가장 중요합니다</h3>
-
                     <ul>
                         <li>판매 방식에 따라 필요한 허가가 달라질 수 있습니다</li>
                         <li>B2B / 온라인 판매 여부에 따라 업종이 달라질 수 있습니다</li>
                         <li>사업 모델에 맞는 인허가 검토가 중요합니다</li>
                     </ul>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- CTA -->
-
     <section>
-
         <div class="container">
-
             <div class="cta-box">
-
-                <h2>
-                    허가 이후 운영까지 함께 고민합니다
-                </h2>
-
-                <p>
-                    시설 기준 검토부터 HACCP 구축,
-                    실제 현장 운영까지 고려한
-                    실무 중심 인허가를 지원합니다.
-                </p>
-
-                <a href="consult.html" class="btn btn-primary">
-                    상담 문의하기
-                </a>
-
+                <h2>허가 이후 운영까지 함께 고민합니다</h2>
+                <p>시설 기준 검토부터 HACCP 구축, 실제 현장 운영까지 고려한 실무 중심 인허가를 지원합니다.</p>
+                <a href="consult.html" class="btn btn-primary">상담 문의하기</a>
             </div>
-
         </div>
-
     </section>
 
     <!-- FOOTER -->
-
     <footer class="footer">
-
         <div class="container">
-
             <h3>지엘행정사 사무소</h3>
-
             <p>대표행정사 : 지엘행정사 사무소</p>
-
             <p>사업자등록번호 : 572-45-00087</p>
-
-            <p>
-                주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호
-            </p>
-
+            <p>주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
             <p>연락처 : 010-3538-3098</p>
-
-            <p style="margin-top:30px; opacity:0.5;">
-                © 2026 GL Administrative Office. All Rights Reserved.
-            </p>
-
+            <p style="margin-top:30px; opacity:0.5;">© 2026 GL Administrative Office. All Rights Reserved.</p>
         </div>
-
     </footer>
+
+    <!-- [스마트 위젯 완성] 하단 고정형 상담 액션 바 위젯 -->
+    <div class="sticky-action-bar">
+        <div class="action-container">
+            <div class="action-text">🎯 HACCP·인허가 빠른 상담</div>
+            <div class="action-btn-group">
+                <button class="action-btn btn-back" onclick="history.back();">이전으로</button>
+                <a href="tel:010-3538-3098" class="action-btn btn-phone">📞 전화연결</a>
+                <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" class="action-btn btn-kakao">💬 카카오톡 문의</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 
