@@ -4,24 +4,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>성공사례 | HACCP & 식품 인허가</title>
+<title>실적 및 성공사례 | HACCP & 식품 인허가</title>
 
 <style>
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f8f9fb;
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
+/* 상단 영역 */
+.header {
     padding: 20px;
     text-align: center;
+    background: white;
+    border-bottom: 1px solid #ddd;
 }
 
-.filter-btn-group {
-    margin: 20px 0;
-}
-
+/* 버튼 */
 .btn {
     padding: 8px 14px;
     margin: 4px;
@@ -37,29 +37,38 @@ body {
     border-color: #2563eb;
 }
 
+/* 필터 */
+.filter-btn-group {
+    margin: 15px 0;
+    text-align: center;
+}
+
+/* 그리드 */
 .cases-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 16px;
-    margin-top: 20px;
+    padding: 20px;
 }
 
+/* 카드 */
 .case-card {
     border: 1px solid #ddd;
     border-radius: 12px;
     overflow: hidden;
-    background: #fff;
+    background: white;
     transition: 0.3s;
 }
 
 .case-card img {
     width: 100%;
-    height: 280px;
+    height: 260px;
     object-fit: cover;
 }
 
 .case-info {
     padding: 12px;
+    text-align: center;
 }
 
 .tag {
@@ -71,26 +80,60 @@ body {
     display: inline-block;
     margin-bottom: 6px;
 }
+
+/* 🔥 하단 플로팅 버튼 */
+.floating-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    background: white;
+    border-top: 1px solid #ddd;
+    z-index: 999;
+}
+
+.floating-bar a {
+    flex: 1;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-btn {
+    background: #f1f5f9;
+    color: #333;
+}
+
+.consult-btn {
+    background: #2563eb;
+    color: white;
+}
 </style>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="header">
+    <h2>실적 및 성공사례</h2>
+    <p>HACCP 및 식품 인허가 실제 사례</p>
 
-<h1>실적 및 성공사례</h1>
-<p>HACCP 및 식품 인허가 실제 성공사례</p>
-
-<div class="filter-btn-group">
-    <button class="btn active" data-filter="all">전체보기</button>
-    <button class="btn" data-filter="food">식품제조가공업</button>
-    <button class="btn" data-filter="meat">축산물가공업</button>
-    <button class="btn" data-filter="haccp">HACCP 인증</button>
+    <div class="filter-btn-group">
+        <button class="btn active" data-filter="all">전체보기</button>
+        <button class="btn" data-filter="food">식품제조가공업</button>
+        <button class="btn" data-filter="meat">축산물가공업</button>
+        <button class="btn" data-filter="haccp">HACCP 인증</button>
+    </div>
 </div>
 
 <div class="cases-grid" id="casesGrid"></div>
 
+<!-- 🔥 하단 고정 버튼 -->
+<div class="floating-bar">
+    <a href="javascript:history.back()" class="back-btn">← 뒤로가기</a>
+    <a href="consult.html" class="consult-btn">💬 상담 바로가기</a>
 </div>
 
 <script>
@@ -109,7 +152,6 @@ const casesData = [
 const grid = document.getElementById("casesGrid");
 const buttons = document.querySelectorAll(".btn");
 
-// 초기 8개만 표시
 let showLimit = 8;
 
 function render(filter="all") {
@@ -133,7 +175,6 @@ function render(filter="all") {
     });
 }
 
-// 버튼 이벤트
 buttons.forEach(btn => {
     btn.addEventListener("click", () => {
 
@@ -144,7 +185,6 @@ buttons.forEach(btn => {
     });
 });
 
-// 초기 로딩 (8개만)
 render();
 </script>
 
