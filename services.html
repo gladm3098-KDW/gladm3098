@@ -2,414 +2,597 @@
 <html lang="ko">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>업무분야 | 지엘행정사 사무소</title>
+    <title>업무분야 - 지엘행정사 사무소</title>
 
-  <link
-    rel="stylesheet"
-    as="style"
-    crossorigin
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-  />
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
-  <style>
+    <style>
+        :root {
+            --color-primary: #1f2937;
+            --color-secondary: #c7a97f;
+            --color-background: #f8f6f2;
+            --color-surface: #ffffff;
+            --color-text: #111827;
+            --color-text-muted: #6b7280;
+            --color-border: #e5e7eb;
 
-    body{
-      font-family:"Pretendard",sans-serif;
-      margin:0;
-      background:#fafafa;
-      color:#111827;
-      line-height:1.7;
-    }
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
 
-    *{
-      box-sizing:border-box;
-    }
+            --radius-lg: 20px;
+            --radius-md: 14px;
 
-    a{
-      text-decoration:none;
-      color:inherit;
-    }
+            --transition: all 0.25s ease;
+        }
 
-    .container{
-      max-width:1180px;
-      margin:0 auto;
-      padding:0 24px;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .header{
-      position:sticky;
-      top:0;
-      background:white;
-      border-bottom:1px solid #eee;
-      z-index:100;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .header-inner{
-      height:78px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
+        body {
+            font-family: "Pretendard", sans-serif;
+            background: #fff;
+            color: var(--color-text);
+            line-height: 1.7;
+            word-break: keep-all;
+        }
 
-    .logo{
-      font-size:24px;
-      font-weight:800;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-    .logo span{
-      color:#c7a97f;
-    }
+        .container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    .nav{
-      display:flex;
-      gap:30px;
-    }
+        /* HEADER */
 
-    .hero{
-      background:white;
-      padding:100px 0 70px;
-      text-align:center;
-    }
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
-    .hero h1{
-      font-size:48px;
-      margin-bottom:18px;
-    }
+        .header-inner {
+            height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .hero p{
-      color:#6b7280;
-      font-size:18px;
-    }
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
 
-    .service-section{
-      padding:90px 0;
-      border-top:1px solid #eee;
-      background:white;
-    }
+        .logo span {
+            color: var(--color-secondary);
+        }
 
-    .service-section:nth-child(even){
-      background:#f8f8f8;
-    }
+        .nav {
+            display: flex;
+            gap: 34px;
+            font-size: 15px;
+            color: var(--color-text-muted);
+        }
 
-    .service-title{
-      margin-bottom:40px;
-    }
+        .nav a:hover {
+            color: var(--color-primary);
+        }
 
-    .service-title h2{
-      font-size:38px;
-      margin-bottom:12px;
-    }
+        .nav .active {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
 
-    .service-title p{
-      color:#6b7280;
-      max-width:800px;
-    }
+        /* PAGE HEADER */
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:28px;
-    }
+        .page-header {
+            background:
+                linear-gradient(180deg,
+                    #f8f6f2 0%,
+                    #ffffff 100%);
+            padding: 110px 0 90px;
+            text-align: center;
+        }
 
-    .card{
-      background:white;
-      border-radius:22px;
-      padding:34px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.05);
-    }
+        .page-header h1 {
+            font-size: 54px;
+            color: var(--color-primary);
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
 
-    .card h3{
-      margin-bottom:18px;
-      font-size:22px;
-    }
+        .page-header p {
+            color: var(--color-text-muted);
+            font-size: 18px;
+            max-width: 760px;
+            margin: 0 auto;
+        }
 
-    .card ul{
-      padding-left:20px;
-      color:#6b7280;
-    }
+        /* SECTION */
 
-    .card li{
-      margin-bottom:10px;
-    }
+        .service-section {
+            padding: 120px 0;
+            border-bottom: 1px solid #f1f1f1;
 
-    .btn{
-      display:inline-flex;
-      margin-top:24px;
-      padding:14px 24px;
-      background:#c7a97f;
-      color:white;
-      border-radius:12px;
-      font-weight:700;
-    }
+            /* 핵심 */
+            scroll-margin-top: 260px;
+        }
 
-    .footer{
-      background:#111827;
-      color:rgba(255,255,255,0.7);
-      padding:70px 0;
-    }
+        .service-section:last-child {
+            border-bottom: none;
+        }
 
-    .footer h3{
-      color:white;
-    }
+        .service-header {
+            margin-bottom: 34px;
+        }
 
-    @media(max-width:768px){
+        .service-header h2 {
+            font-size: 40px;
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
 
-      .hero h1{
-        font-size:34px;
-      }
+        .service-header h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 80px;
+            height: 4px;
+            border-radius: 999px;
+            background: var(--color-secondary);
+        }
 
-      .nav{
-        display:none;
-      }
+        .service-desc {
+            color: var(--color-text-muted);
+            font-size: 18px;
+            max-width: 900px;
+        }
 
-    }
+        /* GRID */
 
-  </style>
+        .service-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            margin-top: 50px;
+        }
+
+        .point-card {
+            background: white;
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #efefef;
+            transition: var(--transition);
+        }
+
+        .point-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .point-card.warning {
+            border-top: 5px solid #dc2626;
+        }
+
+        .point-card.success {
+            border-top: 5px solid #16a34a;
+        }
+
+        .point-card h3 {
+            font-size: 24px;
+            margin-bottom: 22px;
+        }
+
+        .point-card ul {
+            padding-left: 22px;
+            color: var(--color-text-muted);
+        }
+
+        .point-card ul li {
+            margin-bottom: 14px;
+        }
+
+        /* CTA */
+
+        .cta-box {
+            background:
+                linear-gradient(135deg,
+                    #1f2937 0%,
+                    #111827 100%);
+
+            border-radius: 34px;
+            padding: 70px 40px;
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .cta-box h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-box p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 30px;
+            border-radius: 14px;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--color-secondary);
+            color: white;
+            margin-top: 34px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: #111827;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 70px 0;
+            margin-top: 120px;
+        }
+
+        .footer h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 768px) {
+
+            .page-header {
+                padding: 80px 0 70px;
+            }
+
+            .page-header h1 {
+                font-size: 38px;
+            }
+
+            .service-header h2 {
+                font-size: 30px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .service-section {
+                padding: 90px 0;
+                scroll-margin-top: 160px;
+            }
+
+            .cta-box h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header class="header">
+    <!-- HEADER -->
 
-    <div class="container header-inner">
+    <header class="header">
 
-      <a href="index.html" class="logo">
-        <span>GL</span> 지엘행정사 사무소
-      </a>
+        <div class="container header-inner">
 
-      <nav class="nav">
-        <a href="index.html">홈</a>
-        <a href="services.html">업무분야</a>
-        <a href="consult.html">상담문의</a>
-      </nav>
+            <a href="index.html" class="logo">
+                <span>GL</span> 지엘행정사 사무소
+            </a>
 
-    </div>
-
-  </header>
-
-  <section class="hero">
-
-    <div class="container">
-
-      <h1>업무분야 안내</h1>
-
-      <p>
-        식품 · 축산물 인허가 및 HACCP 실무 중심 컨설팅
-      </p>
-
-    </div>
-
-  </section>
-
-  <!-- 식품제조가공업 -->
-
-  <section id="food" class="service-section">
-
-    <div class="container">
-
-      <div class="service-title">
-        <h2>식품제조가공업 등록</h2>
-
-        <p>
-          시설 기준 검토부터 영업등록 신청, 품목제조보고까지
-          실무 중심으로 지원합니다.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-
-          <h3>주요 검토 사항</h3>
-
-          <ul>
-            <li>건축물 용도 확인</li>
-            <li>작업장 구획 및 동선</li>
-            <li>위생시설 검토</li>
-            <li>품목제조보고</li>
-          </ul>
+            <nav class="nav">
+                <a href="services.html" class="active">업무분야</a>
+                <a href="cases.html">성공사례</a>
+                <a href="consult.html">상담문의</a>
+            </nav>
 
         </div>
 
-        <div class="card">
+    </header>
 
-          <h3>실무 지원</h3>
+    <!-- PAGE HEADER -->
 
-          <ul>
-            <li>현장 사전 검토</li>
-            <li>공사 전 시설 기준 체크</li>
-            <li>허가 서류 작성</li>
-            <li>보완 대응 지원</li>
-          </ul>
+    <section class="page-header">
 
-        </div>
+        <div class="container">
 
-      </div>
+            <h1>
+                실무 중심 인허가 컨설팅
+            </h1>
 
-    </div>
-
-  </section>
-
-  <!-- 축산물 -->
-
-  <section id="meat" class="service-section">
-
-    <div class="container">
-
-      <div class="service-title">
-        <h2>축산물가공업 허가</h2>
-
-        <p>
-          식육가공업, 알가공업, 유가공업 등
-          축산물 관련 영업허가를 지원합니다.
-        </p>
-      </div>
-
-      <div class="grid">
-
-        <div class="card">
-
-          <h3>주요 검토 사항</h3>
-
-          <ul>
-            <li>교차오염 방지 동선</li>
-            <li>세척·소독시설</li>
-            <li>냉장·냉동 설비</li>
-            <li>위생 기준 검토</li>
-          </ul>
+            <p>
+                식품·축산물 인허가와 HACCP 구축을
+                실제 운영 기준으로 검토합니다.
+            </p>
 
         </div>
 
-        <div class="card">
+    </section>
 
-          <h3>실무 지원</h3>
+    <!-- FOOD -->
 
-          <ul>
-            <li>축산물 시설 기준 검토</li>
-            <li>현장 컨설팅</li>
-            <li>허가 신청 대행</li>
-            <li>HACCP 연계 검토</li>
-          </ul>
+    <section id="food" class="service-section">
 
-        </div>
+        <div class="container">
 
-      </div>
+            <div class="service-header">
+                <h2>식품제조가공업 등록</h2>
 
-    </div>
+                <p class="service-desc">
+                    건축물 용도 확인부터 작업장 구획,
+                    제조 동선, 품목제조보고까지
+                    실무 기준에 맞춘 식품 제조업 인허가를 지원합니다.
+                </p>
+            </div>
 
-  </section>
+            <div class="service-grid">
 
-  <!-- HACCP -->
+                <div class="point-card warning">
 
-  <section id="haccp" class="service-section">
+                    <h3>자주 발생하는 문제</h3>
 
-    <div class="container">
+                    <ul>
+                        <li>건축물 용도와 실제 업종 불일치</li>
+                        <li>청결구역과 일반구역 동선 혼재</li>
+                        <li>시설 기준 미충족 상태에서 공사 진행</li>
+                    </ul>
 
-      <div class="service-title">
-        <h2>HACCP 인증</h2>
+                </div>
 
-        <p>
-          실제 현장 운영에 맞춘 HACCP 시스템 구축을 지원합니다.
-        </p>
-      </div>
+                <div class="point-card success">
 
-      <div class="grid">
+                    <h3>실무 해결 방향</h3>
 
-        <div class="card">
+                    <ul>
+                        <li>공사 전 사전 검토 및 가능 여부 체크</li>
+                        <li>시설 기준에 맞춘 작업장 구성 컨설팅</li>
+                        <li>추가 시공 가능성을 줄이는 현장 검토</li>
+                    </ul>
 
-          <h3>주요 지원 내용</h3>
+                </div>
 
-          <ul>
-            <li>위해요소 분석</li>
-            <li>CCP 설정</li>
-            <li>기준서 작성</li>
-            <li>심사 대응</li>
-          </ul>
-
-        </div>
-
-        <div class="card">
-
-          <h3>실무 중심 구축</h3>
-
-          <ul>
-            <li>현장 공정 기반 설계</li>
-            <li>실행 가능한 점검표</li>
-            <li>종사자 교육</li>
-            <li>사후 유지관리</li>
-          </ul>
+            </div>
 
         </div>
 
-      </div>
+    </section>
 
-    </div>
+    <!-- MEAT -->
 
-  </section>
+    <section id="meat" class="service-section">
 
-  <!-- 기타 -->
+        <div class="container">
 
-  <section id="etc" class="service-section">
+            <div class="service-header">
+                <h2>축산물가공업 허가</h2>
 
-    <div class="container">
+                <p class="service-desc">
+                    축산물 위생관리법 기준에 맞춰
+                    식육가공업·알가공업·유가공업 등
+                    업종별 인허가 실무를 지원합니다.
+                </p>
+            </div>
 
-      <div class="service-title">
-        <h2>기타 영업 인허가</h2>
+            <div class="service-grid">
 
-        <p>
-          즉석판매제조가공업, 식품소분업,
-          건강기능식품업 등 다양한 업종을 지원합니다.
-        </p>
-      </div>
+                <div class="point-card warning">
 
-      <div class="grid">
+                    <h3>자주 발생하는 문제</h3>
 
-        <div class="card">
+                    <ul>
+                        <li>교차오염 방지 동선 미흡</li>
+                        <li>HACCP 고려 없는 작업장 구성</li>
+                        <li>부적절한 마감재 및 설비 사용</li>
+                    </ul>
 
-          <h3>지원 업종</h3>
+                </div>
 
-          <ul>
-            <li>즉석판매제조가공업</li>
-            <li>식품소분업</li>
-            <li>유통전문판매업</li>
-            <li>건강기능식품업</li>
-          </ul>
+                <div class="point-card success">
+
+                    <h3>실무 해결 방향</h3>
+
+                    <ul>
+                        <li>HACCP 기반 동선 설계 검토</li>
+                        <li>업종 기준에 맞춘 시설 구성</li>
+                        <li>현장 운영 기준 중심 컨설팅</li>
+                    </ul>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div class="card">
+    </section>
 
-          <h3>실무 컨설팅</h3>
+    <!-- HACCP -->
 
-          <ul>
-            <li>업종 판단</li>
-            <li>판매 방식 검토</li>
-            <li>시설 기준 확인</li>
-            <li>행정 절차 지원</li>
-          </ul>
+    <section id="haccp" class="service-section">
+
+        <div class="container">
+
+            <div class="service-header">
+                <h2>HACCP 인증</h2>
+
+                <p class="service-desc">
+                    현장 공정 흐름과 실제 운영 기준에 맞춘
+                    HACCP 시스템 구축 및 심사 대응을 지원합니다.
+                </p>
+            </div>
+
+            <div class="service-grid">
+
+                <div class="point-card warning">
+
+                    <h3>자주 발생하는 문제</h3>
+
+                    <ul>
+                        <li>실제 공정과 맞지 않는 기준서</li>
+                        <li>복잡하고 운영 불가능한 점검표</li>
+                        <li>심사 대응 준비 부족</li>
+                    </ul>
+
+                </div>
+
+                <div class="point-card success">
+
+                    <h3>실무 해결 방향</h3>
+
+                    <ul>
+                        <li>현장 맞춤형 HACCP 기준서 구축</li>
+                        <li>실제 작성 가능한 점검 체계 구성</li>
+                        <li>심사 대응 사전 준비 지원</li>
+                    </ul>
+
+                </div>
+
+            </div>
 
         </div>
 
-      </div>
+    </section>
 
-    </div>
+    <!-- ETC -->
 
-  </section>
+    <section id="etc" class="service-section">
 
-  <footer class="footer">
+        <div class="container">
 
-    <div class="container">
+            <div class="service-header">
+                <h2>기타 영업 인허가</h2>
 
-      <h3>지엘행정사 사무소</h3>
+                <p class="service-desc">
+                    즉석판매제조가공업, 식품소분업,
+                    건강기능식품업 등 다양한 식품 관련
+                    영업 인허가를 지원합니다.
+                </p>
+            </div>
 
-      <p>식품 · 축산물 인허가 및 HACCP 전문</p>
+            <div class="service-grid">
 
-    </div>
+                <div class="point-card success" style="grid-column:1/-1;">
 
-  </footer>
+                    <h3>업종 판단이 가장 중요합니다</h3>
+
+                    <ul>
+                        <li>판매 방식에 따라 필요한 허가가 달라질 수 있습니다</li>
+                        <li>B2B / 온라인 판매 여부에 따라 업종이 달라질 수 있습니다</li>
+                        <li>사업 모델에 맞는 인허가 검토가 중요합니다</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CTA -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <h2>
+                    허가 이후 운영까지 함께 고민합니다
+                </h2>
+
+                <p>
+                    시설 기준 검토부터 HACCP 구축,
+                    실제 현장 운영까지 고려한
+                    실무 중심 인허가를 지원합니다.
+                </p>
+
+                <a href="consult.html" class="btn btn-primary">
+                    상담 문의하기
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <h3>지엘행정사 사무소</h3>
+
+            <p>대표행정사 : 지엘행정사 사무소</p>
+
+            <p>사업자등록번호 : 572-45-00087</p>
+
+            <p>
+                주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호
+            </p>
+
+            <p>연락처 : 010-3538-3098</p>
+
+            <p style="margin-top:30px; opacity:0.5;">
+                © 2026 GL Administrative Office. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
 
 </body>
+
 </html>
