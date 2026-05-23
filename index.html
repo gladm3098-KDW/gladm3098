@@ -132,24 +132,36 @@
     }
 
     /* ==========================================
-       [핵심 수정] 창 최대화 시 얼굴 잘림 방지 핏
+       [핵심 수정] 대화면 해상도 인물 크기 보정 핏
     ============================================*/
     .hero {
       background-color: #f4f4f6;
-      /* 그라데이션 투명도를 인물 선명도에 맞춰 소폭 조정 */
-      background-image: linear-gradient(90deg, #f4f4f6 40%, rgba(244, 244, 246, 0.6) 65%, transparent 95%), 
+      /* 글자 뒤 배경 투명도 그라데이션 영역을 넓혀서 대화면에서도 인물을 침범하지 않게 조율 */
+      background-image: linear-gradient(90deg, #f4f4f6 35%, rgba(244, 244, 246, 0.8) 60%, transparent 90%), 
                         url('./images/hero-bg.png.png');
-      /* [수정] 배경 정렬 기준을 우측 상단(right top)으로 고정하여 창을 최대화해도 머리가 잘리지 않게 방지 */
+      /* 우측 정렬을 유지하되, 세로축 기준으로 인물이 잘려 밀려 올라가지 않도록 상단 맞춤(right top) 고정 */
       background-position: right top;
       background-repeat: no-repeat;
-      background-size: cover;
-      padding: 120px 0; /* 위아래 패딩 공간 확정 균형 유지 */
+      /* [수정] 대형 모니터에서 인물이 작아지는 걸 막기 위해 세로 길이에 맞춰 이미지가 반응하도록 유연성 확보 */
+      background-size: contain; 
+      padding: 140px 0; /* 우측 인물 사진 높이와 밸런스를 맞추기 위해 본문 여백 확대 */
+      min-height: 520px; /* 창을 최대로 키워도 인물 상반신이 잘리지 않고 다 나올 수 있는 최소 높이 확보 */
       position: relative;
+    }
+
+    /* 고해상도 넓은 대화면 모니터 전용 예외 보정(미디어쿼리) */
+    @media (min-width: 1400px) {
+      .hero {
+        background-size: auto 100%; /* 가로가 늘어나도 인물이 왜소해지지 않고 큼직한 우측 사진 상태를 강제 고정 */
+        padding: 160px 0;
+      }
     }
 
     .hero-content {
       text-align: left;
       max-width: 650px;
+      position: relative;
+      z-index: 10;
     }
 
     .hero h1 {
@@ -482,6 +494,14 @@
       }
       .empathy-container {
         flex-direction: column;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        background-image: none; /* 모바일 환경에서는 텍스트 가독성을 위해 인물 사진 가리기 */
+        padding: 80px 0;
+        min-height: auto;
       }
     }
 
