@@ -28,8 +28,8 @@
 
   <style>
     :root {
-      --color-primary: #111e38; /* 신뢰감을 주는 깊은 네이비 */
-      --color-secondary: #c7a97f; /* 고급스러운 지엘 시그니처 골드 */
+      --color-primary: #111e38; 
+      --color-secondary: #c7a97f; 
       --color-background: #ffffff;
       --color-surface: #ffffff;
       --color-text: #1e293b;
@@ -72,7 +72,7 @@
     }
 
     /* ==========================================
-       1. 상단 헤더 내비게이션 (새 디자인 맞춤)
+       1. 상단 헤더 내비게이션
     ============================================*/
     .header {
       position: sticky;
@@ -120,7 +120,6 @@
       color: var(--color-primary);
     }
 
-    /* 헤더 우측 전용 특별 버튼 */
     .header-btn {
       background: var(--color-primary);
       color: #fff !important;
@@ -135,12 +134,13 @@
     }
 
     /* ==========================================
-       2. 히어로 (우측 행정사 배경 이미지 형태 완벽 구현)
+       2. 히어로 (PNG 배경 이미지 경로 맞춤 수정)
     ============================================*/
     .hero {
       background-color: #f4f4f6;
-      /* 실제 서버에 올리실 때 우측 정장 배경 이미지가 있다면 아래 주소에 넣어주시면 됩니다 */
-      background-image: linear-gradient(90deg, #f4f4f6 45%, rgba(244, 244, 246, 0.7) 70%, transparent 100%), url('images/hero-bg.jpg');
+      /* [.png 확장자로 완벽 변경 완료] 경로 인식을 명확하게 설정했습니다 */
+      background-image: linear-gradient(90deg, #f4f4f6 45%, rgba(244, 244, 246, 0.7) 70%, transparent 100%), 
+                        url('./images/hero-bg.png');
       background-position: right center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -193,7 +193,7 @@
     }
 
     /* ==========================================
-       3. 인허가 공감 섹션 (3단 비대칭 구조 레이아웃)
+       3. 인허가 공감 섹션
     ============================================*/
     .empathy-section {
       padding: 90px 0;
@@ -206,7 +206,6 @@
       align-items: stretch;
     }
 
-    /* 왼쪽 안내 타이틀 */
     .empathy-left {
       flex: 1.1;
       display: flex;
@@ -228,7 +227,6 @@
       line-height: 1.6;
     }
 
-    /* 오른쪽 2개 카드 */
     .empathy-card {
       flex: 1;
       background: #ffffff;
@@ -337,7 +335,6 @@
       text-align: center;
     }
 
-    /* 이미지와 싱크로율 100% 미니 링크 버튼 */
     .btn-card-link {
       width: 100%;
       padding: 10px 0;
@@ -358,10 +355,82 @@
     }
 
     /* ==========================================
-       5. [신규 레이아웃] 하단 가로형 4대 지표 바 구역
+       5. 애니메이션 신뢰 지표 스타일
+    ============================================*/
+    .trust-section {
+      background: linear-gradient(180deg, #fafafa 0%, #f5f3ef 100%); 
+      padding: 110px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      margin-top: 50px;
+    }
+
+    .trust-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .trust-box {
+      background: white;
+      border-radius: 24px;
+      padding: 45px 30px;
+      text-align: center;
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(199, 169, 127, 0.15); 
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+      cursor: pointer;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .trust-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -5px rgba(199, 169, 127, 0.22), 0 15px 15px -5px rgba(0, 0, 0, 0.04);
+      border-color: var(--color-secondary);
+    }
+
+    .trust-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .trust-number {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--color-secondary);
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+      line-height: 1.1;
+    }
+
+    .trust-box p {
+      color: var(--color-primary);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .trust-box span.trust-desc {
+      font-size: 13.5px;
+      color: var(--color-text-muted);
+      font-weight: 400;
+      display: block;
+    }
+
+    /* ==========================================
+       6. 하단 가로형 4대 지표 바 구역
     ============================================*/
     .bottom-trust-bar {
-      background: #111e38; /* 이미지상의 완벽한 다크네이비 */
+      background: #111e38; 
       color: white;
       padding: 45px 0;
     }
@@ -398,7 +467,7 @@
     }
 
     /* ==========================================
-       6. 하단 푸터 구역
+       7. 하단 푸터 구역
     ============================================*/
     .footer {
       background: #0f172a;
@@ -418,7 +487,6 @@
       margin-bottom: 8px;
     }
 
-    /* 반응형 구조 조절 */
     @media (max-width: 1024px) {
       .service-grid, .trust-bar-inner {
         grid-template-columns: repeat(2, 1fr);
@@ -459,7 +527,7 @@
     </div>
   </header>
 
-  <!-- HERO (우측 이미지 연동 핏) -->
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
@@ -556,11 +624,54 @@
     </div>
   </section>
 
-  <!-- [신규 핵심 보강] 이미지 최하단 4대 핵심 지표 배너 구역 -->
+  <!-- 애니메이션 신뢰 지표 섹션 -->
+  <section class="section trust-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>운영까지 고려한 인허가</h2>
+        <p>단순 허가 취득이 아니라 실제 운영 과정에서의 문제까지 고려합니다.</p>
+      </div>
+      <div class="trust-grid">
+        <a href="#gl-contact" class="trust-link">
+          <div class="trust-box">
+            <span class="trust-icon">💼</span>
+            <div class="trust-number" data-target="10">0</div>
+            <p>10년+ 법적 실무</p>
+            <span class="trust-desc">베테랑의 검증된 현장 전문성</span>
+          </div>
+        </a>
+        <a href="services.html#haccp" class="trust-link">
+          <div class="trust-box">
+            <span class="trust-icon">🛡️</span>
+            <div class="trust-number">HACCP</div>
+            <p>HACCP 원패스</p>
+            <span class="trust-desc">맞춤형 기준서 제작 및 완벽 심사대응</span>
+          </div>
+        </a>
+        <a href="#gl-contact" class="trust-link">
+          <div class="trust-box">
+            <span class="trust-icon">🤝</span>
+            <div class="trust-number">1 : 1</div>
+            <p>1:1 밀착 책임 동행</p>
+            <span class="trust-desc">시설 공사 전 현장 정밀 무료 실사</span>
+          </div>
+        </a>
+        <a href="consult.html" class="trust-link">
+          <div class="trust-box">
+            <span class="trust-icon">✨</span>
+            <div class="trust-number">ALL</div>
+            <p>ALL 원스톱 허가</p>
+            <span class="trust-desc">복잡한 서류 행정 절차 일괄 일임 처리</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 가로형 4대 핵심 지표 배너 구역 -->
   <section class="bottom-trust-bar">
     <div class="container trust-bar-inner">
       
-      <!-- 1 -->
       <div class="trust-bar-item">
         <div class="trust-bar-icon">🏅</div>
         <div class="trust-bar-text">
@@ -569,7 +680,6 @@
         </div>
       </div>
 
-      <!-- 2 -->
       <div class="trust-bar-item">
         <div class="trust-bar-icon">📋</div>
         <div class="trust-bar-text">
@@ -578,7 +688,6 @@
         </div>
       </div>
 
-      <!-- 3 -->
       <div class="trust-bar-item">
         <div class="trust-bar-icon">📞</div>
         <div class="trust-bar-text">
@@ -587,7 +696,6 @@
         </div>
       </div>
 
-      <!-- 4 -->
       <div class="trust-bar-item">
         <div class="trust-bar-icon">🛡️</div>
         <div class="trust-bar-text">
@@ -600,16 +708,53 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="footer" id="gl-contact">
     <div class="container">
       <h3>지엘행정사 사무소</h3>
       <p>대표행정사 : 지엘행정사 사무소</p>
       <p>사업자등록번호 : 572-45-00087</p>
       <p>주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
-      <p>연락처 : 010-3538-3098</p>
+      <p>連絡처 : 010-3538-3098</p>
       <p style="margin-top:25px; opacity:0.5;">© 2026 GL Administrative Office. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- 스크롤 감지 및 라이브 숫자 카운팅 엔진 자바스크립트 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll('.trust-number[data-target]');
+      
+      const runCounter = (el) => {
+        const target = +el.getAttribute('data-target');
+        let count = 0;
+        const speed = 20; 
+        
+        const updateCount = () => {
+          const inc = target / speed;
+          if (count < target) {
+            count += inc;
+            el.innerText = Math.ceil(count) + "+";
+            setTimeout(updateCount, 40);
+          } else {
+            el.innerText = target + "+";
+          }
+        };
+        updateCount();
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            const animTarget = entry.target;
+            runCounter(animTarget);
+            observer.unobserve(animTarget);
+          }
+        });
+      }, { threshold: 0.6 });
+
+      counters.forEach(counter => observer.observe(counter));
+    });
+  </script>
 
 </body>
 </html>
