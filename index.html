@@ -131,11 +131,11 @@
       background: #1d2d4e;
     }
 
-    /* HERO */
+    /* HERO 구역 (깃허브 서버 표준 경로 안전 마감) */
     .hero {
       background-color: #f4f4f6;
       background-image: linear-gradient(90deg, #f4f4f6 35%, rgba(244, 244, 246, 0.8) 60%, transparent 90%), 
-                        url('./images/hero-bg.png.png');
+                        url('images/hero-bg.png.png'); /* [교정] 빌드 터짐 방지를 위해 ./ 기호 삭제 */
       background-position: right top;
       background-repeat: no-repeat;
       background-size: contain; 
@@ -172,7 +172,7 @@
     }
 
     .hero p {
-      color: var(--color-text-muted);
+      color: var(--text-muted);
       font-size: 17px;
       font-weight: 500;
       margin-bottom: 35px;
@@ -467,7 +467,6 @@
     .footer {
       background: #0f172a;
       color: #94a3b8;
-      /* 스마트 바 높이를 감안하여 아래 패딩 공간을 여유 있게 확보 */
       padding: 60px 0 140px 0;
       border-top: 1px solid #1e293b;
       font-size: 14.5px;
@@ -483,9 +482,7 @@
       margin-bottom: 8px;
     }
 
-    /* ==========================================
-       [빨간 네모칸 보강] 메인용 스마트 고정 상담 바
-    ============================================*/
+    /* 스마트 바 고정 효과 */
     .sticky-action-bar {
         position: fixed;
         bottom: 0;
@@ -569,7 +566,6 @@
         background-color: #fdd835;
     }
 
-    /* 반응형 레이아웃 분기 처리 */
     @media (max-width: 1024px) {
       .service-grid, .trust-bar-inner {
         grid-template-columns: repeat(2, 1fr);
@@ -825,7 +821,7 @@
     </div>
   </footer>
 
-  <!-- [스마트 고정 바] 이미지와 동일한 위치 및 레이아웃 완벽 매칭 -->
+  <!-- 스마트 고정 상담 바 위젯 -->
   <div class="sticky-action-bar">
       <div class="action-container">
           <div class="action-text">🎯 HACCP·인허가 빠른 상담</div>
