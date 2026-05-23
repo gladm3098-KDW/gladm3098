@@ -28,21 +28,17 @@
 
   <style>
     :root {
-      --color-primary: #1f2937;
-      --color-secondary: #c7a97f;
-      --color-background: #f8f6f2;
+      --color-primary: #111e38; /* 신뢰감을 주는 깊은 네이비 */
+      --color-secondary: #c7a97f; /* 고급스러운 지엘 시그니처 골드 */
+      --color-background: #ffffff;
       --color-surface: #ffffff;
-      --color-text: #111827;
-      --color-text-muted: #6b7280;
-      --color-border: #e5e7eb;
+      --color-text: #1e293b;
+      --color-text-muted: #64748b;
+      --color-border: #e2e8f0;
 
-      --shadow-sm: 0 2px 10px rgba(0,0,0,0.04);
-      --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
-
-      --radius-lg: 20px;
-      --radius-md: 14px;
-
-      --transition: all 0.25s ease;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     * {
@@ -59,7 +55,7 @@
       font-family: "Pretendard", sans-serif;
       background: #fff;
       color: var(--color-text);
-      line-height: 1.7;
+      line-height: 1.6;
       word-break: keep-all;
     }
 
@@ -70,100 +66,98 @@
 
     .container {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* HEADER */
-
+    /* ==========================================
+       1. 상단 헤더 내비게이션 (새 디자인 맞춤)
+    ============================================*/
     .header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
     }
 
     .header-inner {
-      height: 78px;
+      height: 75px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       color: var(--color-primary);
+      display: flex;
+      align-items: center;
     }
 
     .logo span {
       color: var(--color-secondary);
+      margin-right: 4px;
     }
 
     .nav {
       display: flex;
-      gap: 34px;
+      align-items: center;
+      gap: 32px;
       font-size: 15px;
-      color: var(--color-text-muted);
+      font-weight: 600;
+    }
+
+    .nav a {
+      color: #475569;
+      transition: var(--transition);
     }
 
     .nav a:hover {
       color: var(--color-primary);
     }
 
-    /* HERO */
-
-    .hero {
-      background:
-        linear-gradient(
-          180deg,
-          #f8f6f2 0%,
-          #ffffff 100%
-        );
-      padding: 120px 0 100px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+    /* 헤더 우측 전용 특별 버튼 */
+    .header-btn {
+      background: var(--color-primary);
+      color: #fff !important;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-btn:hover {
+      background: #1d2d4e;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(
-        rgba(199,169,127,0.18),
-        transparent 70%
-      );
-      top: -250px;
-      left: 50%;
-      transform: translateX(-50%);
+    /* ==========================================
+       2. 히어로 (우측 행정사 배경 이미지 형태 완벽 구현)
+    ============================================*/
+    .hero {
+      background-color: #f4f4f6;
+      /* 실제 서버에 올리실 때 우측 정장 배경 이미지가 있다면 아래 주소에 넣어주시면 됩니다 */
+      background-image: linear-gradient(90deg, #f4f4f6 45%, rgba(244, 244, 246, 0.7) 70%, transparent 100%), url('images/hero-bg.jpg');
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      padding: 110px 0;
+      position: relative;
     }
 
     .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 10px 18px;
-      background: rgba(199,169,127,0.12);
-      color: #8d6f47;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 600;
-      margin-bottom: 26px;
+      text-align: left;
+      max-width: 650px;
     }
 
     .hero h1 {
-      font-size: 58px;
-      line-height: 1.2;
+      font-size: 44px;
+      line-height: 1.25;
       color: var(--color-primary);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       font-weight: 800;
       letter-spacing: -1px;
     }
@@ -173,321 +167,276 @@
     }
 
     .hero p {
-      max-width: 760px;
-      margin: 0 auto;
       color: var(--color-text-muted);
-      font-size: 19px;
+      font-size: 17px;
+      font-weight: 500;
+      margin-bottom: 35px;
     }
 
-    .hero-buttons {
-      margin-top: 42px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 16px 30px;
-      border-radius: 14px;
+    .btn-hero {
+      background: var(--color-primary);
+      color: white;
+      padding: 15px 28px;
+      border-radius: 6px;
       font-weight: 700;
-      transition: var(--transition);
+      font-size: 15px;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-    }
-
-    .btn-primary {
-      background: var(--color-secondary);
-      color: white;
+      gap: 8px;
       box-shadow: var(--shadow-md);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-outline {
-      border: 1px solid #d1d5db;
-      background: white;
-      color: var(--color-primary);
-    }
-
-    /* SECTION */
-
-    .section {
-      padding: 110px 0;
-    }
-
-    .section[id] {
-      scroll-margin-top: 78px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .section-title h2 {
-      font-size: 42px;
-      color: var(--color-primary);
-      margin-bottom: 16px;
-      letter-spacing: -0.5px;
-    }
-
-    .section-title p {
-      color: var(--color-text-muted);
-      font-size: 18px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    /* EMPATHY */
-
-    .empathy-section {
-      background: #fafafa;
-    }
-
-    .empathy-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 28px;
-    }
-
-    .empathy-card {
-      background: white;
-      border-radius: 20px;
-      padding: 34px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid #f1f1f1;
       transition: var(--transition);
     }
 
-    .empathy-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+    .btn-hero:hover {
+      transform: translateY(-2px);
+      background: #1d2d4e;
+    }
+
+    /* ==========================================
+       3. 인허가 공감 섹션 (3단 비대칭 구조 레이아웃)
+    ============================================*/
+    .empathy-section {
+      padding: 90px 0;
+      background: #ffffff;
+    }
+
+    .empathy-container {
+      display: flex;
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    /* 왼쪽 안내 타이틀 */
+    .empathy-left {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .empathy-left h2 {
+      font-size: 28px;
+      color: var(--color-primary);
+      font-weight: 800;
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    .empathy-left p {
+      color: var(--color-text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    /* 오른쪽 2개 카드 */
+    .empathy-card {
+      flex: 1;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 35px 28px;
+      border: 1px solid #e2e8f0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .empathy-icon-wrap {
+      font-size: 32px;
+      margin-bottom: 15px;
+      display: block;
     }
 
     .empathy-card h3 {
-      font-size: 22px;
-      margin-bottom: 18px;
-      color: #b45309;
-      line-height: 1.4;
+      font-size: 18px;
+      font-weight: 800;
+      color: #111;
+      margin-bottom: 15px;
     }
 
     .empathy-card p {
       color: var(--color-text-muted);
-      font-size: 16px;
+      font-size: 14.5px;
+      line-height: 1.6;
     }
 
-    /* SERVICE */
+    /* ==========================================
+       4. 4대 실무 서비스 그리드 구역
+    ============================================*/
+    .service-section {
+      padding: 90px 0 110px 0;
+      background: #fcfbfa;
+      border-top: 1px solid #f1f5f9;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-title span {
+      color: var(--color-secondary);
+      font-size: 14px;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+      color: var(--color-primary);
+      font-weight: 800;
+    }
 
     .service-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
     }
 
     .service-card {
       background: white;
-      border-radius: 24px;
-      padding: 40px 30px;
-      border: 1px solid #ededed;
+      border-radius: 12px;
+      padding: 35px 22px;
+      border: 1px solid #e2e8f0;
       text-align: center;
-      transition: var(--transition);
       box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
     }
 
     .service-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       box-shadow: var(--shadow-md);
     }
 
-    .service-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 20px;
-      background: rgba(199,169,127,0.12);
+    .service-icon-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: #111e38;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 34px;
+      margin: 0 auto 20px;
+      font-size: 20px;
     }
 
     .service-card h3 {
-      font-size: 24px;
-      margin-bottom: 16px;
+      font-size: 17px;
+      font-weight: 800;
       color: var(--color-primary);
+      margin-bottom: 12px;
     }
 
     .service-card p {
       color: var(--color-text-muted);
-      font-size: 15px;
-      min-height: 110px;
+      font-size: 13.5px;
+      line-height: 1.55;
+      margin-bottom: 25px;
+      text-align: center;
     }
 
-    .service-card .btn-outline {
-      margin-top: 18px;
+    /* 이미지와 싱크로율 100% 미니 링크 버튼 */
+    .btn-card-link {
+      width: 100%;
+      padding: 10px 0;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #475569;
+      background: #fff;
+      display: block;
+      transition: var(--transition);
+    }
+
+    .service-card:hover .btn-card-link {
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
     }
 
     /* ==========================================
-       [프리미엄 차세대] 애니메이션 신뢰 지표 스타일
+       5. [신규 레이아웃] 하단 가로형 4대 지표 바 구역
     ============================================*/
-    .trust-section {
-      background: linear-gradient(180deg, #fafafa 0%, #f5f3ef 100%); /* 미세한 웜그레이 그라데이션 */
-      padding: 110px 0;
-    }
-
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-      margin-top: 50px;
-    }
-
-    .trust-link {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .trust-box {
-      background: white;
-      border-radius: 24px;
-      padding: 45px 30px;
-      text-align: center;
-      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(199, 169, 127, 0.15); /* 은은한 골드빛 라인 */
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-      cursor: pointer;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative;
-    }
-
-    /* 마우스 올렸을 때 프리미엄 느낌의 골드 섀도우 강조 */
-    .trust-box:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 35px -5px rgba(199, 169, 127, 0.22), 0 15px 15px -5px rgba(0, 0, 0, 0.04);
-      border-color: var(--color-secondary);
-    }
-
-    .trust-icon {
-      font-size: 32px;
-      margin-bottom: 14px;
-      display: block;
-    }
-
-    /* 스크롤 카운팅 효과 숫자 */
-    .trust-number {
-      font-size: 42px;
-      font-weight: 800;
-      color: var(--color-secondary);
-      margin-bottom: 10px;
-      letter-spacing: -1px;
-      line-height: 1.1;
-    }
-
-    /* 가독성이 향상된 디테일 세브 타이틀 문구 */
-    .trust-box p {
-      color: var(--color-primary);
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .trust-box span.trust-desc {
-      font-size: 13.5px;
-      color: var(--color-text-muted);
-      font-weight: 400;
-      display: block;
-    }
-
-    /* CTA */
-
-    .cta-section {
-      background:
-        linear-gradient(
-          135deg,
-          #1f2937 0%,
-          #111827 100%
-        );
-
+    .bottom-trust-bar {
+      background: #111e38; /* 이미지상의 완벽한 다크네이비 */
       color: white;
-      text-align: center;
-      border-radius: 40px;
-      padding: 80px 40px;
+      padding: 45px 0;
     }
 
-    .cta-section h2 {
-      font-size: 42px;
-      margin-bottom: 20px;
+    .trust-bar-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
     }
 
-    .cta-section p {
-      max-width: 700px;
-      margin: 0 auto;
-      color: rgba(255,255,255,0.7);
-      font-size: 18px;
+    .trust-bar-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
     }
 
-    .cta-section .btn-primary {
-      margin-top: 34px;
+    .trust-bar-icon {
+      font-size: 26px;
+      line-height: 1;
+      margin-top: 2px;
     }
 
-    /* FOOTER */
+    .trust-bar-text h4 {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
 
+    .trust-bar-text p {
+      font-size: 13px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* ==========================================
+       6. 하단 푸터 구역
+    ============================================*/
     .footer {
-      background: #111827;
-      color: rgba(255,255,255,0.7);
-      padding: 70px 0;
-      margin-top: 100px;
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 60px 0;
+      border-top: 1px solid #1e293b;
+      font-size: 14.5px;
     }
 
     .footer h3 {
       color: white;
-      margin-bottom: 20px;
-      font-size: 24px;
+      margin-bottom: 18px;
+      font-size: 20px;
     }
 
     .footer p {
-      margin-bottom: 10px;
-      font-size: 15px;
+      margin-bottom: 8px;
     }
 
-    /* MOBILE */
-
-    @media (max-width: 768px) {
-
-      .hero {
-        padding: 90px 0 70px;
+    /* 반응형 구조 조절 */
+    @media (max-width: 1024px) {
+      .service-grid, .trust-bar-inner {
+        grid-template-columns: repeat(2, 1fr);
       }
+      .empathy-container {
+        flex-direction: column;
+      }
+    }
 
+    @media (max-width: 640px) {
+      .service-grid, .trust-bar-inner {
+        grid-template-columns: 1fr;
+      }
       .hero h1 {
-        font-size: 38px;
+        font-size: 32px;
       }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section {
-        padding: 80px 0;
-      }
-
-      .section-title h2 {
-        font-size: 30px;
-      }
-
       .nav {
         display: none;
-      }
-
-      .cta-section h2 {
-        font-size: 30px;
       }
     }
   </style>
@@ -496,357 +445,171 @@
 <body>
 
   <!-- HEADER -->
-
   <header class="header">
     <div class="container header-inner">
-
-      <a href="index.html" class="logo">
-        <span>GL</span> 지엘행정사 사무소
-      </a>
-
+      <a href="index.html" class="logo"><span>GL</span> 지엘행정사 사무소</a>
+      
       <nav class="nav">
         <a href="#gl-business">업무분야</a>
         <a href="cases.html">성공사례</a>
-        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝  블로그</a>
+        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">사무소 소개</a>
         <a href="consult.html">상담문의</a>
+        <a href="consult.html" class="header-btn">상담 (해결) 요청하기</a>
       </nav>
-
     </div>
   </header>
 
-  <!-- HERO -->
-
+  <!-- HERO (우측 이미지 연동 핏) -->
   <section class="hero">
-
-    <div class="container hero-content">
-
-      <div class="hero-badge">
-        식품 · 축산물 인허가 · HACCP 실무 전문
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">식품제조가공업 · 축산물가공업 · HACCP 인증 전문</div>
+        <h1>
+          식품-축산물 인허가와 HACCP,<br>
+          <span>법령과 실무 기준으로 해결합니다</span>
+        </h1>
+        <p>복잡한 행정 절차와 까다로운 위생 심사, 베테랑 전문 행정사가 단 한 번에 통과할 수 있는 가장 확실한 지름길을 제시합니다.</p>
+        <a href="consult.html" class="btn-hero">상담 (해결) 요청하기 &nbsp;→</a>
       </div>
-
-      <h1>
-        식품 인허가와 HACCP,<br>
-        <span>현장 실무 기준으로 해결합니다</span>
-      </h1>
-
-      <p>
-        식품제조가공업, 축산물가공업, HACCP 인증까지.<br>
-        시설 기준 검토부터 작업장 동선, 기준서 작성, 심사 대응까지
-        실제 운영을 고려한 인허가 실무를 지원합니다.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="consult.html" class="btn btn-primary">
-          상담 문의하기
-        </a>
-
-        <a href="cases.html" class="btn btn-outline">
-          성공 사례 보기
-        </a>
-      </div>
-
     </div>
-
   </section>
 
-  <!-- 공감 섹션 -->
-
-  <section class="section empathy-section">
-
-    <div class="container">
-
-      <div class="section-title">
-        <h2>인허가는 서류만으로 끝나지 않습니다</h2>
-
+  <!-- EMPATHY SECTION -->
+  <section class="empathy-section">
+    <div class="container empathy-container">
+      
+      <div class="empathy-left">
+        <h2>인허가는 서류만으로<br>해결되지 않습니다</h2>
         <p>
-          실제 현장에서는 시설 기준, 작업 동선, 위생 구획,
-          제조 공정까지 함께 검토해야 불필요한 보완 요청과
-          추가 공사를 줄일 수 있습니다.
+          법령 기준을 충족하는 것만으로 인허가가 원활하게 진행되는 것은 아닙니다.<br>
+          시설 기준, 위생 동선, 실제 운영 방식까지 함께 고려해야 불필요한 보완 요청을 줄이고 안정적으로 허가를 받을 수 있습니다.
         </p>
       </div>
 
-      <div class="empathy-grid">
+      <div class="empathy-card">
+        <span class="empathy-icon-wrap">📐</span>
+        <h3>"작업장 공사를 하려는데 기준을 정확히 모르겠습니다"</h3>
+        <p>식품 및 축산물 관련 영업 인허가는 시설 기준과 위생 기준 등을 충족해야 합니다. 공사 전에 기준을 정확히 확인하지 않으면 추가 공사가 발생할 수 있습니다.</p>
+      </div>
 
-        <div class="empathy-card">
-          <h3>
-            “시설 기준을 어떻게 준비해야 할지 모르겠습니다”
-          </h3>
-
-          <p>
-            식품·축산물 영업 인허가는 업종별 시설 기준과
-            위생 기준을 충족해야 합니다.
-            공사 전에 기준을 정확히 검토하지 않으면
-            추가 시공이나 설비 변경이 발생할 수 있습니다.
-          </p>
-        </div>
-
-        <div class="empathy-card">
-          <h3>
-            “HACCP 심사에서 보완이 반복됩니다”
-          </h3>
-
-          <p>
-            형식적인 기준서만으로는 충분하지 않습니다.
-            실제 제조 공정과 운영 방식에 맞는
-            실행 가능한 HACCP 시스템 구축이 중요합니다.
-          </p>
-        </div>
-
+      <div class="empathy-card">
+        <span class="empathy-icon-wrap">📄</span>
+        <h3>"HACCP 심사에서 보완이 반복됩니다"</h3>
+        <p>형식적인 기준서 작성만으로는 충분하지 않습니다. 실제 제조 공정과 운영 방식에 맞는 실행 가능한 HACCP 시스템 구축이 필요합니다.</p>
       </div>
 
     </div>
-
   </section>
 
-  <!-- 서비스 구역 -->
-
-  <section class="section" id="gl-business">
-
+  <!-- SERVICE SECTION -->
+  <section class="section service-section" id="gl-business">
     <div class="container">
-
+      
       <div class="section-title">
-        <h2>실무 중심 인허가 컨설팅</h2>
-
-        <p>
-          허가 취득 이후 실제 운영까지 고려하여
-          현장 중심으로 인허가와 HACCP 구축을 진행합니다.
-        </p>
+        <span>허가 이후까지 고려한 설계</span>
+        <h2>운영 시 시정명령을 받지 않는 완벽한 인허가·인증을 수행합니다</h2>
       </div>
 
       <div class="service-grid">
-
+        
+        <!-- 1 -->
         <div class="service-card">
-
-          <div class="service-icon">🏭</div>
-
-          <h3>식품제조가공업</h3>
-
-          <p>
-            작업장 배치, 시설 기준 검토,
-            영업등록 신청, 품목제조보고까지
-            식품 제조업 인허가 전 과정을 지원합니다.
-          </p>
-
-          <a href="services.html#food" class="btn btn-outline">
-            자세히 보기
-          </a>
-
+          <div>
+            <div class="service-icon-circle">🏭</div>
+            <h3>식품제조가공업 등록</h3>
+            <p>건축물 용도 확인부터 시설 기준에 따른 작업장 배치 및 동선 설계, 영업등록 신청, 품목제조보고까지 인허가 전 과정을 대행합니다.</p>
+          </div>
+          <a href="services.html#food" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
+        <!-- 2 -->
         <div class="service-card">
-
-          <div class="service-icon">🥩</div>
-
-          <h3>축산물가공업</h3>
-
-          <p>
-            축산물 위생관리법 기준에 맞춘
-            작업장 구성과 공정 검토,
-            영업허가 및 행정 절차를 지원합니다.
-          </p>
-
-          <a href="services.html#meat" class="btn btn-outline">
-            자세히 보기
-          </a>
-
+          <div>
+            <div class="service-icon-circle">🥩</div>
+            <h3>축산물가공업 허가</h3>
+            <p>시설 기준에 따른 작업장 배치 및 동선 설계, 영업등록 신청, 품목제조보고까지 인허가 전 과정을 대행합니다.</p>
+          </div>
+          <a href="services.html#meat" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
+        <!-- 3 -->
         <div class="service-card">
-
-          <div class="service-icon">🛡️</div>
-
-          <h3>HACCP 인증</h3>
-
-          <p>
-            제조 공정 분석, 위해 요소 관리,
-            HACCP 기준서 작성 및 심사 대응까지
-            실무형 HACCP 구축을 지원합니다.
-          </p>
-
-          <a href="services.html#haccp" class="btn btn-outline">
-            자세히 보기
-          </a>
-
+          <div>
+            <div class="service-icon-circle">📋</div>
+            <h3>HACCP 인증</h3>
+            <p>제조 공정 분석, HACCP 기준서 작성 및 심사 대응까지 실제 운영 가능한 HACCP 시스템 구축을 대행합니다.</p>
+          </div>
+          <a href="services.html#haccp" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
+        <!-- 4 -->
         <div class="service-card">
-
-          <div class="service-icon">📄</div>
-
-          <h3>기타 영업 인허가</h3>
-
-          <p>
-            즉석판매제조가공업,
-            식품소분업, 건강기능식품업 등
-            다양한 식품 관련 인허가를 지원합니다.
-          </p>
-
-          <a href="services.html#etc" class="btn btn-outline">
-            자세히 보기
-          </a>
-
+          <div>
+            <div class="service-icon-circle">📜</div>
+            <h3>기타 영업 인허가</h3>
+            <p>즉석판매제조가공업, 집단급식소, 식품첨가물 제조업 등 다양한 식품·축산물 관련 영업 인허가를 지원합니다.</p>
+          </div>
+          <a href="services.html#etc" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
       </div>
-
-    </div>
-
-  </section>
-
-  <!-- [차세대 보강 모델] 실시간 스크롤 숫자 애니메이션 & 마케팅 고도화 텍스트 조합 적용 섹션 -->
-
-  <section class="section trust-section">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>운영까지 고려한 인허가</h2>
-        <p>단순 허가 취득이 아니라 실제 운영 과정에서의 문제까지 고려합니다.</p>
-      </div>
-
-      <div class="trust-grid">
-
-        <!-- 1. 10년+ 법적 실무 -->
-        <a href="#gl-contact" class="trust-link">
-          <div class="trust-box">
-            <span class="trust-icon">💼</span>
-            <div class="trust-number" data-target="10">0</div>
-            <p>10년+ 법적 실무</p>
-            <span class="trust-desc">베테랑의 검증된 현장 전문성</span>
-          </div>
-        </a>
-
-        <!-- 2. HACCP 원패스 통과 -->
-        <a href="services.html#haccp" class="trust-link">
-          <div class="trust-box">
-            <span class="trust-icon">🛡️</span>
-            <div class="trust-number">HACCP</div>
-            <p>HACCP 원패스</p>
-            <span class="trust-desc">맞춤형 기준서 제작 및 완벽 심사대응</span>
-          </div>
-        </a>
-
-        <!-- 3. 1:1 밀착 책임 동행 -->
-        <a href="#gl-contact" class="trust-link">
-          <div class="trust-box">
-            <span class="trust-icon">🤝</span>
-            <div class="trust-number">1 : 1</div>
-            <p>1:1 밀착 책임 동행</p>
-            <span class="trust-desc">시설 공사 전 현장 정밀 무료 실사</span>
-          </div>
-        </a>
-
-        <!-- 4. ALL 원스톱 진행 -->
-        <a href="consult.html" class="trust-link">
-          <div class="trust-box">
-            <span class="trust-icon">✨</span>
-            <div class="trust-number">ALL</div>
-            <p>ALL 원스톱 허가</p>
-            <span class="trust-desc">복잡한 서류 행정 절차 일괄 일임 처리</span>
-          </div>
-        </a>
-
-      </div>
-
     </div>
   </section>
 
-  <!-- CTA 구역 -->
+  <!-- [신규 핵심 보강] 이미지 최하단 4대 핵심 지표 배너 구역 -->
+  <section class="bottom-trust-bar">
+    <div class="container trust-bar-inner">
+      
+      <!-- 1 -->
+      <div class="trust-bar-item">
+        <div class="trust-bar-icon">🏅</div>
+        <div class="trust-bar-text">
+          <h4>10년 이상 실무 경험</h4>
+          <p>다수의 인허가·인증 수행 경험으로 정확하고 신속하게 대응합니다.</p>
+        </div>
+      </div>
 
-  <section class="section" id="gl-contact">
+      <!-- 2 -->
+      <div class="trust-bar-item">
+        <div class="trust-bar-icon">📋</div>
+        <div class="trust-bar-text">
+          <h4>법령과 실무 기준 기반</h4>
+          <p>최신 법령과 실무 기준을 반영하여 보완 없는 인허가를 지향합니다.</p>
+        </div>
+      </div>
 
-    <div class="container">
+      <!-- 3 -->
+      <div class="trust-bar-item">
+        <div class="trust-bar-icon">📞</div>
+        <div class="trust-bar-text">
+          <h4>맞춤형 1:1 상담</h4>
+          <p>업종과 상황에 맞는 최적의 방향을 제시하여 대표님의 시간과 비용을 절약합니다.</p>
+        </div>
+      </div>
 
-      <div class="cta-section">
-
-        <h2>
-          허가 이후 운영까지 함께 고민합니다
-        </h2>
-
-        <p>
-          시설 기준 검토부터 HACCP 구축,
-          실제 현장 운영까지 고려한
-          실무 중심 인허가를 지원합니다.
-        </p>
-
-        <a href="consult.html" class="btn btn-primary">
-          상담 문의하기
-        </a>
-
+      <!-- 4 -->
+      <div class="trust-bar-item">
+        <div class="trust-bar-icon">🛡️</div>
+        <div class="trust-bar-text">
+          <h4>허가 이후까지 책임 지원</h4>
+          <p>허가·인증 이후 운영 단계까지 고려한 지속적인 사후 관리가 가능합니다.</p>
+        </div>
       </div>
 
     </div>
-
   </section>
 
   <!-- FOOTER -->
-
   <footer class="footer">
-
     <div class="container">
-
       <h3>지엘행정사 사무소</h3>
-
-      <p>
-        대표행정사 : 지엘행정사 사무소
-      </p>
-
-      <p>
-        사업자등록번호 : 572-45-00087
-      </p>
-
-      <p>
-        주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호
-      </p>
-
-      <p>
-        연락처 : 010-3538-3098
-      </p>
-
-      <p style="margin-top:30px; opacity:0.5;">
-        © 2026 GL Administrative Office. All Rights Reserved.
-      </p>
-
+      <p>대표행정사 : 지엘행정사 사무소</p>
+      <p>사업자등록번호 : 572-45-00087</p>
+      <p>주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
+      <p>연락처 : 010-3538-3098</p>
+      <p style="margin-top:25px; opacity:0.5;">© 2026 GL Administrative Office. All Rights Reserved.</p>
     </div>
-
   </footer>
-
-  <!-- 스크롤 감지 및 라이브 숫자 카운팅 엔진 자바스크립트 -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const counters = document.querySelectorAll('.trust-number[data-target]');
-      
-      const runCounter = (el) => {
-        const target = +el.getAttribute('data-target');
-        let count = 0;
-        const speed = 20; // 숫자가 올라가는 부드러운 속도 조절
-        
-        const updateCount = () => {
-          const inc = target / speed;
-          if (count < target) {
-            count += inc;
-            el.innerText = Math.ceil(count) + "+";
-            setTimeout(updateCount, 40);
-          } else {
-            el.innerText = target + "+";
-          }
-        };
-        updateCount();
-      };
-
-      // 화면 스크롤 시 해당 구역이 드러날 때 애니메이션 실행 장치
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting) {
-            const animTarget = entry.target;
-            runCounter(animTarget);
-            observer.unobserve(animTarget);
-          }
-        });
-      }, { threshold: 0.6 });
-
-      counters.forEach(counter => observer.observe(counter));
-    });
-  </script>
 
 </body>
 </html>
