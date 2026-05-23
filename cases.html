@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -23,7 +23,7 @@ body {
 .container {
     max-width: 1200px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 60px 20px 100px 20px; /* 하단 버튼 섹션을 고려한 여백 */
     text-align: center;
 }
 
@@ -74,7 +74,7 @@ h1 {
     margin-top: 20px;
 }
 
-/* 카드 스타일 */
+/* 카드 디자인 */
 .case-card {
     border: 1px solid #e2e8f0;
     border-radius: 8px;
@@ -92,27 +92,26 @@ h1 {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* [핵심 수정 1] 이미지 세로 비율을 대폭 늘려 위아래 잘림을 원천 차단 */
+/* 이미지 잘림 차단 비율 유지 */
 .case-card img {
     width: 100%;
-    aspect-ratio: 4 / 5.8; /* 비율을 5.8로 늘려 하단 인증서 끝자락까지 완벽하게 노출시킵니다 */
+    aspect-ratio: 4 / 5.8; 
     object-fit: cover; 
     display: block;
     flex-shrink: 0;
 }
 
-/* [핵심 수정 2] 하단 텍스트 영역의 숨은 여백 및 높이를 최저 한계치까지 압축 */
+/* 하단 글씨 영역 높이 최저 압축 유지 */
 .case-info {
-    padding: 6px 8px 8px 8px; /* 패딩을 한 자릿수(6px~8px)로 줄여 칼같이 밀착 */
+    padding: 6px 8px 8px 8px; 
     text-align: center;
     border-top: 1px solid #f1f5f9;
     background: #fff;
     flex-grow: 0; 
     flex-shrink: 0;
-    height: auto; /* 고정 높이를 해제하고 텍스트 부피만큼만 최소화 */
+    height: auto; 
 }
 
-/* 태그 여백 및 행간 최소화 */
 .tag {
     font-size: 11px;
     font-weight: 500;
@@ -121,19 +120,98 @@ h1 {
     padding: 2px 6px;
     border-radius: 3px;
     display: inline-block;
-    margin-bottom: 2px; /* 글씨와 바짝 붙도록 간격 최소화 */
+    margin-bottom: 2px; 
     line-height: 1.1;
 }
 
-/* 제목 텍스트 행간 압축 */
 .case-info p {
     font-size: 13.5px;
     font-weight: 500;
     color: #1e293b;
     margin: 0;
     padding: 0;
-    line-height: 1.2; /* 글자 위아래 숨은 행간 공간을 축소해 영역 높이를 더 낮춤 */
+    line-height: 1.2; 
     word-break: keep-all; 
+}
+
+/* ==========================================
+   하단 고정 안내 및 실시간 상담 버튼 영역
+============================================*/
+.action-section {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.action-text {
+    font-size: 16px;
+    font-weight: 500;
+    color: #475569;
+}
+
+.action-btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px; /* 버튼이 3개이므로 가로폭 소폭 확장 */
+}
+
+/* 하단 버튼 공통 디자인 */
+.action-btn {
+    flex: 1;
+    padding: 14px 20px;
+    font-size: 14.5px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+/* 뒤로가기 버튼: 차분한 그레이 */
+.btn-back {
+    background-color: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+.btn-back:hover {
+    background-color: #e2e8f0;
+}
+
+/* 전화 연결 버튼: 신뢰감을 주는 딥 네이비 */
+.btn-phone {
+    background-color: #111e38;
+    color: #ffffff;
+    border: 1px solid #111e38;
+    font-weight: 700;
+}
+.btn-phone:hover {
+    background-color: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(17, 30, 56, 0.2);
+}
+
+/* 카카오톡 문의 버튼: 카카오 고유 옐로우 톤 적용 */
+.btn-kakao {
+    background-color: #fee500;
+    color: #181600;
+    border: 1px solid #fee500;
+    font-weight: 700;
+}
+.btn-kakao:hover {
+    background-color: #fdd835;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(254, 229, 0, 0.3);
 }
 </style>
 
@@ -153,7 +231,23 @@ h1 {
     <button class="btn" data-filter="haccp">HACCP 인증</button>
 </div>
 
+<!-- 실적 카드 그리드 -->
 <div class="cases-grid" id="casesGrid"></div>
+
+<!-- 하단 전환 유도 버튼 섹션 (고객 맞춤 연락처 연동) -->
+<div class="action-section">
+    <div class="action-text">HACCP 및 식품 인허가, 빠른 가능 여부를 상담해 드립니다.</div>
+    <div class="action-btn-group">
+        <!-- 클릭 시 이전 페이지 이동 -->
+        <button class="action-btn btn-back" onclick="history.back();">이전 페이지로</button>
+        
+        <!-- 클릭 시 기재해주신 번호로 직접 통화 연결 -->
+        <a href="tel:010-3538-3098" class="action-btn btn-phone">📞 전화 상담 연결</a>
+        
+        <!-- 클릭 시 안내해주신 카카오톡 오픈채팅 새 창으로 연결 -->
+        <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" class="action-btn btn-kakao">💬 카카오톡 문의</a>
+    </div>
+</div>
 
 </div>
 
