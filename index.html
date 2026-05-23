@@ -332,10 +332,10 @@
     }
 
     /* ==========================================
-       [업그레이드 완료] 신뢰 및 차별화 지표 디자인 
+       [프리미엄 차세대] 애니메이션 신뢰 지표 스타일
     ============================================*/
     .trust-section {
-      background: #fafafa;
+      background: linear-gradient(180deg, #fafafa 0%, #f5f3ef 100%); /* 미세한 웜그레이 그라데이션 */
       padding: 110px 0;
     }
 
@@ -354,46 +354,56 @@
 
     .trust-box {
       background: white;
-      border-radius: 20px;
-      padding: 40px 30px;
+      border-radius: 24px;
+      padding: 45px 30px;
       text-align: center;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-      border: 1px solid #ededed;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(199, 169, 127, 0.15); /* 은은한 골드빛 라인 */
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
       cursor: pointer;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
     }
 
-    /* 마우스 올릴 때 붕 뜨는 모션 및 골드 테두리 효과 강조 */
+    /* 마우스 올렸을 때 프리미엄 느낌의 골드 섀도우 강조 */
     .trust-box:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 25px -5px rgba(199, 169, 127, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -5px rgba(199, 169, 127, 0.22), 0 15px 15px -5px rgba(0, 0, 0, 0.04);
       border-color: var(--color-secondary);
     }
 
     .trust-icon {
-      font-size: 28px;
-      margin-bottom: 12px;
+      font-size: 32px;
+      margin-bottom: 14px;
       display: block;
     }
 
+    /* 스크롤 카운팅 효과 숫자 */
     .trust-number {
-      font-size: 40px;
+      font-size: 42px;
       font-weight: 800;
       color: var(--color-secondary);
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
-      line-height: 1.2;
+      margin-bottom: 10px;
+      letter-spacing: -1px;
+      line-height: 1.1;
     }
 
+    /* 가독성이 향상된 디테일 세브 타이틀 문구 */
     .trust-box p {
+      color: var(--color-primary);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .trust-box span.trust-desc {
+      font-size: 13.5px;
       color: var(--color-text-muted);
-      font-size: 15.5px;
-      font-weight: 500;
-      margin: 0;
+      font-weight: 400;
+      display: block;
     }
 
     /* CTA */
@@ -683,7 +693,7 @@
 
   </section>
 
-  <!-- [보강 완료] 입체형 카드 디자인 및 스마트 연동형 신뢰 섹션 -->
+  <!-- [차세대 보강 모델] 실시간 스크롤 숫자 애니메이션 & 마케팅 고도화 텍스트 조합 적용 섹션 -->
 
   <section class="section trust-section">
     <div class="container">
@@ -695,39 +705,43 @@
 
       <div class="trust-grid">
 
-        <!-- 1. 10+ 실무경험 (클릭 시 하단 상담신청 구역으로 스크롤 이동) -->
+        <!-- 1. 10년+ 법적 실무 -->
         <a href="#gl-contact" class="trust-link">
           <div class="trust-box">
             <span class="trust-icon">💼</span>
-            <div class="trust-number">10+</div>
-            <p>실무 경험</p>
+            <div class="trust-number" data-target="10">0</div>
+            <p>10년+ 법적 실무</p>
+            <span class="trust-desc">베테랑의 검증된 현장 전문성</span>
           </div>
         </a>
 
-        <!-- 2. HACCP 기준서 (클릭 시 업무분야 페이지의 HACCP 상세 구역으로 새 창 이동) -->
+        <!-- 2. HACCP 원패스 통과 -->
         <a href="services.html#haccp" class="trust-link">
           <div class="trust-box">
             <span class="trust-icon">🛡️</span>
             <div class="trust-number">HACCP</div>
-            <p>기준서 및 심사 대응</p>
+            <p>HACCP 원패스</p>
+            <span class="trust-desc">맞춤형 기준서 제작 및 완벽 심사대응</span>
           </div>
         </a>
 
-        <!-- 3. 1:1 현장 맞춤 (클릭 시 하단 상담신청 구역으로 스크롤 이동) -->
+        <!-- 3. 1:1 밀착 책임 동행 -->
         <a href="#gl-contact" class="trust-link">
           <div class="trust-box">
             <span class="trust-icon">🤝</span>
-            <div class="trust-number">1:1</div>
-            <p>현장 맞춤 컨설팅</p>
+            <div class="trust-number">1 : 1</div>
+            <p>1:1 밀착 책임 동행</p>
+            <span class="trust-desc">시설 공사 전 현장 정밀 무료 실사</span>
           </div>
         </a>
 
-        <!-- 4. ALL 원스톱 진행 (클릭 시 전용 상담문의 서식 페이지로 다이렉트 이동) -->
+        <!-- 4. ALL 원스톱 진행 -->
         <a href="consult.html" class="trust-link">
           <div class="trust-box">
             <span class="trust-icon">✨</span>
             <div class="trust-number">ALL</div>
-            <p>인허가 원스톱 진행</p>
+            <p>ALL 원스톱 허가</p>
+            <span class="trust-desc">복잡한 서류 행정 절차 일괄 일임 처리</span>
           </div>
         </a>
 
@@ -795,6 +809,44 @@
     </div>
 
   </footer>
+
+  <!-- 스크롤 감지 및 라이브 숫자 카운팅 엔진 자바스크립트 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const counters = document.querySelectorAll('.trust-number[data-target]');
+      
+      const runCounter = (el) => {
+        const target = +el.getAttribute('data-target');
+        let count = 0;
+        const speed = 20; // 숫자가 올라가는 부드러운 속도 조절
+        
+        const updateCount = () => {
+          const inc = target / speed;
+          if (count < target) {
+            count += inc;
+            el.innerText = Math.ceil(count) + "+";
+            setTimeout(updateCount, 40);
+          } else {
+            el.innerText = target + "+";
+          }
+        };
+        updateCount();
+      };
+
+      // 화면 스크롤 시 해당 구역이 드러날 때 애니메이션 실행 장치
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            const animTarget = entry.target;
+            runCounter(animTarget);
+            observer.unobserve(animTarget);
+          }
+        });
+      }, { threshold: 0.6 });
+
+      counters.forEach(counter => observer.observe(counter));
+    });
+  </script>
 
 </body>
 </html>
