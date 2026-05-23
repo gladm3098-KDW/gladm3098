@@ -51,6 +51,11 @@
       box-sizing: border-box;
     }
 
+    /* 부드러운 스크롤 이동 효과 추가 */
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: "Pretendard", sans-serif;
       background: #fff;
@@ -215,6 +220,11 @@
       padding: 110px 0;
     }
 
+    /* 네비게이션 이동 시 헤더에 제목이 가려지지 않도록 상단 여백 보정 */
+    .section[id] {
+      scroll-margin-top: 78px;
+    }
+
     .section-title {
       text-align: center;
       margin-bottom: 70px;
@@ -277,7 +287,7 @@
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
+      gap: 24px;
     }
 
     .service-card {
@@ -453,16 +463,12 @@
         <span>GL</span> 지엘행정사 사무소
       </a>
 
+      <!-- [상단 헤더 메뉴] 각 구역의 고유 식별 주소(#) 연동 -->
       <nav class="nav">
-        <a href="services.html">업무분야</a>
-        <a href="cases.html">성공사례</a>
-        <a
-  href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1"
-  target="_blank"
->
-  📝 블로그
-</a>
-        <a href="consult.html">상담문의</a>
+        <a href="#gl-business">업무분야</a>
+        <a href="#gl-cases">성공사례</a>
+        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a>
+        <a href="#gl-contact">상담문의</a>
       </nav>
 
     </div>
@@ -479,7 +485,7 @@
       </div>
 
       <h1>
-        식품 인허가와 HACCP,<br>
+        食品 인허가와 HACCP,<br>
         <span>현장 실무 기준으로 해결합니다</span>
       </h1>
 
@@ -552,9 +558,9 @@
 
   </section>
 
-  <!-- 서비스 -->
+  <!-- 서비스 구역 (id="gl-business" 식별 장치 추가) -->
 
-  <section class="section">
+  <section class="section" id="gl-business">
 
     <div class="container">
 
@@ -647,9 +653,9 @@
 
   </section>
 
-  <!-- 신뢰 -->
+  <!-- 신뢰 및 성공사례 구역 (id="gl-cases" 식별 장치 추가) -->
 
-  <section class="section trust-section">
+  <section class="section trust-section" id="gl-cases">
 
     <div class="container">
 
@@ -690,9 +696,9 @@
 
   </section>
 
-  <!-- CTA -->
+  <!-- CTA 및 상담문의 하단 영역 (id="gl-contact" 식별 장치 추가) -->
 
-  <section class="section">
+  <section class="section" id="gl-contact">
 
     <div class="container">
 
