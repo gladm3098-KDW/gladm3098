@@ -131,16 +131,19 @@
       background: #1d2d4e;
     }
 
-    /* HERO */
+    /* ==========================================
+       [핵심 수정] 창 최대화 시 얼굴 잘림 방지 핏
+    ============================================*/
     .hero {
       background-color: #f4f4f6;
-      /* [보정 완료] 깃허브에 등록된 중복 확장자 이름 파일(hero-bg.png.png)로 다이렉트 매칭 */
-      background-image: linear-gradient(90deg, #f4f4f6 45%, rgba(244, 244, 246, 0.7) 70%, transparent 100%), 
+      /* 그라데이션 투명도를 인물 선명도에 맞춰 소폭 조정 */
+      background-image: linear-gradient(90deg, #f4f4f6 40%, rgba(244, 244, 246, 0.6) 65%, transparent 95%), 
                         url('./images/hero-bg.png.png');
-      background-position: right center;
+      /* [수정] 배경 정렬 기준을 우측 상단(right top)으로 고정하여 창을 최대화해도 머리가 잘리지 않게 방지 */
+      background-position: right top;
       background-repeat: no-repeat;
       background-size: cover;
-      padding: 110px 0;
+      padding: 120px 0; /* 위아래 패딩 공간 확정 균형 유지 */
       position: relative;
     }
 
@@ -610,7 +613,7 @@
     </div>
   </section>
 
-  <!-- TRUST SECTION -->
+  <!-- 애니메이션 신뢰 지표 섹션 -->
   <section class="section trust-section">
     <div class="container">
       <div class="section-title">
@@ -654,7 +657,7 @@
     </div>
   </section>
 
-  <!-- BOTTOM TRUST BAR -->
+  <!-- 가로형 4대 핵심 지표 배너 구역 -->
   <section class="bottom-trust-bar">
     <div class="container trust-bar-inner">
       
