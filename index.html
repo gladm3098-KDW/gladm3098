@@ -2,346 +2,443 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>지엘행정사 사무소 | 식품·축산물 인허가 및 HACCP 전문</title>
 
-  <meta name="description" content="식품제조가공업, 축산물가공업, HACCP 인증 전문 지엘행정사 사무소. 실무 중심 인허가 컨설팅 제공.">
+  <meta
+    name="description"
+    content="식품제조가공업, 축산물가공업, HACCP 인증 등 식품 인허가 실무 전문 지엘행정사 사무소입니다."
+  />
 
-  <link rel="stylesheet" href="style.css">
+  <meta
+    name="keywords"
+    content="식품제조가공업, 축산물가공업, HACCP, 해썹, 영업허가, 행정사"
+  />
 
-  <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <meta name="author" content="지엘행정사 사무소" />
+
+  <!-- Pretendard -->
+  <link
+    rel="stylesheet"
+    as="style"
+    crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+  />
 
   <style>
+    :root {
+      --color-primary: #1f2937;
+      --color-secondary: #c7a97f;
+      --color-background: #f8f6f2;
+      --color-surface: #ffffff;
+      --color-text: #111827;
+      --color-text-muted: #6b7280;
+      --color-border: #e5e7eb;
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+      --shadow-sm: 0 2px 10px rgba(0,0,0,0.04);
+      --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+
+      --radius-lg: 20px;
+      --radius-md: 14px;
+
+      --transition: all 0.25s ease;
     }
 
-    body{
-      font-family:'Pretendard', sans-serif;
-      background:#f8f8f6;
-      color:#1f2937;
-      line-height:1.7;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    body {
+      font-family: "Pretendard", sans-serif;
+      background: #fff;
+      color: var(--color-text);
+      line-height: 1.7;
+      word-break: keep-all;
     }
 
-    .container{
-      width:100%;
-      max-width:1280px;
-      margin:auto;
-      padding:0 24px;
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
 
     /* HEADER */
 
-    .header{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(255,255,255,0.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid #ececec;
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
-    .header-inner{
-      height:80px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
+    .header-inner {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .logo{
-      font-size:28px;
-      font-weight:800;
-      color:#111827;
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--color-primary);
     }
 
-    .logo span{
-      color:#b89b6d;
+    .logo span {
+      color: var(--color-secondary);
     }
 
-    .nav{
-      display:flex;
-      gap:40px;
-      font-size:16px;
-      font-weight:600;
+    .nav {
+      display: flex;
+      gap: 34px;
+      font-size: 15px;
+      color: var(--color-text-muted);
     }
 
-    .nav a:hover{
-      color:#b89b6d;
+    .nav a:hover {
+      color: var(--color-primary);
     }
 
     /* HERO */
 
-    .hero{
-      padding:120px 0 100px;
-      text-align:center;
+    .hero {
       background:
-      radial-gradient(circle at top,
-      rgba(184,155,109,0.14),
-      transparent 60%);
+        linear-gradient(
+          180deg,
+          #f8f6f2 0%,
+          #ffffff 100%
+        );
+      padding: 120px 0 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-badge{
-      display:inline-block;
-      padding:10px 18px;
-      background:#ffffff;
-      border:1px solid #e8e8e8;
-      border-radius:999px;
-      font-size:14px;
-      font-weight:600;
-      margin-bottom:24px;
-      color:#6b7280;
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(
+        rgba(199,169,127,0.18),
+        transparent 70%
+      );
+      top: -250px;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
-    .hero h1{
-      font-size:58px;
-      line-height:1.25;
-      margin-bottom:24px;
-      font-weight:800;
-      color:#111827;
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
 
-    .hero h1 span{
-      color:#b89b6d;
+    .hero-badge {
+      display: inline-block;
+      padding: 10px 18px;
+      background: rgba(199,169,127,0.12);
+      color: #8d6f47;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 26px;
     }
 
-    .hero p{
-      max-width:780px;
-      margin:auto;
-      font-size:20px;
-      color:#6b7280;
-      margin-bottom:40px;
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.2;
+      color: var(--color-primary);
+      margin-bottom: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
     }
 
-    .hero-buttons{
-      display:flex;
-      justify-content:center;
-      gap:16px;
-      flex-wrap:wrap;
+    .hero h1 span {
+      color: var(--color-secondary);
     }
 
-    .btn-primary{
-      background:#b89b6d;
-      color:#fff;
-      padding:16px 34px;
-      border-radius:12px;
-      font-weight:700;
-      transition:0.3s;
+    .hero p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--color-text-muted);
+      font-size: 19px;
     }
 
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      background:#a88a59;
+    .hero-buttons {
+      margin-top: 42px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
-    .btn-outline{
-      border:1px solid #d6d6d6;
-      padding:16px 34px;
-      border-radius:12px;
-      font-weight:700;
-      background:#fff;
+    .btn {
+      padding: 16px 30px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--color-secondary);
+      color: white;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid #d1d5db;
+      background: white;
+      color: var(--color-primary);
     }
 
     /* SECTION */
 
-    .section{
-      padding:110px 0;
+    .section {
+      padding: 110px 0;
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:70px;
+    .section-title {
+      text-align: center;
+      margin-bottom: 70px;
     }
 
-    .section-title h2{
-      font-size:42px;
-      margin-bottom:18px;
-      color:#111827;
+    .section-title h2 {
+      font-size: 42px;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
     }
 
-    .section-title p{
-      color:#6b7280;
-      font-size:18px;
+    .section-title p {
+      color: var(--color-text-muted);
+      font-size: 18px;
+      max-width: 760px;
+      margin: 0 auto;
     }
 
     /* EMPATHY */
 
-    .empathy-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-      gap:28px;
+    .empathy-section {
+      background: #fafafa;
     }
 
-    .empathy-card{
-      background:#fff;
-      padding:40px;
-      border-radius:24px;
-      border:1px solid #ececec;
-      box-shadow:0 10px 30px rgba(0,0,0,0.04);
+    .empathy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
     }
 
-    .empathy-card h3{
-      font-size:22px;
-      margin-bottom:18px;
-      color:#c2410c;
+    .empathy-card {
+      background: white;
+      border-radius: 20px;
+      padding: 34px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid #f1f1f1;
+      transition: var(--transition);
     }
 
-    /* SERVICES */
-
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:28px;
+    .empathy-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
-    .service-card{
-      background:#fff;
-      border-radius:24px;
-      padding:42px 32px;
-      border:1px solid #ececec;
-      box-shadow:0 10px 30px rgba(0,0,0,0.05);
-
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-
-      min-height:340px;
-
-      transition:0.3s;
-      text-align:center;
+    .empathy-card h3 {
+      font-size: 22px;
+      margin-bottom: 18px;
+      color: #b45309;
+      line-height: 1.4;
     }
 
-    .service-card:hover{
-      transform:translateY(-6px);
+    .empathy-card p {
+      color: var(--color-text-muted);
+      font-size: 16px;
     }
 
-    .service-icon{
-      font-size:40px;
-      margin-bottom:20px;
+    /* SERVICE */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 28px;
     }
 
-    .service-card h3{
-      font-size:24px;
-      margin-bottom:16px;
-      color:#111827;
+    .service-card {
+      background: white;
+      border-radius: 24px;
+      padding: 40px 30px;
+      border: 1px solid #ededed;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
     }
 
-    .service-card p{
-      color:#6b7280;
-      font-size:15px;
-      line-height:1.8;
-      margin-bottom:30px;
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
     }
 
-    .service-btn{
-      display:inline-block;
-      padding:14px 24px;
-      border:1px solid #d4d4d4;
-      border-radius:10px;
-      font-weight:700;
-      transition:0.3s;
+    .service-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: rgba(199,169,127,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 34px;
     }
 
-    .service-btn:hover{
-      background:#111827;
-      color:#fff;
+    .service-card h3 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      color: var(--color-primary);
     }
 
-    /* PROOF */
-
-    .proof-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:24px;
+    .service-card p {
+      color: var(--color-text-muted);
+      font-size: 15px;
+      min-height: 110px;
     }
 
-    .proof-card{
-      background:#fff;
-      height:320px;
-      border-radius:20px;
-      border:1px solid #ececec;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#9ca3af;
-      font-weight:700;
+    .service-card .btn-outline {
+      margin-top: 18px;
+    }
+
+    /* TRUST */
+
+    .trust-section {
+      background: #fafafa;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-top: 50px;
+    }
+
+    .trust-box {
+      background: white;
+      border-radius: 20px;
+      padding: 36px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .trust-number {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--color-secondary);
+      margin-bottom: 10px;
+    }
+
+    .trust-box p {
+      color: var(--color-text-muted);
     }
 
     /* CTA */
 
-    .cta{
-      background:#111827;
-      color:#fff;
-      border-radius:36px;
-      padding:80px 50px;
-      text-align:center;
+    .cta-section {
+      background:
+        linear-gradient(
+          135deg,
+          #1f2937 0%,
+          #111827 100%
+        );
+
+      color: white;
+      text-align: center;
+      border-radius: 40px;
+      padding: 80px 40px;
     }
 
-    .cta h2{
-      font-size:42px;
-      margin-bottom:20px;
+    .cta-section h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
     }
 
-    .cta p{
-      color:#d1d5db;
-      margin-bottom:36px;
-      font-size:18px;
+    .cta-section p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.7);
+      font-size: 18px;
+    }
+
+    .cta-section .btn-primary {
+      margin-top: 34px;
     }
 
     /* FOOTER */
 
-    .footer{
-      padding:70px 0;
-      background:#111827;
-      color:#d1d5db;
-      margin-top:120px;
+    .footer {
+      background: #111827;
+      color: rgba(255,255,255,0.7);
+      padding: 70px 0;
+      margin-top: 100px;
     }
 
-    .footer h3{
-      color:#fff;
-      margin-bottom:20px;
-      font-size:24px;
+    .footer h3 {
+      color: white;
+      margin-bottom: 20px;
+      font-size: 24px;
     }
 
-    .footer p{
-      margin-bottom:10px;
+    .footer p {
+      margin-bottom: 10px;
+      font-size: 15px;
     }
 
     /* MOBILE */
 
-    @media(max-width:768px){
+    @media (max-width: 768px) {
 
-      .hero h1{
-        font-size:38px;
+      .hero {
+        padding: 90px 0 70px;
       }
 
-      .hero p{
-        font-size:17px;
+      .hero h1 {
+        font-size: 38px;
       }
 
-      .section{
-        padding:80px 0;
+      .hero p {
+        font-size: 16px;
       }
 
-      .section-title h2{
-        font-size:32px;
+      .section {
+        padding: 80px 0;
       }
 
-      .nav{
-        display:none;
+      .section-title h2 {
+        font-size: 30px;
       }
 
+      .nav {
+        display: none;
+      }
+
+      .cta-section h2 {
+        font-size: 30px;
+      }
     }
-
   </style>
 </head>
 
@@ -352,15 +449,14 @@
   <header class="header">
     <div class="container header-inner">
 
-      <div class="logo">
-        <span>GL</span> 지엘행정사
-      </div>
+      <a href="index.html" class="logo">
+        <span>GL</span> 지엘행정사 사무소
+      </a>
 
       <nav class="nav">
-        <a href="#">업무분야</a>
-        <a href="#">성공사례</a>
-        <a href="#">HACCP</a>
-        <a href="#">상담문의</a>
+        <a href="services.html">업무분야</a>
+        <a href="cases.html">성공사례</a>
+        <a href="consult.html">상담문의</a>
       </nav>
 
     </div>
@@ -370,30 +466,30 @@
 
   <section class="hero">
 
-    <div class="container">
+    <div class="container hero-content">
 
       <div class="hero-badge">
-        식품 · 축산물 영업 인허가 · HACCP 전문
+        식품 · 축산물 인허가 · HACCP 실무 전문
       </div>
 
       <h1>
         식품 인허가와 HACCP,<br>
-        <span>실무 중심으로 해결합니다</span>
+        <span>현장 실무 기준으로 해결합니다</span>
       </h1>
 
       <p>
-        식품제조가공업, 축산물가공업, HACCP 인증까지.
-        실제 현장 운영과 행정 실무를 함께 고려한
-        인허가 컨설팅을 제공합니다.
+        식품제조가공업, 축산물가공업, HACCP 인증까지.<br>
+        시설 기준 검토부터 작업장 동선, 기준서 작성, 심사 대응까지
+        실제 운영을 고려한 인허가 실무를 지원합니다.
       </p>
 
       <div class="hero-buttons">
-        <a href="#" class="btn-primary">
-          상담 요청하기
+        <a href="consult.html" class="btn btn-primary">
+          상담 문의하기
         </a>
 
-        <a href="#" class="btn-outline">
-          성공사례 보기
+        <a href="cases.html" class="btn btn-outline">
+          성공 사례 보기
         </a>
       </div>
 
@@ -401,18 +497,19 @@
 
   </section>
 
-  <!-- EMPATHY -->
+  <!-- 공감 섹션 -->
 
-  <section class="section">
+  <section class="section empathy-section">
 
     <div class="container">
 
       <div class="section-title">
-        <h2>인허가는 서류만으로 해결되지 않습니다</h2>
+        <h2>인허가는 서류만으로 끝나지 않습니다</h2>
 
         <p>
-          시설 기준, 위생 동선, 실제 운영 방식까지 함께 고려해야
-          안정적인 인허가와 HACCP 운영이 가능합니다.
+          실제 현장에서는 시설 기준, 작업 동선, 위생 구획,
+          제조 공정까지 함께 검토해야 불필요한 보완 요청과
+          추가 공사를 줄일 수 있습니다.
         </p>
       </div>
 
@@ -424,22 +521,22 @@
           </h3>
 
           <p>
-            식품 및 축산물 영업은 업종별 시설 기준이 다르며,
-            작업장 구조와 위생 동선까지 함께 고려해야 합니다.
+            식품·축산물 영업 인허가는 업종별 시설 기준과
+            위생 기준을 충족해야 합니다.
             공사 전에 기준을 정확히 검토하지 않으면
-            추가 비용과 일정 지연이 발생할 수 있습니다.
+            추가 시공이나 설비 변경이 발생할 수 있습니다.
           </p>
         </div>
 
         <div class="empathy-card">
           <h3>
-            “HACCP 심사에서 보완 요청이 반복됩니다”
+            “HACCP 심사에서 보완이 반복됩니다”
           </h3>
 
           <p>
-            형식적인 기준서 작성만으로는 충분하지 않습니다.
+            형식적인 기준서만으로는 충분하지 않습니다.
             실제 제조 공정과 운영 방식에 맞는
-            실행 가능한 HACCP 시스템 구축이 필요합니다.
+            실행 가능한 HACCP 시스템 구축이 중요합니다.
           </p>
         </div>
 
@@ -449,102 +546,91 @@
 
   </section>
 
-  <!-- SERVICES -->
+  <!-- 서비스 -->
 
   <section class="section">
 
     <div class="container">
 
       <div class="section-title">
-        <h2>허가 이후 운영까지 고려한 인허가</h2>
+        <h2>실무 중심 인허가 컨설팅</h2>
 
         <p>
-          실제 운영 과정까지 고려한 실무 중심 컨설팅을 제공합니다.
+          허가 취득 이후 실제 운영까지 고려하여
+          현장 중심으로 인허가와 HACCP 구축을 진행합니다.
         </p>
       </div>
 
-      <div class="services-grid">
+      <div class="service-grid">
 
         <div class="service-card">
 
-          <div>
-            <div class="service-icon">🏭</div>
+          <div class="service-icon">🏭</div>
 
-            <h3>식품제조가공업</h3>
+          <h3>식품제조가공업</h3>
 
-            <p>
-              건축물 용도 확인부터
-              시설 기준 검토,
-              작업장 동선 설계,
-              품목제조보고까지
-              전 과정을 지원합니다.
-            </p>
-          </div>
+          <p>
+            작업장 배치, 시설 기준 검토,
+            영업등록 신청, 품목제조보고까지
+            식품 제조업 인허가 전 과정을 지원합니다.
+          </p>
 
-          <a href="#" class="service-btn">
-            상세 보기 →
+          <a href="services.html#food" class="btn btn-outline">
+            자세히 보기
           </a>
 
         </div>
 
         <div class="service-card">
 
-          <div>
-            <div class="service-icon">🥩</div>
+          <div class="service-icon">🥩</div>
 
-            <h3>축산물가공업</h3>
+          <h3>축산물가공업</h3>
 
-            <p>
-              식육가공업·알가공업·유가공업 등
-              축산물 위생관리법 기준에 맞춘
-              인허가 컨설팅을 제공합니다.
-            </p>
-          </div>
+          <p>
+            축산물 위생관리법 기준에 맞춘
+            작업장 구성과 공정 검토,
+            영업허가 및 행정 절차를 지원합니다.
+          </p>
 
-          <a href="#" class="service-btn">
-            상세 보기 →
+          <a href="services.html#meat" class="btn btn-outline">
+            자세히 보기
           </a>
 
         </div>
 
         <div class="service-card">
 
-          <div>
-            <div class="service-icon">🛡️</div>
+          <div class="service-icon">🛡️</div>
 
-            <h3>HACCP 인증</h3>
+          <h3>HACCP 인증</h3>
 
-            <p>
-              제조 공정 분석부터
-              HACCP 기준서 작성,
-              심사 대응까지
-              실제 운영 가능한 시스템 구축을 지원합니다.
-            </p>
-          </div>
+          <p>
+            제조 공정 분석, 위해 요소 관리,
+            HACCP 기준서 작성 및 심사 대응까지
+            실무형 HACCP 구축을 지원합니다.
+          </p>
 
-          <a href="#" class="service-btn">
-            상세 보기 →
+          <a href="services.html#haccp" class="btn btn-outline">
+            자세히 보기
           </a>
 
         </div>
 
         <div class="service-card">
 
-          <div>
-            <div class="service-icon">📋</div>
+          <div class="service-icon">📄</div>
 
-            <h3>기타 영업 인허가</h3>
+          <h3>기타 영업 인허가</h3>
 
-            <p>
-              즉석판매제조가공업,
-              건강기능식품,
-              공장등록 등
-              다양한 제조업 인허가를 지원합니다.
-            </p>
-          </div>
+          <p>
+            즉석판매제조가공업,
+            식품소분업, 건강기능식품업 등
+            다양한 식품 관련 인허가를 지원합니다.
+          </p>
 
-          <a href="#" class="service-btn">
-            상세 보기 →
+          <a href="services.html" class="btn btn-outline">
+            자세히 보기
           </a>
 
         </div>
@@ -555,36 +641,41 @@
 
   </section>
 
-  <!-- PROOF -->
+  <!-- 신뢰 -->
 
-  <section class="section">
+  <section class="section trust-section">
 
     <div class="container">
 
       <div class="section-title">
-        <h2>결과로 증명합니다</h2>
+        <h2>운영까지 고려한 인허가</h2>
 
         <p>
-          실제 인허가 및 HACCP 진행 사례
+          단순 허가 취득이 아니라
+          실제 운영 과정에서의 문제까지 고려합니다.
         </p>
       </div>
 
-      <div class="proof-grid">
+      <div class="trust-grid">
 
-        <div class="proof-card">
-          영업허가증 사례
+        <div class="trust-box">
+          <div class="trust-number">10+</div>
+          <p>실무 경험</p>
         </div>
 
-        <div class="proof-card">
-          HACCP 인증 사례
+        <div class="trust-box">
+          <div class="trust-number">HACCP</div>
+          <p>기준서 및 심사 대응</p>
         </div>
 
-        <div class="proof-card">
-          축산물가공업 사례
+        <div class="trust-box">
+          <div class="trust-number">1:1</div>
+          <p>현장 맞춤 컨설팅</p>
         </div>
 
-        <div class="proof-card">
-          공장등록 사례
+        <div class="trust-box">
+          <div class="trust-number">ALL</div>
+          <p>인허가 원스톱 진행</p>
         </div>
 
       </div>
@@ -599,19 +690,20 @@
 
     <div class="container">
 
-      <div class="cta">
+      <div class="cta-section">
 
         <h2>
-          허가 이후 운영까지 함께합니다
+          허가 이후 운영까지 함께 고민합니다
         </h2>
 
         <p>
-          단순 서류 대행이 아닌,
-          실제 운영을 고려한 인허가 컨설팅을 제공합니다.
+          시설 기준 검토부터 HACCP 구축,
+          실제 현장 운영까지 고려한
+          실무 중심 인허가를 지원합니다.
         </p>
 
-        <a href="#" class="btn-primary">
-          상담 요청하기
+        <a href="consult.html" class="btn btn-primary">
+          상담 문의하기
         </a>
 
       </div>
@@ -637,15 +729,15 @@
       </p>
 
       <p>
-        인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호
+        주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호
       </p>
 
       <p>
         연락처 : 010-3538-3098
       </p>
 
-      <p style="margin-top:30px; opacity:0.6;">
-        © 2026 지엘행정사 사무소. All Rights Reserved.
+      <p style="margin-top:30px; opacity:0.5;">
+        © 2026 GL Administrative Office. All Rights Reserved.
       </p>
 
     </div>
