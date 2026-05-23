@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
@@ -20,10 +20,74 @@ body {
     color: #333;
 }
 
+/* ==========================================
+   [새로 추가] 상단 헤더 내비게이션 디자인 
+============================================*/
+.main-header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* 로고 스타일 */
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111e38;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: #bfa17a; /* 이미지상의 GL 골드 포인트 컬러 반영 */
+    margin-right: 4px;
+}
+
+/* 네비게이션 메뉴 */
+.nav-menu {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #475569;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-item a:hover {
+    color: #111e38;
+    font-weight: 700;
+}
+
+/* ==========================================
+   기본 콘텐츠 레이아웃
+============================================*/
 .container {
     max-width: 1200px;
     margin: auto;
-    padding: 60px 20px 140px 20px; /* 고정 바 높이만큼 하단 여백 충분히 확보 */
+    padding: 60px 20px 140px 20px; /* 고정 바 높이를 고려한 여백 */
     text-align: center;
 }
 
@@ -101,7 +165,7 @@ h1 {
     flex-shrink: 0;
 }
 
-/* 하단 글씨 영역 높이 최저 압축 유지 */
+/* 하단 글씨 영역 높이 최저 압축 */
 .case-info {
     padding: 6px 8px 8px 8px; 
     text-align: center;
@@ -135,14 +199,14 @@ h1 {
 }
 
 /* ==========================================
-   [업그레이드] 하단 스마트 고정 바 레이아웃
+   하단 고정 안내 및 실시간 상담 버튼 영역
 ============================================*/
 .sticky-action-bar {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95); /* 살짝 투명한 세련된 화이트 */
+    background-color: rgba(255, 255, 255, 0.95);
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
     padding: 14px 20px;
     box-sizing: border-box;
@@ -150,7 +214,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(8px); /* 배후 화면 흐림 효과로 고급스러움 추가 */
+    backdrop-filter: blur(8px);
 }
 
 .action-container {
@@ -224,14 +288,26 @@ h1 {
     background-color: #fdd835;
 }
 
-/* 모바일 화면 최적화 조절 (반응형 코드) */
+/* 반응형 모바일 헤더 및 하단 바 조절 */
 @media (max-width: 768px) {
+    .header-container {
+        height: 60px;
+    }
+    .logo {
+        font-size: 17px;
+    }
+    .nav-menu {
+        gap: 12px;
+    }
+    .nav-item a {
+        font-size: 12px;
+    }
     .action-container {
         flex-direction: column;
         gap: 10px;
     }
     .action-text {
-        display: none; /* 모바일에서는 화면 확보를 위해 안내 문구 생략 */
+        display: none; 
     }
     .action-btn-group {
         width: 100%;
@@ -247,6 +323,22 @@ h1 {
 </head>
 
 <body>
+
+<!-- [상단 헤더] 상단 로고 및 상단 메뉴 바 구현 완료 -->
+<header class="main-header">
+    <div class="header-container">
+        <!-- 메인 로고 (링크 연결 필요 시 href 수정 가능) -->
+        <a href="#" class="logo"><span>GL</span> 지엘행정사 사무소</a>
+        
+        <!-- 우측 텍스트 메뉴 단락 -->
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="#">업무분야</a></li>
+            <li class="nav-item"><a href="#">성공사례</a></li>
+            <li class="nav-item"><a href="#">📝 블로그</a></li>
+            <li class="nav-item"><a href="#">상담문의</a></li>
+        </ul>
+    </div>
+</header>
 
 <div class="container">
 
@@ -265,7 +357,7 @@ h1 {
 
 </div>
 
-<!-- [스마트 고정 바] 언제든 화면 밑에서 고객을 따라다니는 최적의 전환 유도 장치 -->
+<!-- 하단 스마트 고정 바 -->
 <div class="sticky-action-bar">
     <div class="action-container">
         <div class="action-text">🎯 HACCP·인허가 빠른 상담</div>
