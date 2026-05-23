@@ -131,28 +131,22 @@
       background: #1d2d4e;
     }
 
-    /* ==========================================
-       [핵심 수정] 대화면 해상도 인물 크기 보정 핏
-    ============================================*/
+    /* HERO */
     .hero {
       background-color: #f4f4f6;
-      /* 글자 뒤 배경 투명도 그라데이션 영역을 넓혀서 대화면에서도 인물을 침범하지 않게 조율 */
       background-image: linear-gradient(90deg, #f4f4f6 35%, rgba(244, 244, 246, 0.8) 60%, transparent 90%), 
                         url('./images/hero-bg.png.png');
-      /* 우측 정렬을 유지하되, 세로축 기준으로 인물이 잘려 밀려 올라가지 않도록 상단 맞춤(right top) 고정 */
       background-position: right top;
       background-repeat: no-repeat;
-      /* [수정] 대형 모니터에서 인물이 작아지는 걸 막기 위해 세로 길이에 맞춰 이미지가 반응하도록 유연성 확보 */
       background-size: contain; 
-      padding: 140px 0; /* 우측 인물 사진 높이와 밸런스를 맞추기 위해 본문 여백 확대 */
-      min-height: 520px; /* 창을 최대로 키워도 인물 상반신이 잘리지 않고 다 나올 수 있는 최소 높이 확보 */
+      padding: 140px 0; 
+      min-height: 520px; 
       position: relative;
     }
 
-    /* 고해상도 넓은 대화면 모니터 전용 예외 보정(미디어쿼리) */
     @media (min-width: 1400px) {
       .hero {
-        background-size: auto 100%; /* 가로가 늘어나도 인물이 왜소해지지 않고 큼직한 우측 사진 상태를 강제 고정 */
+        background-size: auto 100%; 
         padding: 160px 0;
       }
     }
@@ -473,7 +467,8 @@
     .footer {
       background: #0f172a;
       color: #94a3b8;
-      padding: 60px 0;
+      /* 스마트 바 높이를 감안하여 아래 패딩 공간을 여유 있게 확보 */
+      padding: 60px 0 140px 0;
       border-top: 1px solid #1e293b;
       font-size: 14.5px;
     }
@@ -488,6 +483,93 @@
       margin-bottom: 8px;
     }
 
+    /* ==========================================
+       [빨간 네모칸 보강] 메인용 스마트 고정 상담 바
+    ============================================*/
+    .sticky-action-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.95);
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+        padding: 14px 20px;
+        box-sizing: border-box;
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backdrop-filter: blur(8px);
+    }
+
+    .action-container {
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .action-text {
+        font-size: 15px;
+        font-weight: 500;
+        color: #334155;
+        text-align: left;
+        white-space: nowrap;
+    }
+
+    .action-btn-group {
+        display: flex;
+        gap: 10px;
+        flex-grow: 1;
+        max-width: 500px;
+    }
+
+    .action-btn {
+        flex: 1;
+        padding: 12px 16px;
+        font-size: 14px;
+        font-weight: 700;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        white-space: nowrap;
+    }
+
+    .btn-back {
+        background-color: #f1f5f9;
+        color: #475569;
+        border: 1px solid #cbd5e1;
+    }
+    .btn-back:hover {
+        background-color: #e2e8f0;
+    }
+
+    .btn-phone {
+        background-color: #111e38;
+        color: #ffffff;
+        border: 1px solid #111e38;
+    }
+    .btn-phone:hover {
+        background-color: #1e293b;
+    }
+
+    .btn-kakao {
+        background-color: #fee500;
+        color: #181600;
+        border: 1px solid #fee500;
+    }
+    .btn-kakao:hover {
+        background-color: #fdd835;
+    }
+
+    /* 반응형 레이아웃 분기 처리 */
     @media (max-width: 1024px) {
       .service-grid, .trust-bar-inner {
         grid-template-columns: repeat(2, 1fr);
@@ -499,9 +581,24 @@
 
     @media (max-width: 768px) {
       .hero {
-        background-image: none; /* 모바일 환경에서는 텍스트 가독성을 위해 인물 사진 가리기 */
+        background-image: none; 
         padding: 80px 0;
         min-height: auto;
+      }
+      .action-container {
+          flex-direction: column;
+          gap: 10px;
+      }
+      .action-text {
+          display: none; 
+      }
+      .action-btn-group {
+          width: 100%;
+          max-width: 100%;
+      }
+      .action-btn {
+          padding: 14px 10px;
+          font-size: 13.5px;
       }
     }
 
@@ -727,6 +824,18 @@
       <p style="margin-top:25px; opacity:0.5;">© 2026 GL Administrative Office. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- [스마트 고정 바] 이미지와 동일한 위치 및 레이아웃 완벽 매칭 -->
+  <div class="sticky-action-bar">
+      <div class="action-container">
+          <div class="action-text">🎯 HACCP·인허가 빠른 상담</div>
+          <div class="action-btn-group">
+              <button class="action-btn btn-back" onclick="history.back();">이전으로</button>
+              <a href="tel:010-3538-3098" class="action-btn btn-phone">📞 전화연결</a>
+              <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" class="action-btn btn-kakao">💬 카카오톡 문의</a>
+          </div>
+      </div>
+  </div>
 
   <!-- 스크롤 숫자 애니메이션 자바스크립트 -->
   <script>
