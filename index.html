@@ -51,7 +51,6 @@
       box-sizing: border-box;
     }
 
-    /* 부드러운 스크롤 이동 효과 추가 */
     html {
       scroll-behavior: smooth;
     }
@@ -220,7 +219,6 @@
       padding: 110px 0;
     }
 
-    /* 네비게이션 이동 시 헤더에 제목이 가려지지 않도록 상단 여백 보정 */
     .section[id] {
       scroll-margin-top: 78px;
     }
@@ -463,11 +461,11 @@
         <span>GL</span> 지엘행정사 사무소
       </a>
 
-      <!-- [상단 헤더 메뉴] 각 구역의 고유 식별 주소(#) 연동 -->
+      <!-- [핵심 수정] 성공사례를 클릭하면 내부 스크롤이 아니라 실제 '성공사례 전용 페이지(cases.html)'로 직접 넘어가도록 연동 수정 -->
       <nav class="nav">
         <a href="#gl-business">업무분야</a>
-        <a href="#gl-cases">성공사례</a>
-        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a>
+        <a href="cases.html">성공사례</a>
+        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝  블로그</a>
         <a href="#gl-contact">상담문의</a>
       </nav>
 
@@ -485,7 +483,7 @@
       </div>
 
       <h1>
-        食品 인허가와 HACCP,<br>
+        식품 인허가와 HACCP,<br>
         <span>현장 실무 기준으로 해결합니다</span>
       </h1>
 
@@ -496,10 +494,12 @@
       </p>
 
       <div class="hero-buttons">
-        <a href="consult.html" class="btn btn-primary">
+        <!-- 상담문의(id="gl-contact") 구역으로 자연스럽게 스크롤 이동하도록 연결 -->
+        <a href="#gl-contact" class="btn btn-primary">
           상담 문의하기
         </a>
 
+        <!-- 성공사례 전용 페이지 파일 연동 -->
         <a href="cases.html" class="btn btn-outline">
           성공 사례 보기
         </a>
@@ -558,7 +558,7 @@
 
   </section>
 
-  <!-- 서비스 구역 (id="gl-business" 식별 장치 추가) -->
+  <!-- 서비스 구역 (id="gl-business") -->
 
   <section class="section" id="gl-business">
 
@@ -653,9 +653,9 @@
 
   </section>
 
-  <!-- 신뢰 및 성공사례 구역 (id="gl-cases" 식별 장치 추가) -->
+  <!-- 신뢰 및 차별화 지표 구역 -->
 
-  <section class="section trust-section" id="gl-cases">
+  <section class="section trust-section">
 
     <div class="container">
 
@@ -696,7 +696,7 @@
 
   </section>
 
-  <!-- CTA 및 상담문의 하단 영역 (id="gl-contact" 식별 장치 추가) -->
+  <!-- CTA 및 상담문의 구역 (id="gl-contact") -->
 
   <section class="section" id="gl-contact">
 
@@ -714,7 +714,8 @@
           실무 중심 인허가를 지원합니다.
         </p>
 
-        <a href="consult.html" class="btn btn-primary">
+        <!-- 상담문의 링크 버튼 연동 설정 -->
+        <a href="#gl-contact" class="btn btn-primary">
           상담 문의하기
         </a>
 
