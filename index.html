@@ -71,9 +71,7 @@
       padding: 0 24px;
     }
 
-    /* ==========================================
-       1. 상단 헤더 내비게이션
-    ============================================*/
+    /* HEADER */
     .header {
       position: sticky;
       top: 0;
@@ -133,14 +131,12 @@
       background: #1d2d4e;
     }
 
-    /* ==========================================
-       2. 히어로 (PNG 배경 이미지 경로 맞춤 수정)
-    ============================================*/
+    /* HERO */
     .hero {
       background-color: #f4f4f6;
-      /* [.png 확장자로 완벽 변경 완료] 경로 인식을 명확하게 설정했습니다 */
+      /* [보정 완료] 깃허브에 등록된 중복 확장자 이름 파일(hero-bg.png.png)로 다이렉트 매칭 */
       background-image: linear-gradient(90deg, #f4f4f6 45%, rgba(244, 244, 246, 0.7) 70%, transparent 100%), 
-                        url('./images/hero-bg.png');
+                        url('./images/hero-bg.png.png');
       background-position: right center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -192,9 +188,7 @@
       background: #1d2d4e;
     }
 
-    /* ==========================================
-       3. 인허가 공감 섹션
-    ============================================*/
+    /* EMPATHY SECTION */
     .empathy-section {
       padding: 90px 0;
       background: #ffffff;
@@ -255,9 +249,7 @@
       line-height: 1.6;
     }
 
-    /* ==========================================
-       4. 4대 실무 서비스 그리드 구역
-    ============================================*/
+    /* SERVICE SECTION */
     .service-section {
       padding: 90px 0 110px 0;
       background: #fcfbfa;
@@ -354,9 +346,7 @@
       border-color: var(--color-primary);
     }
 
-    /* ==========================================
-       5. 애니메이션 신뢰 지표 스타일
-    ============================================*/
+    /* TRUST SECTION */
     .trust-section {
       background: linear-gradient(180deg, #fafafa 0%, #f5f3ef 100%); 
       padding: 110px 0;
@@ -426,9 +416,7 @@
       display: block;
     }
 
-    /* ==========================================
-       6. 하단 가로형 4대 지표 바 구역
-    ============================================*/
+    /* BOTTOM TRUST BAR */
     .bottom-trust-bar {
       background: #111e38; 
       color: white;
@@ -466,9 +454,7 @@
       line-height: 1.4;
     }
 
-    /* ==========================================
-       7. 하단 푸터 구역
-    ============================================*/
+    /* FOOTER */
     .footer {
       background: #0f172a;
       color: #94a3b8;
@@ -624,7 +610,7 @@
     </div>
   </section>
 
-  <!-- 애니메이션 신뢰 지표 섹션 -->
+  <!-- TRUST SECTION -->
   <section class="section trust-section">
     <div class="container">
       <div class="section-title">
@@ -668,7 +654,7 @@
     </div>
   </section>
 
-  <!-- 가로형 4대 핵심 지표 배너 구역 -->
+  <!-- BOTTOM TRUST BAR -->
   <section class="bottom-trust-bar">
     <div class="container trust-bar-inner">
       
@@ -714,12 +700,12 @@
       <p>대표행정사 : 지엘행정사 사무소</p>
       <p>사업자등록번호 : 572-45-00087</p>
       <p>주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
-      <p>連絡처 : 010-3538-3098</p>
+      <p>연락처 : 010-3538-3098</p>
       <p style="margin-top:25px; opacity:0.5;">© 2026 GL Administrative Office. All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- 스크롤 감지 및 라이브 숫자 카운팅 엔진 자바스크립트 -->
+  <!-- 스크롤 숫자 애니메이션 자바스크립트 -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const counters = document.querySelectorAll('.trust-number[data-target]');
