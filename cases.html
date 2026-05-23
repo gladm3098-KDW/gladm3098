@@ -84,6 +84,7 @@ h1 {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
     flex-direction: column;
+    height: 100%; /* 카드의 전체 높이 통일 */
 }
 
 .case-card:hover {
@@ -91,23 +92,23 @@ h1 {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* [수정] 원본 세로 조합 이미지가 잘리지 않도록 세로 비율을 길게 늘리고 꽉 차게 배치 */
+/* [핵심 수정] 이미지가 잘리지 않고 아래로 최대한 내려오도록 늘림 */
 .case-card img {
     width: 100%;
-    aspect-ratio: 4 / 4.7; /* 세로 길이를 늘려서 원본 조각 사진과 하단 인증서가 모두 잘림 없이 나오도록 조정 */
-    object-fit: cover; /* 좌우 빈 여백 없이 꽉 채움 */
+    aspect-ratio: 4 / 5.2; /* 세로 비율을 대폭 늘려 실적 사진 원본 조합이 온전히 나오도록 수정 */
+    object-fit: cover; 
     display: block;
+    flex-shrink: 0; /* 이미지가 아래 글자 공간 때문에 찌그러지지 않도록 고정 */
 }
 
-/* [핵심 수정] 하단 텍스트 영역의 위아래 높이를 최소한의 여백만 남기고 바짝 줄임 */
+/* [핵심 수정] 하단 글씨 영역의 높이를 최저 수준으로 압축 */
 .case-info {
-    padding: 10px 10px 12px 10px; /* 위아래 패딩을 줄여 높이를 대폭 낮춤 */
+    padding: 8px 10px 10px 10px; /* 위아래 패딩을 기존보다 더 타이트하게 축소 */
     text-align: center;
     border-top: 1px solid #f1f5f9;
     background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-grow: 0; /* 공간을 더 이상 확장하지 못하도록 차단 */
+    flex-shrink: 0;
 }
 
 /* 태그 간격 최소화 */
@@ -119,8 +120,7 @@ h1 {
     padding: 2px 8px;
     border-radius: 3px;
     display: inline-block;
-    margin-bottom: 4px; /* 태그와 글자 사이 여백 축소 */
-    align-self: center;
+    margin-bottom: 4px; 
 }
 
 /* 제목 텍스트 */
