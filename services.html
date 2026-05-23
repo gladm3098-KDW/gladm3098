@@ -140,7 +140,7 @@
         .service-section {
             padding: 120px 0;
             border-bottom: 1px solid #f1f1f1;
-            scroll-margin-top: 120px; /* 헤더 고정 높이에 밀리지 않게 패딩 교정 */
+            scroll-margin-top: 120px; 
         }
 
         .service-section:last-child {
@@ -157,6 +157,7 @@
             margin-bottom: 16px;
             position: relative;
             display: inline-block;
+          	text-align: left;
         }
 
         .service-header h2::after {
@@ -174,6 +175,7 @@
             color: var(--color-text-muted);
             font-size: 18px;
             max-width: 900px;
+          	text-align: left;
         }
 
         /* GRID */
@@ -191,6 +193,7 @@
             box-shadow: var(--shadow-sm);
             border: 1px solid #efefef;
             transition: var(--transition);
+          	text-align: left;
         }
 
         .point-card:hover {
@@ -270,7 +273,6 @@
         .footer {
             background: #111827;
             color: rgba(255, 255, 255, 0.7);
-            /* 스마트 상담 위젯 여백을 감안하여 아래 패딩 하단을 여유롭게 확보 */
             padding: 70px 0 140px 0; 
             margin-top: 120px;
         }
@@ -286,9 +288,7 @@
             font-size: 15px;
         }
 
-        /* ==========================================
-           스마트 고정형 상담 안내 바 위젯 스타일
-        ============================================*/
+        /* 스마트 바 고정 효과 */
         .sticky-action-bar {
             position: fixed;
             bottom: 0;
@@ -372,35 +372,85 @@
             background-color: #fdd835;
         }
 
-        /* MOBILE RESPONSIVE */
+        /* ==========================================
+           [모바일 버전 전용 가독성/정렬 피팅 코드]
+        ============================================*/
         @media (max-width: 768px) {
             .page-header {
-                padding: 80px 0 70px;
+                padding: 60px 0;
             }
 
             .page-header h1 {
-                font-size: 38px;
+                font-size: 28px; /* 모바일 전용 폰트 다운 */
+                line-height: 1.35;
+            }
+
+            .page-header p {
+                font-size: 15px;
+            }
+
+            .service-section {
+                padding: 50px 0;
+            }
+
+            .service-header {
+              	text-align: center;
+              	margin-bottom: 25px;
             }
 
             .service-header h2 {
-                font-size: 30px;
+                font-size: 24px;
+                display: block;
+              	text-align: center;
+            }
+
+            .service-header h2::after {
+              	left: 50%;
+              	transform: translateX(-50%); /* 데코 라인 중앙 정렬 */
+            }
+
+            .service-desc {
+                font-size: 14.5px;
+              	text-align: center;
+              	margin-top: 10px;
             }
 
             .service-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* 좌우 쏠림을 방지하기 위한 1열 강제 고정 */
+                gap: 16px;
+                margin-top: 30px;
+            }
+
+            .point-card {
+              	padding: 24px;
+            }
+
+            .point-card h3 {
+              	font-size: 19px;
+              	margin-bottom: 14px;
+            }
+
+            .point-card ul li {
+              	font-size: 14px;
+              	margin-bottom: 10px;
             }
 
             .nav {
                 display: none;
             }
 
-            .service-section {
-                padding: 90px 0;
-                scroll-margin-top: 160px;
+            .cta-box {
+              	padding: 40px 20px;
+              	border-radius: 20px;
             }
 
             .cta-box h2 {
-                font-size: 30px;
+                font-size: 22px;
+                line-height: 1.4;
+            }
+
+            .cta-box p {
+              	font-size: 14.5px;
             }
 
             .action-container {
@@ -586,7 +636,7 @@
         </div>
     </footer>
 
-    <!-- [스마트 위젯 완성] 하단 고정형 상담 액션 바 위젯 -->
+    <!-- 스마트 위젯 고정형 상담 액션 바 위젯 -->
     <div class="sticky-action-bar">
         <div class="action-container">
             <div class="action-text">🎯 HACCP·인허가 빠른 상담</div>
