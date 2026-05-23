@@ -21,7 +21,7 @@ body {
 }
 
 /* ==========================================
-   [새로 추가] 상단 헤더 내비게이션 디자인 
+   상단 헤더 내비게이션 디자인
 ============================================*/
 .main-header {
     width: 100%;
@@ -55,7 +55,7 @@ body {
 }
 
 .logo span {
-    color: #bfa17a; /* 이미지상의 GL 골드 포인트 컬러 반영 */
+    color: #bfa17a; 
     margin-right: 4px;
 }
 
@@ -87,7 +87,7 @@ body {
 .container {
     max-width: 1200px;
     margin: auto;
-    padding: 60px 20px 140px 20px; /* 고정 바 높이를 고려한 여백 */
+    padding: 60px 20px 140px 20px; 
     text-align: center;
 }
 
@@ -324,18 +324,17 @@ h1 {
 
 <body>
 
-<!-- [상단 헤더] 상단 로고 및 상단 메뉴 바 구현 완료 -->
+<!-- [상단 헤더] 전달해주신 실제 공식 블로그 URL 주소 연동 완료 -->
 <header class="main-header">
     <div class="header-container">
-        <!-- 메인 로고 (링크 연결 필요 시 href 수정 가능) -->
-        <a href="#" class="logo"><span>GL</span> 지엘행정사 사무소</a>
+        <a href="index.html" class="logo"><span>GL</span> 지엘행정사 사무소</a>
         
-        <!-- 우측 텍스트 메뉴 단락 -->
         <ul class="nav-menu">
-            <li class="nav-item"><a href="#">업무분야</a></li>
-            <li class="nav-item"><a href="#">성공사례</a></li>
-            <li class="nav-item"><a href="#">📝 블로그</a></li>
-            <li class="nav-item"><a href="#">상담문의</a></li>
+            <li class="nav-item"><a href="index.html#business">업무분야</a></li>
+            <li class="nav-item"><a href="index.html#cases">성공사례</a></li>
+            <!-- 실제 블로그 주소 적용 단락 -->
+            <li class="nav-item"><a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a></li>
+            <li class="nav-item"><a href="index.html#contact">상담문의</a></li>
         </ul>
     </div>
 </header>
