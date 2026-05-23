@@ -2,213 +2,150 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>식품 영업 인허가 성공사례 | 해썹 HACCP 인증 사례</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성공사례 | HACCP & 식품 인허가</title>
 
-    <meta name="description" content="식품제조가공업 등록, 축산물가공업 허가, HACCP 인증 성공 사례를 소개합니다." />
-    <meta name="keywords" content="식품 영업 인허가 사례, 해썹 HACCP 인증 사례, 축산물가공업 허가 사례, 식품제조가공업 등록 사례" />
+<style>
+body {
+    font-family: Arial, sans-serif;
+}
 
-    <link rel="stylesheet" href="style.css">
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
 
-    <style>
-        .cases-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 30px 0;
-        }
+.filter-btn-group {
+    margin: 20px 0;
+}
 
-        .case-card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #ddd;
-            transition: 0.3s;
-        }
+.btn {
+    padding: 8px 14px;
+    margin: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 6px;
+}
 
-        .case-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
+.btn.active {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
 
-        .case-img {
-            width: 100%;
-            height: 320px;
-            object-fit: cover;
-            display: block;
-        }
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
 
-        .case-info {
-            padding: 15px;
-            text-align: center;
-        }
+.case-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+    transition: 0.3s;
+}
 
-        .tag {
-            display: inline-block;
-            padding: 4px 10px;
-            font-size: 12px;
-            background: #2563eb;
-            color: white;
-            border-radius: 6px;
-            margin-bottom: 8px;
-        }
+.case-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
 
-        .filter-btn-group {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
+.case-info {
+    padding: 12px;
+}
 
-        .btn {
-            padding: 8px 14px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            cursor: pointer;
-            background: white;
-        }
+.tag {
+    font-size: 12px;
+    background: #2563eb;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+</style>
 
-        .btn.active {
-            background: #2563eb;
-            color: white;
-            border-color: #2563eb;
-        }
-    </style>
 </head>
 
 <body>
 
-<main>
+<div class="container">
 
-    <div style="text-align:center; padding:40px 0;">
-        <h1>실적 및 성공사례</h1>
-        <p>결과가 증명합니다. 실제 인허가 및 HACCP 인증 사례입니다.</p>
+<h1>실적 및 성공사례</h1>
+<p>HACCP 및 식품 인허가 실제 성공사례</p>
 
-        <!-- 필터 버튼 -->
-        <div class="filter-btn-group">
-            <button class="btn active" data-filter="all">전체보기</button>
-            <button class="btn" data-filter="food">식품제조가공업</button>
-            <button class="btn" data-filter="meat">축산물가공업</button>
-            <button class="btn" data-filter="haccp">HACCP 인증</button>
-        </div>
-    </div>
+<div class="filter-btn-group">
+    <button class="btn active" data-filter="all">전체보기</button>
+    <button class="btn" data-filter="food">식품제조가공업</button>
+    <button class="btn" data-filter="meat">축산물가공업</button>
+    <button class="btn" data-filter="haccp">HACCP 인증</button>
+</div>
 
-    <section class="cases-grid">
+<div class="cases-grid" id="casesGrid"></div>
 
-        <!-- 1 -->
-        <div class="case-card" data-category="food">
-            <img class="case-img" src="images/food-license.png.png">
-            <div class="case-info">
-                <span class="tag">식품제조가공업</span>
-                <p>수도권 육수 제조 공장 등록 완료</p>
-            </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="case-card" data-category="haccp">
-            <img class="case-img" src="images/dumpling-haccp.png.png">
-            <div class="case-info">
-                <span class="tag">HACCP 인증</span>
-                <p>도시락류 스마트 HACCP 인증</p>
-            </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="case-card" data-category="meat">
-            <img class="case-img" src="images/meat-haccp.png.png">
-            <div class="case-info">
-                <span class="tag">축산물가공업</span>
-                <p>포장육 (식육포장처리업) 허가 완료</p>
-            </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="case-card" data-category="food">
-            <img class="case-img" src="images/food-registration.png.png">
-            <div class="case-info">
-                <span class="tag">식품제조가공업</span>
-                <p>디저트 제과류 제조업소 등록 완료</p>
-            </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="case-card" data-category="haccp">
-            <img class="case-img" src="images/snack-haccp.png.png">
-            <div class="case-info">
-                <span class="tag">HACCP 인증</span>
-                <p>베이커리 소규모 HACCP 인증 완료</p>
-            </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="case-card" data-category="meat">
-            <img class="case-img" src="images/crab-haccp.png.png">
-            <div class="case-info">
-                <span class="tag">축산물가공업</span>
-                <p>식육가공업(소시지 등) 허가 완료</p>
-            </div>
-        </div>
-
-        <!-- 7 -->
-        <div class="case-card" data-category="haccp">
-            <img class="case-img" src="images/bonebroth-haccp.png.png">
-            <div class="case-info">
-                <span class="tag">HACCP 인증</span>
-                <p>사골육수 HACCP 인증 완료</p>
-            </div>
-        </div>
-
-        <!-- 8 -->
-        <div class="case-card" data-category="haccp">
-            <img class="case-img" src="images/food-haccp.png.png">
-            <div class="case-info">
-                <span class="tag">HACCP 인증</span>
-                <p>식품제조 HACCP 인증 완료</p>
-            </div>
-        </div>
-
-        <!-- 9 -->
-        <div class="case-card" data-category="food">
-            <img class="case-img" src="images/Food-Registration.png.png">
-            <div class="case-info">
-                <span class="tag">식품제조가공업</span>
-                <p>식품 제조업 등록 완료</p>
-            </div>
-        </div>
-
-    </section>
-
-</main>
+</div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".btn");
-    const cards = document.querySelectorAll(".case-card");
+const casesData = [
+    {img:"images/food-license.png.png", tag:"식품제조가공업", category:"food", title:"육수 제조 공장 등록"},
+    {img:"images/dumpling-haccp.png.png", tag:"HACCP 인증", category:"haccp", title:"도시락 HACCP 인증"},
+    {img:"images/meat-haccp.png.png", tag:"축산물가공업", category:"meat", title:"포장육 허가 완료"},
+    {img:"images/food-registration.png.png", tag:"식품제조가공업", category:"food", title:"제과 제조업 등록"},
+    {img:"images/snack-haccp.png.png", tag:"HACCP 인증", category:"haccp", title:"베이커리 HACCP"},
+    {img:"images/crab-haccp.png.png", tag:"축산물가공업", category:"meat", title:"식육가공업 허가"},
+    {img:"images/bonebroth-haccp.png.png", tag:"HACCP 인증", category:"haccp", title:"사골육수 HACCP"},
+    {img:"images/food-haccp.png.png", tag:"HACCP 인증", category:"haccp", title:"식품 HACCP 인증"},
+    {img:"images/Food-Registration.png.png", tag:"식품제조가공업", category:"food", title:"식품 제조업 등록"}
+];
 
-    buttons.forEach(btn => {
-        btn.addEventListener("click", () => {
+const grid = document.getElementById("casesGrid");
+const buttons = document.querySelectorAll(".btn");
 
-            // 버튼 활성화
-            buttons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
+// 초기 8개만 표시
+let showLimit = 8;
 
-            const filter = btn.dataset.filter;
+function render(filter="all") {
 
-            cards.forEach(card => {
-                const category = card.dataset.category;
+    grid.innerHTML = "";
 
-                if (filter === "all" || filter === category) {
-                    card.style.display = "block";
-                } else {
-                    card.style.display = "none";
-                }
-            });
+    let filtered = casesData.filter(item => {
+        return filter === "all" || item.category === filter;
+    });
 
-        });
+    filtered.slice(0, showLimit).forEach(item => {
+
+        grid.innerHTML += `
+        <div class="case-card">
+            <img src="${item.img}" alt="${item.title}">
+            <div class="case-info">
+                <span class="tag">${item.tag}</span>
+                <p>${item.title}</p>
+            </div>
+        </div>`;
+    });
+}
+
+// 버튼 이벤트
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        render(btn.dataset.filter);
     });
 });
+
+// 초기 로딩 (8개만)
+render();
 </script>
 
 </body>
