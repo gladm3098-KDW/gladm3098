@@ -359,9 +359,7 @@
       border-color: var(--color-primary);
     }
 
-    /* ==========================================
-       [빨간 네모칸 개조] 실제 인허가 실적 이미지 연동 구역
-    ============================================*/
+    /* TRUST SECTION (실적 이미지 연동 구역) */
     .trust-section {
       background: linear-gradient(180deg, #fcfbfa 0%, #f5f3ef 100%); 
       padding: 80px 0 100px 0;
@@ -381,7 +379,6 @@
       display: block;
     }
 
-    /* 성공사례 전용 반응형 카드 프레임 */
     .trust-box {
       background: white;
       border-radius: 14px;
@@ -401,7 +398,6 @@
       border-color: var(--color-secondary);
     }
 
-    /* 이미지 최적화 핏 (성공사례와 크기비율 통일) */
     .trust-box img {
       width: 100%;
       aspect-ratio: 4 / 5.2;
@@ -410,7 +406,6 @@
       border-bottom: 1px solid #e2e8f0;
     }
 
-    /* 하단 글씨 설명 구역 조율 */
     .trust-info {
       padding: 16px;
       text-align: center;
@@ -577,7 +572,7 @@
         background-color: #fdd835;
     }
 
-    /* 모바일 해상도 방어선 */
+    /* 모바일 반응형 가이드 */
     @media (max-width: 1024px) {
       .header-inner {
         flex-direction: column;
@@ -692,10 +687,11 @@
     <div class="container header-inner">
       <a href="index.html" class="logo"><span>GL</span> 지엘행정사 사무소</a>
       
+      <!-- [수정 완료] 빨간 네모칸 부근의 명칭을 "📝 블로그"로 교정 및 공식 링크 정밀 주입 -->
       <nav class="nav">
         <a href="#gl-business">업무분야</a>
         <a href="cases.html">성공사례</a>
-        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">사무소 소개</a>
+        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a>
         <a href="consult.html">상담문의</a>
         <a href="consult.html" class="header-btn">상담 (해결) 요청하기</a>
       </nav>
@@ -799,7 +795,7 @@
     </div>
   </section>
 
-  <!-- [빨간 네모칸 전면 개조] 4대 인허가 실적 이미지 바 및 링크 연동 -->
+  <!-- 실적 이미지 연동 구역 -->
   <section class="section trust-section">
     <div class="container">
       <div class="section-title">
