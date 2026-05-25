@@ -102,7 +102,7 @@
             display: flex;
             gap: 34px;
             font-size: 15px;
-            color: var(--color-text-muted);
+            color: var(--text-muted);
         }
 
         .nav a:hover {
@@ -177,7 +177,7 @@
             margin-bottom: 120px;
         }
 
-        /* [수정] 카드 전체 높이를 자동으로 통일되도록 flex 구조 설정 */
+        /* 카드전체 높이 동일 고정용 플렉스 구조 */
         .case-card {
             background: #ffffff;
             border-radius: 12px;
@@ -187,7 +187,7 @@
             display: flex;
             flex-direction: column;
             transition: var(--transition);
-            height: 100%; /* 한 줄에 있는 카드들의 아랫마감 라인을 완벽히 일치시킴 */
+            height: 100%; /* 한 줄 내 카드의 바닥 라인을 자석처럼 일치시킴 */
         }
 
         .case-card:hover {
@@ -196,33 +196,33 @@
             border-color: var(--color-secondary);
         }
 
-        /* [핵심 수정] 사진이 놓이는 상자의 세로 높이를 340px로 고정 */
+        /* [수정] 쪼그라들던 안쪽 여백(Padding)을 0으로 없애고, 가로 폭에 사진을 꽉 채우는 상자 */
         .case-img-box {
             width: 100%;
-            height: 340px; /* 세로 길이를 든든하고 보기 좋게 고정 */
+            height: 380px; /* 사진이 큼직하게 돋보이도록 고정 세로 길이를 최적 비율 확장 */
             overflow: hidden;
-            background: #ffffff; /* 사진 비율이 달라 남는 공간은 흰색으로 깔끔하게 처리 */
+            background: #ffffff;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* 짤막한 사진도 상단 기준으로 자연스럽게 채움 */
             justify-content: center;
-            padding: 8px; /* 이미지 주변에 살짝 여백을 주어 고급스러운 느낌 유도 */
+            padding: 0; /* 내부 여백을 완벽히 제거하여 사진 크기를 최대화 */
         }
 
-        /* [핵심 수정] object-fit: contain 적용으로 절대 잘리지 않고 다 들어오도록 유도 */
+        /* [수정] 크롭 현상은 막고, 가로폭은 꽉 채우는 밀착형 핏 설정 */
         .case-img-box img {
             width: 100%;
             height: 100%;
             display: block;
-            object-fit: contain; /* 사진의 원본 비율과 글자를 지켜내면서 고정된 상자 안에 쏙 집어넣음 */
+            object-fit: fill; /* 사진 원본 비율 전체를 상자 크기에 딱 맞춰 꽉 채움 (잘림 0%) */
         }
 
-        /* 하단 텍스트 영역을 카드 맨 아래로 밀착 */
+        /* 하단 컴팩트 텍스트 바 정렬 */
         .case-info {
             padding: 12px 12px 14px 12px;
             text-align: center;
             background: #ffffff;
             border-top: 1px solid #f1f5f9; 
-            margin-top: auto; /* 카드 높이가 늘어나도 텍스트는 언제나 맨 아래에 칼정렬 */
+            margin-top: auto; /* 내용 길이에 상관없이 텍스트 박스는 언제나 맨 아래에 일렬 고정 */
         }
 
         .case-tag {
@@ -271,7 +271,7 @@
             left: 0;
             width: 100%;
             background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 -4px 20 rgba(0, 0, 0, 0.08);
             padding: 14px 20px;
             box-sizing: border-box;
             z-index: 9999;
@@ -355,7 +355,7 @@
                 gap: 16px;
             }
             .case-img-box {
-                height: 280px; /* 태블릿 화면에서는 이미지 높이 살짝 최적화 */
+                height: 320px;
             }
         }
 
@@ -390,7 +390,7 @@
             }
 
             .case-img-box {
-                height: 380px; /* 모바일 단일 카드일 때는 사진을 다시 큼직하게 조정 */
+                height: 440px; /* 모바일에서는 세로로 기니 시원하게 확장 */
             }
 
             .nav {
