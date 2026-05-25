@@ -102,7 +102,7 @@
             display: flex;
             gap: 34px;
             font-size: 15px;
-            color: var(--text-muted);
+            color: var(--color-text-muted);
         }
 
         .nav a:hover {
@@ -177,7 +177,6 @@
             margin-bottom: 120px;
         }
 
-        /* 카드전체 높이 동일 고정용 플렉스 구조 */
         .case-card {
             background: #ffffff;
             border-radius: 12px;
@@ -187,7 +186,7 @@
             display: flex;
             flex-direction: column;
             transition: var(--transition);
-            height: 100%; /* 한 줄 내 카드의 바닥 라인을 자석처럼 일치시킴 */
+            height: 100%; 
         }
 
         .case-card:hover {
@@ -196,33 +195,31 @@
             border-color: var(--color-secondary);
         }
 
-        /* [수정] 쪼그라들던 안쪽 여백(Padding)을 0으로 없애고, 가로 폭에 사진을 꽉 채우는 상자 */
+        /* 상자 크기 채움형 확장 핏 */
         .case-img-box {
             width: 100%;
-            height: 380px; /* 사진이 큼직하게 돋보이도록 고정 세로 길이를 최적 비율 확장 */
+            height: 380px; 
             overflow: hidden;
             background: #ffffff;
             display: flex;
-            align-items: flex-start; /* 짤막한 사진도 상단 기준으로 자연스럽게 채움 */
+            align-items: flex-start; 
             justify-content: center;
-            padding: 0; /* 내부 여백을 완벽히 제거하여 사진 크기를 최대화 */
+            padding: 0; 
         }
 
-        /* [수정] 크롭 현상은 막고, 가로폭은 꽉 채우는 밀착형 핏 설정 */
         .case-img-box img {
             width: 100%;
             height: 100%;
             display: block;
-            object-fit: fill; /* 사진 원본 비율 전체를 상자 크기에 딱 맞춰 꽉 채움 (잘림 0%) */
+            object-fit: fill; 
         }
 
-        /* 하단 컴팩트 텍스트 바 정렬 */
         .case-info {
             padding: 12px 12px 14px 12px;
             text-align: center;
             background: #ffffff;
             border-top: 1px solid #f1f5f9; 
-            margin-top: auto; /* 내용 길이에 상관없이 텍스트 박스는 언제나 맨 아래에 일렬 고정 */
+            margin-top: auto; 
         }
 
         .case-tag {
@@ -271,7 +268,7 @@
             left: 0;
             width: 100%;
             background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 -4px 20 rgba(0, 0, 0, 0.08);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
             padding: 14px 20px;
             box-sizing: border-box;
             z-index: 9999;
@@ -348,6 +345,54 @@
             background-color: #fdd835;
         }
 
+        /* 플로팅 카카오 버튼 스타일 */
+        #floating-kakao-btn {
+          position: fixed;
+          bottom: 95px; 
+          right: 24px;
+          z-index: 9998; 
+          background: #fee500; 
+          color: #181600;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16); 
+          border-radius: 50px; 
+          padding: 12px 18px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          animation: floatAnimation 2.5s infinite ease-in-out; 
+        }
+
+        #floating-kakao-btn:hover {
+          transform: scale(1.06) translateY(-3px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+          background-color: #fdd835;
+        }
+
+        .floating-icon {
+          font-size: 22px;
+          line-height: 1;
+        }
+
+        .floating-text {
+          font-size: 12.5px;
+          font-weight: 600;
+          line-height: 1.3;
+          text-align: left;
+          letter-spacing: -0.3px;
+        }
+        .floating-text b {
+          font-size: 13.5px;
+          color: #111e38; 
+        }
+
+        @keyframes floatAnimation {
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-8px); }
+          100% { transform: translateY(0); }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1024px) {
             .cases-grid {
@@ -390,7 +435,7 @@
             }
 
             .case-img-box {
-                height: 440px; /* 모바일에서는 세로로 기니 시원하게 확장 */
+                height: 440px; 
             }
 
             .nav {
@@ -412,12 +457,24 @@
                 padding: 14px 10px;
                 font-size: 13.5px;
             }
+            #floating-kakao-btn {
+              bottom: 125px; 
+              right: 16px;
+              padding: 10px 14px;
+            }
+            .floating-text {
+              font-size: 11.5px;
+            }
+            .floating-text b {
+              font-size: 12.5px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
@@ -432,6 +489,7 @@
         </div>
     </header>
 
+    <!-- PAGE HEADER -->
     <section class="page-header">
         <div class="container">
             <h1>실적 및 성공사례</h1>
@@ -439,6 +497,7 @@
         </div>
     </section>
 
+    <!-- FILTER BUTTONS -->
     <section class="container">
         <div class="filter-btn-group">
             <button class="btn active" onclick="filterSelection('all')">전체보기</button>
@@ -448,11 +507,14 @@
         </div>
     </section>
 
+    <!-- CASES GRID -->
     <section class="container">
         <div class="cases-grid" id="casesGridContainer">
-            </div>
+            <!-- 자바스크립트 주입 -->
+        </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <h3>지엘행정사 사무소</h3>
@@ -464,6 +526,7 @@
         </div>
     </footer>
 
+    <!-- 스마트 고정 상담 바 위젯 -->
     <div class="sticky-action-bar">
         <div class="action-container">
             <div class="action-text">🎯 HACCP·인허가 빠른 상담</div>
@@ -475,6 +538,13 @@
         </div>
     </div>
 
+    <!-- 동동 떠다니는 카카오톡 챗봇/상담 플로팅 버튼 -->
+    <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" id="floating-kakao-btn" title="카카오톡 빠른 상담">
+      <span class="floating-icon">💬</span>
+      <span class="floating-text">HACCP·인허가<br><b>24시 상담</b></span>
+    </a>
+
+    <!-- 데이터 엔진 시스템 -->
     <script>
         const casesData = [
             {
@@ -493,37 +563,37 @@
                 img: "images/meat-haccp.png.png", 
                 tag: "축산물 인허가 · HACCP", 
                 category: "meat", 
-                title: "[부천시] 축산물가공 양념육 HACCP"
+                title: "[부천] 축산물가공 양념육 HACCP"
             },
             {
                 img: "images/snack-haccp.png.png",  
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[인천시] 디저트 베이커리 HACCP"
+                title: "[인천] 디저트 베이커리 HACCP"
             },
             {
                 img: "images/food-registration.png.png", 
                 tag: "기타 영업 인허가", 
                 category: "etc", 
-                title: "[인천시] 볶음김치 식품제조등록"
+                title: "[인천] 볶음김치 식품제조등록"
             },
             {
                 img: "images/crab-haccp.png.png", 
-                tag: "식품 인허가 · HACCP",  
-                category: "food", 
-                title: "[인천시] 간장게장 양념게장 HACCP"
+                tag: "기타 영업 인허가",  
+                category: "etc", 
+                title: "[인천] 게장 양념게장 HACCP"
             },
             {
                 img: "images/bonebroth-haccp.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[수원시] 사골육수 추출공장 해썹"
+                title: "[수원] 사골육수 추출공장 해썹"
             },
             {
                 img: "images/food-haccp.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[시흥시] 소스류 반찬류 HACCP"
+                title: "[시흥] 소스류 반찬류 HACCP"
             },
             {
                 img: "images/haccp-basic.png.png", 
