@@ -66,7 +66,7 @@
 
         .container {
             width: 100%;
-            max-width: 1180px;
+            max-width: 1200px; /* 이미지를 더 키우기 위해 컨테이너 최대 폭 확장 */
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -169,18 +169,18 @@
             font-weight: 700;
         }
 
-        /* CASES GRID */
+        /* CASES GRID ([수정] 잘림 없이 이미지를 극대화하기 위해 간격을 좁히고 안착 감도 상향) */
         .cases-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            gap: 16px; /* 카드간 여백을 줄여 상대적으로 이미지 크기를 극대화 */
             margin-bottom: 120px;
-            align-items: start; /* 카드 높이가 제각각이어도 이쁘게 상단 정렬 */
+            align-items: start;
         }
 
         .case-card {
             background: #ffffff;
-            border-radius: 14px;
+            border-radius: 12px;
             overflow: hidden;
             box-shadow: var(--shadow-sm);
             border: 1px solid #e2e8f0;
@@ -195,47 +195,50 @@
             border-color: var(--color-secondary);
         }
 
-        /* [수정 완료] 사진 잘림 절대 방지: 강제 크롭 비율 및 높이 제한 완전 삭제 */
+        /* [수정] 원본 종횡비를 완벽하게 지켜내며 가로폭을 시원하게 채우는 이미지 박스 */
         .case-img-box {
             width: 100%;
             height: auto; 
             overflow: hidden;
-            background: #f1f5f9;
-            border-bottom: 1px solid #e2e8f0;
+            background: #ffffff;
         }
 
-        /* 세로로 길든 가로로 길든 원본을 100% 욱여넣지 않고 비율대로 전체 노출 */
         .case-img-box img {
             width: 100%;
             height: auto;
             display: block;
-            object-fit: contain; 
+            object-fit: contain; /* 크롭 현상 원천 차단 */
         }
 
-        /* [이전 복구] 하단 텍스트 및 레이아웃 이전 피드백 스타일 매칭 */
+        /* ==========================================
+           [핵심 수리 지점] 빨간 네모칸 내부 공백 초슬림화
+        ============================================*/
         .case-info {
-            padding: 16px;
+            padding: 10px 12px 14px 12px; /* 상하 여백을 대폭 줄여 콤팩트한 비율로 압축 */
             text-align: center;
             background: #ffffff;
+            border-top: 1px solid #f1f5f9; /* 이미지와 텍스트 경계선을 깔끔하게 마감 */
         }
 
         .case-tag {
-            font-size: 11px;
-            font-weight: 600;
+            font-size: 10.5px;
+            font-weight: 700;
             background: #111e38;
             color: #ffffff;
-            padding: 3px 8px;
-            border-radius: 4px;
+            padding: 2px 6px; /* 태그 여백도 미니멀하게 조정 */
+            border-radius: 3px;
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 6px; /* 타이틀과의 간격 축소 */
+            letter-spacing: -0.2px;
         }
 
         .case-title {
             color: var(--color-primary);
-            font-size: 14px;
+            font-size: 13.5px; /* 한 줄 정렬을 유도하기 위해 자수 배치 밸런스 크기 최적화 */
             font-weight: 700;
             margin: 0;
             line-height: 1.4;
+            letter-spacing: -0.3px; /* 글자간 간격을 좁혀 한 줄 안착률 극대화 */
         }
 
         /* FOOTER */
@@ -403,6 +406,7 @@
 
 <body>
 
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
             <a href="index.html" class="logo">
@@ -417,6 +421,7 @@
         </div>
     </header>
 
+    <!-- PAGE HEADER -->
     <section class="page-header">
         <div class="container">
             <h1>실적 및 성공사례</h1>
@@ -424,6 +429,7 @@
         </div>
     </section>
 
+    <!-- FILTER BUTTONS -->
     <section class="container">
         <div class="filter-btn-group">
             <button class="btn active" onclick="filterSelection('all')">전체보기</button>
@@ -433,11 +439,14 @@
         </div>
     </section>
 
+    <!-- CASES GRID -->
     <section class="container">
         <div class="cases-grid" id="casesGridContainer">
-            </div>
+            <!-- 자바스크립트 주입 엔진 -->
+        </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <h3>지엘행정사 사무소</h3>
@@ -449,6 +458,7 @@
         </div>
     </footer>
 
+    <!-- 스마트 고정 상담 바 위젯 -->
     <div class="sticky-action-bar">
         <div class="action-container">
             <div class="action-text">🎯 HACCP·인허가 빠른 상담</div>
@@ -460,55 +470,57 @@
         </div>
     </div>
 
+    <!-- [데이터 제어 및 SEO/GEO 텍스트 매칭 엔진] -->
     <script>
+        // 행정사님이 원하셨던 압축 롱테일 키워드 형태로 텍스트 전면 교정 완료
         const casesData = [
             {
                 img: "images/food-license.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[부천] 소규모 밀키트 반찬 창업 HACCP 유예 영업등록 시설 기준 원패스"
+                title: "[부천] 소규모 밀키트 반찬 HACCP"
             },
             {
                 img: "images/dumpling-haccp.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[인천] 도시락류 만두 제조시설 위생동선 최적화 및 스마트 HACCP 인증"
+                title: "[인천] 도시락 만두 스마트 HACCP"
             },
             {
                 img: "images/meat-haccp.png.png", 
                 tag: "축산물 인허가 · HACCP", 
                 category: "meat", 
-                title: "[시흥] 포장육 육가공 공장 식육포장처리업 신속 허가 및 해썹 동시 취득"
+                title: "[시흥] 포장육 식육포장처리업 허가"
             },
             {
                 img: "images/food-registration.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[안산] 디저트 제과류 빵류 제조업소 시설 정밀 검사 통과 및 영업등록"
+                title: "[안산] 디저트 베이커리 영업등록"
             },
             {
                 img: "images/snack-haccp.png.png", 
                 tag: "기타 영업 인허가", 
                 category: "etc", 
-                title: "[부천] 해썹 제외 대상 즉석판매제조가공업 가성비 시설 레이아웃 신고 완료"
+                title: "[부천] 즉석판매제조가공업 신고"
             },
             {
                 img: "images/crab-haccp.png.png", 
                 tag: "기타 영업 인허가", 
                 category: "etc", 
-                title: "[인천] 소규모 밀키트 반찬 창업 HACCP 유예 영업등록 시설 기준 원패스"
+                title: "[인천] 반찬창업 식품소분업 허가"
             },
             {
                 img: "images/bonebroth-haccp.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[수원] 사골육수 탕류 추출 가공시설 등록 및 소규모 HACCP 인증 가이드"
+                title: "[수원] 사골육수 추출공장 해썹"
             },
             {
                 img: "images/food-haccp.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[안양] 소스류 복합 제조공장 신규 허가 및 식약처 HACCP 심사 무보완 통과"
+                title: "[안양] 소스류 가공제조공장 등록"
             }
         ];
 
