@@ -4,25 +4,39 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>성공사례 | 지엘행정사 사무소</title>
 
-    <meta name="description" content="부천 소스 제조 공장 HACCP 인증 보완 제로 통과, 육가공 허가 등 지엘행정사 사무소의 실제 성공 실적을 확인하세요." />
+    <title>실적 및 성공사례 | 지엘행정사 사무소</title>
 
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <meta
+      name="description"
+      content="식품제조가공업 등록, 축산물가공업 허가, 소규모 및 스마트 HACCP 인증, 즉석판매제조가공업 등 지엘행정사 사무소의 보완 없는 실제 인허가 성공사례를 공개합니다."
+    />
+
+    <meta
+      name="keywords"
+      content="식품인허가성공사례, HACCP인증실적, 축산물가공업허가, 즉석판매제조가공업신고, 행정사실적"
+    />
+
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
     <style>
         :root {
-            --color-primary: #111e38;
+            --color-primary: #1f2937;
             --color-secondary: #c7a97f;
-            --color-background: #ffffff;
+            --color-background: #f8f6f2;
             --color-surface: #ffffff;
-            --color-text: #1e293b;
-            --color-text-muted: #64748b;
-            --color-border: #e2e8f0;
+            --color-text: #111827;
+            --color-text-muted: #6b7280;
+            --color-border: #e5e7eb;
 
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+            --radius-lg: 20px;
+            --radius-md: 14px;
+
+            --transition: all 0.25s ease;
         }
 
         * {
@@ -61,150 +75,193 @@
         .header {
             position: sticky;
             top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid var(--color-border);
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .header-inner {
-            height: 75px;
+            height: 78px;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
         .logo {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 800;
             color: var(--color-primary);
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
         }
 
         .logo span {
             color: var(--color-secondary);
-            margin-right: 4px;
         }
 
         .nav {
             display: flex;
-            align-items: center;
-            gap: 28px;
+            gap: 34px;
             font-size: 15px;
-            font-weight: 600;
-        }
-
-        .nav a {
-            color: #475569;
-            transition: var(--transition);
-            white-space: nowrap;
+            color: var(--color-text-muted);
         }
 
         .nav a:hover {
             color: var(--color-primary);
         }
 
+        .nav .active {
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
         /* PAGE HEADER */
         .page-header {
             background: linear-gradient(180deg, #f8f6f2 0%, #ffffff 100%);
-            padding: 80px 0 40px;
+            padding: 100px 0 60px;
             text-align: center;
         }
 
         .page-header h1 {
-            font-size: 36px;
+            font-size: 42px;
             color: var(--color-primary);
-            font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             letter-spacing: -1px;
+            font-weight: 800;
         }
 
         .page-header p {
             color: var(--color-text-muted);
             font-size: 16px;
+            max-width: 760px;
+            margin: 0 auto;
         }
 
-        /* CASES SECTION */
-        .cases-section {
-            padding: 40px 0 120px 0;
+        /* FILTER BUTTONS */
+        .filter-btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
         }
 
-        .grid-two {
+        .filter-btn-group .btn {
+            background: #ffffff;
+            color: var(--color-primary);
+            border: 1px solid #cbd5e1;
+            padding: 12px 24px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn-group .btn:hover {
+            background: #f1f5f9;
+            border-color: #94a3b8;
+        }
+
+        .filter-btn-group .btn.active {
+            background: #111e38;
+            color: #ffffff;
+            border-color: #111e38;
+            font-weight: 700;
+        }
+
+        /* CASES GRID */
+        .cases-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 120px;
         }
 
         .case-card {
             background: #ffffff;
-            border: 1px solid var(--color-border);
-            border-radius: 14px;
-            padding: 35px;
+            border-radius: 12px;
+            overflow: hidden;
             box-shadow: var(--shadow-sm);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            height: 100%; 
+        }
+
+        .case-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-secondary);
+        }
+
+        /* 상자 크기 채움형 확장 핏 */
+        .case-img-box {
+            width: 100%;
+            height: 380px; 
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            align-items: flex-start; 
+            justify-content: center;
+            padding: 0; 
+        }
+
+        .case-img-box img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: fill; 
+        }
+
+        .case-info {
+            padding: 12px 12px 14px 12px;
+            text-align: center;
+            background: #ffffff;
+            border-top: 1px solid #f1f5f9; 
+            margin-top: auto; 
         }
 
         .case-tag {
+            font-size: 10.5px;
+            font-weight: 700;
+            background: #111e38;
+            color: #ffffff;
+            padding: 2px 6px; 
+            border-radius: 3px;
             display: inline-block;
-            background: #f1f5f9;
+            margin-bottom: 6px; 
+            letter-spacing: -0.2px;
+        }
+
+        .case-title {
             color: var(--color-primary);
-            font-size: 12.5px;
+            font-size: 13.5px; 
             font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 50px;
-            margin-bottom: 18px;
-        }
-
-        .case-card h2 {
-            font-size: 22px;
-            color: var(--color-primary);
-            font-weight: 800;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-
-        .case-meta {
-            font-size: 14px;
-            color: var(--color-text-muted);
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed var(--color-border);
-        }
-
-        .case-content h3 {
-            font-size: 15.5px;
-            color: #1e293b;
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .case-content p {
-            font-size: 14.5px;
-            color: #475569;
-            margin-bottom: 20px;
+            margin: 0;
+            line-height: 1.4;
+            letter-spacing: -0.3px;
         }
 
         /* FOOTER */
         .footer {
-            background: #0f172a;
-            color: #94a3b8;
-            padding: 60px 0 140px 0;
-            border-top: 1px solid #1e293b;
-            font-size: 14.5px;
+            background: #111827;
+            color: rgba(255, 255, 255, 0.7);
+            padding: 70px 0 140px 0;
         }
 
         .footer h3 {
             color: white;
-            margin-bottom: 18px;
-            font-size: 20px;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
 
         .footer p {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 15px;
         }
 
-        /* 하단 고정 내비게이션 바 */
+        /* 하단 고정 내비게이션 바 위젯 (이전으로 / 앞으로) */
         .sticky-action-bar {
             position: fixed;
             bottom: 0;
@@ -270,172 +327,207 @@
             background-color: #1e293b;
         }
 
-        /* 플로팅 버튼 스타일 */
+        /* 둥둥 떠다니는 전화 상담 버튼 (상단 스택) */
         #floating-phone-btn {
-            position: fixed;
-            bottom: 142px;
-            right: 24px;
-            z-index: 9998; 
-            background: #111e38; 
-            color: #ffffff;
-            box-shadow: 0 8px 24px rgba(17, 30, 56, 0.25); 
-            border-radius: 50px; 
-            padding: 10px 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: floatAnimationPhone 2.5s infinite ease-in-out; 
+          position: fixed;
+          bottom: 142px; 
+          right: 24px;
+          z-index: 9998; 
+          background: #111e38; 
+          color: #ffffff;
+          box-shadow: 0 8px 24px rgba(17, 30, 56, 0.25); 
+          border-radius: 50px; 
+          padding: 10px 18px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          animation: floatAnimationPhone 2.5s infinite ease-in-out; 
         }
 
         #floating-phone-btn:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 12px 30px rgba(17, 30, 56, 0.35);
-            background-color: #1d2d4e;
+          transform: scale(1.05) translateY(-3px);
+          box-shadow: 0 12px 30px rgba(17, 30, 56, 0.35);
+          background-color: #1d2d4e;
         }
 
+        /* 둥둥 떠다니는 카카오톡 자동 챗봇 버튼 (하단 스택) */
         #floating-kakao-btn {
-            position: fixed;
-            bottom: 85px; 
-            right: 24px;
-            z-index: 9998; 
-            background: #fee500; 
-            color: #181600;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16); 
-            border-radius: 50px; 
-            padding: 10px 18px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: floatAnimationKakao 2.8s infinite ease-in-out; 
+          position: fixed;
+          bottom: 85px; 
+          right: 24px;
+          z-index: 9998; 
+          background: #fee500; 
+          color: #181600;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16); 
+          border-radius: 50px; 
+          padding: 10px 18px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          text-decoration: none;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          animation: floatAnimationKakao 2.8s infinite ease-in-out; 
         }
 
         #floating-kakao-btn:hover {
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
-            background-color: #fdd835;
+          transform: scale(1.05) translateY(-3px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+          background-color: #fdd835;
         }
 
         .floating-icon {
-            font-size: 19px;
-            line-height: 1;
+          font-size: 19px;
+          line-height: 1;
         }
 
         .floating-text {
-            font-size: 12px;
-            font-weight: 600;
-            line-height: 1.3;
-            text-align: left;
-            letter-spacing: -0.3px;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 1.3;
+          text-align: left;
+          letter-spacing: -0.3px;
         }
         .floating-text b {
-            font-size: 12.5px;
+          font-size: 12.5px;
         }
         #floating-phone-btn .floating-text b { color: #c7a97f; }
         #floating-kakao-btn .floating-text b { color: #111e38; }
 
         @keyframes floatAnimationPhone {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+          100% { transform: translateY(0); }
         }
         @keyframes floatAnimationKakao {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
+          0% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+          100% { transform: translateY(0); }
         }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .header-inner {
-                flex-direction: column;
-                height: auto;
-                padding: 15px 0;
-                gap: 12px;
+            .cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
             }
-            .grid-two {
-                grid-template-columns: 1fr;
-                gap: 20px;
+            .case-img-box {
+                height: 320px;
             }
         }
 
         @media (max-width: 768px) {
-            .container { padding: 0 20px; }
-            .header-inner { padding: 16px 0; gap: 14px; text-align: center; }
-            .logo { font-size: 19px; margin: 0 auto; justify-content: center; }
-            .nav { gap: 14px; justify-content: center; flex-wrap: wrap; width: 100%; }
-            .nav a { font-size: 13.5px; }
+            .page-header {
+                padding: 60px 0 40px;
+            }
 
-            .page-header { padding: 50px 0 30px; }
-            .page-header h1 { font-size: 26px; }
+            .page-header h1 {
+                font-size: 28px;
+                line-height: 1.35;
+            }
 
-            .case-card { padding: 25px 20px; }
-            .case-card h2 { font-size: 19px; }
+            .page-header p {
+                font-size: 14.5px;
+            }
 
-            .sticky-action-bar { padding: 10px 16px; }
-            .action-btn-group { gap: 10px; }
-            .action-btn { padding: 12px 10px; font-size: 14px; }
+            .filter-btn-group {
+                gap: 8px;
+                margin-bottom: 35px;
+            }
 
-            #floating-phone-btn { bottom: 195px; right: 16px; padding: 8px 14px; }
-            #floating-kakao-btn { bottom: 138px; right: 16px; padding: 8px 14px; }
-            .floating-text { font-size: 11px; }
-            .floating-text b { font-size: 11.5px; }
+            .filter-btn-group .btn {
+                padding: 10px 16px;
+                font-size: 13.5px;
+            }
+
+            .cases-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-bottom: 80px;
+            }
+
+            .case-img-box {
+                height: 440px; 
+            }
+
+            .nav {
+                display: none;
+            }
+
+            .sticky-action-bar {
+                padding: 10px 16px;
+            }
+            .action-btn-group {
+                gap: 10px;
+            }
+            .action-btn {
+                padding: 12px 10px;
+                font-size: 14px;
+            }
+            #floating-phone-btn {
+              bottom: 195px; 
+              right: 16px;
+              padding: 8px 14px;
+            }
+            #floating-kakao-btn {
+              bottom: 138px; 
+              right: 16px;
+              padding: 8px 14px;
+            }
+            .floating-text {
+              font-size: 11px;
+            }
+            .floating-text b {
+              font-size: 11.5px;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
-            <a href="index.html" class="logo"><span>GL</span> 지엘행정사 사무소</a>
+            <a href="index.html" class="logo">
+                <span>GL</span> 지엘행정사 사무소
+            </a>
             <nav class="nav">
                 <a href="index.html#gl-business">업무분야</a>
                 <a href="cases.html" class="active">성공사례</a>
-                <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a>
+                <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝  블로그</a>
                 <a href="consult.html">상담문의</a>
             </nav>
         </div>
     </header>
 
+    <!-- PAGE HEADER -->
     <section class="page-header">
         <div class="container">
-            <h1>성공사례</h1>
-            <p>지엘행정사 사무소가 축적한 대표적인 실무 해결 실적입니다.</p>
+            <h1>실적 및 성공사례</h1>
+            <p>결과가 증명합니다. 개인정보 보호를 위해 마스킹 처리된 실제 인허가증 및 인증서입니다.</p>
         </div>
     </section>
 
-    <section class="container cases-section">
-        <div class="grid-two">
-            <div class="case-card">
-                <span class="case-tag">HACCP 인증</span>
-                <h2>부천 소스 제조공장 HACCP 인증 완료</h2>
-                <div class="case-meta">지역: 경기도 부천시 | 업종: 식품제조가공업</div>
-                <div class="case-content">
-                    <h3>[핵심 이슈]</h3>
-                    <p>기존 노후 건물 내 입점으로 동선 구획 및 교차 오염 리스크가 매우 컸던 상황이었습니다.</p>
-                    <h3>[행정사 조력]</h3>
-                    <p>도면 설계 단계부터 위생실 및 동선을 레이아웃해 드렸으며, 모의 심사를 통해 보완 지적 없이 원패스로 인증을 완료했습니다.</p>
-                </div>
-            </div>
-
-            <div class="case-card">
-                <span class="case-tag">축산물 허가</span>
-                <h2>비가열 양념육 식육가공업 허가 대행</h2>
-                <div class="case-meta">지역: 인천시 남동구 | 업종: 식육가공업</div>
-                <div class="case-content">
-                    <h3>[핵심 이슈]</h3>
-                    <p>축산물 위생관리법 개정안에 따른 엄격한 해썹 기준 미충족으로 영업 허가가 지연되고 있었습니다.</p>
-                    <h3>[행정사 조력]</h3>
-                    <p>작업장 내부 리모델링 공사 가이드를 밀착 관리하고 보완 서류 전반을 원스톱으로 대행하여 정상 승인을 받아냈습니다.</p>
-                </div>
-            </div>
+    <!-- FILTER BUTTONS -->
+    <section class="container">
+        <div class="filter-btn-group">
+            <button class="btn active" onclick="filterSelection('all')">전체보기</button>
+            <button class="btn" onclick="filterSelection('food')">식품 인허가 · HACCP</button>
+            <button class="btn" onclick="filterSelection('meat')">축산물 인허가 · HACCP</button>
+            <button class="btn" onclick="filterSelection('etc')">기타 영업 인허가</button>
         </div>
     </section>
 
+    <!-- CASES GRID -->
+    <section class="container">
+        <div class="cases-grid" id="casesGridContainer">
+            <!-- 자바스크립트 주입 -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <h3>지엘행정사 사무소</h3>
@@ -443,10 +535,11 @@
             <p>사업자등록번호 : 572-45-00087</p>
             <p>주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
             <p>연락처 : 010-3538-3098</p>
-            <p style="margin-top:25px; opacity:0.5;">© 2026 GL Administrative Office. All Rights Reserved.</p>
+            <p style="margin-top:30px; opacity:0.5;">© 2026 GL Administrative Office. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- 하단 고정 내비게이션 바 위젯 -->
     <div class="sticky-action-bar">
         <div class="action-container">
             <div class="action-btn-group">
@@ -456,15 +549,121 @@
         </div>
     </div>
 
+    <!-- 둥둥 떠다니는 전화 상담 플로팅 버튼 (상단 스택) -->
     <a href="tel:010-3538-3098" id="floating-phone-btn" title="대표 직통 전화상담">
-        <span class="floating-icon">📞</span>
-        <span class="floating-text">인허가 · HACCP<br><b>전화연결 (상담)</b></span>
+      <span class="floating-icon">📞</span>
+      <span class="floating-text">인허가 · HACCP<br><b>전화연결 (상담)</b></span>
     </a>
 
-    <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" id="floating-kakao-btn" title="카카오톡 오픈채팅 문의">
-        <span class="floating-icon">💬</span>
-        <span class="floating-text">HACCP·인허가<br><b>카카오톡 문의</b></span>
+    <!-- 둥둥 떠다니는 카카오톡 자동 챗봇 버튼 (하단 스택) -->
+    <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" id="floating-kakao-btn" title="카카오톡 문의">
+      <span class="floating-icon">🤖</span>
+      <span class="floating-text">HACCP·인허가<br><b>챗봇 자동상담</b></span>
     </a>
+
+    <!-- 데이터 엔진 시스템 -->
+    <script>
+        const casesData = [
+            {
+                img: "images/food-license.png.png", 
+                tag: "식품 인허가 · HACCP", 
+                category: "food", 
+                title: "[고양시] 액상차 조림류 HACCP"
+            },
+            {
+                img: "images/dumpling-haccp.png.png", 
+                tag: "식품 인허가 · HACCP", 
+                category: "food", 
+                title: "[남양주시] 면류 만두피 HACCP"
+            },
+            {
+                img: "images/meat-haccp.png.png", 
+                tag: "축산물 인허가 · HACCP", 
+                category: "meat", 
+                title: "[부천] 축산물가공 양념육 HACCP"
+            },
+            {
+                img: "images/snack-haccp.png.png",  
+                tag: "식품 인허가 · HACCP", 
+                category: "food", 
+                title: "[인천] 디저트 베이커리 HACCP"
+            },
+            {
+                img: "images/food-registration.png.png", 
+                tag: "기타 영업 인허가", 
+                category: "etc", 
+                title: "[인천] 볶음김치 식품제조등록"
+            },
+            {
+                img: "images/crab-haccp.png.png", 
+                tag: "기타 영업 인허가",  
+                category: "etc", 
+                title: "[인천] 게장 양념게장 HACCP"
+            },
+            {
+                img: "images/bonebroth-haccp.png.png", 
+                tag: "식품 인허가 · HACCP", 
+                category: "food", 
+                title: "[수원] 사골육수 추출공장 해썹"
+            },
+            {
+                img: "images/food-haccp.png.png", 
+                tag: "식품 인허가 · HACCP", 
+                category: "food", 
+                title: "[시흥] 소스류 반찬류 HACCP"
+            },
+            {
+                img: "images/haccp-basic.png.png", 
+                tag: "축산물 인허가 · HACCP", 
+                category: "meat", 
+                title: "[화성시] 비가열 양념육 HACCP"
+            }
+        ];
+
+        function renderCases(filterType) {
+            const container = document.getElementById('casesGridContainer');
+            container.innerHTML = '';
+
+            casesData.forEach(item => {
+                if (filterType === 'all' || item.category === filterType) {
+                    const card = document.createElement('div');
+                    card.className = 'case-card';
+
+                    card.innerHTML = `
+                        <div class="case-img-box">
+                            <img src="${item.img}" alt="${item.title}" loading="lazy">
+                        </div>
+                        <div class="case-info">
+                            <span class="case-tag">${item.tag}</span>
+                            <p class="case-title">${item.title}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                }
+            });
+        }
+
+        function filterSelection(type) {
+            const buttons = document.querySelectorAll('.filter-btn-group .btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const eventTarget = window.event ? window.event.target : null;
+            if (eventTarget && eventTarget.tagName === 'BUTTON') {
+                eventTarget.classList.add('active');
+            } else {
+                buttons.forEach(btn => {
+                    if(btn.getAttribute('onclick').includes(type)) btn.classList.add('active');
+                });
+            }
+
+            renderCases(type);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderCases('all');
+        });
+    </script>
 
 </body>
+
 </html>
