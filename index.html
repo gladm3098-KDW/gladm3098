@@ -57,7 +57,7 @@
       background: #fff;
       color: var(--color-text);
       line-height: 1.6;
-      word-break: keep-all;
+      word-break: keep-all; /* [전체 가동] 단어 단위 자동 차단으로 한 글자씩 밀리는 현상 예방 */
       overflow-x: hidden; 
     }
 
@@ -162,6 +162,18 @@
       z-index: 10;
     }
 
+    /* 첫 번째 사진 빨간 네모 구역 뱃지 타깃 */
+    .hero-badge {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-primary);
+      background: rgba(17, 30, 56, 0.06);
+      padding: 6px 14px;
+      border-radius: 50px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
     .hero h1 {
       font-size: 44px;
       line-height: 1.25;
@@ -228,10 +240,11 @@
       margin-bottom: 20px;
     }
 
+    /* 두 번째 사진 빨간 네모 구역 첫 문단 타깃 */
     .empathy-left p {
       color: var(--color-text-muted);
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: 15.5px;
+      line-height: 1.7;
     }
 
     .empathy-card {
@@ -359,7 +372,7 @@
       border-color: var(--color-primary);
     }
 
-    /* TRUST SECTION (실적 이미지 연동 구역) */
+    /* TRUST SECTION */
     .trust-section {
       background: linear-gradient(180deg, #fcfbfa 0%, #f5f3ef 100%); 
       padding: 80px 0 100px 0;
@@ -572,7 +585,9 @@
         background-color: #fdd835;
     }
 
-    /* 모바일 반응형 가이드 */
+    /* ==========================================
+       [모바일 전용 최적화 가독성 방어선 세팅]
+    ============================================*/
     @media (max-width: 1024px) {
       .header-inner {
         flex-direction: column;
@@ -615,42 +630,77 @@
         display: none; 
       }
 
+      /* 1. 첫 번째 이미지 모바일 가독성 교정 */
       .hero {
         background-image: none; 
-        padding: 60px 0;
+        padding: 50px 0;
         min-height: auto;
         text-align: center; 
       }
       .hero-content {
         max-width: 100%;
         text-align: center;
+        padding: 0 8px; /* 양옆 숨통 여백 추가 */
+      }
+      .hero-badge {
+        font-size: 12px; /* 폰트 스케일 최적화 */
+        line-height: 1.5;
+        padding: 6px 12px;
+        word-break: keep-all; /* 단어 보존 줄바꿈 활성화 */
+        display: inline; /* 모바일 반응형 박스 핏 전환 */
       }
       .hero h1 {
-        font-size: 28px; 
-        line-height: 1.35;
+        font-size: 26px; 
+        line-height: 1.4;
+        margin-top: 15px;
+        letter-spacing: -0.5px;
       }
       .hero p {
-        font-size: 15px;
+        font-size: 14.5px;
+        line-height: 1.6;
+        word-break: keep-all;
       }
+
+      /* 2. 두 번째 이미지 모바일 가독성 교정 */
       .empathy-section {
-        padding: 60px 0;
+        padding: 55px 0;
       }
       .empathy-left {
         text-align: center; 
-        margin-bottom: 20px;
+        margin-bottom: 25px;
+        padding: 0 10px; /* 문단 터치 마진 추가 */
       }
       .empathy-left h2 {
-        font-size: 24px;
+        font-size: 23px;
+        line-height: 1.4;
       }
+      .empathy-left p {
+        font-size: 14.5px;
+        line-height: 1.65;
+        margin-top: 10px;
+        word-break: keep-all; /* 단어가 임의로 찢어지는 현상 차단 */
+      }
+
       .empathy-card {
         text-align: center;
+        padding: 30px 20px;
       }
+      .empathy-card h3 {
+        font-size: 16.5px;
+        word-break: keep-all;
+      }
+      .empathy-card p {
+        font-size: 13.5px;
+        word-break: keep-all;
+      }
+
       .service-section, .trust-section {
-        padding: 60px 0;
+        padding: 55px 0;
       }
       .section-title h2 {
-        font-size: 22px; 
+        font-size: 21px; 
         line-height: 1.4;
+        word-break: keep-all;
       }
       .service-grid, .trust-grid, .trust-bar-inner {
         grid-template-columns: 1fr; 
@@ -687,7 +737,6 @@
     <div class="container header-inner">
       <a href="index.html" class="logo"><span>GL</span> 지엘행정사 사무소</a>
       
-      <!-- [수정 완료] 빨간 네모칸 부근의 명칭을 "📝 블로그"로 교정 및 공식 링크 정밀 주입 -->
       <nav class="nav">
         <a href="#gl-business">업무분야</a>
         <a href="cases.html">성공사례</a>
@@ -702,12 +751,13 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge">식품제조가공업 등록 · 축산물가공업 허가 · HACCP 인증 전문</div>
+        <!-- [가독성 완료] 모바일에서 단어 단위로 자연스럽게 정렬되는 뱃지 구역 -->
+        <div class="hero-badge">식품제조가공업 · 축산물가공업 · HACCP 인증 전문</div>
         <h1>
           식품-축산물 인허가와 HACCP,<br>
           <span>법령과 실무 기준으로 해결합니다</span>
         </h1>
-        <p>복잡한 행정 절차와 까다로운 HACCP 심사, 베테랑 전문 행정사가 단 한 번에 통과할 수 있는 가장 확실한 지름길을 제시합니다.</p>
+        <p>복잡한 행정 절차와 까다로운 위생 심사, 베테랑 전문 행정사가 단 한 번에 통과할 수 있는 가장 확실한 지름길을 제시합니다.</p>
         <a href="consult.html" class="btn-hero">상담 (해결) 요청하기 &nbsp;→</a>
       </div>
     </div>
@@ -719,9 +769,9 @@
       
       <div class="empathy-left">
         <h2>인허가는 서류만으로<br>해결되지 않습니다</h2>
+        <!-- [가독성 완료] 모바일 화면 벽면에 붙지 않고 조사가 매끄럽게 개행되는 단어 보존 영역 -->
         <p>
-          법령 기준을 충족하는 것만으로 인허가가 원활하게 진행되는 것은 아닙니다.<br>
-          시설 기준, 위생 동선, 실제 운영 방식까지 함께 고려해야 불필요한 보완 요청을 줄이고 안정적으로 허가를 받을 수 있습니다.
+          법령 기준을 충족하는 것만으로 인허가가 원활하게 진행되는 것은 아닙니다. 시설 기준, 위생 동선, 실제 운영 방식까지 함께 고려해야 불필요한 보완 요청을 줄이고 안정적으로 허가를 받을 수 있습니다.
         </p>
       </div>
 
@@ -766,7 +816,7 @@
           <div>
             <div class="service-icon-circle">🥩</div>
             <h3>축산물가공업 허가</h3>
-            <p>시설 기준에 따른 작업장 배치 및 동선 설계, 영업허가 신청, 품목제조보고까지 인허가 전 과정을 대행합니다.</p>
+            <p>시설 기준에 따른 작업장 배치 및 동선 설계, 영업등록 신청, 품목제조보고까지 인허가 전 과정을 대행합니다.</p>
           </div>
           <a href="services.html#meat" class="btn-card-link">상세 기준 확인 →</a>
         </div>
@@ -786,7 +836,7 @@
           <div>
             <div class="service-icon-circle">📜</div>
             <h3>기타 영업 인허가</h3>
-            <p>즉석판매제조가공업, 집단급식소, 식품첨가물 제조업 등 다양한 식품·축산물 관련 영업 인허가를 대행합니다.</p>
+            <p>즉석판매제조가공업, 집단급식소, 식품첨가물 제조업 등 다양한 식품·축산물 관련 영업 인허가를 지원합니다.</p>
           </div>
           <a href="services.html#etc" class="btn-card-link">상세 기준 확인 →</a>
         </div>
@@ -810,8 +860,8 @@
           <div class="trust-box">
             <img src="images/food-license.png.png" alt="식품제조가공업 등록 완료">
             <div class="trust-info">
-              <span class="trust-tag">식품제조가공업</span>
-              <p>수도권 육수 제조 공장 등록 완료</p>
+              <span class="trust-tag">식품인허가 · HACCP</span>
+              <p>[고양시] 액상차 조림류 HACCP</p>
             </div>
           </div>
         </a>
@@ -821,8 +871,8 @@
           <div class="trust-box">
             <img src="images/dumpling-haccp.png.png" alt="HACCP 스마트 인증 완료">
             <div class="trust-info">
-              <span class="trust-tag">HACCP 인증</span>
-              <p>도시락류 스마트 HACCP 인증</p>
+              <span class="trust-tag">식품인허가 · HACCP</span>
+              <p>[남양주시] 면류 만두피 HACCP</p>
             </div>
           </div>
         </a>
@@ -832,8 +882,8 @@
           <div class="trust-box">
             <img src="images/meat-haccp.png.png" alt="축산물가공업 포장육 허가">
             <div class="trust-info">
-              <span class="trust-tag">축산물가공업</span>
-              <p>포장육 (식육포장처리업) 허가 완료</p>
+              <span class="trust-tag">축산물인허가 · HACCP</span>
+              <p>[부천] 축산물가공 양념육 HACCP</p>
             </div>
           </div>
         </a>
@@ -843,8 +893,8 @@
           <div class="trust-box">
             <img src="images/food-registration.png.png" alt="디저트 제과류 제조업소 등록">
             <div class="trust-info">
-              <span class="trust-tag">식품제조가공업</span>
-              <p>디저트 제과류 제조업소 등록 완료</p>
+              <span class="trust-tag">식품인허가 · HACCP</span>
+              <p>[인천] 디저트 베이커리 HACCP</p>
             </div>
           </div>
         </a>
