@@ -66,7 +66,7 @@
 
         .container {
             width: 100%;
-            max-width: 1200px; /* 컨테이너 폭을 조금 늘려 전체적인 공간 확보 */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -173,11 +173,12 @@
         .cases-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            gap: 16px;
             margin-bottom: 120px;
+            align-items: start; /* 이미지 높이가 달라도 상단 라인을 맞춰 이쁘게 정렬 */
         }
 
-        /* [수정] 카드 전체 비율 고정 디자인: 카드가 잘리지 않도록 4:5.2 비율을 강제 적용 */
+        /* [핵심 변경 시점] 억지 찌그러짐을 없애기 위해 고정 종횡비(aspect-ratio) 완전 파괴 */
         .case-card {
             background: #ffffff;
             border-radius: 12px;
@@ -187,8 +188,7 @@
             display: flex;
             flex-direction: column;
             transition: var(--transition);
-            aspect-ratio: 4 / 5.2; /* 카드의 세로 길이를 가로 길이에 맞춰 자동 조절 */
-            position: relative; /* 하단 문구 배치를 위해 포지션 기준 설정 */
+            height: auto; /* 사진 원본의 길이에 따라 카드가 자유롭게 늘어남 */
         }
 
         .case-card:hover {
@@ -197,56 +197,48 @@
             border-color: var(--color-secondary);
         }
 
-        /* [수정] 이미지 영역 디자인: 카드 상단에 위치하며 나머지 공간을 채움 */
+        /* 원본 사진 비율을 100% 지켜내며 가로 폭에 밀착시키는 이미지 박스 */
         .case-img-box {
             width: 100%;
-            height: 100%; /* 카드 높이 전체를 채움 */
+            height: auto; 
             overflow: hidden;
-            background: #f1f5f9;
-            position: relative; /* object-fit을 위해 설정 */
+            background: #ffffff;
         }
 
-        /* 이미지 object-fit cover 적용: 이미지 비율을 유지하며 박스를 꽉 채움 */
         .case-img-box img {
             width: 100%;
-            height: 100%;
+            height: auto; /* 세로 길이를 강제 크롭하지 않고 온전히 다 보여줌 */
             display: block;
-            object-fit: cover; /* 비율을 유지하면서 박스를 꽉 채움. 튀어나오는 부분은 잘림 */
-            position: absolute;
-            top: 0;
-            left: 0;
+            object-fit: contain; /* 사진이 절대 잘리지 않도록 안전 모드 가동 */
         }
 
-        /* [수정] 텍스트 영역 디자인: 카드 하단에 오버레이 형태로 고정 */
+        /* 텍스트 상자 여백 축소 및 조밀화 완료 */
         .case-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 16px 16px; /* 위아래 여백을 줘서 텍스트 가독성 확보 */
+            padding: 8px 12px 10px 12px; /* 위아래 간격을 꽉 쥐어짜서 한 줄용 슬림 레이아웃 구현 */
             text-align: center;
-            background: rgba(255, 255, 255, 0.9); /* 배경을 살짝 투명하게 처리하여 세련된 느낌 */
-            backdrop-filter: blur(4px); /* 배경 블러 효과 적용 */
-            border-top: 1px solid #f1f5f9;
+            background: #ffffff;
+            border-top: 1px solid #f1f5f9; 
         }
 
         .case-tag {
-            font-size: 11px;
-            font-weight: 600;
+            font-size: 10.5px;
+            font-weight: 700;
             background: #111e38;
             color: #ffffff;
-            padding: 3px 8px;
-            border-radius: 4px;
+            padding: 2px 6px; 
+            border-radius: 3px;
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 4px; 
+            letter-spacing: -0.2px;
         }
 
         .case-title {
             color: var(--color-primary);
-            font-size: 14px;
+            font-size: 13.5px; 
             font-weight: 700;
             margin: 0;
             line-height: 1.4;
+            letter-spacing: -0.4px; /* 한 줄 정렬을 위해 자간 밀착 처리 */
         }
 
         /* FOOTER */
@@ -477,37 +469,37 @@
                 img: "images/food-license.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[부천] 수도권 육수 제조 공장 등록 완료"
+                title: "[고양시] 액상차 조림류 HACCP"
             },
             {
                 img: "images/dumpling-haccp.png.png", 
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
-                title: "[인천] 도시락 스마트 HACCP"
+                title: "[남양주시] 면류 만두피 HACCP"
             },
             {
                 img: "images/meat-haccp.png.png", 
                 tag: "축산물 인허가 · HACCP", 
                 category: "meat", 
-                title: "[시흥] 포장육 식육포장처리업 허가"
-            },
-            {
-                img: "images/food-registration.png.png", 
-                tag: "식품 인허가 · HACCP", 
-                category: "food", 
-                title: "[안산] 디저트 베이커리 영업등록"
+                title: "[부천] 축산물가공 양념육 HACCP"
             },
             {
                 img: "images/snack-haccp.png.png",  
+                tag: "식품 인허가 · HACCP", 
+                category: "food", 
+                title: "[인천] 디저트 베이커리 HACCP"
+            },
+            {
+                img: "images/food-registration.png.png", 
                 tag: "기타 영업 인허가", 
                 category: "etc", 
-                title: "[부천] 즉석판매제조가공업 신고"
+                title: "[인천] 볶음김치 식품제조등록"
             },
             {
                 img: "images/crab-haccp.png.png", 
-                tag: "식품 인허가 · HACCP",  
+                tag: "기타 영업 인허가",  
                 category: "etc", 
-                title: "[인천] 반찬창업 식품소분업 허가"
+                title: "[인천] 게장 양념게장 HACCP"
             },
             {
                 img: "images/bonebroth-haccp.png.png", 
@@ -520,6 +512,12 @@
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
                 title: "[시흥] 소스류 반찬류 HACCP"
+            },
+            {
+                img: "images/haccp-basic.png.png", 
+                tag: "축산물 인허가 · HACCP", 
+                category: "meat", 
+                title: "[화성시] 비가열 양념육 HACCP"
             }
         ];
 
