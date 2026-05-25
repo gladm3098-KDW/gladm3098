@@ -57,7 +57,7 @@
       background: #fff;
       color: var(--color-text);
       line-height: 1.6;
-      word-break: keep-all; /* [전체 가동] 단어 단위 자동 차단으로 한 글자씩 밀리는 현상 예방 */
+      word-break: keep-all; 
       overflow-x: hidden; 
     }
 
@@ -162,7 +162,6 @@
       z-index: 10;
     }
 
-    /* 첫 번째 사진 빨간 네모 구역 뱃지 타깃 */
     .hero-badge {
       font-size: 14px;
       font-weight: 700;
@@ -240,7 +239,6 @@
       margin-bottom: 20px;
     }
 
-    /* 두 번째 사진 빨간 네모 구역 첫 문단 타깃 */
     .empathy-left p {
       color: var(--color-text-muted);
       font-size: 15.5px;
@@ -585,9 +583,55 @@
         background-color: #fdd835;
     }
 
-    /* ==========================================
-       [모바일 전용 최적화 가독성 방어선 세팅]
-    ============================================*/
+    /* 플로팅 카카오 버튼 스타일 */
+    #floating-kakao-btn {
+      position: fixed;
+      bottom: 95px; 
+      right: 24px;
+      z-index: 9998; 
+      background: #fee500; 
+      color: #181600;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16); 
+      border-radius: 50px; 
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: floatAnimation 2.5s infinite ease-in-out; 
+    }
+
+    #floating-kakao-btn:hover {
+      transform: scale(1.06) translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+      background-color: #fdd835;
+    }
+
+    .floating-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .floating-text {
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.3;
+      text-align: left;
+      letter-spacing: -0.3px;
+    }
+    .floating-text b {
+      font-size: 13.5px;
+      color: #111e38; 
+    }
+
+    @keyframes floatAnimation {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
     @media (max-width: 1024px) {
       .header-inner {
         flex-direction: column;
@@ -630,7 +674,6 @@
         display: none; 
       }
 
-      /* 1. 첫 번째 이미지 모바일 가독성 교정 */
       .hero {
         background-image: none; 
         padding: 50px 0;
@@ -640,14 +683,14 @@
       .hero-content {
         max-width: 100%;
         text-align: center;
-        padding: 0 8px; /* 양옆 숨통 여백 추가 */
+        padding: 0 8px; 
       }
       .hero-badge {
-        font-size: 12px; /* 폰트 스케일 최적화 */
+        font-size: 12px; 
         line-height: 1.5;
         padding: 6px 12px;
-        word-break: keep-all; /* 단어 보존 줄바꿈 활성화 */
-        display: inline; /* 모바일 반응형 박스 핏 전환 */
+        word-break: keep-all; 
+        display: inline; 
       }
       .hero h1 {
         font-size: 26px; 
@@ -661,14 +704,13 @@
         word-break: keep-all;
       }
 
-      /* 2. 두 번째 이미지 모바일 가독성 교정 */
       .empathy-section {
         padding: 55px 0;
       }
       .empathy-left {
         text-align: center; 
         margin-bottom: 25px;
-        padding: 0 10px; /* 문단 터치 마진 추가 */
+        padding: 0 10px; 
       }
       .empathy-left h2 {
         font-size: 23px;
@@ -678,7 +720,7 @@
         font-size: 14.5px;
         line-height: 1.65;
         margin-top: 10px;
-        word-break: keep-all; /* 단어가 임의로 찢어지는 현상 차단 */
+        word-break: keep-all; 
       }
 
       .empathy-card {
@@ -726,6 +768,17 @@
           padding: 14px 10px;
           font-size: 13.5px;
       }
+      #floating-kakao-btn {
+        bottom: 125px; 
+        right: 16px;
+        padding: 10px 14px;
+      }
+      .floating-text {
+        font-size: 11.5px;
+      }
+      .floating-text b {
+        font-size: 12.5px;
+      }
     }
   </style>
 </head>
@@ -751,7 +804,6 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <!-- [가독성 완료] 모바일에서 단어 단위로 자연스럽게 정렬되는 뱃지 구역 -->
         <div class="hero-badge">식품제조가공업 · 축산물가공업 · HACCP 인증 전문</div>
         <h1>
           식품-축산물 인허가와 HACCP,<br>
@@ -769,7 +821,6 @@
       
       <div class="empathy-left">
         <h2>인허가는 서류만으로<br>해결되지 않습니다</h2>
-        <!-- [가독성 완료] 모바일 화면 벽면에 붙지 않고 조사가 매끄럽게 개행되는 단어 보존 영역 -->
         <p>
           법령 기준을 충족하는 것만으로 인허가가 원활하게 진행되는 것은 아닙니다. 시설 기준, 위생 동선, 실제 운영 방식까지 함께 고려해야 불필요한 보완 요청을 줄이고 안정적으로 허가를 받을 수 있습니다.
         </p>
@@ -816,7 +867,7 @@
           <div>
             <div class="service-icon-circle">🥩</div>
             <h3>축산물가공업 허가</h3>
-            <p>시설 기준에 따른 작업장 배치 및 동선 설계, 영업허가 신청, 품목제조보고까지 인허가 전 과정을 대행합니다.</p>
+            <p>시설 기준에 따른 작업장 배치 및 동선 설계, 영업등록 신청, 품목제조보고까지 인허가 전 과정을 대행합니다.</p>
           </div>
           <a href="services.html#meat" class="btn-card-link">상세 기준 확인 →</a>
         </div>
@@ -965,6 +1016,12 @@
           </div>
       </div>
   </div>
+
+  <!-- 동동 떠다니는 카카오톡 챗봇/상담 플로팅 버튼 -->
+  <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" id="floating-kakao-btn" title="카카오톡 빠른 상담">
+    <span class="floating-icon">💬</span>
+    <span class="floating-text">HACCP·인허가<br><b>24시 상담</b></span>
+  </a>
 
 </body>
 </html>
