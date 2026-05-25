@@ -499,53 +499,44 @@
       margin-bottom: 8px;
     }
 
-    /* 스마트 바 고정 효과 */
+    /* [수정] 앞으로 / 이전으로 초슬림 고정 바 내비게이션 구조 */
     .sticky-action-bar {
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: rgba(255, 255, 255, 0.96);
         box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
-        padding: 14px 20px;
+        padding: 12px 20px;
         box-sizing: border-box;
         z-index: 9999;
         display: flex;
         justify-content: center;
         align-items: center;
         backdrop-filter: blur(8px);
+        border-top: 1px solid #e2e8f0;
     }
 
     .action-container {
         width: 100%;
-        max-width: 800px;
+        max-width: 500px; /* 슬림 정렬 구조 세팅 */
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-    }
-
-    .action-text {
-        font-size: 15px;
-        font-weight: 500;
-        color: #334155;
-        text-align: left;
-        white-space: nowrap;
+        justify-content: center;
     }
 
     .action-btn-group {
         display: flex;
-        gap: 10px;
-        flex-grow: 1;
-        max-width: 500px;
+        gap: 14px;
+        width: 100%;
     }
 
     .action-btn {
         flex: 1;
         padding: 12px 16px;
-        font-size: 14px;
+        font-size: 14.5px;
         font-weight: 700;
-        border-radius: 6px;
+        border-radius: 8px;
         cursor: pointer;
         transition: all 0.2s ease;
         text-decoration: none;
@@ -556,44 +547,37 @@
         white-space: nowrap;
     }
 
+    /* 이전으로 단추 디자인 */
     .btn-back {
         background-color: #f1f5f9;
-        color: #475569;
+        color: #334155;
         border: 1px solid #cbd5e1;
     }
     .btn-back:hover {
         background-color: #e2e8f0;
     }
 
-    .btn-phone {
+    /* 앞으로 단추 디자인 */
+    .btn-forward {
         background-color: #111e38;
         color: #ffffff;
         border: 1px solid #111e38;
     }
-    .btn-phone:hover {
+    .btn-forward:hover {
         background-color: #1e293b;
     }
 
-    .btn-kakao {
-        background-color: #fee500;
-        color: #181600;
-        border: 1px solid #fee500;
-    }
-    .btn-kakao:hover {
-        background-color: #fdd835;
-    }
-
-    /* 플로팅 카카오 버튼 스타일 */
-    #floating-kakao-btn {
+    /* [수정] 둥둥 떠다니는 전화연결 플로팅 탑재 마감 */
+    #floating-phone-btn {
       position: fixed;
-      bottom: 95px; 
+      bottom: 85px; /* 고정 내비 바와 겹침 방지 여백 가드 */
       right: 24px;
       z-index: 9998; 
-      background: #fee500; 
-      color: #181600;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16); 
+      background: #111e38; /* 지엘 시그니처 딥네이비 컬러 핏 */
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(17, 30, 56, 0.25); 
       border-radius: 50px; 
-      padding: 12px 18px;
+      padding: 12px 20px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -602,14 +586,14 @@
       animation: floatAnimation 2.5s infinite ease-in-out; 
     }
 
-    #floating-kakao-btn:hover {
-      transform: scale(1.06) translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
-      background-color: #fdd835;
+    #floating-phone-btn:hover {
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 12px 30px rgba(17, 30, 56, 0.35);
+      background-color: #1d2d4e;
     }
 
     .floating-icon {
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1;
     }
 
@@ -622,7 +606,7 @@
     }
     .floating-text b {
       font-size: 13.5px;
-      color: #111e38; 
+      color: #c7a97f; /* 골드 브라운 라이트닝 매칭 */
     }
 
     @keyframes floatAnimation {
@@ -753,25 +737,24 @@
         align-items: center;
         text-align: center;
       }
-      .action-container {
-          flex-direction: column;
-          gap: 10px;
-      }
-      .action-text {
-          display: none; 
+      
+      /* 모바일 슬림 바 핏 조율 */
+      .sticky-action-bar {
+          padding: 10px 16px;
       }
       .action-btn-group {
-          width: 100%;
-          max-width: 100%;
+          gap: 10px;
       }
       .action-btn {
-          padding: 14px 10px;
-          font-size: 13.5px;
+          padding: 12px 10px;
+          font-size: 14px;
       }
-      #floating-kakao-btn {
-        bottom: 125px; 
+
+      /* 모바일 전용 플로팅 가드 고도화 */
+      #floating-phone-btn {
+        bottom: 80px; 
         right: 16px;
-        padding: 10px 14px;
+        padding: 10px 16px;
       }
       .floating-text {
         font-size: 11.5px;
@@ -793,7 +776,7 @@
       <nav class="nav">
         <a href="#gl-business">업무분야</a>
         <a href="cases.html">성공사례</a>
-        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a>
+        <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝  블로그</a>
         <a href="consult.html">상담문의</a>
         <a href="consult.html" class="header-btn">상담 (해결) 요청하기</a>
       </nav>
@@ -1005,22 +988,20 @@
     </div>
   </footer>
 
-  <!-- 스마트 고정 상담 바 위젯 -->
+  <!-- [개조 완료] 하단 슬림형 내비게이션 고정 바 위젯 (이전으로 / 앞으로 기능 전용) -->
   <div class="sticky-action-bar">
       <div class="action-container">
-          <div class="action-text">🎯 HACCP·인허가 빠른 상담</div>
           <div class="action-btn-group">
-              <button class="action-btn btn-back" onclick="history.back();">이전으로</button>
-              <a href="tel:010-3538-3098" class="action-btn btn-phone">📞 전화연결</a>
-              <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" class="action-btn btn-kakao">💬 카카오톡 문의</a>
+              <button class="action-btn btn-back" onclick="history.back();">◀ 이전으로</button>
+              <button class="action-btn btn-forward" onclick="history.forward();">앞으로 ▶</button>
           </div>
       </div>
   </div>
 
-  <!-- 동동 떠다니는 카카오톡 챗봇/상담 플로팅 버튼 -->
-  <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" id="floating-kakao-btn" title="카카오톡 빠른 상담">
-    <span class="floating-icon">💬</span>
-    <span class="floating-text">HACCP·인허가<br><b>24시 상담</b></span>
+  <!-- [개조 완료] 동동 떠다니는 신속 전화연결 플로팅 배너 단추 -->
+  <a href="tel:010-3538-3098" id="floating-phone-btn" title="대표 직통 전화상담">
+    <span class="floating-icon">📞</span>
+    <span class="floating-text">인허가 · HACCP<br><b>전화연결 (상담)</b></span>
   </a>
 
 </body>
