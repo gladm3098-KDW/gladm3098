@@ -66,7 +66,7 @@
 
         .container {
             width: 100%;
-            max-width: 1200px; /* 이미지를 더 키우기 위해 컨테이너 최대 폭 확장 */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -169,11 +169,11 @@
             font-weight: 700;
         }
 
-        /* CASES GRID (이미지 확대를 위해 그리드 간격 조율 및 3열 최적화) */
+        /* CASES GRID */
         .cases-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px; 
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px; 
             margin-bottom: 120px;
             align-items: start;
         }
@@ -195,7 +195,6 @@
             border-color: var(--color-secondary);
         }
 
-        /* 원본 비율을 무삭제로 유지하되 시원하게 키우는 이미지 박스 */
         .case-img-box {
             width: 100%;
             height: auto; 
@@ -210,11 +209,8 @@
             object-fit: contain; 
         }
 
-        /* ==========================================
-           [수정 반영] 텍스트 박스 내부 공백 최소 다이어트 핏
-        ============================================*/
         .case-info {
-            padding: 8px 12px 10px 12px; /* 위아래 여백을 획기적으로 줄여 딱 한 줄용 컴팩트 핏 구현 */
+            padding: 10px 12px 14px 12px; 
             text-align: center;
             background: #ffffff;
             border-top: 1px solid #f1f5f9; 
@@ -228,17 +224,17 @@
             padding: 2px 6px; 
             border-radius: 3px;
             display: inline-block;
-            margin-bottom: 4px; 
+            margin-bottom: 6px; 
             letter-spacing: -0.2px;
         }
 
         .case-title {
             color: var(--color-primary);
-            font-size: 14px; 
+            font-size: 13.5px; 
             font-weight: 700;
             margin: 0;
             line-height: 1.4;
-            letter-spacing: -0.4px; /* 자간을 모아 한 줄 마감 안정성 극대화 */
+            letter-spacing: -0.3px; 
         }
 
         /* FOOTER */
@@ -414,7 +410,7 @@
             <nav class="nav">
                 <a href="index.html#gl-business">업무분야</a>
                 <a href="cases.html" class="active">성공사례</a>
-                <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝  블로그</a>
+                <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a>
                 <a href="consult.html">상담문의</a>
             </nav>
         </div>
@@ -512,11 +508,11 @@
                 tag: "식품 인허가 · HACCP", 
                 category: "food", 
                 title: "[시흥] 소스류 반찬류 HACCP"
-            }, /* [수정] 누락되었던 쉼표 추가 및 마지막 중괄호 구문 문법 오류 정밀 봉합 */
+            },
             {
                 img: "images/haccp-basic.png.png", 
                 tag: "축산물 인허가 · HACCP", 
-                category: "meat", /* [카테고리 핏 변경] 식품군에서 축산물 허가군으로 유연 재배치 */
+                category: "meat", 
                 title: "[화성시] 비가열 양념육 HACCP"
             }
         ];
@@ -531,4 +527,40 @@
                     card.className = 'case-card';
 
                     card.innerHTML = `
-                        <div class="case-
+                        <div class="case-img-box">
+                            <img src="${item.img}" alt="${item.title}" loading="lazy">
+                        </div>
+                        <div class="case-info">
+                            <span class="case-tag">${item.tag}</span>
+                            <p class="case-title">${item.title}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                }
+            });
+        }
+
+        function filterSelection(type) {
+            const buttons = document.querySelectorAll('.filter-btn-group .btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const eventTarget = window.event ? window.event.target : null;
+            if (eventTarget && eventTarget.tagName === 'BUTTON') {
+                eventTarget.classList.add('active');
+            } else {
+                buttons.forEach(btn => {
+                    if(btn.getAttribute('onclick').includes(type)) btn.classList.add('active');
+                });
+            }
+
+            renderCases(type);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderCases('all');
+        });
+    </script>
+
+</body>
+
+</html>
