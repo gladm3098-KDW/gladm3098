@@ -2,7 +2,7 @@
 <html lang="ko">
 
 <head>
-    <!-- Google tag (gtag.js) - 지엘행정사 구글 애널리틱스 정밀 이식 구역 -->
+    <!-- Google tag (gtag.js) - 구글 애널리틱스 정밀 이식 구역 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGWECXJBGD"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -10,6 +10,16 @@
       gtag('js', new Date());
 
       gtag('config', 'G-QGWECXJBGD');
+    </script>
+
+    <!-- Naver Analytics Sensor - 네이버 애널리틱스 추가 수동 이식 구역 -->
+    <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+    <script type="text/javascript">
+    if(!wcs_add) var wcs_add = {};
+    wcs_add["wa"] = "1cdd1643c23b5f0";
+    if(window.wcs) {
+    wcs_do();
+    }
     </script>
 
     <meta charset="UTF-8" />
@@ -363,7 +373,7 @@
 
         .floating-icon {
             font-size: 19px;
-            line-釋: 1;
+            line-height: 1;
         }
 
         .floating-text {
