@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+  <!-- Google tag (gtag.js) - 구글 애널리틱스 수동 이식 구역 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGWECXJBGD"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -8,6 +9,16 @@
     gtag('js', new Date());
 
     gtag('config', 'G-QGWECXJBGD');
+  </script>
+
+  <!-- Naver Analytics Sensor - 네이버 애널리틱스 추가 수동 이식 구역 -->
+  <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "1cdd1643c23b5f0";
+  if(window.wcs) {
+  wcs_do();
+  }
   </script>
 
   <meta charset="UTF-8" />
@@ -27,6 +38,7 @@
 
   <meta name="author" content="지엘행정사 사무소" />
 
+  <!-- Pretendard -->
   <link
     rel="stylesheet"
     as="style"
@@ -573,10 +585,10 @@
         background-color: #1e293b;
     }
 
-    /* [수정] 둥둥 떠다니는 전화 상담 버튼 (위쪽 배치) */
+    /* 둥둥 떠다니는 전화 상담 버튼 (위쪽 배치) */
     #floating-phone-btn {
       position: fixed;
-      bottom: 142px; /* 카톡 버튼 위에 겹치지 않게 세로 스택 */
+      bottom: 142px; 
       right: 24px;
       z-index: 9998; 
       background: #111e38; 
@@ -598,10 +610,10 @@
       background-color: #1d2d4e;
     }
 
-    /* [수정] 둥둥 떠다니는 카카오톡 자동 챗봇 버튼 (아래쪽 배치) */
+    /* 둥둥 떠다니는 카카오톡 자동 챗봇 버튼 (아래쪽 배치) */
     #floating-kakao-btn {
       position: fixed;
-      bottom: 85px; /* 하단바 바로 위 배치 */
+      bottom: 85px; 
       right: 24px;
       z-index: 9998; 
       background: #fee500; 
@@ -614,7 +626,7 @@
       gap: 10px;
       text-decoration: none;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      animation: floatAnimationKakao 2.8s infinite ease-in-out; /* 리듬 분리형 모션 적용 */
+      animation: floatAnimationKakao 2.8s infinite ease-in-out; 
     }
 
     #floating-kakao-btn:hover {
@@ -641,7 +653,6 @@
     #floating-phone-btn .floating-text b { color: #c7a97f; }
     #floating-kakao-btn .floating-text b { color: #111e38; }
 
-    /* 무중력 둥둥 애니메이션 소스 분리 매칭 */
     @keyframes floatAnimationPhone {
       0% { transform: translateY(0); }
       50% { transform: translateY(-6px); }
@@ -787,7 +798,6 @@
           font-size: 14px;
       }
 
-      /* 모바일 타깃 듀얼 플로팅 정렬 보정 시스템 */
       #floating-phone-btn {
         bottom: 195px; 
         right: 16px;
@@ -810,6 +820,7 @@
 
 <body>
 
+  <!-- HEADER -->
   <header class="header">
     <div class="container header-inner">
       <a href="index.html" class="logo"><span>GL</span> 지엘행정사 사무소</a>
@@ -824,6 +835,7 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
       <div class="hero-content">
@@ -838,6 +850,7 @@
     </div>
   </section>
 
+  <!-- EMPATHY SECTION -->
   <section class="empathy-section">
     <div class="container empathy-container">
       
@@ -863,6 +876,7 @@
     </div>
   </section>
 
+  <!-- SERVICE SECTION -->
   <section class="section service-section" id="gl-business">
     <div class="container">
       
@@ -873,6 +887,7 @@
 
       <div class="service-grid">
         
+        <!-- 1 -->
         <div class="service-card">
           <div>
             <div class="service-icon-circle">🏭</div>
@@ -882,6 +897,7 @@
           <a href="services.html#food" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
+        <!-- 2 -->
         <div class="service-card">
           <div>
             <div class="service-icon-circle">🥩</div>
@@ -891,6 +907,7 @@
           <a href="services.html#meat" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
+        <!-- 3 -->
         <div class="service-card">
           <div>
             <div class="service-icon-circle">📋</div>
@@ -900,6 +917,7 @@
           <a href="services.html#haccp" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
+        <!-- 4 -->
         <div class="service-card">
           <div>
             <div class="service-icon-circle">📜</div>
@@ -913,6 +931,7 @@
     </div>
   </section>
 
+  <!-- 실적 이미지 연동 구역 -->
   <section class="section trust-section">
     <div class="container">
       <div class="section-title">
@@ -922,6 +941,7 @@
       
       <div class="trust-grid">
         
+        <!-- 실적 1 -->
         <a href="cases.html" class="trust-link">
           <div class="trust-box">
             <img src="images/food-license.png.png" alt="식품제조가공업 등록 완료">
@@ -932,6 +952,7 @@
           </div>
         </a>
 
+        <!-- 실적 2 -->
         <a href="cases.html" class="trust-link">
           <div class="trust-box">
             <img src="images/dumpling-haccp.png.png" alt="HACCP 스마트 인증 완료">
@@ -942,6 +963,7 @@
           </div>
         </a>
 
+        <!-- 실적 3 -->
         <a href="cases.html" class="trust-link">
           <div class="trust-box">
             <img src="images/meat-haccp.png.png" alt="축산물가공업 포장육 허가">
@@ -952,6 +974,7 @@
           </div>
         </a>
 
+        <!-- 실적 4 -->
         <a href="cases.html" class="trust-link">
           <div class="trust-box">
             <img src="images/food-registration.png.png" alt="디저트 제과류 제조업소 등록">
@@ -966,6 +989,7 @@
     </div>
   </section>
 
+  <!-- 가로형 4대 핵심 지표 배너 구역 -->
   <section class="bottom-trust-bar">
     <div class="container trust-bar-inner">
       
@@ -1004,6 +1028,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer class="footer" id="gl-contact">
     <div class="container">
       <h3>지엘행정사 사무소</h3>
@@ -1015,6 +1040,7 @@
     </div>
   </footer>
 
+  <!-- 하단 슬림형 내비게이션 고정 바 위젯 -->
   <div class="sticky-action-bar">
       <div class="action-container">
           <div class="action-btn-group">
@@ -1024,11 +1050,13 @@
       </div>
   </div>
 
+  <!-- 둥둥 떠다니는 전화 상담 플로팅 버튼 -->
   <a href="tel:010-3538-3098" id="floating-phone-btn" title="대표 직통 전화상담">
     <span class="floating-icon">📞</span>
     <span class="floating-text">인허가 · HACCP<br><b>전화연결 (상담)</b></span>
   </a>
 
+  <!-- 둥둥 떠다니는 카카오톡 자동 챗봇 버튼 -->
   <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" id="floating-kakao-btn" title="카카오톡 문의">
     <span class="floating-icon">💬</span>
     <span class="floating-text">HACCP·인허가<br><b>카카오톡 문의</b></span>
