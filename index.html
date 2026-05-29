@@ -93,7 +93,7 @@
       padding: 0 24px;
     }
 
-    /* 🎬 [추가] 인터랙티브 웹 인트로 전용 레이아웃 엔진 스타일 자부리 */
+    /* 🎬 인터랙티브 웹 인트로 전용 레이아웃 엔진 스타일 자부리 */
     #gl-master-intro {
       position: fixed; inset: 0; width: 100vw; height: 100vh;
       background: #000; z-index: 50000;
@@ -184,8 +184,20 @@
     .final-cta { margin-top: 6px; font-size: 12px; color: rgba(180,170,210,0.6); letter-spacing: 3px; border: 1px solid rgba(124,92,191,0.3); padding: 8px 24px; opacity: 0; transition: opacity 0.6s ease 0.5s; }
     .final-cta.show { opacity: 1; }
     .pgb { position: absolute; bottom: 0; left: 0; height: 2px; background: #7c5cbf; width: 0%; transition: width linear; }
-    .skip-btn { position: absolute; bottom: 16px; right: 18px; font-size: 11px; color: rgba(180,170,210,0.5); letter-spacing: 2px; background: none; border: none; cursor: pointer; font-family: 'Noto Sans KR',sans-serif; z-index: 50005; }
-    .skip-btn:hover { color: rgba(180,170,210,0.9); }
+    
+    /* 📍 [수정 조율] 단추 시인성 하이라이트 디렉터리 아키텍처 */
+    .skip-btn { 
+      position: absolute; bottom: 20px; right: 24px; 
+      font-size: 12px; font-weight: 700; color: #ffffff; /* 하얀색 100% 핏 조정 */
+      letter-spacing: 2.5px; background: rgba(0, 0, 0, 0.6); /* 뒷 배경 마스킹 블러 스택 */
+      border: 1px solid rgba(255, 255, 255, 0.35); cursor: pointer; 
+      font-family: 'Noto Sans KR',sans-serif; z-index: 50005;
+      padding: 6px 16px; border-radius: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: all 0.2s ease;
+    }
+    .skip-btn:hover { color: #7c5cbf; background: #ffffff; border-color: #7c5cbf; }
+    
     .enter-btn {
       position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
       background: rgba(124,92,191,0.18); border: 1px solid #7c5cbf; color: #fff;
