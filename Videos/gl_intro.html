@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>지엘행정사 사무소 인트로</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;700&family=Pinyon+Script&display=swap');
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body { background:#000; display:flex; align-items:center; justify-content:center; min-height:100vh; }
+
+  #iw {
+    width:100%; max-width:960px; aspect-ratio:16/9;
+    background:#0a0a0f;
+    position:relative; overflow:hidden;
+    font-family:'Noto Sans KR',sans-serif;
+    border-radius:8px;
+  }
+
+  canvas#bgc { position:absolute; inset:0; width:100%; height:100%; }
+
+  .ovg {
+    position:absolute; inset:0; pointer-events:none;
+    background: radial-gradient(ellipse at 60% 50%, rgba(103,80,170,0.18) 0%, transparent 70%),
+                radial-gradient(ellipse at 20% 80%, rgba(80,80,120,0.12) 0%, transparent 60%);
+  }
+
+  .cx { position:absolute; width:16px; height:16px; opacity:0.4; }
+  .cx.tl { top:14px; left:14px;  border-top:1px solid #7c5cbf; border-left:1px solid #7c5cbf; }
+  .cx.tr { top:14px; right:14px; border-top:1px solid #7c5cbf; border-right:1px solid #7c5cbf; }
+  .cx.bl { bottom:16px; left:14px;  border-bottom:1px solid #7c5cbf; border-left:1px solid #7c5cbf; }
+  .cx.br { bottom:16px; right:14px; border-bottom:1px solid #7c5cbf; border-right:1px solid #7c5cbf; }
+
+  .lh {
+    position:absolute; height:1px;
+    background:linear-gradient(90deg,transparent,rgba(124,92,191,0.55),transparent);
+    width:0; transition:width 1s ease;
+    left:50%; transform:translateX(-50%);
+  }
+  .lh.t { top:25%; } .lh.b { bottom:25%; }
+  .lh.show { width:72%; }
+
+  .lv {
+    position:absolute; width:1px;
+    background:linear-gradient(180deg,transparent,rgba(124,92,191,0.4),transparent);
+    height:0; transition:height 1s ease 0.3s;
+    top:50%; transform:translateY(-50%);
+  }
+  .lv.l { left:14%; } .lv.r { right:14%; }
+  .lv.show { height:50%; }
+
+  .sc { position:absolute; inset:0; opacity:0; transition:opacity 0.7s ease; }
+
+  .logo-center {
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%) scale(0.4);
+    opacity:0;
+    transition:transform 1.2s cubic-bezier(0.16,1,0.3,1), opacity 0.8s ease;
+    display:flex; flex-direction:column; align-items:center; gap:14px;
+  }
+  .logo-center.show { transform:translate(-50%,-50%) scale(1); opacity:1; }
+
+  .logo-with-gl { display:flex; align-items:center; gap:0; }
+
+  .lf {
+    width:88px; height:88px;
+    border:2.5px solid #7c5cbf;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+
+  .gl-script {
+    font-family:'Pinyon Script', cursive;
+    font-size:54px; color:#7c5cbf; line-height:1;
+    margin-top:8px;
+  }
+  .gl-script .gl-l { color:#a090c8; }
+
+  .good-luck-out {
+    writing-mode:vertical-rl; text-orientation:mixed;
+    transform:rotate(180deg);
+    font-family:'Noto Sans KR', sans-serif;
+    font-size:7px; font-weight:300;
+    color:rgba(168,160,200,0.65);
+    letter-spacing:3.5px; text-transform:uppercase;
+    padding-left:7px; white-space:nowrap; align-self:center;
+  }
+
+  .ln {
+    font-size:14px; font-weight:700;
+    color:#fff; letter-spacing:5px;
+    opacity:0; transform:translateY(8px);
+    transition:opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s;
+  }
+  .ln.show { opacity:1; transform:translateY(0); }
+
+  .ls {
+    font-size:10px; color:rgba(180,170,210,0.6); letter-spacing:3px;
+    opacity:0; transform:translateY(6px);
+    transition:opacity 0.5s ease 0.8s, transform 0.5s ease 0.8s;
+  }
+  .ls.show { opacity:1; transform:translateY(0); }
+
+  .tag-inner {
+    position:absolute; inset:0;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:14px;
+  }
+
+  .tl-label {
+    font-size:11px; color:#7c5cbf; letter-spacing:5px; text-transform:uppercase;
+    opacity:0; transform:translateY(-10px);
+    transition:opacity 0.5s ease, transform 0.5s ease;
+  }
+  .tl-label.show { opacity:1; transform:translateY(0); }
+
+  .tl-main {
+    font-family:'Noto Serif KR',serif;
+    font-size:26px; font-weight:700;
+    color:#fff; text-align:center; line-height:1.55;
+    opacity:0; transform:translateY(14px);
+    transition:opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+  }
+  .tl-main.show { opacity:1; transform:translateY(0); }
+  .tl-main em { color:#9b7dce; font-style:normal; }
+
+  .tl-div {
+    width:0; height:1px; background:rgba(124,92,191,0.5);
+    transition:width 0.8s ease 0.5s;
+  }
+  .tl-div.show { width:110px; }
+
+  .tl-sub {
+    font-size:13px; color:rgba(200,190,225,0.75);
+    letter-spacing:1px; text-align:center; line-height:1.8;
+    opacity:0; transform:translateY(8px);
+    transition:opacity 0.6s ease 0.7s, transform 0.6s ease 0.7s;
+  }
+  .tl-sub.show { opacity:1; transform:translateY(0); }
+
+  .svc-inner {
+    position:absolute; inset:0;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:18px;
+  }
+
+  .svc-title {
+    font-size:11px; color:rgba(155,125,206,0.8); letter-spacing:4px; text-transform:uppercase;
+    opacity:0; transition:opacity 0.5s ease;
+  }
+  .svc-title.show { opacity:1; }
+
+  .svc-grid {
+    display:grid; grid-template-columns:repeat(4,1fr);
+    gap:12px; width:76%; max-width:580px;
+  }
+
+  .svc-card {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(124,92,191,0.25);
+    padding:14px 10px; text-align:center;
+    opacity:0; transform:translateY(18px);
+    transition:opacity 0.5s ease, transform 0.5s ease, border-color 0.3s;
+  }
+  .svc-card:hover { border-color:rgba(124,92,191,0.6); }
+  .svc-card.show { opacity:1; transform:translateY(0); }
+  .svc-card .si { font-size:20px; color:#9b7dce; margin-bottom:8px; display:block; }
+  .svc-card .sn { font-size:11px; color:rgba(220,215,235,0.85); line-height:1.5; }
+
+  .final-inner {
+    position:absolute; inset:0;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:10px;
+  }
+
+  .final-row {
+    display:flex; align-items:center; gap:18px;
+    opacity:0; transform:scale(0.9);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .final-row.show { opacity:1; transform:scale(1); }
+
+  .mini-with-gl { display:flex; align-items:center; gap:0; }
+
+  .mini-frame {
+    width:52px; height:52px;
+    border:2px solid #7c5cbf;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .mini-gl {
+    font-family:'Pinyon Script',cursive;
+    font-size:30px; color:#7c5cbf; line-height:1; margin-top:4px;
+  }
+  .mini-gl span { color:#a090c8; }
+
+  .mini-good-luck {
+    writing-mode:vertical-rl; text-orientation:mixed;
+    transform:rotate(180deg);
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:5.5px; font-weight:300;
+    color:rgba(168,160,200,0.6);
+    letter-spacing:3px; text-transform:uppercase;
+    padding-left:5px; white-space:nowrap; align-self:center;
+  }
+
+  .final-text h2 {
+    font-family:'Noto Serif KR',serif;
+    font-size:21px; font-weight:700;
+    color:#fff; letter-spacing:2px;
+  }
+  .final-text p {
+    font-size:10px; color:rgba(155,125,206,0.8); letter-spacing:4px;
+  }
+
+  .final-cta {
+    margin-top:6px; font-size:12px;
+    color:rgba(180,170,210,0.6); letter-spacing:3px;
+    border:1px solid rgba(124,92,191,0.3);
+    padding:8px 24px;
+    opacity:0; transition:opacity 0.6s ease 0.5s;
+  }
+  .final-cta.show { opacity:1; }
+
+  .pgb {
+    position:absolute; bottom:0; left:0;
+    height:2px; background:#7c5cbf; width:0%; transition:width linear;
+  }
+
+  .skip-btn {
+    position:absolute; bottom:16px; right:18px;
+    font-size:11px; color:rgba(180,170,210,0.5);
+    letter-spacing:2px; background:none; border:none; cursor:pointer;
+    font-family:'Noto Sans KR',sans-serif;
+  }
+  .skip-btn:hover { color:rgba(180,170,210,0.9); }
+
+  .rbtn {
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(124,92,191,0.15);
+    border:1px solid rgba(124,92,191,0.45);
+    color:rgba(210,200,235,0.9);
+    font-family:'Noto Sans KR',sans-serif;
+    font-size:12px; letter-spacing:3px;
+    padding:11px 26px; cursor:pointer; display:none;
+  }
+  .rbtn:hover { background:rgba(124,92,191,0.3); }
+</style>
+</head>
+<body>
+<div id="iw">
+  <canvas id="bgc"></canvas>
+  <div class="ovg"></div>
+  <div class="cx tl"></div><div class="cx tr"></div>
+  <div class="cx bl"></div><div class="cx br"></div>
+  <div class="lh t" id="lht"></div>
+  <div class="lh b" id="lhb"></div>
+  <div class="lv l" id="lvl"></div>
+  <div class="lv r" id="lvr"></div>
+
+  <!-- Scene 1: Logo -->
+  <div class="sc" id="s1">
+    <div class="logo-center" id="logoC">
+      <div class="logo-with-gl">
+        <div class="lf">
+          <div class="gl-script">g<span class="gl-l">l</span></div>
+        </div>
+        <div class="good-luck-out">GOOD LUCK</div>
+      </div>
+      <div class="ln" id="ln">지엘행정사 사무소</div>
+      <div class="ls" id="ls">GL ADMINISTRATIVE OFFICE</div>
+    </div>
+  </div>
+
+  <!-- Scene 2: Tagline -->
+  <div class="sc" id="s2">
+    <div class="tag-inner">
+      <div class="tl-label" id="tll">Food · HACCP · License</div>
+      <div class="tl-main"  id="tlm">식품 인허가와 HACCP,<br><em>법령과 실무 기준</em>으로 해결합니다</div>
+      <div class="tl-div"   id="tld"></div>
+      <div class="tl-sub"   id="tls">복잡한 규제도 명확한 기준으로<br>처음부터 끝까지 함께합니다</div>
+    </div>
+  </div>
+
+  <!-- Scene 3: Services -->
+  <div class="sc" id="s3">
+    <div class="svc-inner">
+      <div class="svc-title" id="svct">주요 업무 분야</div>
+      <div class="svc-grid">
+        <div class="svc-card" id="sc0"><span class="si"><i class="ti ti-certificate"></i></span><div class="sn">HACCP<br>인증</div></div>
+        <div class="svc-card" id="sc1"><span class="si"><i class="ti ti-building-factory"></i></span><div class="sn">식품제조<br>가공업 등록</div></div>
+        <div class="svc-card" id="sc2"><span class="si"><i class="ti ti-meat"></i></span><div class="sn">식육가공업<br>허가</div></div>
+        <div class="svc-card" id="sc3"><span class="si"><i class="ti ti-license"></i></span><div class="sn">기타 영업<br>인허가</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 4: Final -->
+  <div class="sc" id="s4">
+    <div class="final-inner">
+      <div class="final-row" id="fr">
+        <div class="mini-with-gl">
+          <div class="mini-frame">
+            <div class="mini-gl">g<span>l</span></div>
+          </div>
+          <div class="mini-good-luck">GOOD LUCK</div>
+        </div>
+        <div class="final-text">
+          <h2>지엘행정사 사무소</h2>
+          <p>GL ADMINISTRATIVE OFFICE</p>
+        </div>
+      </div>
+      <div class="final-cta" id="fcta">상담 · 문의 환영합니다</div>
+    </div>
+  </div>
+
+  <div class="pgb" id="pgb"></div>
+  <button class="skip-btn" id="skipBtn" onclick="skipIntro()">SKIP ›</button>
+  <button class="rbtn" id="rb" onclick="startIntro()">↺ 다시 보기</button>
+</div>
+
+<script>
+(function(){
+  const cv=document.getElementById('bgc'), cx=cv.getContext('2d');
+  let pts=[], tos=[];
+
+  function resize(){ cv.width=cv.parentElement.offsetWidth; cv.height=cv.parentElement.offsetHeight; }
+  function initP(){
+    pts=[];
+    for(let i=0;i<55;i++) pts.push({
+      x:Math.random()*cv.width, y:Math.random()*cv.height,
+      r:Math.random()*1.5+0.3,
+      dx:(Math.random()-0.5)*0.3, dy:(Math.random()-0.5)*0.3,
+      a:Math.random()*0.5+0.1
+    });
+  }
+  function draw(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    pts.forEach(p=>{
+      cx.beginPath(); cx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      cx.fillStyle=`rgba(155,125,206,${p.a})`; cx.fill();
+      p.x+=p.dx; p.y+=p.dy;
+      if(p.x<0||p.x>cv.width) p.dx*=-1;
+      if(p.y<0||p.y>cv.height) p.dy*=-1;
+    });
+    requestAnimationFrame(draw);
+  }
+
+  const $=id=>document.getElementById(id);
+  function show(id){ $(id).classList.add('show'); }
+  function hide(id){ $(id).classList.remove('show'); }
+  function at(fn,ms){ const t=setTimeout(fn,ms); tos.push(t); }
+  function ca(){ tos.forEach(clearTimeout); tos=[]; }
+
+  function showFinal(){
+    $('skipBtn').style.display='none';
+    $('pgb').style.transition='none'; $('pgb').style.width='100%';
+    $('s4').style.opacity=1;
+    at(()=>{ show('fr'); }, 100);
+    at(()=>{ show('fcta'); }, 600);
+    at(()=>{ $('rb').style.display='block'; }, 2000);
+  }
+
+  window.skipIntro=function(){
+    ca();
+    ['s1','s2','s3'].forEach(id=>{ $(id).style.opacity=0; });
+    showFinal();
+  };
+
+  window.startIntro=function(){
+    ca();
+    $('rb').style.display='none';
+    $('skipBtn').style.display='block';
+    ['s1','s2','s3','s4'].forEach(id=>{ $(id).style.transition='none'; $(id).style.opacity=0; });
+    ['lht','lhb','lvl','lvr','logoC','ln','ls',
+     'tll','tlm','tld','tls','svct','sc0','sc1','sc2','sc3','fr','fcta'].forEach(hide);
+
+    const bar=$('pgb');
+    bar.style.transition='none'; bar.style.width='0%';
+    setTimeout(()=>{ bar.style.transition='width 13s linear'; bar.style.width='100%'; },80);
+
+    at(()=>{ $('s1').style.transition='opacity 0.7s ease'; $('s1').style.opacity=1; show('lht'); show('lhb'); },150);
+    at(()=>{ show('logoC'); },350);
+    at(()=>{ show('ln'); },950);
+    at(()=>{ show('ls'); show('lvl'); show('lvr'); },1280);
+    at(()=>{ $('s1').style.opacity=0; },3400);
+
+    at(()=>{ $('s2').style.transition='opacity 0.7s ease'; $('s2').style.opacity=1; show('tll'); },4200);
+    at(()=>{ show('tlm'); },4500);
+    at(()=>{ show('tld'); },5000);
+    at(()=>{ show('tls'); },5300);
+    at(()=>{ $('s2').style.opacity=0; },7200);
+
+    at(()=>{ $('s3').style.transition='opacity 0.7s ease'; $('s3').style.opacity=1; show('svct'); },8000);
+    at(()=>{ show('sc0'); },8300);
+    at(()=>{ show('sc1'); },8600);
+    at(()=>{ show('sc2'); },8900);
+    at(()=>{ show('sc3'); },9200);
+    at(()=>{ $('s3').style.opacity=0; },11000);
+
+    at(()=>{ showFinal(); },11800);
+  };
+
+  window.addEventListener('resize', ()=>{ resize(); initP(); });
+  resize(); initP(); draw(); startIntro();
+})();
+</script>
+</body>
+</html>
