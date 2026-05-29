@@ -185,11 +185,11 @@
     .final-cta.show { opacity: 1; }
     .pgb { position: absolute; bottom: 0; left: 0; height: 2px; background: #7c5cbf; width: 0%; transition: width linear; }
     
-    /* 📍 [정밀 조정] SKIP 단추를 하단 진행 바(Progress Bar) 바로 위 정중앙 하단 스택으로 재배치 */
+    /* 📍 [정밀 복구] 진행 선(pgb) 바로 위에 SKIP 단추를 안착시키는 하이라이트 스타일 엔진 구조 */
     .skip-btn { 
       position: absolute; 
-      bottom: 14px; /* 바닥의 pgb(2px) 진행 선 바로 위에 안착하도록 마진 조율 */
-      right: 24px; 
+      bottom: 14px;              /* ◀ 하단 진행 바(2px) 바로 위쪽에 딱 붙도록 위치 상향 조율 */
+      right: 24px;               /* ◀ 오른쪽 벽면 마진 레이아웃 유지 */
       font-size: 12px; font-weight: 700; color: #ffffff; 
       letter-spacing: 2.5px; background: rgba(0, 0, 0, 0.6); 
       border: 1px solid rgba(255, 255, 255, 0.35); cursor: pointer; 
@@ -1206,7 +1206,7 @@
       <p>연락처 : 010-3538-3098</p>
       <p style="margin-top:25px; opacity:0.5;">© 2026 GL Administrative Office. All Rights Reserved.</p>
     </div>
-  </header>
+  </footer>
 
   <div class="sticky-action-bar">
       <div class="action-container">
