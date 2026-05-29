@@ -185,13 +185,11 @@
     .final-cta.show { opacity: 1; }
     .pgb { position: absolute; bottom: 0; left: 0; height: 2px; background: #7c5cbf; width: 0%; transition: width linear; }
     
-    /* 📍 [정밀 복구] 진행 선(pgb) 바로 위에 SKIP 단추를 안착시키는 하이라이트 스타일 엔진 구조 */
+    /* 📍 [수정 조율] 단추 시인성 하이라이트 디렉터리 아키텍처 */
     .skip-btn { 
-      position: absolute; 
-      bottom: 14px;              /* ◀ 하단 진행 바(2px) 바로 위쪽에 딱 붙도록 위치 상향 조율 */
-      right: 24px;               /* ◀ 오른쪽 벽면 마진 레이아웃 유지 */
-      font-size: 12px; font-weight: 700; color: #ffffff; 
-      letter-spacing: 2.5px; background: rgba(0, 0, 0, 0.6); 
+      position: absolute; bottom: 20px; right: 24px; 
+      font-size: 12px; font-weight: 700; color: #ffffff; /* 하얀색 100% 핏 조정 */
+      letter-spacing: 2.5px; background: rgba(0, 0, 0, 0.6); /* 뒷 배경 마스킹 블러 스택 */
       border: 1px solid rgba(255, 255, 255, 0.35); cursor: pointer; 
       font-family: 'Noto Sans KR',sans-serif; z-index: 50005;
       padding: 6px 16px; border-radius: 30px;
