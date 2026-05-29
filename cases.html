@@ -2,7 +2,6 @@
 <html lang="ko">
 
 <head>
-    <!-- Google tag (gtag.js) - 구글 애널리틱스 정밀 이식 구역 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGWECXJBGD"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,7 +11,6 @@
       gtag('config', 'G-QGWECXJBGD');
     </script>
 
-    <!-- Naver Analytics Sensor - 네이버 애널리틱스 추가 수동 이식 구역 -->
     <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
     <script type="text/javascript">
     if(!wcs_add) var wcs_add = {};
@@ -507,12 +505,9 @@
 
 <body>
 
-    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
-            <a href="index.html" class="logo">
-                <span>GL</span> 지엘행정사 사무소
-            </a>
+            <a href="index.html" class="logo"><span>GL</span> 지엘행정사 사무소</a>
             <nav class="nav">
                 <a href="index.html#gl-business">업무분야</a>
                 <a href="cases.html" class="active">성공사례</a>
@@ -522,7 +517,6 @@
         </div>
     </header>
 
-    <!-- PAGE HEADER -->
     <section class="page-header">
         <div class="container">
             <h1>실적 및 성공사례</h1>
@@ -530,7 +524,6 @@
         </div>
     </section>
 
-    <!-- FILTER BUTTONS -->
     <section class="container">
         <div class="filter-btn-group">
             <button class="btn active" onclick="filterSelection('all')">전체보기</button>
@@ -540,18 +533,15 @@
         </div>
     </section>
 
-    <!-- CASES GRID -->
     <section class="container">
         <div class="cases-grid" id="casesGridContainer">
-            <!-- 자바스크립트 주입 -->
-        </div>
+            </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <h3>지엘행정사 사무소</h3>
-            <p>대표행정사 : 지엘행정사 사무소</p>
+            <p>대표 : 김대운 행정사</p>
             <p>사업자등록번호 : 572-45-00087</p>
             <p>주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
             <p>연락처 : 010-3538-3098</p>
@@ -559,7 +549,6 @@
         </div>
     </footer>
 
-    <!-- 하단 고정 내비게이션 바 위젯 -->
     <div class="sticky-action-bar">
         <div class="action-container">
             <div class="action-btn-group">
@@ -569,19 +558,16 @@
         </div>
     </div>
 
-    <!-- 둥둥 떠다니는 전화 상담 플로팅 버튼 (상단 스택) -->
     <a href="tel:010-3538-3098" id="floating-phone-btn" title="대표 직통 전화상담">
       <span class="floating-icon">📞</span>
       <span class="floating-text">인허가 · HACCP<br><b>전화연결 (상담)</b></span>
     </a>
 
-    <!-- 둥둥 떠다니는 카카오톡 자동 챗봇 버튼 (하단 스택) -->
     <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" id="floating-kakao-btn" title="카카오톡 오픈채팅 문의">
       <span class="floating-icon">💬</span>
       <span class="floating-text">HACCP·인허가<br><b>카카오톡 문의</b></span>
     </a>
 
-    <!-- 데이터 엔진 시스템 -->
     <script>
         const casesData = [
             {
