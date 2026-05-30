@@ -185,10 +185,10 @@
     .final-cta.show { opacity: 1; }
     .pgb { position: absolute; bottom: 0; left: 0; height: 2px; background: #7c5cbf; width: 0%; transition: width linear; }
     
-    /* 📍 [정밀 조정] SKIP 단추를 하단 진행 바(Progress Bar) 바로 위 정중앙 하단 스택으로 재배치 */
+    /* 🎬 SKIP 단추 장막 구조 정렬 */
     .skip-btn { 
       position: absolute; 
-      bottom: 14px; /* 바닥의 pgb(2px) 진행 선 바로 위에 안착하도록 마진 조율 */
+      bottom: 14px; 
       right: 24px; 
       font-size: 12px; font-weight: 700; color: #ffffff; 
       letter-spacing: 2.5px; background: rgba(0, 0, 0, 0.6); 
@@ -226,6 +226,7 @@
       justify-content: space-between;
     }
 
+    /* 📍 [수정 핵심] 상단 헤더 로고가 인트로 검은 장막(50000)보다 훨씬 위로 치고 올라오도록 우선순위 초상향 조율 (55000) */
     .logo {
       font-size: 22px;
       font-weight: 800;
@@ -233,6 +234,8 @@
       display: flex;
       align-items: center;
       white-space: nowrap;
+      position: relative;
+      z-index: 55000; 
     }
 
     .logo span {
@@ -1284,13 +1287,12 @@
       }, 800);
     };
 
-    /* 📍 [추가] 좌측 상단 로고 전용 초고속 진입 메커니즘 시스템 */
+    /* 📍 [추가 확인 완료] 좌측 상단 로고 전용 초고속 진입 메커니즘 시스템 */
     window.closeIntroMasterImmediate = function() {
       const master = document.getElementById('gl-master-intro');
-      // 인트로 장막이 이미 가려져 있는 활성화 상태일 때만 즉각 스킵 가동
       if (master && master.style.display !== 'none') {
         ca();
-        master.style.transition = 'none'; // 0.8초 애니메이션 연출을 무시하고 즉각 처리
+        master.style.transition = 'none'; 
         master.style.opacity = '0';
         master.style.display = 'none';
       }
