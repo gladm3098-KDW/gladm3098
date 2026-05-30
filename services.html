@@ -2,7 +2,6 @@
 <html lang="ko">
 
 <head>
-    <!-- Google tag (gtag.js) - 구글 애널리틱스 정밀 이식 구역 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGWECXJBGD"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,7 +11,6 @@
       gtag('config', 'G-QGWECXJBGD');
     </script>
 
-    <!-- Naver Analytics Sensor - 네이버 애널리틱스 추가 수동 이식 구역 -->
     <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
     <script type="text/javascript">
     if(!wcs_add) var wcs_add = {};
@@ -162,6 +160,7 @@
 
         .work-block {
             margin-bottom: 80px;
+            scroll-margin-top: 100px; /* 상단 헤더 메뉴 바 높이에 걸리지 않게 가시 영역 확보 수치 추가 */
         }
 
         .work-block h2 {
@@ -418,14 +417,11 @@
 
 <body>
 
-    <!-- HEADER -->
     <header class="header">
         <div class="container header-inner">
-            <!-- 📍 [정밀 복구] 하위 서브 페이지 로고는 자바스크립트 우회 함수 없이 곧바로 index.html 홈 화면으로 리다이렉트 시킵니다 -->
             <a href="index.html" class="logo"><span>GL</span> 지엘행정사 사무소</a>
             
             <nav class="nav">
-                <!-- 📍 [정밀 복구] 업무분야 메뉴 선택 시 메인 홈에 조립되어 있는 영역으로 즉각 스크롤 다운 타겟 매칭 -->
                 <a href="index.html#gl-business" class="active">업무분야</a>
                 <a href="cases.html">성공사례</a>
                 <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank">📝 블로그</a>
@@ -434,7 +430,6 @@
         </div>
     </header>
 
-    <!-- PAGE HEADER -->
     <section class="work-header">
         <div class="container">
             <h1>상세 업무 안내</h1>
@@ -442,10 +437,8 @@
         </div>
     </section>
 
-    <!-- WORK CONTENTS -->
     <main class="container work-section">
         
-        <!-- 1. 식품제조가공업 -->
         <article class="work-block" id="food">
             <h2>식품제조가공업 등록</h2>
             <p class="work-sub">건축물 용도 확인부터 작업장 구획, 제조 동선, 품목제조보고까지 실무 기준에 맞춘 식품 제조업 인허가를 지원합니다.</p>
@@ -470,7 +463,6 @@
             </div>
         </article>
 
-        <!-- 2. 축산물가공업 -->
         <article class="work-block" id="meat">
             <h2>축산물가공업 허가</h2>
             <p class="work-sub">식육가공업, 알가공업, 유가공업 등 까다로운 축산물 위생관리법 기준을 정확히 해석하여 보완 없는 허가를 약속합니다.</p>
@@ -495,9 +487,56 @@
             </div>
         </article>
 
+        <article class="work-block" id="haccp">
+            <h2>HACCP 인증</h2>
+            <p class="work-sub">의무 적용 업종의 소규모 HACCP 및 스마트 HACCP 인증을 위한 맞춤형 시스템을 구축해 드립니다.</p>
+            
+            <div class="work-grid">
+                <div class="card-box border-red">
+                    <h3>자주 발생하는 문제</h3>
+                    <ul>
+                        <li>현장과 맞지 않는 형식적인 기준서</li>
+                        <li>인증 심사 시 불시 보완 명령 수령</li>
+                        <li>인증 후 사후 관리 운영 역량 부족</li>
+                    </ul>
+                </div>
+                <div class="card-box border-green">
+                    <h3>실무 해결 방향</h3>
+                    <ul>
+                        <li>실제 현장 맞춤형 서류 및 모니터링 설계</li>
+                        <li>현장 모의 심사를 통한 사전 리스크 제거</li>
+                        <li>쉽고 명쾌한 현장 관리자 1:1 교육 지원</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
+        <article class="work-block" id="etc">
+            <h2>기타 영업 인허가</h2>
+            <p class="work-sub">즉석판매제조가공업, 집단급식소, 식품첨가물 제조업 등 다양한 식품·축산물 관련 영업 인허가를 지원합니다.</p>
+            
+            <div class="work-grid">
+                <div class="card-box border-red">
+                    <h3>자주 발생하는 문제</h3>
+                    <ul>
+                        <li>영업 종류별 상이한 법률 적용 오인</li>
+                        <li>관할 지자체별 상이한 가이드라인 미숙지</li>
+                        <li>제조 방법 기술서 서류 부실로 절차 지연</li>
+                    </ul>
+                </div>
+                <div class="card-box border-green">
+                    <h3>실무 해결 방향</h3>
+                    <ul>
+                        <li>업종 조건별 맞춤형 구비 서류 정밀 빌드</li>
+                        <li>지자체 담당 주무관 사전 협의 대행</li>
+                        <li>영업 신고 및 등록 인허가 절차 원스톱 마감</li>
+                    </ul>
+                </div>
+            </div>
+        </article>
+
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <h3>지엘행정사 사무소</h3>
@@ -509,7 +548,6 @@
         </div>
     </footer>
 
-    <!-- 하단 고정 내비게이션 바 위젯 -->
     <div class="sticky-action-bar">
         <div class="action-container">
             <div class="action-btn-group">
@@ -519,13 +557,11 @@
         </div>
     </div>
 
-    <!-- 둥둥 떠다니는 전화 상담 플로팅 버튼 -->
     <a href="tel:010-3538-3098" id="floating-phone-btn" title="대표 직통 전화상담">
         <span class="floating-icon">📞</span>
         <span class="floating-text">인허가 · HACCP<br><b>전화연결 (상담)</b></span>
     </a>
 
-    <!-- 둥둥 떠다니는 카카오톡 자동 챗봇 버튼 -->
     <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" id="floating-kakao-btn" title="카카오톡 문의">
         <span class="floating-icon">💬</span>
         <span class="floating-text">HACCP·인허가<br><b>카카오톡 문의</b></span>
