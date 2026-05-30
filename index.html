@@ -1332,8 +1332,22 @@
       at(()=>{ showFinal(); },11800);
     };
 
-    window.addEventListener('resize', ()=>{ resize(); initP(); });
-    resize(); initP(); draw(); startIntro();
+   window.addEventListener('resize', ()=>{ resize(); initP(); });
+
+resize();
+initP();
+draw();
+
+/* 최초 방문시에만 인트로 재생 */
+if (!sessionStorage.getItem('gl_intro_played')) {
+    sessionStorage.setItem('gl_intro_played', 'true');
+    startIntro();
+} else {
+    const intro = document.getElementById('gl-master-intro');
+    if (intro) {
+        intro.style.display = 'none';
+    }
+}
   })();
   </script>
 </body>
