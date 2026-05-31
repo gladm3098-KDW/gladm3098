@@ -2,7 +2,6 @@
 <html lang="ko">
 
 <head>
-    <!-- Google tag (gtag.js) - 구글 애널리틱스 정밀 이식 구역 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGWECXJBGD"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -12,7 +11,6 @@
       gtag('config', 'G-QGWECXJBGD');
     </script>
 
-    <!-- Naver Analytics Sensor - 네이버 애널리틱스 추가 수동 이식 구역 -->
     <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
     <script type="text/javascript">
     if(!wcs_add) var wcs_add = {};
@@ -160,9 +158,10 @@
             padding: 40px 0 120px 0;
         }
 
+        /* 📍 [수정 핵심 원리] 각각의 업무 블록들이 상단 메뉴 바(75px) 뒤로 숨지 않고 화면 중앙 영역에 이쁘게 노출되도록 오프셋 가드 설정 보정 완료 */
         .service-block {
             margin-bottom: 80px;
-            scroll-margin-top: 100px; /* 📍 상단 헤더 메뉴 바 높이에 가려지지 않도록 스크롤 보정값 최적화 완료 */
+            scroll-margin-top: 110px; /* ◀ 기존 100px에서 110px로 확장하여 스마트폰/PC 모두 타이틀 h2가 완벽하게 노출되도록 칼조율 */
         }
 
         .service-block h2 {
@@ -381,18 +380,6 @@
         #floating-phone-btn .floating-text b { color: #c7a97f; }
         #floating-kakao-btn .floating-text b { color: #111e38; }
 
-        @keyframes floatAnimationPhone {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
-        }
-        @keyframes floatAnimationKakao {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .header-inner {
                 flex-direction: column;
@@ -454,7 +441,7 @@
                 padding: 10px 16px;
             }
             .action-btn-group {
-                grid-gap: 10px;
+                gap: 10px;
             }
             .action-btn {
                 padding: 12px 10px;
@@ -470,7 +457,7 @@
                 bottom: 138px; 
                 right: 16px;
                 padding: 8px 14px;
-              }
+            }
             .floating-text {
                 font-size: 11px;
             }
@@ -504,7 +491,6 @@
 
     <section class="container services-detail">
 
-        <!-- 1. 식품제조가공업 -->
         <div class="service-block" id="food">
             <h2>식품제조가공업 등록</h2>
             <p class="service-desc">건축물 용도 확인부터 작업장 구획, 제조 동선, 품목제조보고까지 실무 기준에 맞춘 식품 제조업 인허가를 지원합니다.</p>
@@ -529,18 +515,17 @@
             </div>
         </div>
 
-        <!-- 2. 축산물가공업 -->
         <div class="service-block" id="meat">
             <h2>축산물가공업 허가</h2>
             <p class="service-desc">식육가공업, 알가공업, 유가공업 등 까다로운 축산물 위생법 기준을 정확히 해석하여 보완 없는 허가를 약속합니다.</p>
             
-            <div class="grid-two">
+            <div class="work-grid">
                 <div class="card-box problem">
                     <h3>자주 발생하는 문제</h3>
                     <ul>
                         <li>축산물 위생관리법상 시설 기준 오인</li>
                         <li>공정별 교차 오염 방지 대책 미흡</li>
-                        <li>복잡한 첨부 서류 준비로 인한 일정 지연</li>
+                        <li>HACCP을 고려하지 않은 시설 설치</li>
                     </ul>
                 </div>
                 <div class="card-box solution">
@@ -548,13 +533,12 @@
                     <ul>
                         <li>업종별 맞춤 도면 설계 지도 및 검토</li>
                         <li>위생 동선 밀착 체킹으로 보완 제로화</li>
-                        <li>행정 서류 원스톱 원패스 대행 처리</li>
+                        <li>HACCP 기준에 맞는 시설 컨설팅</li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- 3. HACCP 인증 -->
         <div class="service-block" id="haccp">
             <h2>HACCP 인증</h2>
             <p class="service-desc">의무 적용 업종의 소규모 HACCP 및 스마트 HACCP 인증을 위한 맞춤형 시스템을 구축해 드립니다.</p>
@@ -579,8 +563,6 @@
             </div>
         </div>
 
-        <!-- 📍 [정밀 신설 완료] 메인 홈의 네 번째 버튼과 100% 한 치의 오차 없이 연동되는 고유 방 개방 -->
-        <!-- 4. 기타 영업 인허가 -->
         <div class="service-block" id="etc">
             <h2>기타 영업 인허가</h2>
             <p class="service-desc">즉석판매제조가공업, 식품첨가물 제조업, 식육포장처리업 등 복잡하고 다양한 식품·축산물 관련 영업 인허가를 신속하게 수행합니다.</p>
@@ -589,7 +571,7 @@
                 <div class="card-box problem">
                     <h3>자주 발생하는 문제</h3>
                     <ul>
-                        <li>업종 종류별 상이한 법률 적용 오인</li>
+                        <li>영업 종류별 상이한 법률 적용 오인</li>
                         <li>지자체 담당 주무관별 해석의 차이 발생</li>
                         <li>제조방법설명서 부실 작성으로 절차 지연</li>
                     </ul>
@@ -597,7 +579,7 @@
                 <div class="card-box solution">
                     <h3>실무 해결 방향</h3>
                     <ul>
-                        <li>업종 상황별 맞춤 구비서류 정밀 사전 빌드</li>
+                        <li>업종 조건별 맞춤 구비서류 정밀 사전 빌드</li>
                         <li>복잡한 지자체 협의 및 검토 프로세스 대행</li>
                         <li>가장 안전하고 보완 없는 원스톱 인허가 마감</li>
                     </ul>
