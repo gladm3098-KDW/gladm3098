@@ -25,18 +25,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>업무분야 | 지엘행정사 사무소</title>
+    <title>상세 업무 안내 | 지엘행정사 사무소</title>
 
     <meta
       name="description"
-      content="식품제조가공업 등록, 축산물가공업 허가, 소규모 및 스마트 HACCP 인증 등 업종별 상세 기준과 실무 해결 방향을 안내합니다."
+      content="식품제조가공업 등록 기준, 축산물가공업 위생 동선 설계, 스마트 HACCP 시설 인허가 실무 기준을 명확하게 안내해 드립니다."
     />
 
     <meta
       name="keywords"
-      content="식품제조가공업등록, 축산물가공업허가, HACCP인증절차, 식품행정사업무"
+      content="식품제조가공업기준, 축산물인허가, 작업장동선설계, 소규모HACCP, 지엘행정사"
     />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
 
@@ -68,9 +69,9 @@
 
         body {
             font-family: "Pretendard", sans-serif;
-            background: #ffffff;
+            background: #fff;
             color: var(--color-text);
-            line-height: 1.7;
+            line-height: 1.6;
             word-break: keep-all;
             overflow-x: hidden;
         }
@@ -132,45 +133,36 @@
             white-space: nowrap;
         }
 
-        .nav a:hover {
+        .nav a:hover, .nav a.active {
             color: var(--color-primary);
         }
 
-        .nav .active {
-            color: var(--color-primary);
-            font-weight: 700;
-        }
-
-        /* PAGE HEADER */
-        .page-header {
-            background: linear-gradient(180deg, #f8f6f2 0%, #ffffff 100%);
-            padding: 80px 0 40px;
+        /* WORK DETAIL CONTAINER */
+        .work-header {
             text-align: center;
+            padding: 80px 0 40px;
+            background: linear-gradient(180deg, #f8f6f2 0%, #ffffff 100%);
         }
 
-        .page-header h1 {
-            font-size: 36px;
-            color: var(--color-primary);
-            margin-bottom: 12px;
-            letter-spacing: -1px;
+        .work-header h1 {
+            font-size: 38px;
             font-weight: 800;
+            color: var(--color-primary);
+            margin-bottom: 16px;
         }
 
-        .page-header p {
-            color: var(--color-text-muted);
+        .work-header p {
             font-size: 16px;
-            max-width: 760px;
-            margin: 0 auto;
+            color: var(--color-text-muted);
         }
 
-        /* SERVICES DETAIL SECTION */
         .services-detail {
             padding: 40px 0 120px 0;
         }
 
         .service-block {
             margin-bottom: 80px;
-            scroll-margin-top: 100px;
+            scroll-margin-top: 100px; /* 📍 상단 헤더 메뉴 바 높이에 가려지지 않도록 스크롤 보정값 최적화 완료 */
         }
 
         .service-block h2 {
@@ -256,7 +248,7 @@
             margin-bottom: 8px;
         }
 
-        /* 하단 고정 내비게이션 바 */
+        /* 앞으로 이전으로 네비게이션 바 */
         .sticky-action-bar {
             position: fixed;
             bottom: 0;
@@ -462,7 +454,7 @@
                 padding: 10px 16px;
             }
             .action-btn-group {
-                gap: 10px;
+                grid-gap: 10px;
             }
             .action-btn {
                 padding: 12px 10px;
@@ -478,7 +470,7 @@
                 bottom: 138px; 
                 right: 16px;
                 padding: 8px 14px;
-            }
+              }
             .floating-text {
                 font-size: 11px;
             }
@@ -512,6 +504,7 @@
 
     <section class="container services-detail">
 
+        <!-- 1. 식품제조가공업 -->
         <div class="service-block" id="food">
             <h2>식품제조가공업 등록</h2>
             <p class="service-desc">건축물 용도 확인부터 작업장 구획, 제조 동선, 품목제조보고까지 실무 기준에 맞춘 식품 제조업 인허가를 지원합니다.</p>
@@ -536,6 +529,7 @@
             </div>
         </div>
 
+        <!-- 2. 축산물가공업 -->
         <div class="service-block" id="meat">
             <h2>축산물가공업 허가</h2>
             <p class="service-desc">식육가공업, 알가공업, 유가공업 등 까다로운 축산물 위생법 기준을 정확히 해석하여 보완 없는 허가를 약속합니다.</p>
@@ -560,6 +554,7 @@
             </div>
         </div>
 
+        <!-- 3. HACCP 인증 -->
         <div class="service-block" id="haccp">
             <h2>HACCP 인증</h2>
             <p class="service-desc">의무 적용 업종의 소규모 HACCP 및 스마트 HACCP 인증을 위한 맞춤형 시스템을 구축해 드립니다.</p>
@@ -584,12 +579,38 @@
             </div>
         </div>
 
+        <!-- 📍 [정밀 신설 완료] 메인 홈의 네 번째 버튼과 100% 한 치의 오차 없이 연동되는 고유 방 개방 -->
+        <!-- 4. 기타 영업 인허가 -->
+        <div class="service-block" id="etc">
+            <h2>기타 영업 인허가</h2>
+            <p class="service-desc">즉석판매제조가공업, 식품첨가물 제조업, 식육포장처리업 등 복잡하고 다양한 식품·축산물 관련 영업 인허가를 신속하게 수행합니다.</p>
+            
+            <div class="grid-two">
+                <div class="card-box problem">
+                    <h3>자주 발생하는 문제</h3>
+                    <ul>
+                        <li>업종 종류별 상이한 법률 적용 오인</li>
+                        <li>지자체 담당 주무관별 해석의 차이 발생</li>
+                        <li>제조방법설명서 부실 작성으로 절차 지연</li>
+                    </ul>
+                </div>
+                <div class="card-box solution">
+                    <h3>실무 해결 방향</h3>
+                    <ul>
+                        <li>업종 상황별 맞춤 구비서류 정밀 사전 빌드</li>
+                        <li>복잡한 지자체 협의 및 검토 프로세스 대행</li>
+                        <li>가장 안전하고 보완 없는 원스톱 인허가 마감</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <footer class="footer">
         <div class="container">
             <h3>지엘행정사 사무소</h3>
-            <p>대표행정사 : 지엘행정사 사무소</p>
+            <p>대표행정사 : 김대운 행정사</p>
             <p>사업자등록번호 : 572-45-00087</p>
             <p>주소 : 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
             <p>연락처 : 010-3538-3098</p>
@@ -619,4 +640,3 @@
 </body>
 
 </html>
-
