@@ -226,7 +226,7 @@
       justify-content: space-between;
     }
 
-    /* 📍 상단 헤더 로고가 인트로 검은 장막(50000)보다 훨씬 위로 치고 올라오도록 우선순위 초상향 조율 (55000) */
+    /* 상단 헤더 로고가 인트로 검은 장막(50000)보다 훨씬 위로 치고 올라오도록 우선순위 초상향 조율 (55000) */
     .logo {
       font-size: 22px;
       font-weight: 800;
@@ -1092,7 +1092,7 @@
             <h3>HACCP 인증</h3>
             <p>제조 공정 분석, HACCP 기준서 작성 및 심사 대응까지 실제 운영 가능한 HACCP 시스템 구축을 대행합니다.</p>
           </div>
-          <a href="services.html#food" class="btn-card-link">상세 기준 확인 →</a>
+          <a href="services.html#haccp" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
         <div class="service-card">
@@ -1101,7 +1101,7 @@
             <h3>기타 영업 인허가</h3>
             <p>즉석판매제조가공업, 식품첨가물 제조업, 축산물 판매업 등 다양한 식품·축산물 관련 영업 인허가를 지원합니다.</p>
           </div>
-          <a href="services.html#meat" class="btn-card-link">상세 기준 확인 →</a>
+          <a href="services.html#etc" class="btn-card-link">상세 기준 확인 →</a>
         </div>
 
       </div>
@@ -1330,18 +1330,22 @@
       at(()=>{ showFinal(); },11800);
     };
 
-    window.addEventListener('resize', ()=>{ resize(); initP(); });
-    resize(); initP(); draw();
+   window.addEventListener('resize', ()=>{ resize(); initP(); });
 
-    if (!sessionStorage.getItem('gl_intro_played')) {
-        sessionStorage.setItem('gl_intro_played', 'true');
-        startIntro();
-    } else {
-        const intro = document.getElementById('gl-master-intro');
-        if (intro) {
-            intro.style.display = 'none';
-        }
+resize();
+initP();
+draw();
+
+/* 최초 방문시에만 인트로 재생 조율 제어기 */
+if (!sessionStorage.getItem('gl_intro_played')) {
+    sessionStorage.setItem('gl_intro_played', 'true');
+    startIntro();
+} else {
+    const intro = document.getElementById('gl-master-intro');
+    if (intro) {
+        intro.style.display = 'none';
     }
+}
   })();
   </script>
 </body>
