@@ -2,6 +2,7 @@
 <html lang="ko">
 
 <head>
+    <!-- Google tag (gtag.js) - 구글 애널리틱스 정밀 이식 구역 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGWECXJBGD"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -11,6 +12,7 @@
       gtag('config', 'G-QGWECXJBGD');
     </script>
 
+    <!-- Naver Analytics Sensor - 네이버 애널리틱스 추가 수동 이식 구역 -->
     <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
     <script type="text/javascript">
     if(!wcs_add) var wcs_add = {};
@@ -135,25 +137,29 @@
             color: var(--color-primary);
         }
 
-        /* WORK DETAIL CONTAINER */
-        .work-header {
-            text-align: center;
-            padding: 80px 0 40px;
+        /* 📍 [수정 핵심] PAGE HEADER 타이틀 및 서브 설명을 상단 중간에 완전히 오차 없이 고정시키는 중앙 정렬 아키텍처 */
+        .page-header {
             background: linear-gradient(180deg, #f8f6f2 0%, #ffffff 100%);
+            padding: 80px 0 40px;
+            text-align: center; /* ◀ 상단 중간 정렬 처리 */
         }
 
-        .work-header h1 {
-            font-size: 38px;
-            font-weight: 800;
+        .page-header h1 {
+            font-size: 36px;
             color: var(--color-primary);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
+            letter-spacing: -1px;
+            font-weight: 800;
         }
 
-        .work-header p {
-            font-size: 16px;
+        .page-header p {
             color: var(--color-text-muted);
+            font-size: 16px;
+            max-width: 760px;
+            margin: 0 auto; /* ◀ 텍스트 폭 기준 정중앙 정렬 */
         }
 
+        /* SERVICES DETAIL SECTION */
         .services-detail {
             padding: 40px 0 120px 0;
         }
@@ -379,18 +385,6 @@
         #floating-phone-btn .floating-text b { color: #c7a97f; }
         #floating-kakao-btn .floating-text b { color: #111e38; }
 
-        @keyframes floatAnimationPhone {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
-        }
-        @keyframes floatAnimationKakao {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .header-inner {
                 flex-direction: column;
@@ -493,6 +487,7 @@
         </div>
     </header>
 
+    <!-- 📍 상단 중간(정중앙) 정렬 마감 완료 구역 -->
     <section class="page-header">
         <div class="container">
             <h1>상세 업무 안내</h1>
@@ -502,6 +497,7 @@
 
     <section class="container services-detail">
 
+        <!-- 1. 식품제조가공업 -->
         <div class="service-block" id="food">
             <h2>식품제조가공업 등록</h2>
             <p class="service-desc">건축물 용도 확인부터 작업장 구획, 제조 동선, 품목제조보고까지 실무 기준에 맞춘 식품 제조업 인허가를 지원합니다.</p>
@@ -526,6 +522,7 @@
             </div>
         </div>
 
+        <!-- 2. 축산물가공업 -->
         <div class="service-block" id="meat">
             <h2>축산물가공업 허가</h2>
             <p class="service-desc">식육가공업, 알가공업, 유가공업 등 까다로운 축산물 위생법 기준을 정확히 해석하여 보완 없는 허가를 약속합니다.</p>
@@ -550,6 +547,7 @@
             </div>
         </div>
 
+        <!-- 3. HACCP 인증 -->
         <div class="service-block" id="haccp">
             <h2>HACCP 인증</h2>
             <p class="service-desc">의무 적용 업종의 소규모 HACCP 및 스마트 HACCP 인증을 위한 맞춤형 시스템을 구축해 드립니다.</p>
@@ -574,6 +572,7 @@
             </div>
         </div>
 
+        <!-- 4. 기타 영업 인허가 -->
         <div class="service-block" id="etc">
             <h2>기타 영업 인허가</h2>
             <p class="service-desc">즉석판매제조가공업, 식품첨가물 제조업, 식육포장처리업 등 복잡하고 다양한 식품·축산물 관련 영업 인허가를 신속하게 수행합니다.</p>
@@ -582,7 +581,7 @@
                 <div class="card-box problem">
                     <h3>자주 발생하는 문제</h3>
                     <ul>
-                        <li>업종 조건별 상이한 법률 적용 오인</li>
+                        <li>영업 종류별 상이한 법률 적용 오인</li>
                         <li>지자체 담당 주무관별 해석의 차이 발생</li>
                         <li>제조방법설명서 부실 작성으로 절차 지연</li>
                     </ul>
