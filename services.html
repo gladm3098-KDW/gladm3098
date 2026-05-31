@@ -158,10 +158,9 @@
             padding: 40px 0 120px 0;
         }
 
-        /* 📍 [수정 핵심 원리] 각각의 업무 블록들이 상단 메뉴 바(75px) 뒤로 숨지 않고 화면 중앙 영역에 이쁘게 노출되도록 오프셋 가드 설정 보정 완료 */
         .service-block {
             margin-bottom: 80px;
-            scroll-margin-top: 110px; /* ◀ 기존 100px에서 110px로 확장하여 스마트폰/PC 모두 타이틀 h2가 완벽하게 노출되도록 칼조율 */
+            scroll-margin-top: 110px; 
         }
 
         .service-block h2 {
@@ -380,6 +379,18 @@
         #floating-phone-btn .floating-text b { color: #c7a97f; }
         #floating-kakao-btn .floating-text b { color: #111e38; }
 
+        @keyframes floatAnimationPhone {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes floatAnimationKakao {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .header-inner {
                 flex-direction: column;
@@ -457,7 +468,7 @@
                 bottom: 138px; 
                 right: 16px;
                 padding: 8px 14px;
-            }
+              }
             .floating-text {
                 font-size: 11px;
             }
@@ -519,13 +530,13 @@
             <h2>축산물가공업 허가</h2>
             <p class="service-desc">식육가공업, 알가공업, 유가공업 등 까다로운 축산물 위생법 기준을 정확히 해석하여 보완 없는 허가를 약속합니다.</p>
             
-            <div class="work-grid">
+            <div class="grid-two">
                 <div class="card-box problem">
                     <h3>자주 발생하는 문제</h3>
                     <ul>
                         <li>축산물 위생관리법상 시설 기준 오인</li>
                         <li>공정별 교차 오염 방지 대책 미흡</li>
-                        <li>HACCP을 고려하지 않은 시설 설치</li>
+                        <li>복잡한 첨부 서류 준비로 인한 일정 지연</li>
                     </ul>
                 </div>
                 <div class="card-box solution">
@@ -533,7 +544,7 @@
                     <ul>
                         <li>업종별 맞춤 도면 설계 지도 및 검토</li>
                         <li>위생 동선 밀착 체킹으로 보완 제로화</li>
-                        <li>HACCP 기준에 맞는 시설 컨설팅</li>
+                        <li>행정 서류 원스톱 원패스 대행 처리</li>
                     </ul>
                 </div>
             </div>
@@ -571,7 +582,7 @@
                 <div class="card-box problem">
                     <h3>자주 발생하는 문제</h3>
                     <ul>
-                        <li>영업 종류별 상이한 법률 적용 오인</li>
+                        <li>업종 조건별 상이한 법률 적용 오인</li>
                         <li>지자체 담당 주무관별 해석의 차이 발생</li>
                         <li>제조방법설명서 부실 작성으로 절차 지연</li>
                     </ul>
