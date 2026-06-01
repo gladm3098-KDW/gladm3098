@@ -46,7 +46,7 @@
       --tr:     all 0.28s cubic-bezier(0.4,0,0.2,1);
 
       /* ★ 프로필 사진 배경색에서 추출한 기준 컬러 */
-      --hero-bg: #0d1e3d;
+      --hero-bg: #0e1d38;
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;overflow-x:hidden;}
@@ -103,8 +103,8 @@
     .hero{
       position:relative;
       overflow:hidden;
-      /* ★ 프로필 사진 배경색(#0d1e3d)과 완전히 일치하는 단색 계열 그라디언트 */
-      background: linear-gradient(105deg, #081830 0%, #0d1e3d 45%, #112245 100%);
+      /* ★ 프로필 사진 배경색(#0e1d38)과 완전히 일치하는 단색 계열 그라디언트 */
+      background: linear-gradient(105deg, #0a1933 0%, #0e1d38 45%, #101f3c 100%);
       padding:0;
       min-height:auto;
       display:flex;
@@ -156,29 +156,29 @@
       align-items:flex-end;
       z-index:2;
       /* ★ hero 배경과 완전 동일한 색 — 사진 배경색 기준 */
-      background: #0d1e3d;
+      background: #0e1d38;
       overflow:hidden;
     }
 
-    /* ★ 페이드 오버레이 — 색상을 #0d1e3d 로 통일하여 경계 완전 제거 */
+    /* ★ 페이드 오버레이 — 색상을 #0e1d38 로 통일하여 경계 완전 제거 */
     .hero-profile-wrap::before{
       content:'';
       position:absolute;
       inset:0;
       background:
         linear-gradient(to right,
-          #0d1e3d 0%,
-          rgba(13,30,61,0.6) 10%,
-          rgba(13,30,61,0) 25%,
-          rgba(13,30,61,0) 65%,
-          rgba(13,30,61,0.6) 88%,
-          #0d1e3d 100%
+          #0e1d38 0%,
+          rgba(14,29,56,0.6) 10%,
+          rgba(14,29,56,0) 25%,
+          rgba(14,29,56,0) 65%,
+          rgba(14,29,56,0.6) 88%,
+          #0e1d38 100%
         ),
         linear-gradient(to bottom,
-          rgba(13,30,61,0.55) 0%,
-          rgba(13,30,61,0) 12%,
-          rgba(13,30,61,0) 68%,
-          rgba(13,30,61,0.9) 100%
+          rgba(14,29,56,0.55) 0%,
+          rgba(14,29,56,0) 12%,
+          rgba(14,29,56,0) 68%,
+          rgba(14,29,56,0.9) 100%
         );
       z-index:3;
       pointer-events:none;
