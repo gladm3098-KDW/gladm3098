@@ -96,57 +96,141 @@
     .header-tel a{transition:var(--tr);}
     .header-tel a:hover .header-tel-num{color:var(--gold);}
 
-    /* ── HERO ── */
-    .hero{position:relative;overflow:hidden;background:var(--navy);padding:100px 0 90px;min-height:560px;display:flex;align-items:center;}
-    .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(30,53,88,0.9) 0%,transparent 70%),radial-gradient(ellipse 50% 60% at 15% 80%,rgba(184,150,74,0.12) 0%,transparent 60%);}
-    .hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px);background-size:60px 60px;}
-    .hero-accent{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(184,150,74,0.08) 0%,transparent 70%);pointer-events:none;}
-    .hero-content{position:relative;z-index:2;max-width:640px;}
-    /* 추가 */
-.hero .container{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:40px;
-}
-    .hero-profile-wrap{
-  position:relative;
-  z-index:2;
+ /* ── HERO ── */
+.hero{
+position:relative;
+overflow:hidden;
+background:#07182f;
+padding:80px 0;
+min-height:720px;
+display:flex;
+align-items:center;
 }
 
-.hero-profile-img{
-  height:520px;
-  width:auto;
-  display:block;
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+radial-gradient(circle at 80% 30%,
+rgba(184,150,74,.15),
+transparent 45%);
 }
-    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(184,150,74,0.15);border:1px solid rgba(184,150,74,0.35);color:var(--gold3);font-size:12px;font-weight:700;padding:6px 14px;border-radius:20px;margin-bottom:22px;letter-spacing:0.5px;}
-    .hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--gold2);display:block;}
-    .hero h1{font-family:'Noto Serif KR',serif;font-size:42px;font-weight:700;line-height:1.3;color:#fff;margin-bottom:18px;letter-spacing:-0.5px;}
-    .hero h1 em{color:var(--gold2);font-style:normal;}
-    .hero-desc{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.75;margin-bottom:36px;max-width:520px;}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
-    .btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:14px 26px;border-radius:6px;font-size:14.5px;font-weight:800;letter-spacing:0.3px;transition:var(--tr);white-space:nowrap;}
-    .btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,150,74,0.35);}
-    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.35);padding:13px 24px;border-radius:6px;font-size:14px;font-weight:700;transition:var(--tr);white-space:nowrap;}
-    .btn-secondary:hover{border-color:rgba(255,255,255,0.7);background:rgba(255,255,255,0.07);}
-    .hero-stats{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:12px;z-index:2;}
-    /* 대표 행정사 프로필 */
+
+.hero-grid-bg{
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+background-size:60px 60px;
+}
+
+.hero-flex{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:80px;
+}
+
+.hero-content{
+flex:1;
+max-width:650px;
+position:relative;
+z-index:2;
+}
+
 .hero-profile-wrap{
-  position:absolute;
-  right:40px;
-  bottom:0;
-  z-index:3;
+position:relative;
+flex:0 0 500px;
+display:flex;
+justify-content:center;
+align-items:flex-end;
+z-index:2;
 }
 
 .hero-profile-img{
-  height:520px;
-  width:auto;
-  object-fit:contain;
-  display:block;
+height:600px;
+width:auto;
+display:block;
+object-fit:contain;
+filter:drop-shadow(0 30px 50px rgba(0,0,0,.45));
 }
-    .stat-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(8px);padding:18px 24px;border-radius:10px;text-align:center;min-width:140px;}
-    .stat-num{font-family:'DM Serif Display',serif;font-size:34px;color:var(--gold2);line-height:1;margin-bottom:4px;}
-    .stat-label{font-size:11.5px;color:rgba(255,255,255,0.55);letter-spacing:0.5px;}
+
+.hero-card{
+position:absolute;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:14px;
+padding:16px 22px;
+color:#fff;
+min-width:220px;
+}
+
+.hero-card strong{
+display:block;
+font-size:16px;
+margin-bottom:4px;
+}
+
+.hero-card span{
+font-size:13px;
+color:rgba(255,255,255,.7);
+}
+
+.hero-card{
+top:140px;
+left:-40px;
+}
+
+.hero-card-2{
+top:350px;
+right:-20px;
+left:auto;
+}
+
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+background:rgba(184,150,74,.15);
+border:1px solid rgba(184,150,74,.35);
+color:#f0d898;
+font-size:12px;
+font-weight:700;
+padding:6px 14px;
+border-radius:20px;
+margin-bottom:22px;
+}
+
+.hero h1{
+font-family:'Noto Serif KR',serif;
+font-size:48px;
+font-weight:700;
+line-height:1.3;
+color:#fff;
+margin-bottom:18px;
+}
+
+.hero h1 em{
+color:#d4af6a;
+font-style:normal;
+}
+
+.hero-desc{
+font-size:16px;
+color:rgba(255,255,255,.7);
+line-height:1.8;
+margin-bottom:36px;
+}
+
+.hero-actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
 
     /* ── 신뢰 띠 ── */
     .trust-strip{background:var(--cream2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:22px 0;}
@@ -385,23 +469,60 @@
 
 <!-- HERO -->
 <section class="hero">
+
   <div class="hero-grid-bg"></div>
-  <div class="hero-accent"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">식품제조가공업 · 축산물가공업 · HACCP 인증 전문</div>
-      <h1>식품·축산물 인허가와<br>HACCP 인증, <em>처음부터<br>끝까지 책임집니다</em></h1>
-      <p class="hero-desc">복잡한 법령 해석과 까다로운 시설 기준, 반복되는 보완 요청.<br>지엘행정사가 실무 경험을 바탕으로 한 번에 해결해 드립니다.</p>
-      <div class="hero-actions">
-        <a href="consult.html" class="btn-primary">무료 상담 신청하기 →</a>
-        <a href="#section-services" class="btn-secondary">업무 분야 보기</a>
+
+  <div class="container hero-flex">
+
+      <!-- 왼쪽 -->
+      <div class="hero-content">
+
+          <div class="hero-badge">
+              식품제조가공업 · 축산물가공업 · HACCP 전문
+          </div>
+
+          <h1>
+              식품·축산물 인허가와<br>
+              HACCP 인증,<br>
+              <em>처음부터 끝까지 책임집니다</em>
+          </h1>
+
+          <p class="hero-desc">
+              복잡한 시설기준 검토부터 허가,
+              HACCP 인증까지 대표 행정사가 직접 진행합니다.
+          </p>
+
+          <div class="hero-actions"> 
+              <a href="consult.html" class="btn-primary"> 
+                  무료 상담 신청하기 → 
+              </a>
+              <a href="#section-services" class="btn-secondary"> 
+                  업무 분야 보기
+          </div>
+
       </div>
-    </div>
- <div class="hero-profile-wrap">
-      <img src="images/hero-jj.png.png" alt="지엘행정사 사무소 김대운 대표 행정사" class="hero-profile-img">
-    </div>
+
+      <!-- 오른쪽 -->
+      <div class="hero-profile-wrap">
+
+          <img src="images/hero-jj.png.png"
+               class="hero-profile-img">
+
+          <div class="hero-card">
+              <strong>10년 이상 실무 경험</strong>
+              <span>식품·축산물 인허가 전문</span>
+          </div>
+
+          <div class="hero-card hero-card-2">
+              <strong>대표 행정사 직접 상담</strong>
+              <span>상담부터 허가 완료까지</span>
+          </div>
+
+      </div>
 
   </div>
+
+</section>
 </section>
 
 <!-- 신뢰 띠 -->
