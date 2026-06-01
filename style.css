@@ -473,3 +473,67 @@ main {
     max-width: 280px; /* 모바일 전용 사진 크기 최적화 */
   }
 }
+/* ── 메인화면 겹침 및 정렬 오류 강제 해결 ── */
+.hero {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-sizing: border-box !important;
+}
+
+.hero .container {
+  display: flex !important;
+  flex-direction: row !important; /* 가로로 나란히 배치 */
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 40px !important;
+  width: 100% !important;
+}
+
+.hero-content {
+  flex: 1.2 !important; /* 글씨 영역 비율 */
+  text-align: left !important; /* 왼쪽 정렬 강제 */
+}
+
+.hero-actions {
+  display: flex !important;
+  flex-direction: row !important; /* 버튼 가로 정렬 */
+  gap: 12px !important;
+  justify-content: flex-start !important;
+  margin-top: 24px !important;
+}
+
+.hero-profile-wrap {
+  flex: 0.8 !important; /* 사진 영역 비율 */
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+.hero-profile-img {
+  width: 100% !important;
+  max-width: 380px !important; /* 사진 크기 제한 */
+  height: auto !important;
+  object-fit: cover !important;
+}
+
+/* 태블릿 및 모바일용 화면 정렬 */
+@media (max-width: 992px) {
+  .hero .container {
+    flex-direction: column !important; /* 세로로 뚝 떨어지게 변경 */
+    text-align: center !important;
+    gap: 32px !important;
+  }
+  .hero-content {
+    text-align: center !important;
+  }
+  .hero-actions {
+    justify-content: center !important;
+  }
+  .hero-profile-wrap {
+    justify-content: center !important;
+  }
+  .hero-profile-img {
+    max-width: 280px !important;
+  }
+}
