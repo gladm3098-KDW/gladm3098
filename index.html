@@ -100,7 +100,8 @@
     .hero{
       position:relative;
       overflow:hidden;
-      background:#07182f;
+      /* 오른쪽으로 약간 밝아지는 그라디언트 — 이미지 배경과 연결 */
+      background:linear-gradient(105deg, #07182f 0%, #0d2040 55%, #112447 100%);
       padding:0;
       min-height:auto;
       display:flex;
@@ -117,7 +118,9 @@
       content:'';
       position:absolute;
       inset:0;
-      background:radial-gradient(circle at 80% 30%, rgba(184,150,74,.15), transparent 45%);
+      background:
+        radial-gradient(circle at 75% 40%, rgba(184,150,74,.10), transparent 40%),
+        radial-gradient(ellipse at 90% 60%, rgba(20,50,90,0.5), transparent 55%);
       pointer-events:none;
       z-index:1;
     }
@@ -149,16 +152,32 @@
       justify-content:center;
       align-items:flex-end;
       z-index:2;
+      /* hero와 동일한 배경색으로 통일 */
       background:#07182f;
       overflow:hidden;
     }
+    /* 이미지 경계 페이드 오버레이 — 사람 색상 보존, 밝은 배경만 자연스럽게 합성 */
     .hero-profile-wrap::before{
       content:'';
       position:absolute;
       inset:0;
+      /* 좌우: 양쪽 끝을 hero 배경색으로 페이드 */
+      /* 상하: 하단을 hero 배경색으로 페이드 (발 부분 자연스럽게) */
       background:
-        linear-gradient(to right, #07182f 0%, transparent 15%, transparent 72%, #07182f 100%),
-        linear-gradient(to bottom, #07182f 0%, transparent 8%, transparent 80%, #07182f 100%);
+        linear-gradient(to right,
+          #07182f 0%,
+          rgba(7,24,47,0.55) 12%,
+          rgba(7,24,47,0) 28%,
+          rgba(7,24,47,0) 68%,
+          rgba(7,24,47,0.55) 85%,
+          #07182f 100%
+        ),
+        linear-gradient(to bottom,
+          rgba(7,24,47,0.6) 0%,
+          rgba(7,24,47,0) 14%,
+          rgba(7,24,47,0) 70%,
+          rgba(7,24,47,0.85) 100%
+        );
       z-index:3;
       pointer-events:none;
     }
@@ -170,8 +189,8 @@
       object-fit:contain;
       position:relative;
       z-index:2;
-      mix-blend-mode:luminosity;
-      filter:brightness(1.05) contrast(1.08) saturate(0.85);
+      /* mix-blend-mode 제거 → 원본 색상 그대로 출력 */
+      /* 밝은 스튜디오 배경을 overlay로만 처리 */
     }
 
 
