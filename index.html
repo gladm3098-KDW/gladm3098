@@ -44,6 +44,9 @@
       --sh:     0 4px 24px rgba(13,27,46,0.08);
       --sh2:    0 12px 48px rgba(13,27,46,0.14);
       --tr:     all 0.28s cubic-bezier(0.4,0,0.2,1);
+
+      /* ★ 프로필 사진 배경색에서 추출한 기준 컬러 */
+      --hero-bg: #0d1e3d;
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;overflow-x:hidden;}
@@ -100,8 +103,8 @@
     .hero{
       position:relative;
       overflow:hidden;
-      /* 오른쪽으로 약간 밝아지는 그라디언트 — 이미지 배경과 연결 */
-      background:linear-gradient(105deg, #07182f 0%, #0d2040 55%, #112447 100%);
+      /* ★ 프로필 사진 배경색(#0d1e3d)과 완전히 일치하는 단색 계열 그라디언트 */
+      background: linear-gradient(105deg, #081830 0%, #0d1e3d 45%, #112245 100%);
       padding:0;
       min-height:auto;
       display:flex;
@@ -114,13 +117,13 @@
       position:relative;
     }
 
+    /* ★ ::before 오버레이 — 골드 하이라이트만 남기고 우측 어두움 효과 제거 */
     .hero::before{
       content:'';
       position:absolute;
       inset:0;
       background:
-        radial-gradient(circle at 75% 40%, rgba(184,150,74,.10), transparent 40%),
-        radial-gradient(ellipse at 90% 60%, rgba(20,50,90,0.5), transparent 55%);
+        radial-gradient(circle at 30% 40%, rgba(184,150,74,.07), transparent 45%);
       pointer-events:none;
       z-index:1;
     }
@@ -152,31 +155,30 @@
       justify-content:center;
       align-items:flex-end;
       z-index:2;
-      /* hero와 동일한 배경색으로 통일 */
-      background:#07182f;
+      /* ★ hero 배경과 완전 동일한 색 — 사진 배경색 기준 */
+      background: #0d1e3d;
       overflow:hidden;
     }
-    /* 이미지 경계 페이드 오버레이 — 사람 색상 보존, 밝은 배경만 자연스럽게 합성 */
+
+    /* ★ 페이드 오버레이 — 색상을 #0d1e3d 로 통일하여 경계 완전 제거 */
     .hero-profile-wrap::before{
       content:'';
       position:absolute;
       inset:0;
-      /* 좌우: 양쪽 끝을 hero 배경색으로 페이드 */
-      /* 상하: 하단을 hero 배경색으로 페이드 (발 부분 자연스럽게) */
       background:
         linear-gradient(to right,
-          #07182f 0%,
-          rgba(7,24,47,0.55) 12%,
-          rgba(7,24,47,0) 28%,
-          rgba(7,24,47,0) 68%,
-          rgba(7,24,47,0.55) 85%,
-          #07182f 100%
+          #0d1e3d 0%,
+          rgba(13,30,61,0.6) 10%,
+          rgba(13,30,61,0) 25%,
+          rgba(13,30,61,0) 65%,
+          rgba(13,30,61,0.6) 88%,
+          #0d1e3d 100%
         ),
         linear-gradient(to bottom,
-          rgba(7,24,47,0.6) 0%,
-          rgba(7,24,47,0) 14%,
-          rgba(7,24,47,0) 70%,
-          rgba(7,24,47,0.85) 100%
+          rgba(13,30,61,0.55) 0%,
+          rgba(13,30,61,0) 12%,
+          rgba(13,30,61,0) 68%,
+          rgba(13,30,61,0.9) 100%
         );
       z-index:3;
       pointer-events:none;
@@ -189,11 +191,7 @@
       object-fit:contain;
       position:relative;
       z-index:2;
-      /* mix-blend-mode 제거 → 원본 색상 그대로 출력 */
-      /* 밝은 스튜디오 배경을 overlay로만 처리 */
     }
-
-
 
     .hero-badge{
       display:inline-flex;
@@ -237,7 +235,6 @@
       margin-bottom:0;
     }
 
-    /* Hero 버튼 스타일 - 이미지 기준 */
     .btn-primary{
       display:inline-flex;
       align-items:center;
@@ -503,7 +500,6 @@
       .hero-content{padding:48px 0 32px 0;}
       .hero-profile-wrap{flex:none;width:100%;height:280px;justify-content:center;}
       .hero-profile-img{height:260px;margin:0 auto;}
-
       .header-inner{height:auto;flex-wrap:wrap;padding:14px 0;gap:14px;justify-content:center;}
       .logo{order:0;justify-content:center;width:100%;}
       .nav{order:1;gap:4px;flex-wrap:wrap;justify-content:center;}
@@ -579,7 +575,7 @@
       <div class="header-tel-icon">📞</div>
       <div class="header-tel-body">
         <div class="header-tel-label">인허가·HACCP 전화상담</div>
-        <a href="tel:010-3538-3098"><div class="header-tel-num">010-3538-3098</div></a>
+        <a href="tel:010-3538-3098"><div class="header-tel-num">010-3538-3098</div></div></a>
       </div>
     </div>
   </div>
@@ -616,7 +612,6 @@
     <!-- 오른쪽 프로필 -->
     <div class="hero-profile-wrap">
       <img src="images/hero-jj.png.png" class="hero-profile-img" alt="대표 김대운 행정사">
-
     </div>
   </div>
 
@@ -661,34 +656,29 @@
 <section class="pain-section" id="section-pain">
   <div class="container">
     <div class="pain-layout">
-      <!-- 왼쪽 소개 -->
       <div class="pain-intro">
         <span class="section-label">고객 공감</span>
         <h2 class="section-title">이런 고민, 지금 하고<br>계신가요?</h2>
         <p class="section-desc">인허가는 서류 제출만으로 끝나지 않습니다.<br>시설 기준, 위생 동선, 운영 방식까지 함께 고려해야 보완 없이 통과됩니다.</p>
       </div>
-      <!-- 카드 01 -->
       <div class="pain-card-h">
         <div class="pain-num">01</div>
         <h3>"작업장 공사를 하려는데 정확한 기준을 모르겠습니다"</h3>
         <p>식품·축산물 영업 인허가는 시설 기준, 위생 구역 구분, 동선 설계를 충족해야 합니다.</p>
         <div class="pain-answer-h">공사 전 기준 검토부터 도면 설계 방향까지 먼저 확인해 드립니다.</div>
       </div>
-      <!-- 카드 02 -->
       <div class="pain-card-h">
         <div class="pain-num">02</div>
         <h3>"HACCP 심사에서 계속 보완 요청이 옵니다"</h3>
         <p>실제 제조 공정과 운영 방식에 맞는 실행 가능한 HACCP 시스템이 필요합니다.</p>
         <div class="pain-answer-h">실질적으로 운용 가능한 기준서를 작성합니다.</div>
       </div>
-      <!-- 카드 03 -->
       <div class="pain-card-h">
         <div class="pain-num">03</div>
         <h3>"어떤 영업 종류로 신청해야 할지 모르겠습니다"</h3>
         <p>제품과 제조 방식에 따라 적용되는 법령과 기준이 다릅니다.</p>
         <div class="pain-answer-h">업종 결정 단계부터 최적의 인허가 방향을 제시합니다.</div>
       </div>
-      <!-- 카드 04 -->
       <div class="pain-card-h">
         <div class="pain-num">04</div>
         <h3>"허가 받은 뒤에도 위생 점검이 걱정됩니다"</h3>
