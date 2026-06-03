@@ -20,14 +20,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- ══ SEO Primary Tags ══ -->
   <title>식품·축산물 인허가 & HACCP 인증 성공사례 | 지엘행정사 사무소</title>
   <meta name="description" content="고양시 액상차 HACCP, 남양주 면류 만두피 HACCP, 부천 양념육 HACCP, 인천 디저트 베이커리 HACCP 등 지엘행정사 사무소의 실제 인허가·인증 완료 사례를 확인하세요. 10년 이상 실무 경험, 보완 없는 허가 완료." />
   <meta name="keywords" content="HACCP인증사례, 식품인허가성공사례, 축산물가공업허가사례, 소규모HACCP사례, 행정사성공사례, 인천HACCP, 경기도식품인허가" />
   <meta name="author" content="지엘행정사 사무소 김대운 행정사" />
   <link rel="canonical" href="https://www.gl-admin.co.kr/cases.html" />
 
-  <!-- ══ Open Graph ══ -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.gl-admin.co.kr/cases.html" />
   <meta property="og:title" content="식품·축산물 인허가 & HACCP 인증 성공사례 | 지엘행정사 사무소" />
@@ -36,7 +34,6 @@
   <meta property="og:locale" content="ko_KR" />
   <meta property="og:site_name" content="지엘행정사 사무소" />
 
-  <!-- ══ Structured Data (ItemList + Case Studies) ══ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -64,7 +61,6 @@
   }
   </script>
 
-  <!-- ══ Breadcrumb ══ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -76,7 +72,6 @@
   }
   </script>
 
-  <!-- ══ Fonts & Icons ══ -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700;900&family=Noto+Sans+KR:wght@300;400;500;700&family=DM+Serif+Display&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -155,7 +150,7 @@
     .stat-num em{color:var(--gold);font-style:normal;}
     .stat-label{font-size:12px;color:var(--muted);font-weight:600;}
 
-    /* ── 신뢰 메시지 ── */
+    /* ── 신뢰 바 ── */
     .trust-bar{background:var(--navy);padding:14px 0;}
     .trust-bar-inner{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;}
     .trust-item{display:flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:rgba(255,255,255,0.75);}
@@ -173,23 +168,71 @@
 
     /* ── 케이스 그리드 ── */
     .cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:80px;}
-    .case-card{border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);transition:var(--tr);display:flex;flex-direction:column;background:#fff;}
+
+    /* ── 카드: 이미지만, 텍스트 없음 ── */
+    .case-card{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:var(--sh);
+      transition:var(--tr);
+      background:#fff;
+      /* 고정 비율로 카드 높이 설정 */
+      aspect-ratio: 4/3;
+      position:relative;
+    }
     .case-card:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--gold);}
-    .case-img-wrap{position:relative;overflow:hidden;background:var(--cream2);}
-    .case-img-wrap img{width:100%;display:block;object-fit:cover;transition:transform 0.4s ease;}
+
+    /* 이미지 래퍼가 카드 전체를 채움 */
+    .case-img-wrap{
+      position:absolute;
+      inset:0;
+      overflow:hidden;
+    }
+    .case-img-wrap img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform 0.4s ease;
+    }
     .case-card:hover .case-img-wrap img{transform:scale(1.04);}
-    .case-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(13,27,46,0.55) 100%);}
-    .case-badge-wrap{position:absolute;top:14px;left:14px;display:flex;flex-wrap:wrap;gap:5px;}
+
+    /* 배지는 이미지 위에 오버레이로 */
+    .case-badge-wrap{
+      position:absolute;
+      top:12px;
+      left:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:5px;
+      z-index:2;
+    }
     .case-badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:4px;}
-    .badge-food{background:#1e3558;color:#fff;}
-    .badge-meat{background:#7c3d12;color:#fff;}
-    .badge-etc{background:#374151;color:#fff;}
-    .badge-haccp{background:rgba(184,150,74,0.9);color:#fff;}
-    .case-info{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column;}
-    .case-region{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:0.5px;margin-bottom:6px;}
-    .case-title{font-size:15px;font-weight:800;color:var(--navy);line-height:1.4;margin-bottom:10px;}
-    .case-desc{font-size:13px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:14px;}
-    .case-result{display:flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;color:var(--green,#10b981);background:#f0fdf8;border:1px solid #d1fae5;border-radius:6px;padding:7px 12px;width:fit-content;}
+    .badge-food{background:rgba(30,53,88,0.88);color:#fff;}
+    .badge-meat{background:rgba(124,61,18,0.88);color:#fff;}
+    .badge-etc{background:rgba(55,65,81,0.88);color:#fff;}
+
+    /* 하단 통합 뱃지 오버레이 */
+    .case-region-overlay{
+      position:absolute;
+      bottom:12px;
+      left:12px;
+      right:12px;
+      z-index:2;
+    }
+    .case-combined-badge{
+      display:block;
+      width:100%;
+      font-size:12px;
+      font-weight:700;
+      color:#fff;
+      background:rgba(16,185,129,0.92);
+      border-radius:6px;
+      padding:8px 12px;
+      line-height:1.45;
+      box-shadow:0 2px 8px rgba(0,0,0,0.25);
+    }
 
     /* ── 빈 상태 ── */
     .empty-state{text-align:center;padding:60px 0;color:var(--muted);font-size:15px;}
@@ -461,7 +504,6 @@ const casesData = [
     badgeText:"식품 인허가 · HACCP",
     region:"경기 고양시",
     title:"액상차·조림류 HACCP 인증 완료",
-    desc:"식품제조가공업 등록과 동시에 소규모 HACCP 인증 진행. 공정 분석부터 기준서 작성, 심사 대응까지 원스톱으로 완료.",
     result:"보완 없이 1회 통과"
   },
   {
@@ -471,7 +513,6 @@ const casesData = [
     badgeText:"식품 인허가 · HACCP",
     region:"경기 남양주시",
     title:"면류·만두피 HACCP 인증 완료",
-    desc:"기존 작업장 시설 개선 없이 HACCP 인증 가능하도록 공정 재구성 후 기준서 작성. 현장 맞춤형 점검표 구성.",
     result:"보완 없이 1회 통과"
   },
   {
@@ -481,7 +522,6 @@ const casesData = [
     badgeText:"축산물 인허가 · HACCP",
     region:"경기 부천시",
     title:"축산물가공 양념육 HACCP 인증 완료",
-    desc:"축산물가공업 허가와 HACCP 인증 동시 진행. 위생 동선 설계 단계부터 HACCP 기준 선반영으로 추가 공사 없이 완료.",
     result:"허가·인증 동시 완료"
   },
   {
@@ -491,7 +531,6 @@ const casesData = [
     badgeText:"식품 인허가 · HACCP",
     region:"인천광역시",
     title:"디저트 베이커리 HACCP 인증 완료",
-    desc:"소규모 베이커리 전문점 HACCP 인증. 소규모 HACCP 적용으로 비용·기간 최소화하며 인증 완료.",
     result:"소규모 HACCP 완료"
   },
   {
@@ -501,7 +540,6 @@ const casesData = [
     badgeText:"기타 영업 인허가",
     region:"인천광역시",
     title:"볶음김치 식품제조가공업 등록 완료",
-    desc:"건축물 용도 확인부터 청결·일반구역 동선 설계, 영업등록 신청, 품목제조보고까지 전 과정 대행 완료.",
     result:"보완 없이 등록 완료"
   },
   {
@@ -511,7 +549,6 @@ const casesData = [
     badgeText:"식품 인허가 · HACCP",
     region:"인천광역시",
     title:"간장게장·양념게장 HACCP 인증 완료",
-    desc:"염장 및 비가열 제품 특성에 맞는 위해요소 분석 및 CCP 설정. 실제 운영 가능한 점검 체계 구성 후 인증 완료.",
     result:"보완 없이 1회 통과"
   },
   {
@@ -521,7 +558,6 @@ const casesData = [
     badgeText:"축산물 인허가 · HACCP",
     region:"경기 수원시",
     title:"사골육수 추출공장 HACCP 인증 완료",
-    desc:"가열 공정 CCP 설정, 온도·시간 관리 기준서 작성, 기록 시스템 구축까지 추출공장 맞춤 HACCP 인증 완료.",
     result:"보완 없이 1회 통과"
   },
   {
@@ -531,7 +567,6 @@ const casesData = [
     badgeText:"식품 인허가 · HACCP",
     region:"경기 시흥시",
     title:"소스류·반찬류 HACCP 인증 완료",
-    desc:"다품종 소량 생산 업체의 복잡한 공정을 효율적으로 HACCP 시스템화. 직원 실사용 가능한 기록 양식 개발.",
     result:"보완 없이 1회 통과"
   },
   {
@@ -541,7 +576,6 @@ const casesData = [
     badgeText:"축산물 인허가 · HACCP",
     region:"경기 화성시",
     title:"비가열 양념육 HACCP 인증 완료",
-    desc:"비가열 양념육 특성상 교차오염 방지 동선 및 위해요소 관리가 핵심. 현장 특성에 맞는 CCP 및 한계기준 설정 완료.",
     result:"보완 없이 1회 통과"
   }
 ];
@@ -567,17 +601,13 @@ function renderCases(filter) {
     card.style.transitionDelay = `${i * 0.07}s`;
     card.innerHTML = `
       <div class="case-img-wrap">
-        <img src="${c.img}" alt="${c.title}" loading="lazy" width="400" height="300">
-        <div class="case-overlay"></div>
-        <div class="case-badge-wrap">
-          <span class="case-badge ${c.badge}">${c.badgeText}</span>
-        </div>
+        <img src="${c.img}" alt="${c.title}" loading="lazy">
       </div>
-      <div class="case-info">
-        <div class="case-region">${c.region}</div>
-        <div class="case-title">${c.title}</div>
-        <div class="case-desc">${c.desc}</div>
-        <div class="case-result">✅ ${c.result}</div>
+      <div class="case-badge-wrap">
+        <span class="case-badge ${c.badge}">${c.badgeText}</span>
+      </div>
+      <div class="case-region-overlay">
+        <span class="case-combined-badge">✅ ${c.region} · ${c.title}</span>
       </div>
     `;
     grid.appendChild(card);
