@@ -169,7 +169,7 @@
     /* ── 케이스 그리드 ── */
     .cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:80px;}
 
-    /* ── 카드: 이미지만, 텍스트 없음 ── */
+    /* ── 카드: 이미지 전체 표시 ── */
     .case-card{
       border-radius:14px;
       overflow:hidden;
@@ -177,22 +177,20 @@
       box-shadow:var(--sh);
       transition:var(--tr);
       background:#fff;
-      /* 고정 비율로 카드 높이 설정 */
-      aspect-ratio: 4/3;
       position:relative;
     }
     .case-card:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--gold);}
 
-    /* 이미지 래퍼가 카드 전체를 채움 */
+    /* 이미지 래퍼 — 이미지 높이에 맞게 자연스럽게 늘어남 */
     .case-img-wrap{
-      position:absolute;
-      inset:0;
+      position:relative;
       overflow:hidden;
+      width:100%;
     }
     .case-img-wrap img{
       width:100%;
-      height:100%;
-      object-fit:cover;
+      height:auto;
+      object-fit:contain;
       display:block;
       transition:transform 0.4s ease;
     }
