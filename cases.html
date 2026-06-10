@@ -237,22 +237,69 @@
     .filter-count strong{color:var(--navy);font-size:15px;}
 
     /* ── 케이스 그리드 ── */
-    .cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-bottom:0;}
+    /* align-items:stretch 로 같은 행의 카드 높이를 동일하게 맞춤 */
+    .cases-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      padding-bottom:0;
+      align-items:stretch;
+    }
 
     /* ── 카드 ── */
-    .case-card{border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:var(--sh);transition:var(--tr);background:#fff;position:relative;display:flex;flex-direction:column;}
+    .case-card{
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow:var(--sh);
+      transition:var(--tr);
+      background:#fff;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      /* 카드 내 모든 요소가 늘어나도 높이를 동일하게 유지 */
+      height:100%;
+    }
     .case-card:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--gold);}
-    .case-img-wrap{position:relative;overflow:hidden;width:100%;background:var(--cream2);}
-    .case-img-wrap img{width:100%;height:auto;object-fit:contain;display:block;transition:transform 0.4s ease;}
-    .case-card:hover .case-img-wrap img{transform:scale(1.04);}
+
+    /* 이미지 래퍼: 고정 비율(4:3) 유지, 이미지 잘림 없음 */
+    .case-img-wrap{
+      position:relative;
+      width:100%;
+      /* 4:3 비율 고정 — padding-top 트릭 */
+      aspect-ratio:4/3;
+      overflow:hidden;
+      background:var(--cream2);
+      flex-shrink:0;
+    }
+    /* 이미지: 잘리지 않고 전체가 보이도록 contain */
+    .case-img-wrap img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:contain;   /* 잘림 없이 전체 이미지 표시 */
+      object-position:center;
+      display:block;
+      transition:transform 0.4s ease;
+      padding:6px;          /* 여백을 살짝 줘서 인증서 테두리가 잘리지 않도록 */
+    }
+    .case-card:hover .case-img-wrap img{transform:scale(1.03);}
+
     .case-badge-wrap{position:absolute;top:12px;left:12px;display:flex;flex-wrap:wrap;gap:5px;z-index:2;}
     .case-badge{font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:4px;letter-spacing:0.3px;}
     .badge-food{background:rgba(13,27,46,0.9);color:#fff;}
     .badge-meat{background:rgba(124,61,18,0.88);color:#fff;}
     .badge-etc{background:rgba(55,65,81,0.88);color:#fff;}
-    .case-result-bar{display:flex;align-items:center;gap:7px;padding:10px 14px;background:var(--green);color:#fff;font-size:12px;font-weight:700;}
-    .case-result-bar i{font-size:14px;}
-    .case-info{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;gap:6px;}
+
+    /* 카드 하단 정보 영역: flex-grow 로 남은 공간 채워 카드 높이 균일화 */
+    .case-info{
+      padding:16px 18px 20px;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
     .case-region{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:0.5px;}
     .case-title{font-size:14.5px;font-weight:800;color:var(--navy);line-height:1.4;}
 
@@ -359,7 +406,11 @@
     .reveal-delay-3{transition-delay:.3s;}
 
     /* ── 반응형 ── */
-    @media(max-width:1024px){.cases-grid{grid-template-columns:repeat(2,1fr);}.proof-grid{grid-template-columns:repeat(2,1fr);}.why-pass-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:1024px){
+      .cases-grid{grid-template-columns:repeat(2,1fr);}
+      .proof-grid{grid-template-columns:repeat(2,1fr);}
+      .why-pass-grid{grid-template-columns:repeat(2,1fr);}
+    }
     @media(max-width:900px){
       .cta-inline{grid-template-columns:1fr;}
       .cta-inline-btns{align-items:flex-start;flex-direction:row;flex-wrap:wrap;}
@@ -700,33 +751,39 @@
 <script>
 /* ── 케이스 데이터 ── */
 var casesData=[
-  {img:"images/food-license.png.png",     category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"경기 고양시",   title:"액상차·조림류 HACCP 인증 완료",       result:"보완 없이 1회 통과"},
-  {img:"images/dumpling-haccp.png.png",   category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"경기 남양주시", title:"면류·만두피 HACCP 인증 완료",         result:"보완 없이 완료"},
-  {img:"images/meat-haccp.png.png",       category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 부천시",   title:"축산물가공 양념육 HACCP 인증 완료",   result:"타 업체 보완 후 통과"},
-  {img:"images/snack-haccp.png.png",      category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"인천광역시",    title:"디저트 베이커리 HACCP 인증 완료",     result:"보완 없이 완료"},
-  {img:"images/food-registration.png.png",category:"food",badge:"badge-food",badgeText:"식품 인허가",           region:"인천광역시",    title:"볶음김치 식품제조가공업 등록 완료",    result:"등록 완료"},
-  {img:"images/crab-haccp.png.png",       category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"인천광역시",    title:"간장게장·양념게장 HACCP 인증 완료",   result:"보완 없이 완료"},
-  {img:"images/bonebroth-haccp.png.png",  category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 수원시",   title:"사골육수 추출공장 HACCP 인증 완료",   result:"보완 없이 완료"},
-  {img:"images/food-haccp.png.png",       category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"경기 시흥시",   title:"소스류·반찬류 HACCP 인증 완료",       result:"보완 없이 완료"},
-  {img:"images/haccp-basic.png.png",      category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 화성시",   title:"비가열 양념육 HACCP 인증 완료",       result:"보완 없이 완료"},
-  {img:"images/meat-yang.png.png",        category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 김포시",   title:"포장육·양념육 HACCP 인증 완료",       result:"보완 없이 완료"},
-  {img:"images/food-banchan.png.png",     category:"food",badge:"badge-food",badgeText:"식품 인허가",           region:"경기 성남시",   title:"반찬류 식품제조가공업 등록 완료",      result:"등록 완료"},
-  {img:"images/food-jp.png.png",          category:"etc", badge:"badge-etc", badgeText:"기타 영업 인허가",     region:"경기 시흥시",   title:"즉석판매제조가공업 영업신고 완료",     result:"신고 완료"},
-  {img:"images/meat-pojang.png.png",      category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"서울특별시",    title:"식육포장처리업 HACCP 인증 완료",      result:"보완 없이 완료"},
-  {img:"images/food-jpt.png.png",         category:"etc", badge:"badge-etc", badgeText:"기타 영업 인허가",     region:"인천광역시",    title:"즉석판매제조가공업 영업신고 완료",     result:"신고 완료"},
-  {img:"images/food-mandoo.png.png",      category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"경기 고양시",   title:"만두류·떡류 HACCP 인증 완료",         result:"보완 없이 완료"},
-  {img:"images/meat-yangnum.png.png",     category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 광명시",   title:"식육가공 햄·소시지 HACCP 인증 완료",  result:"보완 없이 완료"},
-  {img:"images/food-gache.png.png",       category:"food",badge:"badge-food",badgeText:"식품 인허가",           region:"강원도 영월군", title:"과채가공품 식품제조가공업 등록 완료",  result:"등록 완료"},
-  {img:"images/food-sobun.png.png",       category:"etc", badge:"badge-etc", badgeText:"기타 영업 인허가",     region:"인천광역시",    title:"소분업·유통전문판매업 영업신고 완료",  result:"신고 완료"}
+  {img:"images/food-license.png.png",     category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"경기 고양시",   title:"액상차·조림류 HACCP 인증 완료"},
+  {img:"images/dumpling-haccp.png.png",   category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"경기 남양주시", title:"면류·만두피 HACCP 인증 완료"},
+  {img:"images/meat-haccp.png.png",       category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 부천시",   title:"축산물가공 양념육 HACCP 인증 완료"},
+  {img:"images/snack-haccp.png.png",      category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"인천광역시",    title:"디저트 베이커리 HACCP 인증 완료"},
+  {img:"images/food-registration.png.png",category:"food",badge:"badge-food",badgeText:"식품 인허가",           region:"인천광역시",    title:"볶음김치 식품제조가공업 등록 완료"},
+  {img:"images/crab-haccp.png.png",       category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"인천광역시",    title:"간장게장·양념게장 HACCP 인증 완료"},
+  {img:"images/bonebroth-haccp.png.png",  category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 수원시",   title:"사골육수 추출공장 HACCP 인증 완료"},
+  {img:"images/food-haccp.png.png",       category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"경기 시흥시",   title:"소스류·반찬류 HACCP 인증 완료"},
+  {img:"images/haccp-basic.png.png",      category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 화성시",   title:"비가열 양념육 HACCP 인증 완료"},
+  {img:"images/meat-yang.png.png",        category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 김포시",   title:"포장육·양념육 HACCP 인증 완료"},
+  {img:"images/food-banchan.png.png",     category:"food",badge:"badge-food",badgeText:"식품 인허가",           region:"경기 성남시",   title:"반찬류 식품제조가공업 등록 완료"},
+  {img:"images/food-jp.png.png",          category:"etc", badge:"badge-etc", badgeText:"기타 영업 인허가",     region:"경기 시흥시",   title:"즉석판매제조가공업 영업신고 완료"},
+  {img:"images/meat-pojang.png.png",      category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"서울특별시",    title:"식육포장처리업 HACCP 인증 완료"},
+  {img:"images/food-jpt.png.png",         category:"etc", badge:"badge-etc", badgeText:"기타 영업 인허가",     region:"인천광역시",    title:"즉석판매제조가공업 영업신고 완료"},
+  {img:"images/food-mandoo.png.png",      category:"food",badge:"badge-food",badgeText:"식품 인허가 · HACCP",  region:"경기 고양시",   title:"만두류·떡류 HACCP 인증 완료"},
+  {img:"images/meat-yangnum.png.png",     category:"meat",badge:"badge-meat",badgeText:"축산물 인허가 · HACCP",region:"경기 광명시",   title:"식육가공 햄·소시지 HACCP 인증 완료"},
+  {img:"images/food-gache.png.png",       category:"food",badge:"badge-food",badgeText:"식품 인허가",           region:"강원도 영월군", title:"과채가공품 식품제조가공업 등록 완료"},
+  {img:"images/food-sobun.png.png",       category:"etc", badge:"badge-etc", badgeText:"기타 영업 인허가",     region:"인천광역시",    title:"소분업·유통전문판매업 영업신고 완료"}
 ];
+
 var PER_PAGE=6,currentFilter='all',currentPage=1,filteredData=[];
+
 function getFiltered(f){return f==='all'?casesData:casesData.filter(function(c){return c.category===f;});}
+
 function renderCards(){
   var grid=document.getElementById('casesGrid');
   grid.innerHTML='';
   var start=(currentPage-1)*PER_PAGE;
   var items=filteredData.slice(start,start+PER_PAGE);
-  if(!items.length){grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--muted);font-size:15px;">해당 카테고리의 사례가 없습니다.</div>';return;}
+  if(!items.length){
+    grid.innerHTML='<div style="grid-column:1/-1;text-align:center;padding:60px 0;color:var(--muted);font-size:15px;">해당 카테고리의 사례가 없습니다.</div>';
+    return;
+  }
   items.forEach(function(c,i){
     var card=document.createElement('article');
     card.className='case-card reveal';
@@ -738,18 +795,23 @@ function renderCards(){
         '<img src="'+c.img+'" alt="'+c.region+' '+c.title+' — 지엘행정사 사무소" loading="lazy" itemprop="image">'+
       '</div>'+
       '<div class="case-badge-wrap"><span class="case-badge '+c.badge+'">'+c.badgeText+'</span></div>'+
-      '<div class="case-result-bar"><i class="ti ti-circle-check"></i>'+c.result+'</div>'+
       '<div class="case-info">'+
         '<div class="case-region" itemprop="areaServed">'+c.region+'</div>'+
         '<div class="case-title" itemprop="name">'+c.title+'</div>'+
       '</div>';
     grid.appendChild(card);
   });
+
   requestAnimationFrame(function(){
-    var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.05});
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}
+      });
+    },{threshold:0.05});
     grid.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
   });
 }
+
 function renderPagination(){
   var pg=document.getElementById('pagination');
   var total=Math.ceil(filteredData.length/PER_PAGE);
@@ -762,19 +824,23 @@ function renderPagination(){
     (function(n){
       var btn=document.createElement('button');
       btn.className='pg-btn'+(n===currentPage?' active':'');
-      btn.textContent=n;btn.onclick=function(){goPage(n);};pg.appendChild(btn);
+      btn.textContent=n;
+      btn.onclick=function(){goPage(n);};
+      pg.appendChild(btn);
     })(i);
   }
   var next=document.createElement('button');
   next.className='pg-btn';next.innerHTML='&#8250;';next.disabled=currentPage===total;
   next.onclick=function(){goPage(currentPage+1);};pg.appendChild(next);
 }
+
 function goPage(page){
   currentPage=page;renderCards();renderPagination();
   var grid=document.getElementById('casesGrid');
   var top=grid.getBoundingClientRect().top+window.pageYOffset-120;
   window.scrollTo({top:top,behavior:'smooth'});
 }
+
 function filterCases(filter,btn){
   currentFilter=filter;currentPage=1;filteredData=getFiltered(filter);
   document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');});
@@ -783,18 +849,32 @@ function filterCases(filter,btn){
   document.getElementById('filterCount').innerHTML=labels[filter]+' <strong>'+filteredData.length+'</strong>건';
   renderCards();renderPagination();
 }
+
 (function(){
-  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.08});
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});
+  },{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
 })();
+
 function toggleFaq(el){
   var item=el.parentElement;var isOpen=item.classList.contains('open');
   document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
   if(!isOpen) item.classList.add('open');
 }
-document.addEventListener('DOMContentLoaded',function(){filteredData=getFiltered('all');renderCards();renderPagination();});
-document.querySelectorAll('a[href^="tel:"]').forEach(function(el){el.addEventListener('click',function(){if(typeof gtag!=='undefined') gtag('event','phone_click',{event_category:'contact',event_label:'cases_page'});});});
-document.querySelectorAll('a[href*="open.kakao.com"]').forEach(function(el){el.addEventListener('click',function(){if(typeof gtag!=='undefined') gtag('event','kakao_click',{event_category:'contact',event_label:'cases_page'});});});
+
+document.addEventListener('DOMContentLoaded',function(){
+  filteredData=getFiltered('all');
+  renderCards();
+  renderPagination();
+});
+
+document.querySelectorAll('a[href^="tel:"]').forEach(function(el){
+  el.addEventListener('click',function(){if(typeof gtag!=='undefined') gtag('event','phone_click',{event_category:'contact',event_label:'cases_page'});});
+});
+document.querySelectorAll('a[href*="open.kakao.com"]').forEach(function(el){
+  el.addEventListener('click',function(){if(typeof gtag!=='undefined') gtag('event','kakao_click',{event_category:'contact',event_label:'cases_page'});});
+});
 </script>
 </body>
 </html>
