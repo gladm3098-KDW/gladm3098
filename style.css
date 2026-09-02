@@ -48,6 +48,10 @@
   --radius-card:var(--radius);
   --radius-button:var(--radius-sm);
   --shadow-card:var(--shadow-sm);
+
+  /* 모바일 하단 고정바(.mobile-cta-bar) 실측 높이 — 상단패딩10 + 버튼44(min-height) + 하단패딩10.
+     safe-area(iOS 홈 인디케이터)는 padding-bottom 계산식에서 env()로 별도 더함 */
+  --bottom-bar-height:64px;
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -71,8 +75,8 @@ h1,h2,h3,h4{font-weight:800;line-height:1.35;color:var(--ink);}
 main{display:block;}
 
 /* ── 공용 섹션 타이틀 ── */
-.section{padding:76px 0;}
-.section-sm{padding:48px 0;}
+.section{padding:76px 0;scroll-margin-top:calc(var(--header-h) + var(--space-3));}
+.section-sm{padding:48px 0;scroll-margin-top:calc(var(--header-h) + var(--space-3));}
 .section-label{display:inline-block;font-size:12.5px;font-weight:700;color:var(--accent);letter-spacing:2px;margin-bottom:10px;}
 .section-title{font-size:28px;letter-spacing:-0.4px;margin-bottom:14px;}
 .section-title em{color:var(--brand);font-style:normal;}
@@ -167,6 +171,8 @@ main{display:block;}
 .check-band-text strong{display:block;font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:2px;}
 .check-band-text p{font-size:13px;color:var(--muted);line-height:1.7;}
 .check-band-cta{margin-left:auto;flex-shrink:0;}
+/* 진한 톤 밴드 다음에 오는 섹션 제목은 여백을 더 넉넉히 둬 구간이 바뀜을 분명히 함 */
+.check-band + .section .section-head{margin-top:var(--space-6);}
 
 /* ============================================================
    서비스 카드 그리드
@@ -243,7 +249,7 @@ main{display:block;}
 .case-filter-btn.is-active{background:var(--ink);color:#fff;border-color:var(--ink);}
 .case-filter-count{font-size:13.5px;color:var(--muted);}
 .case-filter-count strong{color:var(--ink);font-size:15px;}
-.pagination{display:flex;align-items:center;justify-content:center;gap:8px;padding:36px 0 8px;}
+.pagination{display:flex;align-items:center;justify-content:center;gap:var(--space-2);padding:var(--space-6) 0 var(--space-2);}
 .pagination-btn{width:44px;height:44px;border-radius:8px;border:1.5px solid var(--border);background:var(--paper);font-weight:700;cursor:pointer;transition:var(--tr);font-family:inherit;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .pagination-btn:hover:not(:disabled){border-color:var(--brand);color:var(--brand);}
 .pagination-btn.is-active{background:var(--ink);color:#fff;border-color:var(--ink);}
@@ -294,7 +300,7 @@ main{display:block;}
 /* ============================================================
    CTA 밴드(다크 그린 — 골드 최소화)
    ============================================================ */
-.cta-band{background:var(--ink);position:relative;overflow:hidden;padding:60px 0;}
+.cta-band{background:var(--ink);position:relative;overflow:hidden;padding:60px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
 .cta-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 90% at 85% 50%,rgba(255,255,255,0.05),transparent 65%);pointer-events:none;}
 .cta-band-inner{position:relative;z-index:1;text-align:center;}
 .cta-band .section-label{color:var(--accent);}
@@ -331,8 +337,8 @@ main{display:block;}
 /* ============================================================
    모바일 하단 고정 CTA — 전화 + 상담신청 2버튼만
    ============================================================ */
-.mobile-cta-bar{position:fixed;bottom:0;left:0;width:100%;z-index:4800;background:rgba(250,248,244,0.98);backdrop-filter:blur(10px);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(23,50,38,0.08);padding:10px 16px;display:none;gap:10px;padding-bottom:calc(env(safe-area-inset-bottom,0) + 10px);}
-.mobile-cta-bar-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 10px;min-height:44px;box-sizing:border-box;border-radius:var(--radius-sm);font-size:14px;font-weight:700;text-align:center;}
+.mobile-cta-bar{position:fixed;bottom:0;left:0;width:100%;z-index:4800;background:rgba(250,248,244,0.98);backdrop-filter:blur(10px);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(23,50,38,0.08);padding:10px 16px;display:none;gap:10px;padding-bottom:calc(env(safe-area-inset-bottom,0) + 10px);box-sizing:border-box;}
+.mobile-cta-bar-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 10px;min-height:44px;line-height:1.2;box-sizing:border-box;border-radius:var(--radius-sm);font-size:14px;font-weight:700;text-align:center;}
 .mobile-cta-bar-btn-outline{background:var(--paper);border:1.5px solid var(--border);color:var(--ink);}
 .mobile-cta-bar-btn-primary{background:var(--brand);color:#fff;}
 
@@ -482,8 +488,9 @@ main{display:block;}
 
   /* 모바일 하단 고정 CTA 노출 + 본문 여백 확보 */
   .mobile-cta-bar{display:flex;}
-  body{padding-bottom:calc(70px + env(safe-area-inset-bottom,0));}
-  .site-footer{padding-bottom:calc(70px + env(safe-area-inset-bottom,0) + 40px);}
+  /* 하단 고정바 실높이 + safe-area + 여유버퍼(space-3)를 더해, 마지막 섹션이 바에 가려지지 않게 함 */
+  body{padding-bottom:calc(var(--bottom-bar-height) + env(safe-area-inset-bottom,0px) + var(--space-3));}
+  .site-footer{padding-bottom:calc(var(--bottom-bar-height) + env(safe-area-inset-bottom,0px) + var(--space-4));}
 
   .anchor-tabs{position:static;}
   .check-band-inner{flex-direction:column;align-items:flex-start;text-align:left;}
