@@ -49,14 +49,21 @@
         "description": "식품제조가공업 등록, 축산물가공업 허가, HACCP 인증(해썹컨설팅)을 전문으로 하는 행정사 사무소입니다. 공장계약 전 용도확인과 시설기준검토부터 허가, 품목제조보고, HACCP 준비와 사후관리까지 대표 행정사가 직접 담당합니다.",
         "url": "https://gladmin.co.kr",
         "telephone": "010-3538-3098",
-        "email": "goodlock7ad@naver.com",
+        "email": "law3098@naver.com",
         "taxID": "572-45-00087",
         "knowsAbout": ["식품제조가공업 등록", "축산물가공업 허가", "HACCP 인증", "해썹컨설팅", "식품위생법", "축산물위생관리법", "즉석판매제조가공업"],
         "founder": {
           "@type": "Person",
+          "@id": "https://gladmin.co.kr/#founder",
           "name": "김대운",
           "jobTitle": "행정사",
-          "description": "10년 이상 식품·축산물 인허가 및 HACCP 인증 실무 경험을 보유한 행정사"
+          "description": "10년 이상 식품·축산물 인허가 및 HACCP 인증 실무 경험을 보유한 행정사. 공장계약 전 용도확인과 시설기준검토부터 허가, 품목제조보고, HACCP 인증까지 상담과 진행을 직접 담당합니다.",
+          "image": "https://gladmin.co.kr/images/hero-jj.png.png",
+          "telephone": "010-3538-3098",
+          "email": "law3098@naver.com",
+          "worksFor": { "@id": "https://gladmin.co.kr/#organization" },
+          "knowsAbout": ["식품제조가공업 등록", "축산물가공업 허가", "HACCP 인증", "해썹컨설팅", "식품위생법", "축산물위생관리법"],
+          "sameAs": ["https://blog.naver.com/goodlock7ad"]
         },
         "address": {
           "@type": "PostalAddress",
@@ -72,34 +79,65 @@
         ],
         "areaServed": ["인천광역시","경기도","서울특별시","강원도","충청도","경상도","전라도","제주도"],
         "priceRange": "상담 후 안내",
-        "sameAs": ["https://blog.naver.com/goodlock7ad"]
-      },
-      {
-        "@type": "Service",
-        "@id": "https://gladmin.co.kr/#service-food",
-        "serviceType": "식품제조가공업 등록",
-        "provider": { "@id": "https://gladmin.co.kr/#organization" },
-        "description": "건축물 용도확인, 청결·일반구역 동선 설계, 식품제조가공업 영업등록, 품목제조보고 대행. 처리기간 약 2~4주(시설 상태에 따라 변동).",
-        "areaServed": "KR",
-        "url": "https://gladmin.co.kr/services.html#food"
-      },
-      {
-        "@type": "Service",
-        "@id": "https://gladmin.co.kr/#service-meat",
-        "serviceType": "축산물가공업 허가",
-        "provider": { "@id": "https://gladmin.co.kr/#organization" },
-        "description": "식육가공업·알가공업·유가공업 등 축산물가공업 허가, HACCP을 고려한 작업장 동선 설계. 처리기간 약 3~6주(시설 상태에 따라 변동).",
-        "areaServed": "KR",
-        "url": "https://gladmin.co.kr/services.html#meat"
-      },
-      {
-        "@type": "Service",
-        "@id": "https://gladmin.co.kr/#service-haccp",
-        "serviceType": "HACCP 인증(해썹컨설팅)",
-        "provider": { "@id": "https://gladmin.co.kr/#organization" },
-        "description": "현장 제조 공정에 맞는 위해요소 분석, 중요관리점(CCP) 설정, 심사 대응까지 지원하는 HACCP 인증 컨설팅. 처리기간 약 1~3개월.",
-        "areaServed": "KR",
-        "url": "https://gladmin.co.kr/services.html#haccp"
+        "sameAs": ["https://blog.naver.com/goodlock7ad"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "주요 업무",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://gladmin.co.kr/#service-food",
+                "name": "식품제조가공업 등록 대행",
+                "serviceType": "식품제조가공업 등록",
+                "provider": { "@id": "https://gladmin.co.kr/#organization" },
+                "description": "건축물 용도확인, 청결·일반구역 동선 설계, 식품제조가공업 영업등록, 품목제조보고 대행. 처리기간 약 2~4주(등록증 수령, 시설 상태에 따라 변동).",
+                "areaServed": "KR",
+                "url": "https://gladmin.co.kr/services.html#food"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://gladmin.co.kr/#service-meat",
+                "name": "축산물가공업 허가 대행",
+                "serviceType": "축산물가공업 허가",
+                "provider": { "@id": "https://gladmin.co.kr/#organization" },
+                "description": "식육가공업·알가공업·유가공업 등 축산물가공업 허가, HACCP을 고려한 작업장 동선 설계. 처리기간 약 3~6주(허가증 수령, 시설 상태에 따라 변동).",
+                "areaServed": "KR",
+                "url": "https://gladmin.co.kr/services.html#meat"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://gladmin.co.kr/#service-haccp",
+                "name": "HACCP 인증 대행(해썹컨설팅)",
+                "serviceType": "HACCP 인증(해썹컨설팅)",
+                "provider": { "@id": "https://gladmin.co.kr/#organization" },
+                "description": "현장 제조 공정에 맞는 위해요소 분석, 중요관리점(CCP) 설정, 심사 대응까지 지원하는 HACCP 인증 컨설팅. 처리기간 약 1~3개월(인증서 수령).",
+                "areaServed": "KR",
+                "url": "https://gladmin.co.kr/services.html#haccp"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "@id": "https://gladmin.co.kr/#service-etc",
+                "name": "즉석판매제조가공업·소분업 등 기타 인허가",
+                "serviceType": "기타 식품·축산물 영업 인허가",
+                "provider": { "@id": "https://gladmin.co.kr/#organization" },
+                "description": "즉석판매제조가공업, 식육포장처리업, 식품소분업, 식육판매업 등 업종별 인허가·신고 절차 대행.",
+                "areaServed": "KR",
+                "url": "https://gladmin.co.kr/services.html#etc"
+              }
+            }
+          ]
+        }
       },
       {
         "@type": "FAQPage",
@@ -200,7 +238,7 @@
         <div class="hero-trust-item"><span class="hti-icon">🏭</span><div><div class="hti-title">10년 이상 현장 실무</div><div class="hti-sub">식품·축산물 인허가 전문</div></div></div>
         <div class="hero-trust-item"><span class="hti-icon">📐</span><div><div class="hti-title">용도·인허가 가능 여부 확인</div><div class="hti-sub">계약 전 먼저 확인</div></div></div>
         <div class="hero-trust-item"><span class="hti-icon">🧪</span><div><div class="hti-title">HACCP 준비·심사 대응</div><div class="hti-sub">현장 맞춤형 기준서</div></div></div>
-        <div class="hero-trust-item"><span class="hti-icon">📞</span><div><div class="hti-title">대표 행정사 직접 상담</div><div class="hti-sub">처음부터 끝까지 한 명이</div></div></div>
+        <div class="hero-trust-item"><span class="hti-icon">📞</span><div><div class="hti-title">대표 행정사 직접 상담</div><div class="hti-sub">상담부터 완료까지 직접 담당</div></div></div>
       </div>
     </div>
   </div>
@@ -306,7 +344,7 @@
         <div class="founder-name">대표 행정사</div>
         <h2 class="founder-role" id="founder-heading">김대운 행정사</h2>
         <div class="founder-specialty">식품·축산물 인허가 · HACCP 인증 컨설팅</div>
-        <p class="founder-desc">10년 이상 식품·축산물 인허가 및 HACCP 인증 업무를 담당해 온 대표 행정사가 상담부터 허가 완료까지 직접 진행합니다. 상담부터 진행 과정까지 대표 행정사가 직접 확인하고 진행합니다.</p>
+        <p class="founder-desc">10년 이상 식품·축산물 인허가 및 HACCP 인증 업무를 담당해 온 김대운 행정사가 상담부터 허가 완료까지 직접 진행합니다. 담당자가 중간에 바뀌지 않기 때문에, 초기 상담에서 파악한 현장 상황이 그대로 이어져 진행됩니다.</p>
         <div class="founder-credentials">
           <span class="founder-credential">행정사 등록 · 사업자등록번호 572-45-00087</span>
           <span class="founder-credential">식품·축산물 인허가 전문</span>
@@ -440,7 +478,7 @@
         <p><strong>대표</strong> 김대운 행정사</p>
         <p><strong>사업자등록번호</strong> 572-45-00087</p>
         <p><strong>주소</strong> 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
-        <p><strong>전화</strong> <a href="tel:01035383098">010-3538-3098</a> · <strong>이메일</strong> <a href="mailto:goodlock7ad@naver.com">goodlock7ad@naver.com</a></p>
+        <p><strong>전화</strong> <a href="tel:01035383098">010-3538-3098</a> · <strong>이메일</strong> <a href="mailto:law3098@naver.com">law3098@naver.com</a></p>
         <p><strong>운영시간</strong> 평일 09:00 ~ 18:00</p>
       </div>
       <div class="site-footer-copy">© 2026 GL Administrative Office. All Rights Reserved.</div>

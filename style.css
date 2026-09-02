@@ -30,6 +30,24 @@
   --radius:12px;
   --radius-sm:8px;
   --header-h:76px;
+
+  /* ── 디자인 토큰 별칭(8px 기준 스페이싱/타이포 스케일) ──
+     실제 색상·반경 값은 위 변수를 그대로 유지하며, 신규 콘텐츠(표·리스트 등)
+     작성 시 참조할 공통 스케일만 별도로 정리합니다. */
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:16px;
+  --space-4:24px;
+  --space-5:32px;
+  --space-6:48px;
+  --space-7:64px;
+  --font-base:16px;
+  --line-height-tight:1.35;
+  --line-height-body:1.7;
+  --line-height-heading:1.35;
+  --radius-card:var(--radius);
+  --radius-button:var(--radius-sm);
+  --shadow-card:var(--shadow-sm);
 }
 
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
@@ -64,7 +82,7 @@ main{display:block;}
 .section-head.center .section-desc{margin-left:auto;margin-right:auto;}
 
 /* ── 버튼 ── */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 24px;border-radius:var(--radius-sm);font-size:14.5px;font-weight:700;white-space:nowrap;transition:var(--tr);border:1.5px solid transparent;cursor:pointer;font-family:inherit;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 24px;min-height:44px;border-radius:var(--radius-sm);font-size:14.5px;font-weight:700;white-space:nowrap;transition:var(--tr);border:1.5px solid transparent;cursor:pointer;font-family:inherit;box-sizing:border-box;}
 .btn-primary{background:var(--brand);color:#fff;}
 .btn-primary:hover{background:var(--brand-dark);transform:translateY(-1px);box-shadow:var(--shadow-sm);}
 .btn-outline{background:transparent;color:var(--ink);border-color:var(--border);}
@@ -88,14 +106,14 @@ main{display:block;}
 .site-logo-text strong{font-size:15.5px;font-weight:800;color:var(--ink);letter-spacing:-0.2px;}
 .site-logo-text small{font-size:10.5px;font-weight:500;color:var(--muted);letter-spacing:0.2px;}
 .site-nav{display:flex;align-items:center;gap:4px;margin-left:auto;}
-.site-nav a{font-size:14px;font-weight:600;color:var(--muted);padding:8px 13px;border-radius:7px;transition:var(--tr);white-space:nowrap;}
-.site-nav a:hover{color:var(--ink);background:var(--brand-soft);}
+.site-nav a:not(.btn){font-size:14px;font-weight:600;color:var(--muted);padding:8px 13px;border-radius:7px;transition:var(--tr);white-space:nowrap;}
+.site-nav a:not(.btn):hover{color:var(--ink);background:var(--brand-soft);}
 .site-nav .btn{margin-left:6px;}
 .site-tel{display:flex;align-items:center;gap:9px;padding-left:18px;border-left:1px solid var(--border);flex-shrink:0;}
 .site-tel-icon{width:34px;height:34px;border-radius:50%;background:var(--brand-soft);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
 .site-tel-num{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1;}
 .site-tel:hover .site-tel-num{color:var(--brand);}
-.nav-toggle{display:none;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;border:1px solid var(--border);background:var(--paper);flex-direction:column;gap:4px;flex-shrink:0;cursor:pointer;}
+.nav-toggle{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;border:1px solid var(--border);background:var(--paper);flex-direction:column;gap:4px;flex-shrink:0;cursor:pointer;}
 .nav-toggle span{display:block;width:18px;height:2px;background:var(--ink);transition:var(--tr);}
 .nav-toggle.is-open span:nth-child(1){transform:translateY(6px) rotate(45deg);}
 .nav-toggle.is-open span:nth-child(2){opacity:0;}
@@ -147,7 +165,7 @@ main{display:block;}
 .check-band-inner{display:flex;align-items:center;gap:20px;padding:22px 0;flex-wrap:wrap;}
 .check-band-icon{width:44px;height:44px;border-radius:50%;background:var(--paper);border:1px solid rgba(47,112,82,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
 .check-band-text strong{display:block;font-size:14.5px;font-weight:800;color:var(--ink);margin-bottom:2px;}
-.check-band-text p{font-size:13px;color:var(--muted);line-height:1.6;}
+.check-band-text p{font-size:13px;color:var(--muted);line-height:1.7;}
 .check-band-cta{margin-left:auto;flex-shrink:0;}
 
 /* ============================================================
@@ -173,7 +191,7 @@ main{display:block;}
 .process-step:hover .process-step-icon{border-color:var(--brand);background:var(--brand-soft);}
 .process-step-index{position:absolute;top:-4px;right:calc(50% - 33px);width:19px;height:19px;border-radius:50%;background:var(--ink);color:#fff;font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;}
 .process-step-title{font-size:13.5px;font-weight:800;color:var(--ink);margin-bottom:6px;}
-.process-step-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.process-step-desc{font-size:12px;color:var(--muted);line-height:1.7;}
 
 /* ============================================================
    대표 소개 / 신뢰 섹션
@@ -220,16 +238,36 @@ main{display:block;}
 /* 사례 필터 & 페이지네이션 (cases.html) */
 .case-filter-bar{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:26px;}
 .case-filter-group{display:flex;gap:8px;flex-wrap:wrap;}
-.case-filter-btn{background:var(--paper);color:var(--text);border:1.5px solid var(--border);padding:9px 18px;border-radius:999px;font-size:13.5px;font-weight:700;cursor:pointer;transition:var(--tr);font-family:inherit;}
+.case-filter-btn{background:var(--paper);color:var(--text);border:1.5px solid var(--border);padding:9px 18px;min-height:44px;box-sizing:border-box;border-radius:999px;font-size:13.5px;font-weight:700;cursor:pointer;transition:var(--tr);font-family:inherit;}
 .case-filter-btn:hover{border-color:var(--brand);color:var(--brand);}
 .case-filter-btn.is-active{background:var(--ink);color:#fff;border-color:var(--ink);}
 .case-filter-count{font-size:13.5px;color:var(--muted);}
 .case-filter-count strong{color:var(--ink);font-size:15px;}
 .pagination{display:flex;align-items:center;justify-content:center;gap:8px;padding:36px 0 8px;}
-.pagination-btn{width:40px;height:40px;border-radius:8px;border:1.5px solid var(--border);background:var(--paper);font-weight:700;cursor:pointer;transition:var(--tr);font-family:inherit;display:flex;align-items:center;justify-content:center;}
+.pagination-btn{width:44px;height:44px;border-radius:8px;border:1.5px solid var(--border);background:var(--paper);font-weight:700;cursor:pointer;transition:var(--tr);font-family:inherit;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .pagination-btn:hover:not(:disabled){border-color:var(--brand);color:var(--brand);}
 .pagination-btn.is-active{background:var(--ink);color:#fff;border-color:var(--ink);}
 .pagination-btn:disabled{opacity:.35;cursor:default;}
+
+/* 사실 정보 표(처리기간·관할기관·지역별 실적 등 — AI/검색엔진 인용용) */
+.fact-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.fact-table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--border);border-radius:var(--radius-card);overflow:hidden;font-size:13.5px;}
+.fact-table th,.fact-table td{padding:var(--space-3) var(--space-4);text-align:left;line-height:var(--line-height-body);border-bottom:1px solid var(--border);}
+.fact-table thead th{background:var(--brand-soft);color:var(--brand-dark);font-weight:700;font-size:12.5px;letter-spacing:.2px;}
+.fact-table tbody th{font-weight:700;color:var(--ink);}
+.fact-table tbody tr:last-child th,.fact-table tbody tr:last-child td{border-bottom:none;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+/* 640px 이하: 표를 가로 스크롤 대신 항목별 카드로 전환 (열이 지역/업종 단일 값 구조이므로 th를 카드 제목처럼 사용) */
+@media(max-width:640px){
+  .fact-table-wrap{overflow-x:visible;}
+  .fact-table{width:100%;}
+  .fact-table thead{display:none;}
+  .fact-table,.fact-table tbody,.fact-table tr,.fact-table th,.fact-table td{display:block;width:auto;}
+  .fact-table tbody tr{padding:var(--space-3) var(--space-4);border-bottom:1px solid var(--border);}
+  .fact-table tbody tr:last-child{border-bottom:none;}
+  .fact-table tbody th{padding:0 0 var(--space-1);border-bottom:none;font-size:13.5px;}
+  .fact-table tbody td{padding:0;border-bottom:none;color:var(--muted);}
+}
 
 /* 실제 후기 카드 */
 .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
@@ -294,7 +332,7 @@ main{display:block;}
    모바일 하단 고정 CTA — 전화 + 상담신청 2버튼만
    ============================================================ */
 .mobile-cta-bar{position:fixed;bottom:0;left:0;width:100%;z-index:4800;background:rgba(250,248,244,0.98);backdrop-filter:blur(10px);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(23,50,38,0.08);padding:10px 16px;display:none;gap:10px;padding-bottom:calc(env(safe-area-inset-bottom,0) + 10px);}
-.mobile-cta-bar-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 10px;border-radius:var(--radius-sm);font-size:14px;font-weight:700;text-align:center;}
+.mobile-cta-bar-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:13px 10px;min-height:44px;box-sizing:border-box;border-radius:var(--radius-sm);font-size:14px;font-weight:700;text-align:center;}
 .mobile-cta-bar-btn-outline{background:var(--paper);border:1.5px solid var(--border);color:var(--ink);}
 .mobile-cta-bar-btn-primary{background:var(--brand);color:#fff;}
 
@@ -320,6 +358,7 @@ main{display:block;}
 .service-detail-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
 .meta-badge{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 14px;font-size:12.5px;font-weight:700;color:var(--ink);}
 .meta-badge-label{display:block;font-size:10px;font-weight:600;color:var(--muted);margin-bottom:2px;}
+.meta-badge dd{margin:0;}
 .service-detail-tel{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--muted);}
 .service-detail-tel a{font-weight:700;color:var(--ink);}
 
@@ -328,7 +367,7 @@ main{display:block;}
 .compare-card.is-problem{background:var(--danger-soft);border-top:3px solid var(--danger);}
 .compare-card.is-solution{background:var(--ok-soft);border-top:3px solid var(--ok);}
 .compare-card h3{font-size:14px;margin-bottom:13px;display:flex;align-items:center;gap:7px;}
-.compare-card li{font-size:13.5px;color:var(--text);margin-bottom:9px;padding-left:15px;position:relative;line-height:1.6;}
+.compare-card li{font-size:13.5px;color:var(--text);margin-bottom:9px;padding-left:15px;position:relative;line-height:1.7;}
 .compare-card li::before{content:'•';position:absolute;left:0;font-weight:700;}
 .compare-card.is-problem li::before{color:var(--danger);}
 .compare-card.is-solution li::before{color:var(--ok);}
@@ -339,7 +378,7 @@ main{display:block;}
 
 .checklist{background:var(--ink);border-radius:var(--radius);padding:26px 26px 22px;}
 .checklist h4{font-size:12.5px;font-weight:700;color:var(--accent-soft);letter-spacing:1.5px;margin-bottom:15px;}
-.checklist-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;}
+.checklist-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:13px;color:rgba(255,255,255,0.75);line-height:1.7;}
 .checklist-item:last-child{margin-bottom:0;}
 .checklist-dot{width:19px;height:19px;border-radius:50%;background:rgba(182,135,74,0.2);border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:10px;color:var(--accent-soft);}
 
@@ -349,7 +388,7 @@ main{display:block;}
 .consult-form{max-width:760px;margin:0 auto;}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
 .form-field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:7px;}
-.form-field input,.form-field select,.form-field textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--paper);font-family:inherit;font-size:14px;color:var(--text);transition:var(--tr);}
+.form-field input,.form-field select,.form-field textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:var(--paper);font-family:inherit;font-size:var(--font-base);line-height:var(--line-height-body);color:var(--text);transition:var(--tr);}
 .form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--brand);}
 .form-radio-group{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:18px;}
 .form-radio-group>span{font-size:13.5px;font-weight:700;color:var(--ink);}
@@ -437,7 +476,7 @@ main{display:block;}
     z-index:4950;overflow-y:auto;
   }
   .site-nav.is-open{transform:translateX(0);}
-  .site-nav a{padding:13px 14px;font-size:15px;border-bottom:1px solid var(--border);border-radius:0;}
+  .site-nav a:not(.btn){padding:13px 14px;font-size:15px;border-bottom:1px solid var(--border);border-radius:0;}
   .site-nav .btn{margin:10px 0 0;text-align:center;}
   .nav-toggle{display:inline-flex;}
 

@@ -48,9 +48,9 @@
         "description": "식품제조가공업 등록, 축산물가공업 허가, HACCP 인증(해썹컨설팅)을 전문으로 하는 행정사 사무소입니다. 공장계약 전 시설기준검토부터 허가 완료 및 사후관리까지 대표 행정사가 직접 담당합니다.",
         "url": "https://gladmin.co.kr",
         "telephone": "010-3538-3098",
-        "email": "goodlock7ad@naver.com",
+        "email": "law3098@naver.com",
         "taxID": "572-45-00087",
-        "founder": { "@type": "Person", "name": "김대운", "jobTitle": "행정사" },
+        "founder": { "@type": "Person", "@id": "https://gladmin.co.kr/#founder", "name": "김대운", "jobTitle": "행정사", "description": "10년 이상 식품·축산물 인허가 및 HACCP 인증 실무 경험을 보유한 행정사", "telephone": "010-3538-3098", "email": "law3098@naver.com" },
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "인주대로 850번길 15 진흥빌딩 402호",
@@ -69,6 +69,7 @@
       {
         "@type": "Service",
         "@id": "https://gladmin.co.kr/#service-food",
+        "name": "식품제조가공업 등록 대행",
         "serviceType": "식품제조가공업 등록",
         "provider": { "@id": "https://gladmin.co.kr/#organization" },
         "description": "건축물 용도확인, 청결·일반구역 동선 설계, 영업등록 신청, 품목제조보고 대행. 처리기간 약 2~4주(공사·보완 여부에 따라 변동).",
@@ -78,6 +79,7 @@
       {
         "@type": "Service",
         "@id": "https://gladmin.co.kr/#service-meat",
+        "name": "축산물가공업 허가 대행",
         "serviceType": "축산물가공업 허가",
         "provider": { "@id": "https://gladmin.co.kr/#organization" },
         "description": "식육가공업·알가공업·유가공업 허가, HACCP을 고려한 작업장 동선 설계. 처리기간 약 3~6주(공사·보완 여부에 따라 변동).",
@@ -87,6 +89,7 @@
       {
         "@type": "Service",
         "@id": "https://gladmin.co.kr/#service-haccp",
+        "name": "HACCP 인증 대행(해썹컨설팅)",
         "serviceType": "HACCP 인증(해썹컨설팅)",
         "provider": { "@id": "https://gladmin.co.kr/#organization" },
         "description": "소규모 HACCP·해썹컨설팅, 현장 맞춤형 기준서 작성, 위해요소 분석, 심사 대응. 처리기간 약 1~3개월(공사·보완 여부에 따라 변동).",
@@ -96,7 +99,8 @@
       {
         "@type": "Service",
         "@id": "https://gladmin.co.kr/#service-etc",
-        "serviceType": "즉석판매제조가공업 등 기타 식품·축산물 영업 인허가",
+        "name": "즉석판매제조가공업·소분업 등 기타 인허가",
+        "serviceType": "기타 식품·축산물 영업 인허가",
         "provider": { "@id": "https://gladmin.co.kr/#organization" },
         "description": "즉석판매제조가공업, 식육포장처리업, 식품소분업, 식육판매업 등 업종별 인허가·신고 절차 대행.",
         "areaServed": "KR",
@@ -218,10 +222,10 @@
           제조한 식품을 마트·온라인 등으로 유통·판매할 계획이라면 관할 시·군·구청에 등록해야 하는 업종입니다. 매장에서 직접 최종소비자에게만 판매하는 즉석판매제조가공업과는 유통 범위가 다릅니다.
         </div>
         <p>건축물 용도확인부터 작업장 동선 설계, 영업등록 신청, 품목제조보고까지 법령과 실무 기준에 맞춰 전 과정을 대행합니다.</p>
-        <div class="service-detail-meta">
-          <div class="meta-badge"><span class="meta-badge-label">처리기간</span>2~4주(등록증 수령)</div>
-          <div class="meta-badge"><span class="meta-badge-label">관할 기관</span>시·군·구청(등록제)</div>
-        </div>
+        <dl class="service-detail-meta">
+          <div class="meta-badge"><dt class="meta-badge-label">처리기간</dt><dd>2~4주(등록증 수령)</dd></div>
+          <div class="meta-badge"><dt class="meta-badge-label">관할 기관</dt><dd>시·군·구청(등록제)</dd></div>
+        </dl>
         <a href="consult.html?type=food" class="btn btn-primary">식품제조가공업 상담 문의</a>
         <div class="service-detail-tel"><span>📞 전화 문의</span><a href="tel:01035383098">010-3538-3098</a></div>
       </div>
@@ -276,10 +280,10 @@
           식육·알·유가공품 등 축산물을 가공해 판매할 계획이라면 허가가 필요한 업종입니다. 식품제조가공업과는 관할 기관과 시설기준이 다르며, 축산물가공업은 HACCP 준비가 필수입니다.
         </div>
         <p>「축산물위생관리법」 기준에 따른 식육가공업·알가공업·유가공업 허가를 대행합니다. HACCP을 고려한 작업장 동선 설계로 추가 보완 가능성을 줄입니다.</p>
-        <div class="service-detail-meta">
-          <div class="meta-badge"><span class="meta-badge-label">처리기간</span>3~6주(허가증 수령)</div>
-          <div class="meta-badge"><span class="meta-badge-label">관할 기관</span>시·도 또는 시·군·구청(허가제)</div>
-        </div>
+        <dl class="service-detail-meta">
+          <div class="meta-badge"><dt class="meta-badge-label">처리기간</dt><dd>3~6주(허가증 수령)</dd></div>
+          <div class="meta-badge"><dt class="meta-badge-label">관할 기관</dt><dd>시·도 또는 시·군·구청(허가제)</dd></div>
+        </dl>
         <a href="consult.html?type=meat" class="btn btn-primary">축산물가공업 상담 문의</a>
         <div class="service-detail-tel"><span>📞 전화 문의</span><a href="tel:01035383098">010-3538-3098</a></div>
       </div>
@@ -333,10 +337,10 @@
           HACCP(Hazard Analysis Critical Control Point)은 식품 제조 전 과정에서 위해요소를 분석하고 중요관리점(CCP)을 설정·관리하는 식품안전관리인증 제도입니다. 식품 분야는 식품유형과 규모에 따라 의무 대상이 정해지며, 축산물가공업은 HACCP 인증이 의무입니다.
         </div>
         <p>해썹컨설팅은 현장 제조 공정을 직접 파악해 실제 운영 가능한 HACCP 기준서를 구축하는 과정입니다. 형식적인 기준서가 아니라 심사와 운영 모두에 맞는 시스템을 만듭니다.</p>
-        <div class="service-detail-meta">
-          <div class="meta-badge"><span class="meta-badge-label">처리기간</span>1~3개월(인증서 수령)</div>
-          <div class="meta-badge"><span class="meta-badge-label">적용 대상</span>식품(일부)·식육가공품 등</div>
-        </div>
+        <dl class="service-detail-meta">
+          <div class="meta-badge"><dt class="meta-badge-label">처리기간</dt><dd>1~3개월(인증서 수령)</dd></div>
+          <div class="meta-badge"><dt class="meta-badge-label">적용 대상</dt><dd>식품(일부)·식육가공품 등</dd></div>
+        </dl>
         <a href="consult.html?type=haccp" class="btn btn-primary">HACCP 상담 문의</a>
         <div class="service-detail-tel"><span>📞 전화 문의</span><a href="tel:01035383098">010-3538-3098</a></div>
       </div>
@@ -391,9 +395,9 @@
           즉석판매제조가공업, 식육즉석판매가공, 식육판매업, 축산물 보관업, 식품소분업, 식육포장처리업 등이 포함됩니다. 업종별 시설기준과 적용 법령이 달라 사전 검토가 중요합니다.
         </div>
         <p>즉석판매제조가공업, 식육즉석판매가공, 식육판매업, 축산물 보관업, 식품소분업 등 업종별 인허가·신고 절차를 대행합니다.</p>
-        <div class="service-detail-meta">
-          <div class="meta-badge"><span class="meta-badge-label">대상 업종</span>즉석판매·식육판매·보관·소분업 등</div>
-        </div>
+        <dl class="service-detail-meta">
+          <div class="meta-badge"><dt class="meta-badge-label">대상 업종</dt><dd>즉석판매·식육판매·보관·소분업 등</dd></div>
+        </dl>
         <a href="consult.html?type=etc" class="btn btn-primary">기타 인허가 상담 문의</a>
         <div class="service-detail-tel"><span>📞 전화 문의</span><a href="tel:01035383098">010-3538-3098</a></div>
       </div>
@@ -485,7 +489,7 @@
         <p><strong>대표</strong> 김대운 행정사</p>
         <p><strong>사업자등록번호</strong> 572-45-00087</p>
         <p><strong>주소</strong> 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
-        <p><strong>전화</strong> <a href="tel:01035383098">010-3538-3098</a> · <strong>이메일</strong> <a href="mailto:goodlock7ad@naver.com">goodlock7ad@naver.com</a></p>
+        <p><strong>전화</strong> <a href="tel:01035383098">010-3538-3098</a> · <strong>이메일</strong> <a href="mailto:law3098@naver.com">law3098@naver.com</a></p>
         <p><strong>운영시간</strong> 평일 09:00 ~ 18:00</p>
       </div>
       <div class="site-footer-copy">© 2026 GL Administrative Office. All Rights Reserved.</div>
