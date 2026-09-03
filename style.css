@@ -358,7 +358,7 @@ main{display:block;}
 .service-detail-aside{position:sticky;top:150px;}
 .service-detail-index{font-size:12px;font-weight:800;color:var(--accent);letter-spacing:1.5px;margin-bottom:10px;}
 .service-detail-aside h2{font-size:24px;margin-bottom:16px;}
-.service-detail-summary{background:var(--brand-soft);border-left:3px solid var(--brand);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:15px 18px;margin-bottom:20px;font-size:13.5px;color:var(--ink);line-height:1.75;}
+.service-detail-summary{background:var(--brand-soft);border-left:3px solid var(--brand);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:var(--space-4);margin-bottom:20px;font-size:13.5px;color:var(--ink);line-height:var(--line-height-body);}
 .service-detail-summary strong{color:var(--brand-dark);}
 .service-detail-aside p{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;}
 .service-detail-meta{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
