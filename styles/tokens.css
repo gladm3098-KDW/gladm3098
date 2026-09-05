@@ -1,0 +1,88 @@
+/* ============================================================
+   지엘행정사 사무소 — 디자인 토큰 (styles/tokens.css)
+   전 페이지(index/services/cases/consult)가 style.css보다 먼저
+   이 파일을 로드합니다. 색상·타이포·스페이싱의 단일 기준입니다.
+   ============================================================ */
+:root{
+  /* ── 컬러 시스템 ── */
+  --color-primary:#0E6E5F;        /* 딥 틸 — 헤더 포인트, 주요 버튼, 링크 */
+  --color-primary-dark:#0A5347;   /* 호버/다크 섹션 */
+  --color-primary-soft:#E6F1EE;   /* 연한 틸 배경 */
+  --color-accent:#F2A488;         /* 웜 코럴 — 강조 배지, 아이콘, 다크 배경 위 CTA */
+  --color-accent-dark:#E8875F;    /* 코럴 호버 */
+  --color-accent-soft:#FBEAE2;    /* 연한 코럴 배경 */
+  --color-ink:#10231F;            /* 헤드라인/본문 최상단 톤, 다크 섹션(footer/CTA) 배경 */
+  --color-ink-soft:#1B362F;       /* 다크 섹션 위 hover */
+  --color-surface-light:#F6F5F1;  /* 연회색 섹션 배경 */
+  --color-surface-white:#FFFFFF;
+  --color-text:#1A2B26;
+  --color-muted:#5D6E68;
+  --color-muted-2:#8B9994;
+  --color-border:#E4E7E2;
+  --color-danger:#C4553A;
+  --color-danger-soft:#FBEAE5;
+  --color-ok:#2F7D5A;
+  --color-ok-soft:#E9F5EF;
+
+  /* ── 레거시 별칭(기존 컴포넌트 CSS 호환용) ── */
+  --ink:var(--color-ink);
+  --ink-2:var(--color-ink-soft);
+  --brand:var(--color-primary);
+  --brand-dark:var(--color-primary-dark);
+  --brand-soft:var(--color-primary-soft);
+  --accent:var(--color-accent);
+  --accent-soft:var(--color-accent-soft);
+  --cream:var(--color-surface-light);
+  --paper:var(--color-surface-white);
+  --text:var(--color-text);
+  --muted:var(--color-muted);
+  --muted-2:var(--color-muted-2);
+  --border:var(--color-border);
+  --danger:var(--color-danger);
+  --danger-soft:var(--color-danger-soft);
+  --ok:var(--color-ok);
+  --ok-soft:var(--color-ok-soft);
+
+  /* ── 그라디언트 ── */
+  --gradient-brand:linear-gradient(135deg,var(--color-primary) 0%,var(--color-accent) 140%);
+  --gradient-dark:linear-gradient(135deg,var(--color-primary-dark) 0%,var(--color-ink) 100%);
+
+  /* ── 스페이싱(8px 스케일) ── */
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:16px;
+  --space-4:24px;
+  --space-5:32px;
+  --space-6:48px;
+  --space-7:64px;
+  --space-8:96px;
+
+  /* ── 타이포 ── */
+  --font-sans:'Noto Sans KR',-apple-system,'Malgun Gothic',sans-serif;
+  --font-base:16px;
+  --line-height-tight:1.3;
+  --line-height-body:1.7;
+  --line-height-heading:1.3;
+
+  /* ── 반경/그림자/트랜지션 ── */
+  --radius:16px;
+  --radius-sm:10px;
+  --radius-lg:26px;
+  --radius-card:var(--radius);
+  --radius-button:var(--radius-sm);
+  --shadow-sm:0 4px 18px rgba(16,35,31,0.07);
+  --shadow-md:0 14px 40px rgba(16,35,31,0.12);
+  --shadow-lg:0 26px 64px rgba(16,35,31,0.20);
+  --shadow-card:var(--shadow-sm);
+  --tr:all .28s cubic-bezier(.4,0,.2,1);
+  --tr-slow:all .5s cubic-bezier(.4,0,.2,1);
+
+  --header-h:76px;
+  /* 모바일 하단 고정바 실측 높이 — 상단패딩10 + 버튼48(모바일 .btn 고정 height) + 하단패딩10 */
+  --bottom-bar-height:68px;
+}
+
+/* 모션 최소화 환경: 애니메이션/전환을 사실상 제거 */
+@media (prefers-reduced-motion: reduce){
+  :root{ --tr:none; --tr-slow:none; }
+}

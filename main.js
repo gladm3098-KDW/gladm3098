@@ -1,6 +1,7 @@
 /**
  * main.js — 지엘행정사 사무소 공통 스크립트
  * 모든 페이지(index/services/cases/consult)가 이 파일 하나를 공유합니다.
+ * 등장 애니메이션(reveal)·헤더 스크롤 전환·카운트업은 scripts/reveal.js에 있습니다.
  */
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -38,19 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth > 768) closeNav();
   });
 
-  /* 2. 등장 애니메이션(reveal) */
-  var revealEls = document.querySelectorAll('.reveal');
-  if (revealEls.length) {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(function (el) { io.observe(el); });
-  }
+  /* 2. 등장 애니메이션(reveal)과 헤더 스크롤 전환, 카운트업은 scripts/reveal.js가 담당합니다. */
 
   /* 3. FAQ 아코디언 (data-faq 컨테이너 내부에 위임) */
   document.querySelectorAll('.faq-question').forEach(function (q) {

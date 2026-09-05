@@ -61,6 +61,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/tokens.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="consult">
@@ -76,8 +77,8 @@
       <a href="services.html">업무분야</a>
       <a href="index.html#process">진행절차</a>
       <a href="cases.html">성공사례</a>
-      <a href="https://blog.naver.com/goodlock7ad" target="_blank" rel="noopener">블로그</a>
-      <a href="consult.html" class="btn btn-primary btn-sm" aria-current="page">상담 신청</a>
+      <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank" rel="noopener">블로그</a>
+      <a href="consult.html" class="btn btn-primary" aria-current="page">상담 신청</a>
     </nav>
     <a href="tel:01035383098" class="site-tel" aria-label="전화상담">
       <span class="site-tel-icon">📞</span>
@@ -95,14 +96,14 @@
   <div class="container page-hero-inner">
     <div class="page-hero-badge">상담 신청</div>
     <h1 id="ph-heading">어떤 상담을 원하시나요?</h1>
-    <p class="page-hero-desc">아래 양식에 필요한 정보를 입력해 주세요. 정적 페이지 특성상 제출 시 이메일 클라이언트가 열려 메일로 전송됩니다. 전화(010-3538-3098)나 카카오톡으로도 바로 문의하실 수 있습니다.</p>
+    <p class="page-hero-desc">아래 양식에 필요한 정보를 입력해 주세요. 제출하시면 바로 접수되며, 순차적으로 연락드립니다. 전화(010-3538-3098)나 카카오톡으로도 바로 문의하실 수 있습니다.</p>
   </div>
 </section>
 
 <main>
 <section class="section" id="consultForm-section">
   <div class="container">
-    <form id="consultForm" class="consult-form">
+    <form id="consultForm" class="consult-form" action="https://formspree.io/f/xvzwoyqg" method="POST">
       <div class="form-row">
         <div class="form-field"><label for="f-name">성명 / 담당자</label><input id="f-name" name="name" required placeholder="예: 홍길동"></div>
         <div class="form-field"><label for="f-phone">연락처</label><input id="f-phone" name="phone" required placeholder="예: 010-1234-5678"></div>
@@ -112,13 +113,31 @@
         <div class="form-field"><label for="f-company">업체명(선택)</label><input id="f-company" name="company" placeholder="업체명 또는 개인"></div>
       </div>
       <div class="form-field" style="margin-bottom:14px;">
-        <label for="f-service">상담 분야</label>
-        <select id="f-service" name="service" required>
-          <option value="식품제조가공업">식품제조가공업 등록</option>
-          <option value="축산물가공업">축산물가공업 허가</option>
-          <option value="HACCP">HACCP 인증 / 해썹컨설팅</option>
-          <option value="기타">기타(즉석판매·소분 등)</option>
-        </select>
+        <label for="f-address">공장(예정) 주소</label>
+        <input id="f-address" name="address" placeholder="예: 경기도 화성시 (시/군/구 단위로 기재)">
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label for="f-service">상담 분야</label>
+          <select id="f-service" name="service" required>
+            <option value="식품제조가공업">식품제조가공업 등록</option>
+            <option value="축산물가공업">축산물가공업 허가</option>
+            <option value="HACCP">HACCP 인증 / 해썹컨설팅</option>
+            <option value="기타">기타(즉석판매·소분 등)</option>
+          </select>
+        </div>
+        <div class="form-field"><label for="f-stage">현재 진행 단계</label>
+          <select id="f-stage" name="stage">
+            <option value="계약 전">계약 전</option>
+            <option value="공사 전">공사 전</option>
+            <option value="공사 중">공사 중</option>
+            <option value="신청 중">신청 중</option>
+            <option value="보완 통보">보완 통보</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field" style="margin-bottom:14px;">
+        <label for="f-product">예상 품목(선택)</label>
+        <input id="f-product" name="product" placeholder="예: 양념육, 반찬류, 소스류 등">
       </div>
       <div class="form-field" style="margin-bottom:14px;">
         <label for="f-message">상담 내용(간단히)</label>
@@ -130,13 +149,16 @@
         <label class="form-radio"><input type="radio" name="prefer" value="카카오톡"> 카카오톡</label>
         <label class="form-radio"><input type="radio" name="prefer" value="이메일"> 이메일</label>
       </div>
+      <input type="hidden" name="_subject" value="홈페이지 상담신청">
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
       <div class="form-actions">
-        <button type="submit" class="btn btn-primary btn-lg">메일로 신청 전송</button>
-        <a href="tel:01035383098" class="btn btn-outline btn-lg">📞 전화하기 010-3538-3098</a>
-        <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" rel="noopener" class="btn btn-kakao btn-lg">💬 카카오톡 문의</a>
+        <button type="submit" class="btn btn-primary">상담 신청 전송</button>
+        <a href="tel:01035383098" class="btn btn-secondary">📞 전화하기 010-3538-3098</a>
+        <a href="https://open.kakao.com/o/sbwdQcwi" target="_blank" rel="noopener" class="btn btn-secondary">💬 카카오톡 문의</a>
       </div>
-      <p class="form-note">참고: 서버가 없는 정적 페이지이므로 제출 시 이메일 클라이언트가 열립니다. 이메일 클라이언트가 없다면 아래 버튼으로 내용을 복사해 메일로 보내시거나 전화·카카오톡으로 문의해 주세요.</p>
-      <button type="button" id="copyBtn" class="btn btn-outline" style="margin-top:8px;">양식 내용 복사</button>
+      <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      <p class="form-note">제출 버튼을 누르면 이 페이지를 떠나지 않고 바로 접수됩니다. 접수가 어려우시면 아래 버튼으로 내용을 복사해 메일로 보내시거나 전화·카카오톡으로 문의해 주세요.</p>
+      <button type="button" id="copyBtn" class="btn btn-secondary">양식 내용 복사</button>
     </form>
   </div>
 </section>
@@ -156,39 +178,53 @@
 
 <footer class="site-footer" itemscope itemtype="https://schema.org/WPFooter">
   <div class="container site-footer-grid">
-    <div>
+    <div class="site-footer-brand">
       <div class="site-footer-logo">지엘행정사 사무소</div>
+      <p class="site-footer-tagline">식품제조가공업 등록, 축산물가공업 허가, HACCP 인증(해썹컨설팅)까지 공장계약 전 시설기준검토부터 대표 행정사가 직접 진행합니다.</p>
+      <div class="site-footer-copy" style="margin-top:0;padding-top:0;border-top:none;">© 2026 GL Administrative Office. All Rights Reserved.</div>
+    </div>
+    <nav class="site-footer-links" aria-label="업무 분야">
+      <h5>업무 분야</h5>
+      <a href="services.html#food">식품제조가공업 등록</a>
+      <a href="services.html#meat">축산물가공업 허가</a>
+      <a href="services.html#haccp">HACCP 인증(해썹컨설팅)</a>
+      <a href="services.html#etc">기타 영업 인허가</a>
+    </nav>
+    <nav class="site-footer-links" aria-label="바로가기">
+      <h5>바로가기</h5>
+      <a href="index.html">홈</a>
+      <a href="index.html#process">진행 절차</a>
+      <a href="cases.html">성공 사례</a>
+      <a href="consult.html">상담 문의</a>
+      <a href="https://blog.naver.com/PostList.naver?blogId=goodlock7ad&from=postList&categoryNo=1" target="_blank" rel="noopener">블로그</a>
+    </nav>
+    <div class="site-footer-links">
+      <h5>오시는 길</h5>
       <div class="site-footer-info">
         <p><strong>대표</strong> 김대운 행정사</p>
         <p><strong>사업자등록번호</strong> 572-45-00087</p>
         <p><strong>주소</strong> 인천광역시 남동구 인주대로 850번길 15 진흥빌딩 402호</p>
-        <p><strong>전화</strong> <a href="tel:01035383098">010-3538-3098</a> · <strong>이메일</strong> <a href="mailto:law3098@naver.com">law3098@naver.com</a></p>
+        <p><strong>전화</strong> <a href="tel:01035383098">010-3538-3098</a></p>
+        <p><strong>이메일</strong> <a href="mailto:law3098@naver.com">law3098@naver.com</a></p>
         <p><strong>운영시간</strong> 평일 09:00 ~ 18:00</p>
       </div>
-      <div class="site-footer-copy">© 2026 GL Administrative Office. All Rights Reserved.</div>
     </div>
-    <nav class="site-footer-links" aria-label="바로가기">
-      <h5>바로가기</h5>
-      <a href="services.html">업무 분야</a>
-      <a href="index.html#process">진행 절차</a>
-      <a href="cases.html">성공 사례</a>
-      <a href="consult.html">상담 문의</a>
-      <a href="https://blog.naver.com/goodlock7ad" target="_blank" rel="noopener">블로그</a>
-    </nav>
   </div>
 </footer>
 
 <div class="mobile-cta-bar" role="navigation" aria-label="빠른 연락">
-  <a href="tel:01035383098" class="mobile-cta-bar-btn mobile-cta-bar-btn-outline">📞 전화하기</a>
-  <a href="#consultForm-section" class="mobile-cta-bar-btn mobile-cta-bar-btn-primary">상담폼 작성</a>
+  <a href="tel:01035383098" class="mobile-cta-bar-btn btn btn-secondary">📞 전화하기</a>
+  <a href="#consultForm-section" class="mobile-cta-bar-btn btn btn-primary">상담폼 작성</a>
 </div>
 
+<script src="scripts/reveal.js"></script>
 <script src="main.js"></script>
 <script>
 (function(){
   var form=document.getElementById('consultForm');
   var copyBtn=document.getElementById('copyBtn');
   var serviceSelect=document.getElementById('f-service');
+  var statusEl=document.getElementById('formStatus');
 
   /* services.html에서 consult.html?type=food 등으로 넘어오면 상담 분야를 자동 선택 */
   var typeMap={ food:'식품제조가공업', meat:'축산물가공업', haccp:'HACCP', etc:'기타' };
@@ -196,36 +232,51 @@
   var type=params.get('type');
   if(type && typeMap[type]){ serviceSelect.value=typeMap[type]; }
 
-  var CONSULT_EMAIL='law3098@naver.com';
-  function enc(s){ return encodeURIComponent(s||''); }
+  function setStatus(kind,text){
+    statusEl.className='form-status'+(kind?' is-'+kind:'');
+    statusEl.textContent=text||'';
+  }
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
+
+    /* 허니팟(스팸 방지): 값이 채워져 있으면 봇으로 간주하고 조용히 무시 */
+    var honeypot=form.querySelector('input[name="_gotcha"]');
+    if(honeypot && honeypot.value){ return; }
+
     var data=new FormData(form);
     var name=data.get('name');
-    var phone=data.get('phone');
-    var email=data.get('email');
-    var company=data.get('company');
     var service=data.get('service');
-    var message=data.get('message');
-    var prefer=data.get('prefer');
+    var subjectField=form.querySelector('input[name="_subject"]');
+    if(subjectField){ subjectField.value='[홈페이지 상담신청] '+name+' - '+service; }
 
-    var subject='[홈페이지 상담신청] '+name+' - '+service;
-    var bodyLines=[
-      '이름: '+name,
-      '연락처: '+phone,
-      '이메일: '+(email||'-'),
-      '상담분야: '+service,
-      '업체명: '+(company||'-'),
-      '희망연락방법: '+prefer,
-      '',
-      '상담내용:',
-      message
-    ];
-    var body=bodyLines.map(enc).join('%0D%0A');
-    var mailto='mailto:'+CONSULT_EMAIL+'?subject='+enc(subject)+'&body='+body;
-    window.location.href=mailto;
-    if(typeof gtag!=='undefined') gtag('event','consult_submit',{event_category:'contact',event_label:service});
+    var submitBtn=form.querySelector('button[type="submit"]');
+    var originalLabel=submitBtn.textContent;
+    submitBtn.disabled=true;
+    submitBtn.textContent='전송 중...';
+    setStatus(null,'');
+
+    fetch(form.action,{
+      method:'POST',
+      body:new FormData(form),
+      headers:{ 'Accept':'application/json' }
+    }).then(function(res){
+      if(res.ok){
+        setStatus('success','상담 신청이 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+        form.reset();
+        if(typeof gtag!=='undefined') gtag('event','consult_submit',{event_category:'contact',event_label:service});
+      } else {
+        return res.json().catch(function(){ return null; }).then(function(json){
+          var msg=(json && json.errors && json.errors.length) ? json.errors.map(function(er){ return er.message; }).join(', ') : null;
+          setStatus('error','전송에 실패했습니다'+(msg?' ('+msg+')':'')+'. 전화(010-3538-3098)로 문의해 주세요.');
+        });
+      }
+    }).catch(function(){
+      setStatus('error','전송에 실패했습니다. 네트워크 상태를 확인하시거나 전화(010-3538-3098)로 문의해 주세요.');
+    }).finally(function(){
+      submitBtn.disabled=false;
+      submitBtn.textContent=originalLabel;
+    });
   });
 
   copyBtn.addEventListener('click',function(){
@@ -236,6 +287,9 @@
     text+='이메일: '+(data.get('email')||'')+'\n';
     text+='상담분야: '+(data.get('service')||'')+'\n';
     text+='업체명: '+(data.get('company')||'')+'\n';
+    text+='공장(예정) 주소: '+(data.get('address')||'')+'\n';
+    text+='예상 품목: '+(data.get('product')||'')+'\n';
+    text+='진행 단계: '+(data.get('stage')||'')+'\n';
     text+='희망연락방법: '+(data.get('prefer')||'')+'\n\n';
     text+='상담내용:\n'+(data.get('message')||'');
     navigator.clipboard.writeText(text).then(function(){
