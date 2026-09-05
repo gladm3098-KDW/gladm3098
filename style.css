@@ -104,12 +104,12 @@ main{display:block;}
     linear-gradient(135deg,var(--color-primary-dark) 0%,var(--color-primary) 52%,var(--color-accent) 140%);
   border-bottom:1px solid var(--border);overflow:hidden;
 }
-.hero-inner{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:calc(var(--header-h) + 56px) 0 80px;}
+.hero-inner{position:relative;z-index:1;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:calc(var(--header-h) + 56px);padding-bottom:80px;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--brand-soft);border:1px solid rgba(14,110,95,0.18);color:var(--brand-dark);font-size:12.5px;font-weight:700;padding:7px 16px;border-radius:999px;margin-bottom:16px;width:fit-content;}
 .hero h1{font-size:46px;font-weight:900;line-height:1.32;letter-spacing:-0.8px;margin-bottom:20px;max-width:800px;color:#fff;text-shadow:0 2px 16px rgba(0,0,0,0.25);}
 .hero h1 em{color:var(--color-accent);font-style:normal;}
 .hero-desc{font-size:16px;color:rgba(255,255,255,0.88);line-height:1.85;margin-bottom:28px;max-width:720px;}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;width:100%;}
 .hero-link{display:inline-block;margin-top:20px;color:#fff;font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,0.5);opacity:.9;transition:var(--tr);}
 .hero-link:hover{opacity:1;text-decoration-color:#fff;}
 .hero-scroll-cue{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,0.75);font-size:10.5px;letter-spacing:1.5px;font-weight:700;z-index:1;animation:heroScrollCue 2.2s ease-in-out infinite;}
@@ -292,7 +292,7 @@ main{display:block;}
 .cta-inline-text .cta-inline-label{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:1.5px;display:block;margin-bottom:8px;}
 .cta-inline-text h3{color:#fff;font-size:21px;margin-bottom:6px;}
 .cta-inline-text p{color:rgba(255,255,255,0.6);font-size:13.5px;line-height:1.7;}
-.cta-inline-actions{display:flex;flex-direction:column;gap:9px;}
+.cta-inline-actions{display:flex;flex-direction:column;gap:12px;}
 
 /* ============================================================
    푸터
@@ -321,7 +321,7 @@ main{display:block;}
 /* ============================================================
    모바일 하단 고정 CTA — 전화 + 상담신청 2버튼만
    ============================================================ */
-.mobile-cta-bar{position:fixed;bottom:0;left:0;width:100%;z-index:4800;background:rgba(246,245,241,0.98);backdrop-filter:blur(10px);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(16,35,31,0.08);padding:10px 16px;display:none;gap:10px;padding-bottom:calc(env(safe-area-inset-bottom,0) + 10px);box-sizing:border-box;}
+.mobile-cta-bar{position:fixed;bottom:0;left:0;width:100%;z-index:4800;background:rgba(246,245,241,0.98);backdrop-filter:blur(10px);border-top:1px solid var(--border);box-shadow:0 -4px 20px rgba(16,35,31,0.08);padding:10px 16px;display:none;gap:12px;padding-bottom:calc(env(safe-area-inset-bottom,0) + 10px);box-sizing:border-box;}
 /* 색상/크기는 .btn .btn-primary/.btn-secondary가 담당 — 이 클래스는 하단바 내 50:50 배치만 담당 */
 .mobile-cta-bar-btn{flex:1;}
 
@@ -348,8 +348,7 @@ main{display:block;}
 .meta-badge{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius-sm);padding:8px 14px;font-size:12.5px;font-weight:700;color:var(--ink);}
 .meta-badge-label{display:block;font-size:10px;font-weight:600;color:var(--muted);margin-bottom:2px;}
 .meta-badge dd{margin:0;}
-.service-detail-tel{display:flex;align-items:center;gap:8px;margin-top:12px;font-size:13px;color:var(--muted);}
-.service-detail-tel a{font-weight:700;color:var(--ink);}
+.service-detail-actions{display:flex;flex-direction:column;gap:12px;}
 
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px;}
 .compare-card{border-radius:var(--radius);padding:24px 22px;border:1px solid var(--border);}
@@ -388,7 +387,9 @@ main{display:block;}
 .form-status.is-success{padding:14px 18px;background:var(--ok-soft);color:var(--ok);border:1px solid rgba(47,125,90,0.25);}
 .form-status.is-error{padding:14px 18px;background:var(--danger-soft);color:var(--danger);border:1px solid rgba(196,85,58,0.25);}
 .form-note{margin-top:14px;font-size:12.5px;color:var(--muted);line-height:1.7;}
-#copyBtn{margin-top:8px;}
+/* 보조 액션(예: 양식 내용 복사) — 주 액션(.btn)과 확실히 구분되는 텍스트 링크 스타일 */
+.text-btn{display:inline-block;margin-top:8px;background:none;border:none;padding:0;font-size:13px;font-weight:700;color:var(--muted);text-decoration:underline;text-underline-offset:3px;cursor:pointer;font-family:inherit;transition:var(--tr);}
+.text-btn:hover{color:var(--brand);}
 .consult-info-list{margin-top:14px;color:var(--muted);line-height:1.9;font-size:14px;}
 .consult-info-list li{padding-left:16px;position:relative;}
 .consult-info-list li::before{content:'—';position:absolute;left:0;color:var(--accent);}
@@ -439,11 +440,11 @@ main{display:block;}
   .section{padding:52px 0;}
   .section-title{font-size:23px;}
   .hero{min-height:auto;}
-  .hero-inner{padding:calc(var(--header-h) + 20px) 0 30px;}
-  .hero h1{font-size:27px;}
+  .hero-inner{padding-top:calc(var(--header-h) + 20px);padding-bottom:30px;}
+  .hero h1{font-size:27px;line-height:1.38;}
   .hero-desc{font-size:14.5px;}
   .hero-scroll-cue{display:none;}
-  .page-hero h1{font-size:24px;}
+  .page-hero h1{font-size:24px;line-height:1.38;}
   .service-grid{grid-template-columns:1fr;gap:12px;}
   .process-steps{grid-template-columns:1fr 1fr;}
   .cases-grid{grid-template-columns:1fr 1fr;gap:12px;}
@@ -453,8 +454,21 @@ main{display:block;}
   .founder-role{font-size:30px;}
   .founder-specialty{font-size:14px;}
   .founder-credentials{justify-content:center;}
-  .founder-cta{justify-content:center;}
-  .cta-band-actions{flex-direction:column;align-items:stretch;}
+
+  /* 모바일: 히어로/페이지 상단/CTA 강조 블록의 버튼 그룹을 세로로 쌓고 풀폭으로 통일 */
+  .hero-actions,
+  .page-hero-actions,
+  .founder-cta,
+  .cta-band-actions,
+  .cta-inline-actions,
+  .service-detail-actions,
+  .form-actions{
+    flex-direction:column;
+    align-items:stretch;
+    gap:12px;
+  }
+  /* 단독 배치된 CTA 버튼도 auto width로 남지 않도록 풀폭 처리 */
+  .btn-center{width:100%;}
   .cta-inline{padding:26px 22px;}
   .checklist{padding:22px 20px 18px;}
 
