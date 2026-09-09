@@ -145,7 +145,7 @@ main{display:block;}
    ============================================================ */
 .check-band{position:relative;overflow:hidden;background:var(--gradient-dark);padding:var(--space-7) 0;}
 .check-band::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 90% at 88% 30%,rgba(155,133,217,0.22),transparent 60%);pointer-events:none;}
-.check-band-inner{position:relative;z-index:1;display:flex;align-items:center;gap:28px;padding:0;flex-wrap:wrap;}
+.check-band-inner{position:relative;z-index:1;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
 .check-band-icon{width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.28);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
 .check-band-text strong{display:block;font-size:22px;font-weight:800;color:#fff;letter-spacing:-0.3px;line-height:1.4;margin-bottom:8px;}
 .check-band-text p{font-size:14.5px;color:rgba(255,255,255,0.72);line-height:1.8;max-width:640px;}
