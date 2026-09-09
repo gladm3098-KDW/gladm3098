@@ -2,23 +2,26 @@
    지엘행정사 사무소 — 디자인 토큰 (styles/tokens.css)
    전 페이지(index/services/cases/consult)가 style.css보다 먼저
    이 파일을 로드합니다. 색상·타이포·스페이싱의 단일 기준입니다.
+
+   2026-09 업데이트: 퍼플/인디고 컬러 시스템으로 교체
+   (기존 딥틸+코럴 → 인디고 퍼플, 모바일 앱 디자인 레퍼런스 기준)
    ============================================================ */
 :root{
   /* ── 컬러 시스템 ── */
-  --color-primary:#0E6E5F;        /* 딥 틸 — 헤더 포인트, 주요 버튼, 링크 */
-  --color-primary-dark:#0A5347;   /* 호버/다크 섹션 */
-  --color-primary-soft:#E6F1EE;   /* 연한 틸 배경 */
-  --color-accent:#F2A488;         /* 웜 코럴 — 강조 배지, 아이콘, 다크 배경 위 CTA */
-  --color-accent-dark:#E8875F;    /* 코럴 호버 */
-  --color-accent-soft:#FBEAE2;    /* 연한 코럴 배경 */
-  --color-ink:#10231F;            /* 헤드라인/본문 최상단 톤, 다크 섹션(footer/CTA) 배경 */
-  --color-ink-soft:#1B362F;       /* 다크 섹션 위 hover */
-  --color-surface-light:#F6F5F1;  /* 연회색 섹션 배경 */
+  --color-primary:#4B3D8F;        /* 딥 인디고 퍼플 — 헤더 포인트, 주요 버튼, 링크 */
+  --color-primary-dark:#342A66;   /* 호버/다크 섹션, 히어로 그라데이션 어두운 쪽 */
+  --color-primary-soft:#EFEBFA;   /* 연한 라벤더 배경 */
+  --color-accent:#9B85D9;         /* 브라이트 바이올렛 — 강조 배지, 아이콘, 다크 배경 위 CTA */
+  --color-accent-dark:#7C63BE;    /* 바이올렛 호버 */
+  --color-accent-soft:#F1EDFB;    /* 연한 바이올렛 배경 */
+  --color-ink:#241E3D;            /* 헤드라인/본문 최상단 톤, 다크 섹션(footer/CTA) 배경 */
+  --color-ink-soft:#362C55;       /* 다크 섹션 위 hover */
+  --color-surface-light:#FAF9FC;  /* 연회색(라벤더 틴트) 섹션 배경 */
   --color-surface-white:#FFFFFF;
-  --color-text:#1A2B26;
-  --color-muted:#5D6E68;
-  --color-muted-2:#8B9994;
-  --color-border:#E4E7E2;
+  --color-text:#211C36;
+  --color-muted:#6B6480;
+  --color-muted-2:#9B93AC;
+  --color-border:#E7E3F2;
   --color-danger:#C4553A;
   --color-danger-soft:#FBEAE5;
   --color-ok:#2F7D5A;
@@ -70,9 +73,9 @@
   --radius-lg:26px;
   --radius-card:var(--radius);
   --radius-button:var(--radius-sm);
-  --shadow-sm:0 4px 18px rgba(16,35,31,0.07);
-  --shadow-md:0 14px 40px rgba(16,35,31,0.12);
-  --shadow-lg:0 26px 64px rgba(16,35,31,0.20);
+  --shadow-sm:0 4px 18px rgba(36,30,61,0.07);
+  --shadow-md:0 14px 40px rgba(36,30,61,0.12);
+  --shadow-lg:0 26px 64px rgba(36,30,61,0.20);
   --shadow-card:var(--shadow-sm);
   --tr:all .28s cubic-bezier(.4,0,.2,1);
   --tr-slow:all .5s cubic-bezier(.4,0,.2,1);
