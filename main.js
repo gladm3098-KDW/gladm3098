@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (typeof gtag !== 'undefined') gtag('event', 'phone_click', { event_category: 'contact', event_label: pageName });
     });
   });
-  document.querySelectorAll('a[href*="open.kakao.com"]').forEach(function (el) {
+  document.querySelectorAll('a[href*="pf.kakao.com"]').forEach(function (el) {
     el.addEventListener('click', function () {
       if (typeof gtag !== 'undefined') gtag('event', 'kakao_click', { event_category: 'contact', event_label: pageName });
     });
